@@ -1,5 +1,7 @@
 package ienaclone.gui;
 
+import ienaclone.gui.controller.DashboardController;
+import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.view.AbstractView;
 import ienaclone.gui.view.DashboardView;
 import javafx.application.Application;
@@ -18,7 +20,8 @@ public class Window extends Application {
     }
 
     public static void setDashboard() {
-        view = new DashboardView(main);
+        var model = new DashboardModel();
+        view = new DashboardView(main, new DashboardController(model));
         view.display();
     }
 

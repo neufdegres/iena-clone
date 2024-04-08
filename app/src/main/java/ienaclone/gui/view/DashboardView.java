@@ -1,5 +1,9 @@
 package ienaclone.gui.view;
 
+import ienaclone.gui.controller.DashboardController;
+import ienaclone.util.Mode;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 // import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
@@ -17,9 +22,15 @@ import javafx.stage.Stage;
 
 public class DashboardView extends AbstractView {
     private final Stage main; 
+    private final DashboardController controller;
+    private ChoiceBox<String> gareCB;
+    private OptionBox optionBox;
+    private Button displayButton;
 
-    public DashboardView(Stage main) {
+    public DashboardView(Stage main, DashboardController controller) {
         this.main = main;
+        this.controller = controller;
+        controller.setView(this);
     }
 
     @Override
@@ -28,54 +39,94 @@ public class DashboardView extends AbstractView {
         l.setAlignment(Pos.TOP_CENTER);
         l.setStyle("-fx-font-size: 28pt;");
 
+        // TODO : remplacer par une barre de recherche
+        
         Label gare = new Label("Gare ");
-        ChoiceBox<String> gareCB = new ChoiceBox<String>();
-        gareCB.getItems().addAll("Chelles - Gournay", "Vaires-sur-Marne", "Gagny");
+        gareCB = new ChoiceBox<String>();
+        gareCB.getItems().addAll("chargement en cours");
         gareCB.getSelectionModel().select(0);
+        gareCB.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                int nV = (Integer) newValue;
+                if (nV > 0) controller.stopSelected(nV-1);
+            }
+            
+        });
+
         HBox gareBox = new HBox(20);
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
         Label mode = new Label("Mode");
         ChoiceBox<String> modeCB = new ChoiceBox<String>();
-        modeCB.getItems().addAll("Tous les trains", "Par direction", "Par quai");
+        modeCB.getItems().addAll("------------------------",
+            "Tous les trains", "Par direction (N/A)", "Par quai (N/A)");
         modeCB.getSelectionModel().select(0);
+        modeCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (newValue.charAt(0) == '-') return;
+                controller.modeSelected(Mode.getMode(newValue));
+            }
+            
+        });
+
         HBox modeBox = new HBox(20);
         modeBox.setAlignment(Pos.CENTER_LEFT);
         modeBox.getChildren().addAll(mode, modeCB);
 
         Label warning = new Label("Veuillez choisir un mode d'affichage.");
-        OptionBox optionsBox = new OptionBox();
-        VBox.setVgrow(optionsBox, Priority.ALWAYS);
-        // optionsBox.setBorder(Border.stroke(Paint.valueOf("#4488aa"))); // color
-        // optionsBox.setAlignment(Pos.CENTER);
-        optionsBox.getChildren().add(warning);
+        optionBox = new OptionBox();
+        VBox.setVgrow(optionBox, Priority.ALWAYS);
+        // optionBox.setBorder(Border.stroke(Paint.valueOf("#4488aa"))); // color
+        // optionBox.setAlignment(Pos.CENTER);
+        optionBox.getChildren().add(warning);
 
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         // body.setBorder(Border.stroke(Paint.valueOf("#aa4488"))); // color
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, modeBox, optionsBox);
+        body.getChildren().addAll(gareBox, modeBox, optionBox);
 
-        Button display = new Button("Afficher");
-        display.setDisable(true);
+        displayButton = new Button("Afficher");
+        displayButton.setDisable(true);
+        displayButton.setOnAction(e -> {
+            if (!displayButton.isDisabled()) controller.displayPressed();
+        });
 
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(10));
 
-        layout.getChildren().addAll(l, body, display);
+        layout.getChildren().addAll(l, body, displayButton);
 
-        // optionsBox.setParDirection(new String[]{"Paris Est /\nHausmann - Saint-Lazarre","Meaux"});
-        optionsBox.setParQuai(new String[]{"A  :  E - Terminus",
+        // optionBox.setParDirection(new String[]{"Paris Est /\nHausmann - Saint-Lazarre","Meaux"});
+        /* optionBox.setParQuai(new String[]{"A  :  E - Terminus",
                                            "B  :  P - vers Meaux",
                                            "C  :  P - vers Paris",
-                                           "D  :  E - vers Paris"});
+                                           "D  :  E - vers Paris"}); */
 
         Scene scene = new Scene(layout, 700, 500);
         scene.getStylesheets().add("/ienaclone/gui/view/dashboard.css");
         main.setScene(scene);
         main.show();
+
+        controller.loadStops();
+    }
+
+    public ChoiceBox<String> getGareCB() {
+        return gareCB;
+    }
+
+    public OptionBox getOptionBox() {
+        return optionBox;
+    }
+
+    public Button getDisplayButton() {
+        return displayButton;
     }
 
     public class OptionBox extends HBox {
@@ -93,6 +144,14 @@ public class DashboardView extends AbstractView {
             VBox choices = new VBox(5);
 
             ToggleGroup group = new ToggleGroup();
+            group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                    if (displayButton.isDisabled()) displayButton.setDisable(false);
+                }
+                
+            });
 
             for(String dir : values) {
                 RadioButton dirTmp = new RadioButton(dir);

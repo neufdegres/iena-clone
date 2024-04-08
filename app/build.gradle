@@ -23,6 +23,10 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+
+    implementation 'org.json:json:20240303'
+
+    implementation 'commons-io:commons-io:2.5'
 }
 
 javafx {

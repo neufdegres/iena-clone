@@ -1,0 +1,2862 @@
+{
+	"stops": [
+		{
+			"nom": "Ablon",
+			"code": "41311",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Achères Grand Cormier",
+			"code": "411358",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Achères Ville",
+			"code": "41528",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Andrésy",
+			"code": "41149",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Argenteuil",
+			"code": "41166",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Arpajon",
+			"code": "41318",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Asnières",
+			"code": "41138",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Athis Mons",
+			"code": "41310",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Aubergenville Elisabethville",
+			"code": "41201",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Aulnay-Sous-Bois",
+			"code": "411410",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Austerlitz",
+			"code": "41333",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Auvers sur Oise",
+			"code": "41112",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Avenue Foch",
+			"code": "41132",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Avenue Henri Martin",
+			"code": "41133",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Avenue du Président Kennedy",
+			"code": "41295",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bagneaux sur Loing",
+			"code": "41392",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Ballancourt",
+			"code": "41350",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Becon les Bruyères",
+			"code": "41171",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Bellevue",
+			"code": "41215",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Belloy Saint-Martin",
+			"code": "41113",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bessancourt",
+			"code": "41121",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Beynes",
+			"code": "41231",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Bibliothèque François Mitterrand",
+			"code": "41128",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bièvres",
+			"code": "41242",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Boigneville",
+			"code": "41395",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Bois Colombes",
+			"code": "41134",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Bois le Roi",
+			"code": "41371",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Boissise le Roi",
+			"code": "41386",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Boissy l'Aillerie",
+			"code": "41140",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Bondy",
+			"code": "41013",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Bonnières",
+			"code": "41290",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Boran sur Oise",
+			"code": "411331",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bouffémont Moisselles",
+			"code": "41106",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bougival",
+			"code": "41183",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Boulainvilliers",
+			"code": "41294",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bouray",
+			"code": "41302",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bourron Marlotte Grez",
+			"code": "41390",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Boussy Saint-Antoine",
+			"code": "41365",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Boutigny",
+			"code": "41352",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Breuillet Bruyères le Chatel",
+			"code": "41320",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Breuillet Village",
+			"code": "41321",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Brunoy",
+			"code": "41364",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Bruyères sur Oise",
+			"code": "41104",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Brétigny",
+			"code": "41304",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bréval",
+			"code": "41157",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Buno Gironville",
+			"code": "41354",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Cergy Le Haut",
+			"code": "40918",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Cergy Préfecture",
+			"code": "411352",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Cergy Saint-Christophe",
+			"code": "411368",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Cernay",
+			"code": "41086",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Cesson",
+			"code": "41368",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Chamarande",
+			"code": "41300",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Champ de Courses d'Enghien",
+			"code": "41084",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Champ de Mars Tour Eiffel",
+			"code": "41210",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Champagne sur Oise",
+			"code": "41109",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Champagne sur Seine",
+			"code": "41382",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Champbenoist Poigny",
+			"code": "41030",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Changis Saint-Jean",
+			"code": "41061",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Chanteloup les Vignes",
+			"code": "41147",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chantilly Gouvieux",
+			"code": "411427",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Chaponval",
+			"code": "41094",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Chars",
+			"code": "41144",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chartrettes",
+			"code": "41378",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Chaumont en Vexin",
+			"code": "411344",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chaville Rive Droite",
+			"code": "41176",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Chaville Rive Gauche",
+			"code": "41220",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Chaville Vélizy",
+			"code": "41219",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Chelles Gournay",
+			"code": "41039",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Chemin d'Antony",
+			"code": "41330",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Chenay Gagny",
+			"code": "41016",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Chilly Mazarin",
+			"code": "41247",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Choisy le Roi",
+			"code": "41313",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Château Thierry",
+			"code": "411377",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Châtelet Les Halles",
+			"code": "412815",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Chézy sur Marne",
+			"code": "411380",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Clamart",
+			"code": "41206",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Clichy Levallois",
+			"code": "41137",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Coignières",
+			"code": "41224",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Colombes",
+			"code": "41135",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Combs la Ville Quincy",
+			"code": "41366",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Compans",
+			"code": "41080",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Conflans Sainte-Honorine",
+			"code": "41170",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Conflans-Fin d'Oise",
+			"code": "411350",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Corbeil Essonnes",
+			"code": "41336",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Cormeilles en Parisis",
+			"code": "41167",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Coudray Montceaux",
+			"code": "41358",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Couilly Saint-Germain Quincy",
+			"code": "41067",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Coulommiers",
+			"code": "41050",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Courbevoie",
+			"code": "41172",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Creil",
+			"code": "411439",
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Crepy en Valois",
+			"code": "411395",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Crouy sur Ourcq",
+			"code": "41066",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Crécy la Chapelle",
+			"code": "41069",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Créteil Pompadour",
+			"code": "41530",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Dammartin Juilly Saint-Mard",
+			"code": "41077",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Deuil Montmagny",
+			"code": "411425",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Domont",
+			"code": "41103",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Dordives",
+			"code": "41394",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Dourdan",
+			"code": "41324",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Dourdan la Foret",
+			"code": "41292",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Drancy",
+			"code": "411409",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Dreux",
+			"code": "411491",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Ecouen - Ézanville",
+			"code": "41102",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Emerainville Pontault-Combault",
+			"code": "41034",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Enghien-les-Bains",
+			"code": "41083",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Epinay Villetaneuse",
+			"code": "411415",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Epinay-sur-Orge",
+			"code": "41307",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Epinay-sur-Seine",
+			"code": "41073",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Epluches",
+			"code": "41092",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Eragny Neuville",
+			"code": "41145",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Ermont Eaubonne",
+			"code": "41085",
+			"lignes": [
+				"C",
+				"H",
+				"J"
+			]
+		},
+		{
+			"nom": "Ermont Halte",
+			"code": "41116",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Esbly",
+			"code": "41052",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Essonnes Robinson",
+			"code": "41355",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Faremoutiers Pommeuse",
+			"code": "41047",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Ferrières Fontenay",
+			"code": "411487",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontaine le Port",
+			"code": "41379",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontainebleau Avon",
+			"code": "41372",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontenay-le-Fleury",
+			"code": "41232",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Franconville le Plessis Bouchard",
+			"code": "41087",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Frépillon",
+			"code": "41122",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Gagny",
+			"code": "41015",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Garancières la Queue",
+			"code": "41235",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Garches Marnes la Coquette",
+			"code": "41174",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Gare Montparnasse",
+			"code": "41203",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Gare Saint-Lazare",
+			"code": "41194",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Gare Vaugirard",
+			"code": "41204",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Gare de Lyon",
+			"code": "41396",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gare de l'Est",
+			"code": "41010",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Gare du Nord",
+			"code": "41071",
+			"lignes": [
+				"D",
+				"H",
+				"K"
+			]
+		},
+		{
+			"nom": "Gargenville",
+			"code": "41152",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Garges Sarcelles",
+			"code": "411426",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Gennevilliers",
+			"code": "41075",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Gisors",
+			"code": "411340",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Goussainville",
+			"code": "41099",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Grand Bourg",
+			"code": "41343",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gravigny Balizy",
+			"code": "41248",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Gretz Armainvilliers",
+			"code": "41031",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Grigny Centre",
+			"code": "41345",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gros Noyer Saint-Prix",
+			"code": "41117",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Groslay",
+			"code": "411424",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Guérard la Celle sur Morin",
+			"code": "41046",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Haussmann Saint-Lazare",
+			"code": "41127",
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Herblay",
+			"code": "41169",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Houdan",
+			"code": "41238",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Houilles - Carrières-sur-Seine",
+			"code": "411357",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Héricy",
+			"code": "41380",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Igny",
+			"code": "41243",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Invalides",
+			"code": "41208",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Isles Armentières Congis",
+			"code": "41064",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Issou Porcheville",
+			"code": "41153",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Issy",
+			"code": "41212",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Issy Val-de-Seine",
+			"code": "41227",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ivry-sur-Seine",
+			"code": "41315",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Javel",
+			"code": "41211",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Jouy en Josas",
+			"code": "41240",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Juvisy",
+			"code": "41309",
+			"lignes": [
+				"C",
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Juziers",
+			"code": "41151",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "L'Isle Adam Parmain",
+			"code": "41110",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "L'Étang la Ville",
+			"code": "41186",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "La Barre Ormesson",
+			"code": "41074",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "La Borne Blanche",
+			"code": "411417",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "La Celle Saint-Cloud",
+			"code": "41182",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "La Courneuve-Aubervilliers",
+			"code": "40990",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "La Défense (Grande Arche)",
+			"code": "40951",
+			"lignes": [
+				"E",
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "La Ferté Alais",
+			"code": "41351",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "La Ferté Milon",
+			"code": "411371",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "La Ferté sous Jouarre",
+			"code": "41062",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "La Frette Montigny",
+			"code": "41168",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "La Garenne Colombes",
+			"code": "41195",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "La Grande Paroisse",
+			"code": "41384",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "La Norville Saint-Germain les Arpajon",
+			"code": "41317",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "La Plaine - Stade de France",
+			"code": "411369",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "La Verrière",
+			"code": "41223",
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Lagny Thorigny",
+			"code": "41051",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Lardy",
+			"code": "41301",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Lavilletertre",
+			"code": "411347",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Le Blanc-Mesnil",
+			"code": "411401",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Le Bourget",
+			"code": "411408",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Le Bras de Fer",
+			"code": "41347",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Mée",
+			"code": "41369",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Perray",
+			"code": "41226",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Le Plessis Belleville",
+			"code": "411404",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Le Plessis Chenet",
+			"code": "41357",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Raincy Villemomble",
+			"code": "41014",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Le Stade",
+			"code": "41136",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Le Val d'Or",
+			"code": "41179",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Le Vert de Maisons",
+			"code": "41338",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Les Ardoines",
+			"code": "41291",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Boullereaux Champigny",
+			"code": "41021",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Les Clairières de Verneuil",
+			"code": "41199",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Les Essarts le Roi",
+			"code": "41225",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Les Grésillons",
+			"code": "41082",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Mureaux",
+			"code": "41200",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Les Noues",
+			"code": "41098",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Les Saules",
+			"code": "41328",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Vallées",
+			"code": "41196",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Les Yvris Noisy-le-Grand",
+			"code": "41023",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Liancourt Saint-Pierre",
+			"code": "411341",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Lieusaint Moissy",
+			"code": "41367",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Limay",
+			"code": "41154",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Livry sur Seine",
+			"code": "41377",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Lizy sur Ourcq",
+			"code": "41065",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Longjumeau",
+			"code": "41245",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Longueville",
+			"code": "41040",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Louveciennes",
+			"code": "41184",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Louvres",
+			"code": "41100",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Luzarches",
+			"code": "41115",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Magenta",
+			"code": "41126",
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Maisons Alfort Alfortville",
+			"code": "41337",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Maisons Laffitte",
+			"code": "41527",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Maisse",
+			"code": "41353",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Malesherbes",
+			"code": "411484",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mantes Station",
+			"code": "41155",
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Mantes la Jolie",
+			"code": "41150",
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Marchezais Broue",
+			"code": "411494",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Mareil sur Mauldre",
+			"code": "41158",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Mareuil sur Ourcq",
+			"code": "411374",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Marles en Brie",
+			"code": "41044",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Marly le Roi",
+			"code": "41185",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Marolles en Hurepoix",
+			"code": "41303",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Massy Verrières",
+			"code": "41193",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Massy-Palaiseau",
+			"code": "412833",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Maule",
+			"code": "41159",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Maurecourt",
+			"code": "41148",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Meaux",
+			"code": "41038",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Melun",
+			"code": "41361",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Mennecy",
+			"code": "41349",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mery sur Oise",
+			"code": "41123",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Meudon",
+			"code": "41214",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Meudon Val Fleury",
+			"code": "41213",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Meulan Hardricourt",
+			"code": "41165",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Mitry-Claye",
+			"code": "411402",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Montargis",
+			"code": "411481",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montereau",
+			"code": "41376",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montfort l'Amaury Méré",
+			"code": "41254",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Montgeron Crosne",
+			"code": "41362",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Montgeroult Courcelles",
+			"code": "41141",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Montigny Beauchamp",
+			"code": "41088",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Montigny sur Loing",
+			"code": "41389",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montreuil",
+			"code": "41191",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Montry Condé",
+			"code": "41059",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Montsoult Maffliers",
+			"code": "41107",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Moret Veneux les Sablons",
+			"code": "41374",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Mormant",
+			"code": "41036",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Mortcerf",
+			"code": "41045",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Moulin Galant",
+			"code": "41348",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mouroux",
+			"code": "41048",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Musée d'Orsay",
+			"code": "41334",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Mériel",
+			"code": "41124",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Nangis",
+			"code": "41037",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nanterre La Folie",
+			"code": "487016",
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Nanterre Université",
+			"code": "411356",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Nanteuil Saacy",
+			"code": "41063",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nanteuil le Haudoin",
+			"code": "411389",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Nemours Saint-Pierre",
+			"code": "41391",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Neuilly Porte Maillot",
+			"code": "41131",
+			"lignes": [
+				"C",
+				"E"
+			]
+		},
+		{
+			"nom": "Neuville-Université",
+			"code": "411321",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Nogent l'Artaud Charly",
+			"code": "411383",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nogent le Perreux",
+			"code": "41020",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Nointel Mours",
+			"code": "41125",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Noisy le Sec",
+			"code": "41012",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Nézel Aulnay",
+			"code": "41160",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Orangis Bois de l'Epine",
+			"code": "41342",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Orgerus Béhoust",
+			"code": "41236",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Orly Ville",
+			"code": "41327",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ormoy-Villers",
+			"code": "411386",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Orry-la-Ville Coye la Forêt",
+			"code": "411420",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Osny",
+			"code": "41139",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Ozoir-la-Ferrière",
+			"code": "41032",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Pantin",
+			"code": "41011",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Pereire Levallois",
+			"code": "411230",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Persan Beaumont",
+			"code": "41105",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Petit Jouy les Loges",
+			"code": "41239",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Petit Vaux",
+			"code": "41249",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pierrefitte Stains",
+			"code": "411416",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Pierrelaye",
+			"code": "41089",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Plaisir Grignon",
+			"code": "41234",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Plaisir les Clayes",
+			"code": "41246",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Poissy",
+			"code": "411359",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Pont Cardinet",
+			"code": "411351",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Pont Petit",
+			"code": "41093",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Pont de Rungis",
+			"code": "41326",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pont de l'Alma",
+			"code": "41209",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pont du Garigliano - Hôpital Européen G. Pompidou",
+			"code": "41229",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ponthierry Pringy",
+			"code": "41387",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Pontoise",
+			"code": "41091",
+			"lignes": [
+				"C",
+				"H",
+				"J"
+			]
+		},
+		{
+			"nom": "Porchefontaine",
+			"code": "41218",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Porte de Clichy",
+			"code": "41009",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Presles Courcelles",
+			"code": "41108",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Provins",
+			"code": "41041",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Précy sur Oise",
+			"code": "411325",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Puteaux",
+			"code": "41181",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Rambouillet",
+			"code": "41228",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Ris Orangis",
+			"code": "41341",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Roissy en Brie",
+			"code": "41033",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosa Parks",
+			"code": "420316",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny Bois Perrier",
+			"code": "41017",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny sous Bois",
+			"code": "41018",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny sur Seine",
+			"code": "41289",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Rungis la Fraternelle",
+			"code": "41329",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Chéron",
+			"code": "41322",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Cloud",
+			"code": "41178",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Saint-Cyr l'Ecole",
+			"code": "41222",
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Saint-Denis",
+			"code": "411414",
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Fargeau",
+			"code": "41388",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Saint-Gratien",
+			"code": "41095",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Leu d'Esserent",
+			"code": "411328",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Leu la Foret",
+			"code": "41118",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Mammès",
+			"code": "41375",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Saint-Martin d'Etampes",
+			"code": "41316",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Michel Notre-Dame",
+			"code": "412816",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Michel-sur-Orge",
+			"code": "41305",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Nom-la-Bretèche Forêt de Marly",
+			"code": "41187",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Saint-Ouen",
+			"code": "41076",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône",
+			"code": "41090",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône Liesse",
+			"code": "41129",
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône Quartier de l'Église",
+			"code": "41146",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Saint-Quentin en Yvelines",
+			"code": "41251",
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Sainte-Colombe Septveilles",
+			"code": "41042",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Sainte-Geneviève des Bois",
+			"code": "41306",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Sannois",
+			"code": "41096",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Santeuil le Perchay",
+			"code": "41143",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Sarcelles Saint-Brice",
+			"code": "411423",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Sartrouville",
+			"code": "411360",
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Savigny le Temple Nandy",
+			"code": "41370",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Savigny sur Orge",
+			"code": "41308",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Sermaise",
+			"code": "41323",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Seugy",
+			"code": "41079",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Sevran - Livry",
+			"code": "411411",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Sevres Rive Gauche",
+			"code": "41216",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Sevres Ville d'Avray",
+			"code": "41177",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Souppes",
+			"code": "41393",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Stade de France Saint-Denis",
+			"code": "411370",
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Suresnes Mont Valerien",
+			"code": "41180",
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Survilliers Fosses",
+			"code": "41101",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Tacoignières Richebourg",
+			"code": "41237",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Taverny",
+			"code": "41120",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Thieux Nantouillet",
+			"code": "41081",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Thomery",
+			"code": "41373",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Thun le Paradis",
+			"code": "41164",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Tournan",
+			"code": "41043",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Trappes",
+			"code": "41250",
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Trie-Château",
+			"code": "411337",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Triel-sur-Seine",
+			"code": "41162",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Trilport",
+			"code": "41060",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Us",
+			"code": "41142",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Vaires Torcy",
+			"code": "41049",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Val d'Argenteuil",
+			"code": "41161",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Val de Fontenay",
+			"code": "41019",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Valmondois",
+			"code": "41111",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vanves - Malakoff",
+			"code": "41205",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Vauboyen",
+			"code": "41241",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Vaucelles",
+			"code": "41119",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vaucresson",
+			"code": "41175",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Vaux sur Seine",
+			"code": "41163",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Verneuil l'Étang",
+			"code": "41035",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Vernon",
+			"code": "41287",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Vernou-sur-Seine",
+			"code": "41383",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Vernouillet Verneuil",
+			"code": "41198",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Versailles Chantiers",
+			"code": "41207",
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Versailles Château - Rive Gauche",
+			"code": "41217",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Versailles Rive Droite",
+			"code": "41190",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Vert-Galant",
+			"code": "411412",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Viarmes",
+			"code": "41114",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vigneux-sur-Seine",
+			"code": "41339",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villabé",
+			"code": "41356",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villaines",
+			"code": "41078",
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Villeneuve Triage",
+			"code": "41359",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villeneuve-Saint-Georges",
+			"code": "41360",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villeneuve-le-Roi",
+			"code": "41312",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Villennes-sur-Seine",
+			"code": "41197",
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Villeparisis - Mitry-Le-Neuf",
+			"code": "411403",
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Villepreux les Clayes",
+			"code": "41233",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Villiers Montbarbin",
+			"code": "41068",
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Villiers Neauphle Pontchartrain",
+			"code": "41253",
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Villiers-le-Bel Gonesse Arnouville",
+			"code": "41097",
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Villiers-sur-Marne Plessis Trévise",
+			"code": "41022",
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Viroflay Rive Droite",
+			"code": "41192",
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Viroflay Rive Gauche",
+			"code": "41221",
+			"lignes": [
+				"C",
+				"N"
+			]
+		},
+		{
+			"nom": "Viry-Châtillon",
+			"code": "41340",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Vitry-sur-Seine",
+			"code": "41314",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Vosves",
+			"code": "41385",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Vulaines-sur-Seine Samoreau",
+			"code": "41381",
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Yerres",
+			"code": "41363",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Égly",
+			"code": "41319",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Épône Mézières",
+			"code": "41202",
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Étampes",
+			"code": "41298",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Étréchy",
+			"code": "41299",
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Évry",
+			"code": "41344",
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Évry Courcouronnes",
+			"code": "41346",
+			"lignes": [
+				"D",
+				"R"
+			]
+		}
+	]
+}

@@ -16,3 +16,7 @@
 .button {
     -fx-font-size: 20pt;
 } 
+
+.text-field {
+    -fx-font-size: 14pt;
+}
