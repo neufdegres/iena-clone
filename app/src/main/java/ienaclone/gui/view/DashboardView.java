@@ -1,6 +1,7 @@
 package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
+
 import java.util.stream.Stream;
 
 import javafx.beans.value.ChangeListener;
@@ -27,8 +28,7 @@ public class DashboardView extends AbstractView {
     private final Stage main; 
     private final DashboardController controller;
     private ChoiceBox<String> gareCB;
-    private OptionListBox optionListBox;
-    private ToggleGroup buttonsGroup;
+    private FilterBox filterBox;
     private HBox gareBox;
     private Button displayButton;
 
@@ -46,7 +46,7 @@ public class DashboardView extends AbstractView {
 
         Label gare = new Label("Gare ");
         gareCB = new ChoiceBox<String>();
-        gareCB.getItems().addAll("chargement en cours");
+        gareCB.getItems().add("chargement en cours.........");
         gareCB.getSelectionModel().select(0);
 
         gareBox = new HBox(20);
@@ -62,10 +62,10 @@ public class DashboardView extends AbstractView {
                 if (newValue) {
                     gareBox.setDisable(true);
                     controller.loadJourneys();
-                    System.out.println("journeys data loaded !");
                 } else {
                     gareBox.setDisable(false);
                     gareCB.getSelectionModel().select(0);
+                    filterBox.changeStatus(FilterBox.STATUS.NO_STOP_SELECTED, null);
                 }
                 
             }
@@ -74,57 +74,12 @@ public class DashboardView extends AbstractView {
         Label afficher = new Label("Afficher par...");
         l.setStyle("-fx-font-size: 18pt;");
 
-        // https://stackoverflow.com/questions/15819242/how-to-make-a-button-appear-to-have-been-clicked-or-selected-javafx2
-
-        buttonsGroup = new ToggleGroup();
-
-        OptionToggle b1 = new OptionToggle("(Tout)", "all");
-        OptionToggle b2 = new OptionToggle("Direction", "direction");
-        OptionToggle b3 = new OptionToggle("Quai", "platform");
-        OptionToggle b4 = new OptionToggle("Mission", "mission");
-        OptionToggle b5 = new OptionToggle("Ligne", "line");
-
-        Stream.of(b1, b2, b3, b4, b5)
-              .forEach(x -> {
-                x.setToggleGroup(buttonsGroup);
-                x.getStyleClass().add("option-toggle-button");
-                x.setDisable(true);
-        });
-
-        buttonsGroup.selectedToggleProperty().addListener(
-            (ObservableValue<? extends Toggle> ov, Toggle toggle, Toggle newToggle) -> {
-                if (newToggle == null) {
-                    toggle.setSelected(true);
-                } else {
-                    OptionToggle ot = (OptionToggle)newToggle;
-                    optionListBox.setDisable(false);
-                    controller.modeSelected(ot.getKey());
-                }
-        });
-
-        HBox optButtons = new HBox(5);
-        optButtons.getChildren().addAll(b1, b2, b3, b4, b5);
-
-        optionListBox = new OptionListBox();
-        optionListBox.setDefaultView();
-
-
-        VBox optContentBox = new VBox();
-        VBox.setVgrow(optContentBox, Priority.ALWAYS);
-        optContentBox.setAlignment(Pos.CENTER);
-        optContentBox.getChildren().add(optionListBox);
-
-        ScrollPane scrollPane = new ScrollPane(optContentBox);
-
-        VBox optBox = new VBox();
-        optBox.setPadding(new Insets(0,10,0,10));
-        VBox.setVgrow(optBox, Priority.ALWAYS);
-        optBox.getChildren().addAll(optButtons, scrollPane);
-
+        filterBox = new FilterBox();
+ 
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, testGareCB, afficher, optBox);
+        body.getChildren().addAll(gareBox, testGareCB, afficher, filterBox);
 
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
@@ -154,8 +109,8 @@ public class DashboardView extends AbstractView {
         return gareCB;
     }
 
-    public OptionListBox getOptionListBox() {
-        return optionListBox;
+    public FilterBox getFilterBox() {
+        return filterBox;
     }
 
     public Button getDisplayButton() {
@@ -173,48 +128,145 @@ public class DashboardView extends AbstractView {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 int nV = (Integer) newValue;
+                int oV = (Integer) oldValue;
+
+                if (nV == oV) return;
                 if (nV > 0) {
                     controller.stopSelected(nV-1);
-                    controller.loadJourneys();
-                    System.out.println("journeys data loaded !");
                 } else {
-                    disableOptionToggles();
-                    optionListBox.setDefaultView();
+                    filterBox.changeStatus(FilterBox.STATUS.NO_STOP_SELECTED, null);
                     controller.resetCurrentValues();
                 }
             }
         });
     }
 
-    public void enableOptionToggles() {
-        buttonsGroup.getToggles()
-                    .stream()
-                    .forEach(
-                        e -> {
-                            var ot = (OptionToggle)e;
-                            if (ot.isDisabled()) ot.setDisable(false);
-                        }
-                    );
-        buttonsGroup.getToggles().get(0).setSelected(true);
+    public class FilterBox extends VBox {
+        private ToggleGroup buttonsGroup;
+        private OptionListBox optionListBox;
+
+        public enum STATUS {LOADING, NO_STOP_SELECTED, NO_TRAIN, ALL_TRAINS,
+                            DATA_SET, NO_INTERNET_CONNEXION, ERROR}
+
+        public FilterBox() {
+            // https://stackoverflow.com/questions/15819242/how-to-make-a-button-appear-to-have-been-clicked-or-selected-javafx2
+    
+            buttonsGroup = new ToggleGroup();
+
+            OptionToggle b1 = new OptionToggle("(Tout)", "all");
+            OptionToggle b2 = new OptionToggle("Direction", "direction");
+            OptionToggle b3 = new OptionToggle("Quai", "platform");
+            OptionToggle b4 = new OptionToggle("Mission", "mission");
+            OptionToggle b5 = new OptionToggle("Ligne", "line");
+
+            Stream.of(b1, b2, b3, b4, b5)
+                .forEach(x -> {
+                    x.setToggleGroup(buttonsGroup);
+                    x.getStyleClass().add("option-toggle-button");
+                    x.setDisable(true);
+            });
+
+            buttonsGroup.selectedToggleProperty().addListener(
+                (ObservableValue<? extends Toggle> ov, Toggle toggle, Toggle newToggle) -> {
+                    if (newToggle == null) {
+                        toggle.setSelected(true);
+                    } else {
+                        OptionToggle ot = (OptionToggle)newToggle;
+                        controller.modeSelected(ot.getKey());
+                    }
+            });
+
+            HBox optButtons = new HBox(5);
+            optButtons.getChildren().addAll(b1, b2, b3, b4, b5);
+
+            optionListBox = new OptionListBox();
+            optionListBox.setDefaultView();
+
+
+            VBox optContentBox = new VBox();
+            VBox.setVgrow(optContentBox, Priority.ALWAYS);
+            optContentBox.setAlignment(Pos.CENTER);
+            optContentBox.getChildren().add(optionListBox);
+
+            ScrollPane scrollPane = new ScrollPane(optContentBox);
+
+            this.setPadding(new Insets(0,10,0,10));
+            VBox.setVgrow(this, Priority.ALWAYS);
+            this.getChildren().addAll(optButtons, scrollPane);
+        }
+    
+        public ToggleGroup getButtonsGroup() {
+            return buttonsGroup;
+        }
+
+        public void changeStatus(STATUS st, String[] values) {
+            switch (st) {
+                case LOADING:
+                    disableOptionToggles();
+                    optionListBox.setLoadingView();
+                    break;
+                case NO_STOP_SELECTED:
+                    disableOptionToggles();
+                    optionListBox.setDefaultView();
+                    break;
+
+                case NO_TRAIN: 
+                    disableOptionToggles();
+                    optionListBox.setNoValues();
+                    break;
+
+                case ALL_TRAINS:
+                    enableOptionToggles();
+                    optionListBox.removeValues();
+                    break;
+
+                case DATA_SET:
+                    enableOptionToggles();
+                    optionListBox.setValues(values);
+                    break;
+
+                case NO_INTERNET_CONNEXION:
+                    disableOptionToggles();
+                    optionListBox.setNoInternetConnexionView();
+                    break;
+
+                case ERROR:
+                    disableOptionToggles();
+                    optionListBox.setErrorView();
+                    break;
+            }
+        }
+
+        public void enableOptionToggles() {
+            buttonsGroup.getToggles()
+                        .stream()
+                        .forEach(
+                            e -> {
+                                var ot = (OptionToggle)e;
+                                if (ot.isDisabled()) ot.setDisable(false);
+                            }
+                        );
+            buttonsGroup.getToggles().get(0).setSelected(true);
+        }
+
+        public void disableOptionToggles() {
+            buttonsGroup.getToggles()
+                        .stream()
+                        .forEach(
+                            e -> {
+                                var ot = (OptionToggle)e;
+                                if (!ot.isDisabled()) ot.setDisable(true);
+                            }
+                        );
+        }
     }
 
-    public void disableOptionToggles() {
-        buttonsGroup.getToggles()
-                    .stream()
-                    .forEach(
-                        e -> {
-                            var ot = (OptionToggle)e;
-                            if (!ot.isDisabled()) ot.setDisable(true);
-                        }
-                    );
-    }
-
-    public class OptionListBox extends HBox {
+    private class OptionListBox extends HBox {
 
         public OptionListBox() {
             super(20);
             this.setAlignment(Pos.TOP_LEFT);
-            this.setPadding(new Insets(30));
+            this.setPadding(new Insets(10));
             this.getStyleClass().add("option-list-box");
         }
 
@@ -247,6 +299,25 @@ public class DashboardView extends AbstractView {
         public void setDefaultView() {
             this.getChildren().clear();
             Label warning = new Label("Veuillez choisir d'abord une gare.");
+            this.getChildren().add(warning);
+        }
+
+        public void setLoadingView() {
+            this.getChildren().clear();
+            Label warning = new Label("Chargement en cours.........");
+            warning.setStyle("-fx-font-style: italic; -fx-font-color: #666666;");
+            this.getChildren().add(warning);
+        }
+
+        public void setNoInternetConnexionView() {
+            this.getChildren().clear();
+            Label warning = new Label("Pas de connexion internet.");
+            this.getChildren().add(warning);
+        }
+
+        public void setErrorView() {
+            this.getChildren().clear();
+            Label warning = new Label("Erreur lors de l'importation des données.");
             this.getChildren().add(warning);
         }
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.view.DashboardView;
+import ienaclone.gui.view.DashboardView.FilterBox;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
 import ienaclone.util.Files;
@@ -28,8 +29,10 @@ public class DashboardController {
 
     public void stopSelected(int i) {
         Stop selected = model.getStops().get(i);
+        resetCurrentValues();
         model.setCurrentStop(selected);
         System.out.println(selected);
+        loadJourneys();
     }
     
     public void testChecked(boolean isChecked) {
@@ -41,19 +44,13 @@ public class DashboardController {
             model.setCurrentStop(testSt);
             System.out.println(testSt);
         } else {
-            model.setCurrentStop(null);
+            resetCurrentValues();
         }
         
     }
 
     public void modeSelected(String selected) {
-        var box = view.getOptionListBox();
-
-        // si aucun passage de train dans les 2 heures qui suivent
-        if (model.getCurrentDirections().isEmpty()) {
-            box.setNoValues();
-            return;
-        }
+        var box = view.getFilterBox();
 
         switch (selected) {
             case "direction":
@@ -62,7 +59,7 @@ public class DashboardController {
                 for (int i = 0; i < dirs.length; i++) {
                     dirs[i] = dirsData.get(i).getName();
                 }
-                box.setValues(dirs);
+                box.changeStatus(FilterBox.STATUS.DATA_SET, dirs);
                 break;
             case "platform":
                 var quaisData = model.getCurrentPlatforms();
@@ -70,15 +67,15 @@ public class DashboardController {
                 for (int i = 0; i < quais.length; i++) {
                     quais[i] = quaisData.get(i);
                 }
-                box.setValues(quais);
+                box.changeStatus(FilterBox.STATUS.DATA_SET, quais);
                 break;
             case "mission":
-                var missionData = model.getCurrentMissions();
-                var mission = new String[missionData.size()];
-                for (int i = 0; i < mission.length; i++) {
-                    mission[i] = missionData.get(i);
+                var missionsData = model.getCurrentMissions();
+                var missions = new String[missionsData.size()];
+                for (int i = 0; i < missions.length; i++) {
+                    missions[i] = missionsData.get(i);
                 }
-                box.setValues(mission);
+                box.changeStatus(FilterBox.STATUS.DATA_SET, missions);
                 break;
             case "line":
                 var lignesData = model.getCurrentLines();
@@ -86,10 +83,10 @@ public class DashboardController {
                 for (int i = 0; i < lignes.length; i++) {
                     lignes[i] = lignesData.get(i).getName();
                 }
-                box.setValues(lignes);
+                box.changeStatus(FilterBox.STATUS.DATA_SET, lignes);
                 break;
             default: // all
-                box.removeValues();
+                box.changeStatus(FilterBox.STATUS.ALL_TRAINS, null);
                 break;
         }
     }
@@ -140,6 +137,7 @@ public class DashboardController {
     }
 
     public void loadJourneys() {
+        view.getFilterBox().changeStatus(FilterBox.STATUS.LOADING, null);
         new Service<Void>() {
 
             @Override
@@ -149,20 +147,43 @@ public class DashboardController {
                     @Override
                     protected Void call() throws Exception {
                         ArrayList<Journey> nextJourneys;
+                        
                         if (model.isTestStopChecked()) { // pour tester si il n'y pas de trains (ex: la nuit)
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
-                            nextJourneys = Requests.getNextJourneys(model.getCurrentStop().getCode());
+                            var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
+                            if (rep.containsKey("data")) {
+                                nextJourneys = rep.get("data");
+                            } else {
+                                Platform.runLater(() -> {
+                                    if (rep.containsKey("error_internet")) {
+                                        view.getFilterBox().changeStatus(
+                                            FilterBox.STATUS.NO_INTERNET_CONNEXION, null);
+                                    } else {
+                                        view.getFilterBox().changeStatus(
+                                            FilterBox.STATUS.ERROR, null);
+                                    }
+                                });
+                                return null;
+                            }
                         }
+
                         model.setJourneys(nextJourneys);
                         model.setCurrentDirections(Parcer.parseDirectionsFromData(nextJourneys));
                         model.setCurrentPlatforms(Parcer.parsePlatformsFromData(nextJourneys));
                         model.setCurrentMissions(Parcer.parseMissionsFromData(nextJourneys));
                         model.setCurrentLines(Parcer.parseLinesFromData(nextJourneys));
 
+                        System.out.println("journeys data loaded !");
+
                         Platform.runLater(() -> {
-                            view.enableOptionToggles();
-                            view.getDisplayButton().setDisable(false);
+                            // si aucun passage de train dans les 2 heures qui suivent
+                            if (nextJourneys.size() == 0) {
+                                view.getFilterBox().changeStatus(FilterBox.STATUS.NO_TRAIN, null);
+                            } else {
+                                view.getFilterBox().changeStatus(FilterBox.STATUS.ALL_TRAINS, null);
+                                view.getDisplayButton().setDisable(false); // TODO
+                            }
                         });
                         
                         return null;

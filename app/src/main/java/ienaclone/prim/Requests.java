@@ -1,6 +1,7 @@
 package ienaclone.prim;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -8,6 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import org.json.JSONArray;
@@ -20,7 +22,9 @@ public class Requests {
     private static String HOST = "https://prim.iledefrance-mobilites.fr";
     private static String API_KEY = System.getenv("prim_api");
 
-    public static ArrayList<Journey> getNextJourneys(String monitoringRef) {
+    public static HashMap<String, ArrayList<Journey>> getNextJourneys(String monitoringRef) {
+        HashMap<String, ArrayList<Journey>> res = new HashMap<>();
+
         HttpClient client = HttpClient.newHttpClient();
 
         String url = HOST + "/marketplace/stop-monitoring?MonitoringRef=STIF%3AStopPoint%3AQ%3A"
@@ -38,12 +42,15 @@ public class Requests {
 
             final JSONObject jsonRep = new JSONObject(response.body());
 
-            return parseNextJourneys(jsonRep);
+            res.put("data", parseNextJourneys(jsonRep));
 
+        } catch (ConnectException e1) {
+            res.put("error_internet", null);
         } catch (URISyntaxException | IOException | InterruptedException e) {    
-            e.printStackTrace();
-            return null;
+            res.put("error_else", null);
         }
+        
+        return res;
     }
 
     public static ArrayList<Journey> parseNextJourneys(JSONObject json) {

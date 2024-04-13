@@ -1,11 +1,11 @@
 package ienaclone.gui.controller;
 
 import ienaclone.gui.model.DisplayModel;
-import ienaclone.prim.Requests;
-import ienaclone.util.Files;
-import ienaclone.util.Journey;
+// import ienaclone.prim.Requests;
+// import ienaclone.util.Files;
+// import ienaclone.util.Journey;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -27,14 +27,14 @@ public class DisplayController {
 
                     @Override
                     protected Void call() throws Exception {
-                        ArrayList<Journey> nextJourneys;
+                        /* ArrayList<Journey> nextJourneys;
                         if (model.isTestStopChecked()) { // pour tester si pas de trains (la nuit)
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
                             nextJourneys = Requests.getNextJourneys(model.getActualStop().getCode());
                         }
 
-                        model.setJourneys(nextJourneys);
+                        model.setJourneys(nextJourneys); */
                         
                         return null;
                     }

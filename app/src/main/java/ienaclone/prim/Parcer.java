@@ -45,8 +45,11 @@ public class Parcer {
 
         for (var j : data) {
             var allLines = AllLinesSingleton.getInstance();
-            Line tmp = allLines.getLineByCode(j.getLineRef()).get();
-            if(!res.contains(tmp)) res.add(tmp);
+            var tmp = allLines.getLineByCode(j.getLineRef());
+            if (tmp.isPresent()) {
+                if(!res.contains(tmp.get()))
+                    res.add(tmp.get());
+            }
         }   
 
         return res;
