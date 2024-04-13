@@ -13,10 +13,19 @@
     -fx-font-size: 14pt;
 }
 
-.button {
+.display-button {
     -fx-font-size: 20pt;
-} 
+}
+
+.option-toggle-button {
+    -fx-font-size: 14pt
+}
+
+.option-list-box {
+    -fx-background-color: #eeeeee
+}
 
 .text-field {
     -fx-font-size: 14pt;
 }
+

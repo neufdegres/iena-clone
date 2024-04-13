@@ -20,7 +20,7 @@ public class Requests {
     private static String HOST = "https://prim.iledefrance-mobilites.fr";
     private static String API_KEY = System.getenv("prim_api");
 
-    public static ArrayList<Journey> getNextCourses(String monitoringRef) {
+    public static ArrayList<Journey> getNextJourneys(String monitoringRef) {
         HttpClient client = HttpClient.newHttpClient();
 
         String url = HOST + "/marketplace/stop-monitoring?MonitoringRef=STIF%3AStopPoint%3AQ%3A"
@@ -38,7 +38,7 @@ public class Requests {
 
             final JSONObject jsonRep = new JSONObject(response.body());
 
-            return parseNextCourses(jsonRep);
+            return parseNextJourneys(jsonRep);
 
         } catch (URISyntaxException | IOException | InterruptedException e) {    
             e.printStackTrace();
@@ -46,14 +46,14 @@ public class Requests {
         }
     }
 
-    public static ArrayList<Journey> parseNextCourses(JSONObject json) {
+    public static ArrayList<Journey> parseNextJourneys(JSONObject json) {
         ArrayList<Journey> res = new ArrayList<>();
 
-        var courses = (JSONArray) getJsonValue(json, 
+        var journeys = (JSONArray) getJsonValue(json, 
             "Siri>ServiceDelivery>StopMonitoringDelivery#0>MonitoredStopVisit:Array");
 
-        for(int i=0; i<courses.length(); i++) {
-            var c = courses.getJSONObject(i);
+        for(int i=0; i<journeys.length(); i++) {
+            var c = journeys.getJSONObject(i);
             JourneyBuilder bld = new JourneyBuilder();
 
             var mvj = c.optJSONObject("MonitoredVehicleJourney");

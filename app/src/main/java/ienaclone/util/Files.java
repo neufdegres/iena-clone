@@ -11,6 +11,8 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import ienaclone.prim.Requests;
+
 import org.apache.commons.io.IOUtils;
 
 public class Files {
@@ -48,5 +50,56 @@ public class Files {
         }
 
         return res;
+    }
+
+    public static ArrayList<Line> getAllLines() {
+        ArrayList<Line> res = new ArrayList<>();
+
+        try {
+            URL a = Files.class.getResource("all_lines.json");
+            File file = new File(a.toURI());
+
+            if (file.exists()){
+                InputStream is;
+                is = new FileInputStream(file);
+                String jsonTxt = IOUtils.toString(is, "UTF-8");
+                
+                JSONObject json = new JSONObject(jsonTxt);       
+                JSONArray list = json.getJSONArray("lines");
+                
+                list.forEach(e -> {
+                    JSONObject line = (JSONObject)e;
+                    String name = line.getString("name");
+                    String code = line.getString("code");
+
+                    res.add(new Line(name, code));
+                });                    
+            }   
+        } catch (IOException | URISyntaxException e) {
+            return null;
+        }
+
+        return res;
+    }
+
+    public static ArrayList<Journey> loadTestNextJourneysValues() {
+        try {
+            URL a = Requests.class.getResource("chelles.json");
+            File file = new File(a.toURI());
+
+            if (file.exists()){
+                InputStream is;
+                is = new FileInputStream(file);
+                String jsonTxt = IOUtils.toString(is, "UTF-8");
+                
+                JSONObject json = new JSONObject(jsonTxt);
+
+                return Requests.parseNextJourneys(json);
+            }
+        } catch (IOException | URISyntaxException e) {
+            return null;
+        }
+
+        return null;
     }
 }

@@ -1,30 +1,35 @@
 package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
-import ienaclone.util.Mode;
+import java.util.stream.Stream;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
-// import javafx.scene.layout.Border;
+import javafx.scene.control.Tooltip;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-// import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class DashboardView extends AbstractView {
     private final Stage main; 
     private final DashboardController controller;
     private ChoiceBox<String> gareCB;
-    private OptionBox optionBox;
+    private OptionListBox optionListBox;
+    private ToggleGroup buttonsGroup;
+    private HBox gareBox;
     private Button displayButton;
 
     public DashboardView(Stage main, DashboardController controller) {
@@ -39,62 +44,96 @@ public class DashboardView extends AbstractView {
         l.setAlignment(Pos.TOP_CENTER);
         l.setStyle("-fx-font-size: 28pt;");
 
-        // TODO : remplacer par une barre de recherche
-        
         Label gare = new Label("Gare ");
         gareCB = new ChoiceBox<String>();
         gareCB.getItems().addAll("chargement en cours");
         gareCB.getSelectionModel().select(0);
-        gareCB.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                int nV = (Integer) newValue;
-                if (nV > 0) controller.stopSelected(nV-1);
-            }
-            
-        });
-
-        HBox gareBox = new HBox(20);
+        gareBox = new HBox(20);
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
-        Label mode = new Label("Mode");
-        ChoiceBox<String> modeCB = new ChoiceBox<String>();
-        modeCB.getItems().addAll("------------------------",
-            "Tous les trains", "Par direction (N/A)", "Par quai (N/A)");
-        modeCB.getSelectionModel().select(0);
-        modeCB.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-
+        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay) si pas de trains");
+        testGareCB.setStyle("-fx-font-size: 12pt;");
+        testGareCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue.charAt(0) == '-') return;
-                controller.modeSelected(Mode.getMode(newValue));
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                controller.testChecked(newValue);
+                if (newValue) {
+                    gareBox.setDisable(true);
+                    controller.loadJourneys();
+                    System.out.println("journeys data loaded !");
+                } else {
+                    gareBox.setDisable(false);
+                    gareCB.getSelectionModel().select(0);
+                }
+                
             }
-            
         });
 
-        HBox modeBox = new HBox(20);
-        modeBox.setAlignment(Pos.CENTER_LEFT);
-        modeBox.getChildren().addAll(mode, modeCB);
+        Label afficher = new Label("Afficher par...");
+        l.setStyle("-fx-font-size: 18pt;");
 
-        Label warning = new Label("Veuillez choisir un mode d'affichage.");
-        optionBox = new OptionBox();
-        VBox.setVgrow(optionBox, Priority.ALWAYS);
-        // optionBox.setBorder(Border.stroke(Paint.valueOf("#4488aa"))); // color
-        // optionBox.setAlignment(Pos.CENTER);
-        optionBox.getChildren().add(warning);
+        // https://stackoverflow.com/questions/15819242/how-to-make-a-button-appear-to-have-been-clicked-or-selected-javafx2
+
+        buttonsGroup = new ToggleGroup();
+
+        OptionToggle b1 = new OptionToggle("(Tout)", "all");
+        OptionToggle b2 = new OptionToggle("Direction", "direction");
+        OptionToggle b3 = new OptionToggle("Quai", "platform");
+        OptionToggle b4 = new OptionToggle("Mission", "mission");
+        OptionToggle b5 = new OptionToggle("Ligne", "line");
+
+        Stream.of(b1, b2, b3, b4, b5)
+              .forEach(x -> {
+                x.setToggleGroup(buttonsGroup);
+                x.getStyleClass().add("option-toggle-button");
+                x.setDisable(true);
+        });
+
+        buttonsGroup.selectedToggleProperty().addListener(
+            (ObservableValue<? extends Toggle> ov, Toggle toggle, Toggle newToggle) -> {
+                if (newToggle == null) {
+                    toggle.setSelected(true);
+                } else {
+                    OptionToggle ot = (OptionToggle)newToggle;
+                    optionListBox.setDisable(false);
+                    controller.modeSelected(ot.getKey());
+                }
+        });
+
+        HBox optButtons = new HBox(5);
+        optButtons.getChildren().addAll(b1, b2, b3, b4, b5);
+
+        optionListBox = new OptionListBox();
+        optionListBox.setDefaultView();
+
+
+        VBox optContentBox = new VBox();
+        VBox.setVgrow(optContentBox, Priority.ALWAYS);
+        optContentBox.setAlignment(Pos.CENTER);
+        optContentBox.getChildren().add(optionListBox);
+
+        ScrollPane scrollPane = new ScrollPane(optContentBox);
+
+        VBox optBox = new VBox();
+        optBox.setPadding(new Insets(0,10,0,10));
+        VBox.setVgrow(optBox, Priority.ALWAYS);
+        optBox.getChildren().addAll(optButtons, scrollPane);
 
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
-        // body.setBorder(Border.stroke(Paint.valueOf("#aa4488"))); // color
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, modeBox, optionBox);
+        body.getChildren().addAll(gareBox, testGareCB, afficher, optBox);
 
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
+        displayButton.getStyleClass().add("display-button");
+        displayButton.setTooltip(new Tooltip(
+            "Pour le moment, affiche dans le terminal TOUS les passages malgré les filtres potentiellement ajoutés"));
         displayButton.setOnAction(e -> {
             if (!displayButton.isDisabled()) controller.displayPressed();
+            else System.out.println("aie");
         });
 
         VBox layout = new VBox(10);
@@ -102,12 +141,6 @@ public class DashboardView extends AbstractView {
         layout.setPadding(new Insets(10));
 
         layout.getChildren().addAll(l, body, displayButton);
-
-        // optionBox.setParDirection(new String[]{"Paris Est /\nHausmann - Saint-Lazarre","Meaux"});
-        /* optionBox.setParQuai(new String[]{"A  :  E - Terminus",
-                                           "B  :  P - vers Meaux",
-                                           "C  :  P - vers Paris",
-                                           "D  :  E - vers Paris"}); */
 
         Scene scene = new Scene(layout, 700, 500);
         scene.getStylesheets().add("/ienaclone/gui/view/dashboard.css");
@@ -121,53 +154,71 @@ public class DashboardView extends AbstractView {
         return gareCB;
     }
 
-    public OptionBox getOptionBox() {
-        return optionBox;
+    public OptionListBox getOptionListBox() {
+        return optionListBox;
     }
 
     public Button getDisplayButton() {
         return displayButton;
     }
 
-    public class OptionBox extends HBox {
+    public void remplaceGareCB(ChoiceBox<String> newCB) {
+        gareBox.getChildren().remove(1);
+        gareBox.getChildren().add(newCB);
 
-        public OptionBox() {
+        gareCB = newCB;
+
+        gareCB.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                int nV = (Integer) newValue;
+                if (nV > 0) {
+                    controller.stopSelected(nV-1);
+                    controller.loadJourneys();
+                    System.out.println("journeys data loaded !");
+                } else {
+                    disableOptionToggles();
+                    optionListBox.setDefaultView();
+                    controller.resetCurrentValues();
+                }
+            }
+        });
+    }
+
+    public void enableOptionToggles() {
+        buttonsGroup.getToggles()
+                    .stream()
+                    .forEach(
+                        e -> {
+                            var ot = (OptionToggle)e;
+                            if (ot.isDisabled()) ot.setDisable(false);
+                        }
+                    );
+        buttonsGroup.getToggles().get(0).setSelected(true);
+    }
+
+    public void disableOptionToggles() {
+        buttonsGroup.getToggles()
+                    .stream()
+                    .forEach(
+                        e -> {
+                            var ot = (OptionToggle)e;
+                            if (!ot.isDisabled()) ot.setDisable(true);
+                        }
+                    );
+    }
+
+    public class OptionListBox extends HBox {
+
+        public OptionListBox() {
             super(20);
             this.setAlignment(Pos.TOP_LEFT);
             this.setPadding(new Insets(30));
+            this.getStyleClass().add("option-list-box");
         }
 
-        public void setParDirection(String[] values) {
-            Label direction = new Label("Direction");
-            direction.setAlignment(Pos.TOP_LEFT);
-
-            VBox choices = new VBox(5);
-
-            ToggleGroup group = new ToggleGroup();
-            group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
-                @Override
-                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                    if (displayButton.isDisabled()) displayButton.setDisable(false);
-                }
-                
-            });
-
-            for(String dir : values) {
-                RadioButton dirTmp = new RadioButton(dir);
-                dirTmp.setStyle("-fx-font-size: 14pt;");
-                dirTmp.setToggleGroup(group);
-                choices.getChildren().add(dirTmp);
-            }
-
-            this.getChildren().clear();
-            this.getChildren().addAll(direction, choices);
-        }
-
-        public void setParQuai(String[] values) {
-            Label quai = new Label("Quai");
-            quai.setAlignment(Pos.TOP_LEFT);
-
+        public void setValues(String[] values) {
             VBox choices = new VBox(5);
 
             ToggleGroup group = new ToggleGroup();
@@ -180,9 +231,38 @@ public class DashboardView extends AbstractView {
             }
 
             this.getChildren().clear();
-            this.getChildren().addAll(quai, choices);
+            this.getChildren().addAll(choices);
         }
 
+        public void setNoValues() {
+            this.getChildren().clear();
+            this.getChildren().addAll(new Label("Aucun train de prévu pour les 2 prochaines heures"));
+        }
+
+        public void removeValues() {
+            this.getChildren().clear();
+            this.getChildren().addAll(new Label("Afficher tous les passages"));
+        }
+
+        public void setDefaultView() {
+            this.getChildren().clear();
+            Label warning = new Label("Veuillez choisir d'abord une gare.");
+            this.getChildren().add(warning);
+        }
+
+    }
+
+    public class OptionToggle extends ToggleButton {
+        private final String key;
+
+        public OptionToggle(String name, String key) {
+            super(name);
+            this.key = key;
+        }
+
+        public String getKey() {
+            return key;
+        }
     }
     
 }

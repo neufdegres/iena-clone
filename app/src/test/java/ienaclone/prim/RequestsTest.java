@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 
 public class RequestsTest {
     @Test
-    void testGetNextCourses() {
+    void testGetNextJourneys() {
         try {
             URL a = RequestsTest.class.getResource("chelles.json");
             File file = new File(a.toURI());
@@ -29,11 +29,11 @@ public class RequestsTest {
                 
                 JSONObject json = new JSONObject(jsonTxt);
 
-                var courses = Requests.parseNextCourses(json);
+                var journeys = Requests.parseNextJourneys(json);
 
-                assertNotNull(courses);
+                assertNotNull(journeys);
 
-                var c0 = courses.get(0);
+                var c0 = journeys.get(0);
 
                 assertNotNull(c0);
 

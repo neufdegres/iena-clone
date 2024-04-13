@@ -19,4 +19,17 @@ public class FilesTest {
 
         assertEquals("41166", argenteuil);
     }
+
+    @Test
+    void testgetAllLines() {
+        var actual = Files.getAllLines();
+
+        assertNotNull(actual);
+
+        String trainE = (String)actual.get(4).getName();
+
+        assertNotNull(trainE);
+
+        assertEquals("E", trainE);
+    }
 }

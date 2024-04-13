@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class Window extends Application {
     public static Stage main;
     private static AbstractView view;
+    // private static 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -24,6 +25,12 @@ public class Window extends Application {
         view = new DashboardView(main, new DashboardController(model));
         view.display();
     }
+
+    // public static void openDisplayWindow() {
+    //     Stage displayStage = new Stage();
+    //     displayStage.setTitle(/* TODO: afficher le nom de la gare + settings */"affichage");
+
+    // }
 
     public static void main(String[] args) {
         launch();
