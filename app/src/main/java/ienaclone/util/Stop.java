@@ -37,7 +37,7 @@ public class Stop {
 
         Stop curr = (Stop)obj;
 
-        return Parcer.getRefCode(curr.code).equals(Parcer.getRefCode(this.code));
+        return Parcer.equalsRef(curr.code, this.code);
     }
     
     @Override

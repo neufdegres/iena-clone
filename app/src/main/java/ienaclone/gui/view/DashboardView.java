@@ -84,11 +84,9 @@ public class DashboardView extends AbstractView {
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
         displayButton.getStyleClass().add("display-button");
-        displayButton.setTooltip(new Tooltip(
-            "Pour le moment, affiche dans le terminal TOUS les passages malgré les filtres potentiellement ajoutés"));
+        displayButton.setTooltip(new Tooltip("Afficher dans le terminal"));
         displayButton.setOnAction(e -> {
             if (!displayButton.isDisabled()) controller.displayPressed();
-            else System.out.println("aie");
         });
 
         VBox layout = new VBox(10);
@@ -217,6 +215,7 @@ public class DashboardView extends AbstractView {
 
                 case ALL_TRAINS:
                     enableOptionToggles();
+                    selectFirstToggle();
                     optionListBox.removeValues();
                     break;
 
@@ -237,7 +236,7 @@ public class DashboardView extends AbstractView {
             }
         }
 
-        public void enableOptionToggles() {
+        private void enableOptionToggles() {
             buttonsGroup.getToggles()
                         .stream()
                         .forEach(
@@ -246,18 +245,23 @@ public class DashboardView extends AbstractView {
                                 if (ot.isDisabled()) ot.setDisable(false);
                             }
                         );
-            buttonsGroup.getToggles().get(0).setSelected(true);
+            
         }
 
-        public void disableOptionToggles() {
+        private void disableOptionToggles() {
             buttonsGroup.getToggles()
                         .stream()
                         .forEach(
                             e -> {
                                 var ot = (OptionToggle)e;
                                 if (!ot.isDisabled()) ot.setDisable(true);
+                                if (ot.isSelected()) ot.setSelected(false);
                             }
                         );
+        }
+
+        private void selectFirstToggle() {
+            buttonsGroup.getToggles().get(0).setSelected(true);
         }
     }
 
@@ -276,11 +280,23 @@ public class DashboardView extends AbstractView {
             ToggleGroup group = new ToggleGroup();
 
             for(String q : values) {
-                RadioButton qTmp = new RadioButton(q);
+                ValueRadioButton qTmp = new ValueRadioButton(q);
                 qTmp.setStyle("-fx-font-size: 14pt;");
                 qTmp.setToggleGroup(group);
                 choices.getChildren().add(qTmp);
             }
+            
+            group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+                @Override
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                    var selected = (ValueRadioButton)newValue;
+                    controller.filterValueSelected(selected.getKey());
+                }
+
+            });
+
+            group.selectToggle(group.getToggles().get(0));
 
             this.getChildren().clear();
             this.getChildren().addAll(choices);
@@ -323,12 +339,25 @@ public class DashboardView extends AbstractView {
 
     }
 
-    public class OptionToggle extends ToggleButton {
+    private class OptionToggle extends ToggleButton {
         private final String key;
 
         public OptionToggle(String name, String key) {
             super(name);
             this.key = key;
+        }
+
+        public String getKey() {
+            return key;
+        }
+    }
+
+    private class ValueRadioButton extends RadioButton {
+        private final String key;
+
+        public ValueRadioButton(String nameKey) {
+            super(nameKey);
+            this.key = nameKey;
         }
 
         public String getKey() {

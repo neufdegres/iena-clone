@@ -62,4 +62,8 @@ public class Parcer {
         if (tab.length != 4) return ref;
         return tab[3];
     }
+
+    public static boolean equalsRef(String c1, String c2) {
+        return getRefCode(c1).equals(getRefCode(c2));
+    }
 }

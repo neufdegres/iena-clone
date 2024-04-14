@@ -15,10 +15,12 @@ public class DashboardModel {
     private ArrayList<Line> currentLines;
     private Stop currentStop;
     private boolean isTestStopChecked;
+    private String[] selectedFilter;
 
     public void setStops(ArrayList<Stop> stops) {
         this.stops = stops;
         this.isTestStopChecked = false;
+        this.selectedFilter = new String[2];
     }
 
     public void setJourneys(ArrayList<Journey> journeys) {
@@ -47,6 +49,14 @@ public class DashboardModel {
 
     public void setTestStopChecked(boolean value) {
         this.isTestStopChecked = value;
+    }
+
+    public void setSelectedKey(String key) {
+        this.selectedFilter[0] = key;
+    }
+
+    public void setSelectedValue(String value) {
+        this.selectedFilter[1] = value;
     }
 
     public ArrayList<Stop> getStops() {
@@ -79,6 +89,14 @@ public class DashboardModel {
 
     public boolean isTestStopChecked() {
         return isTestStopChecked;
+    }
+
+    public String getSelectedKey() {
+        return selectedFilter[0];
+    }
+
+    public String getSelectedFilter() {
+        return selectedFilter[1];
     }
 
 }

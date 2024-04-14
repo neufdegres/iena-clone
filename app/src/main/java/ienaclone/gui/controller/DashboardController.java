@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
+import ienaclone.prim.Filter;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
+import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Files;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
@@ -60,6 +62,7 @@ public class DashboardController {
                     dirs[i] = dirsData.get(i).getName();
                 }
                 box.changeStatus(FilterBox.STATUS.DATA_SET, dirs);
+                model.setSelectedKey(selected);
                 break;
             case "platform":
                 var quaisData = model.getCurrentPlatforms();
@@ -68,6 +71,7 @@ public class DashboardController {
                     quais[i] = quaisData.get(i);
                 }
                 box.changeStatus(FilterBox.STATUS.DATA_SET, quais);
+                model.setSelectedKey(selected);
                 break;
             case "mission":
                 var missionsData = model.getCurrentMissions();
@@ -76,6 +80,7 @@ public class DashboardController {
                     missions[i] = missionsData.get(i);
                 }
                 box.changeStatus(FilterBox.STATUS.DATA_SET, missions);
+                model.setSelectedKey(selected);
                 break;
             case "line":
                 var lignesData = model.getCurrentLines();
@@ -84,14 +89,19 @@ public class DashboardController {
                     lignes[i] = lignesData.get(i).getName();
                 }
                 box.changeStatus(FilterBox.STATUS.DATA_SET, lignes);
+                model.setSelectedKey(selected);
                 break;
             default: // all
                 box.changeStatus(FilterBox.STATUS.ALL_TRAINS, null);
+                resetSelectedFilter();
                 break;
         }
     }
 
-    // pour le moment, affiche TOUS les passages (même avec le moindre filtre ajouté)
+    public void filterValueSelected(String selected) {
+        model.setSelectedValue(selected);
+    }
+
     public void displayPressed() {
         if (model.getCurrentStop() == null) return;
         System.out.println();
@@ -174,8 +184,6 @@ public class DashboardController {
                         model.setCurrentMissions(Parcer.parseMissionsFromData(nextJourneys));
                         model.setCurrentLines(Parcer.parseLinesFromData(nextJourneys));
 
-                        System.out.println("journeys data loaded !");
-
                         Platform.runLater(() -> {
                             // si aucun passage de train dans les 2 heures qui suivent
                             if (nextJourneys.size() == 0) {
@@ -202,16 +210,56 @@ public class DashboardController {
         model.setCurrentPlatforms(null);
         model.setCurrentMissions(null);
         model.setCurrentLines(null);
+        resetSelectedFilter();
     }
+
+    public void resetSelectedFilter() {
+        model.setSelectedKey(null);
+        model.setSelectedValue(null);
+    }
+
+    // TODO : temporaire
+    public ArrayList<Journey> applySelectedFilter() {
+        var raw = model.getJourneys();
+        String key = model.getSelectedKey();
+        String value = model.getSelectedFilter();
+
+        if (key == null) return raw;
+
+        switch (key) {
+            case "direction":
+                System.out.println("Filtre : direction > " + value);
+                return (ArrayList<Journey>) Filter.byDirection(raw, value);
+            case "platform":
+                System.out.println("Filtre : quai > " + value + " \n");
+                return (ArrayList<Journey>) Filter.byPlatform(raw, value);
+            case "mission":
+                System.out.println("Filtre : mission > " + value + " \n");
+                return (ArrayList<Journey>) Filter.byMission(raw, value);
+            case "line":
+                System.out.println("Filtre : ligne > " + value + " \n");
+                return (ArrayList<Journey>) Filter.byLine(raw, value);
+        }
+
+        return raw;
+    }
+
 
     // TODO : temporaire !!
     public void displayOnTerminal() {
-        var journeys = model.getJourneys();
+        ArrayList<Journey> journeys = applySelectedFilter();
 
         int i = 1;
         for (var j : journeys) {
             StringBuilder sb = new StringBuilder();
             sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
+            sb.append("Ligne : ");
+            var ligne = AllLinesSingleton.getInstance().getLineByCode(j.getLineRef());
+            if (ligne.isPresent()) {
+                sb.append(ligne.get().getName()).append("\n");
+            } else {
+                sb.append("N/A").append("\n");
+            }
             sb.append("Nom de la mission : ").append(j.getMissionCode()).append("\n");
             sb.append("Direction : ").append(j.getDestinationName()).append("\n");
             sb.append("Quai : ").append(j.getArivalPlatform()).append("\n");

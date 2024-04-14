@@ -33,7 +33,7 @@ public class AllLinesSingleton {
 
     public Optional<Line> getLineByCode(String s) {
         return items.stream()
-                    .filter(e -> e.getCode().equals(Parcer.getRefCode(s)))
+                    .filter(e -> Parcer.equalsRef(e.getCode(), s))
                     .findFirst();
     }
 }
