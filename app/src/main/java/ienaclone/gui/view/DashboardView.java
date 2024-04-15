@@ -170,7 +170,7 @@ public class DashboardView extends AbstractView {
                         toggle.setSelected(true);
                     } else {
                         OptionToggle ot = (OptionToggle)newToggle;
-                        controller.modeSelected(ot.getKey());
+                        if (!ot.isDisabled()) controller.modeSelected(ot.getKey());
                     }
             });
 
