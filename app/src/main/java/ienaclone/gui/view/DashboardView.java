@@ -53,7 +53,7 @@ public class DashboardView extends AbstractView {
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
-        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay) si pas de trains");
+        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay) si aucun passage dans les 2 heures");
         testGareCB.setStyle("-fx-font-size: 12pt;");
         testGareCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -261,7 +261,8 @@ public class DashboardView extends AbstractView {
         }
 
         private void selectFirstToggle() {
-            buttonsGroup.getToggles().get(0).setSelected(true);
+            if (buttonsGroup.getToggles().size() > 0)
+                buttonsGroup.getToggles().get(0).setSelected(true);
         }
     }
 
@@ -296,7 +297,8 @@ public class DashboardView extends AbstractView {
 
             });
 
-            group.selectToggle(group.getToggles().get(0));
+            if (group.getToggles().size() > 0)
+                group.selectToggle(group.getToggles().get(0));
 
             this.getChildren().clear();
             this.getChildren().addAll(choices);
