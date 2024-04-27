@@ -2,6 +2,7 @@ package ienaclone.gui.controller;
 
 import java.util.ArrayList;
 
+import ienaclone.gui.Window;
 import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
@@ -106,6 +107,7 @@ public class DashboardController {
         if (model.getCurrentStop() == null) return;
         System.out.println();
         displayOnTerminal();
+        Window.openDisplayWindow();
     }
 
     public void loadStops() {

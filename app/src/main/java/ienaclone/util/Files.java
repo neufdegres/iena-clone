@@ -71,8 +71,9 @@ public class Files {
                     JSONObject line = (JSONObject)e;
                     String name = line.getString("name");
                     String code = line.getString("code");
+                    String color = line.getString("color");
 
-                    res.add(new Line(name, code));
+                    res.add(new Line(name, code, color));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {

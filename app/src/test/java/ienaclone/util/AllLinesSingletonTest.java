@@ -17,6 +17,6 @@ public class AllLinesSingletonTest {
 
         assertNotNull(actual);
 
-        assertEquals(new Line("E", "0").getName(), actual.getName());
+        assertEquals(new Line("E", "0", "0").getName(), actual.getName());
     }
 }
