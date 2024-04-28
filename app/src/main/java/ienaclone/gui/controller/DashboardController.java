@@ -176,6 +176,9 @@ public class DashboardController {
                                     if (rep.containsKey("error_internet")) {
                                         view.getFilterBox().changeStatus(
                                             FilterBox.STATUS.NO_INTERNET_CONNEXION, null);
+                                    } else if (rep.containsKey("error_apikey")) {
+                                        view.getFilterBox().changeStatus(
+                                            FilterBox.STATUS.NO_API_KEY, null);
                                     } else {
                                         view.getFilterBox().changeStatus(
                                             FilterBox.STATUS.ERROR, null);

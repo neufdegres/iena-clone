@@ -54,7 +54,7 @@ public class DashboardView extends AbstractView {
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
-        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay) si aucun passage dans les 2 heures");
+        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay)");
         testGareCB.setStyle("-fx-font-size: 12pt;");
         testGareCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -155,7 +155,7 @@ public class DashboardView extends AbstractView {
         private OptionListBox optionListBox;
 
         public enum STATUS {LOADING, NO_STOP_SELECTED, NO_TRAIN, ALL_TRAINS,
-                            DATA_SET, NO_INTERNET_CONNEXION, ERROR}
+                            DATA_SET, NO_INTERNET_CONNEXION, NO_API_KEY, ERROR}
 
         public FilterBox() {
             // https://stackoverflow.com/questions/15819242/how-to-make-a-button-appear-to-have-been-clicked-or-selected-javafx2
@@ -244,6 +244,11 @@ public class DashboardView extends AbstractView {
                     disableOptionToggles();
                     optionListBox.setNoInternetConnexionView();
                     nextStopCB.setVisible(false);
+                    break;
+
+                case NO_API_KEY:
+                    disableOptionToggles();
+                    optionListBox.setNoApiKeyView();
                     break;
 
                 case ERROR:
@@ -348,6 +353,14 @@ public class DashboardView extends AbstractView {
         public void setNoInternetConnexionView() {
             this.getChildren().clear();
             Label warning = new Label("Pas de connexion internet.");
+            this.getChildren().add(warning);
+        }
+
+        public void setNoApiKeyView() {
+            this.getChildren().clear();
+            String msg = "La variable d'environnement `prim_api` n'a pas été initialisée.\n"
+                         + "Voir le README pour plus d'infos.";
+            Label warning = new Label(msg);
             this.getChildren().add(warning);
         }
 
