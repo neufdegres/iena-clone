@@ -31,6 +31,8 @@ public class Requests {
                      + monitoringRef + "%3A";
 
         try {
+            if (API_KEY == null) throw new NoApiKeyException();
+
             HttpRequest request = HttpRequest.newBuilder()
                 .header("Accept", "application/json")
                 .header("apikey", API_KEY)
@@ -46,6 +48,8 @@ public class Requests {
 
         } catch (ConnectException e1) {
             res.put("error_internet", null);
+        } catch (NoApiKeyException e) {
+            res.put("error_apikey", null);
         } catch (URISyntaxException | IOException | InterruptedException e) {    
             res.put("error_else", null);
         }
@@ -136,5 +140,8 @@ public class Requests {
     private static boolean isNumber(String s) {
         return Pattern.matches("\\d+", s);
     }
+
+
+    public static class NoApiKeyException extends Exception {}
 
 }
