@@ -241,7 +241,10 @@ public class DashboardController {
                 return (ArrayList<Journey>) Filter.byMission(raw, value);
             case "line":
                 System.out.println("Filtre : ligne > " + value + " \n");
-                return (ArrayList<Journey>) Filter.byLine(raw, value);
+                var ligne = AllLinesSingleton.getInstance().getLineByName(value);
+                String code = "";
+                if (ligne.isPresent()) code = ligne.get().getCode();
+                return (ArrayList<Journey>) Filter.byLine(raw, code);
         }
 
         return raw;
@@ -266,17 +269,8 @@ public class DashboardController {
             sb.append("Nom de la mission : ").append(j.getMissionCode()).append("\n");
             sb.append("Direction : ").append(j.getDestinationName()).append("\n");
             sb.append("Quai : ").append(j.getArivalPlatform()).append("\n");
-            sb.append("Heure d'arrivée prévue : ").append(j.getExpectedArrivalTime()).append("\n");
-            sb.append("Heure d'arrivée réelle : ").append(j.getAimedArrivalTime()).append("\n");
-            sb.append("Taille du train : ");
-            if (j.getNumberOfTrains() > 0) {
-                if (j.getNumberOfTrains() == 1)
-                    sb.append("court").append("\n");
-                else
-                    sb.append("long").append("\n");
-            } else {
-                sb.append("N/A").append("\n");
-            }
+            sb.append("Heure d'arrivée estimée : ").append(j.getExpectedArrivalTime()).append("\n");
+            sb.append("Heure de départ estimée : ").append(j.getExpectedDepartureTime()).append("\n");
 
             System.out.println(sb.toString());
             i++;
