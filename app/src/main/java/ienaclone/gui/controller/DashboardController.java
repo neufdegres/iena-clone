@@ -52,6 +52,10 @@ public class DashboardController {
         
     }
 
+    public void nextChecked(boolean isChecked) {
+        model.setNextStopChecked(isChecked);
+    }
+
     public void modeSelected(String selected) {
         var box = view.getFilterBox();
 
@@ -105,9 +109,10 @@ public class DashboardController {
 
     public void displayPressed() {
         if (model.getCurrentStop() == null) return;
-        System.out.println();
-        displayOnTerminal();
-        Window.openDisplayWindow();
+        // System.out.println();
+        // displayOnTerminal();
+        Window.openDisplayWindow(model.getCurrentStop(),
+                model.getSelectedFilter(), model.isTestStopChecked());
     }
 
     public void loadStops() {
@@ -224,7 +229,7 @@ public class DashboardController {
     public ArrayList<Journey> applySelectedFilter() {
         var raw = model.getJourneys();
         String key = model.getSelectedKey();
-        String value = model.getSelectedFilter();
+        String value = model.getSelectedValue();
 
         if (key == null) return raw;
 

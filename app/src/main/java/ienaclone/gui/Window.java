@@ -5,6 +5,7 @@ import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.view.AbstractView;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DisplayView;
+import ienaclone.util.Stop;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -28,7 +29,7 @@ public class Window extends Application {
         view.display();
     }
 
-    public static void openDisplayWindow(/* envoyer les settings de la requete*/) {
+    public static void openDisplayWindow(Stop selected, String[] filter, boolean isTest) {
         Stage stage = new Stage();
         stage.setTitle(/* TODO: afficher le nom de la gare + settings */"affichage");
         stage.setMinWidth(1280);

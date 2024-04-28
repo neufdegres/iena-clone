@@ -31,6 +31,7 @@ public class DashboardView extends AbstractView {
     private FilterBox filterBox;
     private HBox gareBox;
     private Button displayButton;
+    private CheckBox nextStopCB;
 
     public DashboardView(Stage main, DashboardController controller) {
         this.main = main;
@@ -75,11 +76,21 @@ public class DashboardView extends AbstractView {
         l.setStyle("-fx-font-size: 18pt;");
 
         filterBox = new FilterBox();
+
+        nextStopCB = new CheckBox("Afficher uniquement le prochain passage");
+        nextStopCB.setStyle("-fx-font-size: 12pt;");
+        nextStopCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                controller.nextChecked(newValue);
+            }
+        });
+        nextStopCB.setVisible(false);
  
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, testGareCB, afficher, filterBox);
+        body.getChildren().addAll(gareBox, testGareCB, afficher, filterBox, nextStopCB);
 
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
@@ -202,36 +213,43 @@ public class DashboardView extends AbstractView {
                 case LOADING:
                     disableOptionToggles();
                     optionListBox.setLoadingView();
+                    nextStopCB.setVisible(false);
                     break;
                 case NO_STOP_SELECTED:
                     disableOptionToggles();
                     optionListBox.setDefaultView();
+                    nextStopCB.setVisible(false);
                     break;
 
                 case NO_TRAIN: 
                     disableOptionToggles();
                     optionListBox.setNoValues();
+                    nextStopCB.setVisible(false);
                     break;
 
                 case ALL_TRAINS:
                     enableOptionToggles();
                     selectFirstToggle();
                     optionListBox.removeValues();
+                    nextStopCB.setVisible(true);
                     break;
 
                 case DATA_SET:
                     enableOptionToggles();
                     optionListBox.setValues(values);
+                    nextStopCB.setVisible(true);
                     break;
 
                 case NO_INTERNET_CONNEXION:
                     disableOptionToggles();
                     optionListBox.setNoInternetConnexionView();
+                    nextStopCB.setVisible(false);
                     break;
 
                 case ERROR:
                     disableOptionToggles();
                     optionListBox.setErrorView();
+                    nextStopCB.setVisible(false);
                     break;
             }
         }
