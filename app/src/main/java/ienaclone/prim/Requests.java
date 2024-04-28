@@ -80,19 +80,9 @@ public class Requests {
             var mc = mvj.getJSONObject("MonitoredCall");
             if (mc == null) continue;
 
-            bld.aimedArrivalTime = (String) getJsonValue(mc, "AimedArrivalTime:String");
-            bld.aimedDepartureTime = (String) getJsonValue(mc, "AimedDepartureTime:String");
             bld.arrivalPlatform = (String) getJsonValue(mc, "ArrivalPlatformName>value:String");
-            bld.arrivalStatus = (String) getJsonValue(mc, "ArrivalStatus:String");
-            bld.departureStatus = (String) getJsonValue(mc, "DepartureStatus:String");
-            bld.destinationDisplay = (String) getJsonValue(mc, "DestinationDisplay#0>value:String");
             bld.expectedArrivalTime = (String) getJsonValue(mc, "ExpectedArrivalTime:String");
             bld.expectedDepartureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
-            bld.order = (int) getJsonValue(mc, "Order:int");
-            bld.stopPointName = (String) getJsonValue(mc, "StopPointName#0>value:String");
-            bld.vehicleAtStop = (boolean) getJsonValue(mc, "VehicleAtStop:boolean");
-
-            bld.numberOfTrains = ((JSONArray) getJsonValue(mvj, "TrainNumbers>TrainNumberRef:Array")).length();
 
             res.add(new Journey(bld));
         }
@@ -140,7 +130,6 @@ public class Requests {
     private static boolean isNumber(String s) {
         return Pattern.matches("\\d+", s);
     }
-
 
     public static class NoApiKeyException extends Exception {}
 
