@@ -17,3 +17,7 @@ Sinon, vous pouvez toujours tester le logiciel avec des données de test pré-ch
 ## Exemple de présentation du tableau de bord
 
 ![Capture d'écran du tableau de bord ayant la gare de "Champagne sur Oise" sélectionnée, avec les différentes directions affichées.](dashboard.png)
+
+## Exemple de présentation de l'afficheur
+
+[(voir README.md de la branche "display")](https://github.com/neufdegres/iena-clone/tree/display?tab=readme-ov-file#exemple-de-pr%C3%A9sentation-de-lafficheur)
