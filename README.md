@@ -17,3 +17,13 @@ Sinon, vous pouvez toujours tester le logiciel avec des données de test pré-ch
 ## Exemple de présentation du tableau de bord
 
 ![Capture d'écran du tableau de bord ayant la gare de "Champagne sur Oise" sélectionnée, avec les différentes directions affichées.](dashboard.png)
+
+## Exemple de présentation de l'afficheur
+
+### Clone
+
+![Capture d'écran du clone d'un afficheur de la gare de Magenta.](display.png)
+
+### Original
+
+![Photo d'un afficheur de la gare de Magenta.](original.jpg)
