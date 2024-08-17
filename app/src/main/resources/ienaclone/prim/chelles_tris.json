@@ -1,314 +1,330 @@
-[
-    {
-        "RecordedAtTime": "2024-08-16T12:55:08.191Z",
-        "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116050:LOC",
-        "MonitoringRef": {
-            "value": "STIF:StopPoint:Q:41039:"
-        },
-        "MonitoredVehicleJourney": {
-            "LineRef": {
-                "value": "STIF:Line::C01729:"
-            },
-            "OperatorRef": {
-                "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
-            },
-            "FramedVehicleJourneyRef": {
-                "DataFrameRef": {
-                    "value": "any"
-                },
-                "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::38d3f3e1-9a3d-434c-b5ba-cebc5edbfbfb:LOC"
-            },
-            "DirectionName": [],
-            "DestinationRef": {
-                "value": "STIF:StopPoint:Q:41127:"
-            },
-            "DestinationName": [
+{
+    "Siri": {
+        "ServiceDelivery": {
+            "ProducerRef": "IVTR_HET",
+            "ResponseMessageIdentifier": "/",
+            "ResponseTimestamp": "/",
+            "StopMonitoringDelivery": [
                 {
-                    "value": "Haussmann Saint-Lazare"
+                    "MonitoredStopVisit": [
+                        {
+                            "RecordedAtTime": "2024-08-16T12:55:08.191Z",
+                            "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116050:LOC",
+                            "MonitoringRef": {
+                                "value": "STIF:StopPoint:Q:41039:"
+                            },
+                            "MonitoredVehicleJourney": {
+                                "LineRef": {
+                                    "value": "STIF:Line::C01729:"
+                                },
+                                "OperatorRef": {
+                                    "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
+                                },
+                                "FramedVehicleJourneyRef": {
+                                    "DataFrameRef": {
+                                        "value": "any"
+                                    },
+                                    "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::38d3f3e1-9a3d-434c-b5ba-cebc5edbfbfb:LOC"
+                                },
+                                "DirectionName": [],
+                                "DestinationRef": {
+                                    "value": "STIF:StopPoint:Q:41127:"
+                                },
+                                "DestinationName": [
+                                    {
+                                        "value": "Haussmann Saint-Lazare"
+                                    }
+                                ],
+                                "VehicleJourneyName": [],
+                                "JourneyNote": [
+                                    {
+                                        "value": "HOCI"
+                                    }
+                                ],
+                                "MonitoredCall": {
+                                    "StopPointName": [
+                                        {
+                                            "value": "Gare de Chelles Gournay"
+                                        }
+                                    ],
+                                    "VehicleAtStop": false,
+                                    "DestinationDisplay": [
+                                        {
+                                            "value": "Haussmann Saint-Lazare"
+                                        }
+                                    ],
+                                    "DepartureStatus": "onTime",
+                                    "Order": 1,
+                                    "AimedDepartureTime": "2024-08-17T03:00:30.000Z",
+                                    "ArrivalStatus": ""
+                                },
+                                "TrainNumbers": {
+                                    "TrainNumberRef": [
+                                        {
+                                            "value": "116050"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "RecordedAtTime": "2024-08-16T12:55:08.313Z",
+                            "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116066:LOC",
+                            "MonitoringRef": {
+                                "value": "STIF:StopPoint:Q:41039:"
+                            },
+                            "MonitoredVehicleJourney": {
+                                "LineRef": {
+                                    "value": "STIF:Line::C01729:"
+                                },
+                                "OperatorRef": {
+                                    "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
+                                },
+                                "FramedVehicleJourneyRef": {
+                                    "DataFrameRef": {
+                                        "value": "any"
+                                    },
+                                    "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::21aa5643-a98b-4802-83e8-5516611d98db:LOC"
+                                },
+                                "DirectionName": [],
+                                "DestinationRef": {
+                                    "value": "STIF:StopPoint:Q:41127:"
+                                },
+                                "DestinationName": [
+                                    {
+                                        "value": "Haussmann Saint-Lazare"
+                                    }
+                                ],
+                                "VehicleJourneyName": [],
+                                "JourneyNote": [
+                                    {
+                                        "value": "HOCI"
+                                    }
+                                ],
+                                "MonitoredCall": {
+                                    "StopPointName": [
+                                        {
+                                            "value": "Gare de Chelles Gournay"
+                                        }
+                                    ],
+                                    "VehicleAtStop": false,
+                                    "DestinationDisplay": [
+                                        {
+                                            "value": "Haussmann Saint-Lazare"
+                                        }
+                                    ],
+                                    "DepartureStatus": "onTime",
+                                    "Order": 1,
+                                    "AimedDepartureTime": "2024-08-17T03:30:30.000Z",
+                                    "ArrivalStatus": ""
+                                },
+                                "TrainNumbers": {
+                                    "TrainNumberRef": [
+                                        {
+                                            "value": "116066"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "RecordedAtTime": "2024-08-16T19:31:24.568Z",
+                            "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_113602:LOC",
+                            "MonitoringRef": {
+                                "value": "STIF:StopPoint:Q:41039:"
+                            },
+                            "MonitoredVehicleJourney": {
+                                "LineRef": {
+                                    "value": "STIF:Line::C01730:"
+                                },
+                                "OperatorRef": {
+                                    "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
+                                },
+                                "FramedVehicleJourneyRef": {
+                                    "DataFrameRef": {
+                                        "value": "any"
+                                    },
+                                    "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::eaf9bcb4-fca6-4037-bc68-b35dde6bb2d8:LOC"
+                                },
+                                "DirectionName": [],
+                                "DestinationRef": {
+                                    "value": "STIF:StopPoint:Q:41010:"
+                                },
+                                "DestinationName": [
+                                    {
+                                        "value": "Gare de l'Est"
+                                    }
+                                ],
+                                "VehicleJourneyName": [],
+                                "JourneyNote": [
+                                    {
+                                        "value": "PICI"
+                                    }
+                                ],
+                                "MonitoredCall": {
+                                    "StopPointName": [
+                                        {
+                                            "value": "Gare de Chelles Gournay"
+                                        }
+                                    ],
+                                    "VehicleAtStop": false,
+                                    "DestinationDisplay": [
+                                        {
+                                            "value": "Gare de l'Est"
+                                        }
+                                    ],
+                                    "ExpectedArrivalTime": "2024-08-17T03:42:00.000Z",
+                                    "ExpectedDepartureTime": "2024-08-17T03:43:00.000Z",
+                                    "DepartureStatus": "onTime",
+                                    "Order": 5,
+                                    "AimedArrivalTime": "2024-08-17T03:42:00.000Z",
+                                    "ArrivalPlatformName": {
+                                        "value": "C"
+                                    },
+                                    "AimedDepartureTime": "2024-08-17T03:43:00.000Z",
+                                    "ArrivalStatus": "onTime"
+                                },
+                                "TrainNumbers": {
+                                    "TrainNumberRef": [
+                                        {
+                                            "value": "113602"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "RecordedAtTime": "2024-08-16T19:26:29.307Z",
+                            "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_113601:LOC",
+                            "MonitoringRef": {
+                                "value": "STIF:StopPoint:Q:41039:"
+                            },
+                            "MonitoredVehicleJourney": {
+                                "LineRef": {
+                                    "value": "STIF:Line::C01730:"
+                                },
+                                "OperatorRef": {
+                                    "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
+                                },
+                                "FramedVehicleJourneyRef": {
+                                    "DataFrameRef": {
+                                        "value": "any"
+                                    },
+                                    "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::e37c2ae1-1357-4e96-9f0f-0b1ee530fc03:LOC"
+                                },
+                                "DirectionName": [],
+                                "DestinationRef": {
+                                    "value": "STIF:StopPoint:Q:41038:"
+                                },
+                                "DestinationName": [
+                                    {
+                                        "value": "Meaux"
+                                    }
+                                ],
+                                "VehicleJourneyName": [],
+                                "JourneyNote": [
+                                    {
+                                        "value": "MICI"
+                                    }
+                                ],
+                                "MonitoredCall": {
+                                    "StopPointName": [
+                                        {
+                                            "value": "Gare de Chelles Gournay"
+                                        }
+                                    ],
+                                    "VehicleAtStop": false,
+                                    "DestinationDisplay": [
+                                        {
+                                            "value": "Meaux"
+                                        }
+                                    ],
+                                    "ExpectedArrivalTime": "2024-08-17T03:44:30.000Z",
+                                    "ExpectedDepartureTime": "2024-08-17T03:45:30.000Z",
+                                    "DepartureStatus": "onTime",
+                                    "Order": 8,
+                                    "AimedArrivalTime": "2024-08-17T03:44:30.000Z",
+                                    "ArrivalPlatformName": {
+                                        "value": "B"
+                                    },
+                                    "AimedDepartureTime": "2024-08-17T03:45:30.000Z",
+                                    "ArrivalStatus": "onTime"
+                                },
+                                "TrainNumbers": {
+                                    "TrainNumberRef": [
+                                        {
+                                            "value": "113601"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "RecordedAtTime": "2024-08-16T12:55:08.482Z",
+                            "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116086:LOC",
+                            "MonitoringRef": {
+                                "value": "STIF:StopPoint:Q:41039:"
+                            },
+                            "MonitoredVehicleJourney": {
+                                "LineRef": {
+                                    "value": "STIF:Line::C01729:"
+                                },
+                                "OperatorRef": {
+                                    "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
+                                },
+                                "FramedVehicleJourneyRef": {
+                                    "DataFrameRef": {
+                                        "value": "any"
+                                    },
+                                    "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::d6d99d15-fc1d-4f69-9a1d-4fbd71d4f987:LOC"
+                                },
+                                "DirectionName": [],
+                                "DestinationRef": {
+                                    "value": "STIF:StopPoint:Q:41127:"
+                                },
+                                "DestinationName": [
+                                    {
+                                        "value": "Haussmann Saint-Lazare"
+                                    }
+                                ],
+                                "VehicleJourneyName": [],
+                                "JourneyNote": [
+                                    {
+                                        "value": "HOCI"
+                                    }
+                                ],
+                                "MonitoredCall": {
+                                    "StopPointName": [
+                                        {
+                                            "value": "Gare de Chelles Gournay"
+                                        }
+                                    ],
+                                    "VehicleAtStop": false,
+                                    "DestinationDisplay": [
+                                        {
+                                            "value": "Haussmann Saint-Lazare"
+                                        }
+                                    ],
+                                    "DepartureStatus": "onTime",
+                                    "Order": 1,
+                                    "AimedDepartureTime": "2024-08-17T04:00:30.000Z",
+                                    "ArrivalStatus": ""
+                                },
+                                "TrainNumbers": {
+                                    "TrainNumberRef": [
+                                        {
+                                            "value": "116086"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "ResponseTimestamp": "/",
+                    "Status": "true",
+                    "Version": "2.0"
                 }
-            ],
-            "VehicleJourneyName": [],
-            "JourneyNote": [
-                {
-                    "value": "HOCI"
-                }
-            ],
-            "MonitoredCall": {
-                "StopPointName": [
-                    {
-                        "value": "Gare de Chelles Gournay"
-                    }
-                ],
-                "VehicleAtStop": false,
-                "DestinationDisplay": [
-                    {
-                        "value": "Haussmann Saint-Lazare"
-                    }
-                ],
-                "DepartureStatus": "onTime",
-                "Order": 1,
-                "AimedDepartureTime": "2024-08-17T03:00:30.000Z",
-                "ArrivalStatus": ""
-            },
-            "TrainNumbers": {
-                "TrainNumberRef": [
-                    {
-                        "value": "116050"
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "RecordedAtTime": "2024-08-16T12:55:08.313Z",
-        "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116066:LOC",
-        "MonitoringRef": {
-            "value": "STIF:StopPoint:Q:41039:"
-        },
-        "MonitoredVehicleJourney": {
-            "LineRef": {
-                "value": "STIF:Line::C01729:"
-            },
-            "OperatorRef": {
-                "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
-            },
-            "FramedVehicleJourneyRef": {
-                "DataFrameRef": {
-                    "value": "any"
-                },
-                "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::21aa5643-a98b-4802-83e8-5516611d98db:LOC"
-            },
-            "DirectionName": [],
-            "DestinationRef": {
-                "value": "STIF:StopPoint:Q:41127:"
-            },
-            "DestinationName": [
-                {
-                    "value": "Haussmann Saint-Lazare"
-                }
-            ],
-            "VehicleJourneyName": [],
-            "JourneyNote": [
-                {
-                    "value": "HOCI"
-                }
-            ],
-            "MonitoredCall": {
-                "StopPointName": [
-                    {
-                        "value": "Gare de Chelles Gournay"
-                    }
-                ],
-                "VehicleAtStop": false,
-                "DestinationDisplay": [
-                    {
-                        "value": "Haussmann Saint-Lazare"
-                    }
-                ],
-                "DepartureStatus": "onTime",
-                "Order": 1,
-                "AimedDepartureTime": "2024-08-17T03:30:30.000Z",
-                "ArrivalStatus": ""
-            },
-            "TrainNumbers": {
-                "TrainNumberRef": [
-                    {
-                        "value": "116066"
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "RecordedAtTime": "2024-08-16T19:31:24.568Z",
-        "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_113602:LOC",
-        "MonitoringRef": {
-            "value": "STIF:StopPoint:Q:41039:"
-        },
-        "MonitoredVehicleJourney": {
-            "LineRef": {
-                "value": "STIF:Line::C01730:"
-            },
-            "OperatorRef": {
-                "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
-            },
-            "FramedVehicleJourneyRef": {
-                "DataFrameRef": {
-                    "value": "any"
-                },
-                "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::eaf9bcb4-fca6-4037-bc68-b35dde6bb2d8:LOC"
-            },
-            "DirectionName": [],
-            "DestinationRef": {
-                "value": "STIF:StopPoint:Q:41010:"
-            },
-            "DestinationName": [
-                {
-                    "value": "Gare de l'Est"
-                }
-            ],
-            "VehicleJourneyName": [],
-            "JourneyNote": [
-                {
-                    "value": "PICI"
-                }
-            ],
-            "MonitoredCall": {
-                "StopPointName": [
-                    {
-                        "value": "Gare de Chelles Gournay"
-                    }
-                ],
-                "VehicleAtStop": false,
-                "DestinationDisplay": [
-                    {
-                        "value": "Gare de l'Est"
-                    }
-                ],
-                "ExpectedArrivalTime": "2024-08-17T03:42:00.000Z",
-                "ExpectedDepartureTime": "2024-08-17T03:43:00.000Z",
-                "DepartureStatus": "onTime",
-                "Order": 5,
-                "AimedArrivalTime": "2024-08-17T03:42:00.000Z",
-                "ArrivalPlatformName": {
-                    "value": "C"
-                },
-                "AimedDepartureTime": "2024-08-17T03:43:00.000Z",
-                "ArrivalStatus": "onTime"
-            },
-            "TrainNumbers": {
-                "TrainNumberRef": [
-                    {
-                        "value": "113602"
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "RecordedAtTime": "2024-08-16T19:26:29.307Z",
-        "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_113601:LOC",
-        "MonitoringRef": {
-            "value": "STIF:StopPoint:Q:41039:"
-        },
-        "MonitoredVehicleJourney": {
-            "LineRef": {
-                "value": "STIF:Line::C01730:"
-            },
-            "OperatorRef": {
-                "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
-            },
-            "FramedVehicleJourneyRef": {
-                "DataFrameRef": {
-                    "value": "any"
-                },
-                "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::e37c2ae1-1357-4e96-9f0f-0b1ee530fc03:LOC"
-            },
-            "DirectionName": [],
-            "DestinationRef": {
-                "value": "STIF:StopPoint:Q:41038:"
-            },
-            "DestinationName": [
-                {
-                    "value": "Meaux"
-                }
-            ],
-            "VehicleJourneyName": [],
-            "JourneyNote": [
-                {
-                    "value": "MICI"
-                }
-            ],
-            "MonitoredCall": {
-                "StopPointName": [
-                    {
-                        "value": "Gare de Chelles Gournay"
-                    }
-                ],
-                "VehicleAtStop": false,
-                "DestinationDisplay": [
-                    {
-                        "value": "Meaux"
-                    }
-                ],
-                "ExpectedArrivalTime": "2024-08-17T03:44:30.000Z",
-                "ExpectedDepartureTime": "2024-08-17T03:45:30.000Z",
-                "DepartureStatus": "onTime",
-                "Order": 8,
-                "AimedArrivalTime": "2024-08-17T03:44:30.000Z",
-                "ArrivalPlatformName": {
-                    "value": "B"
-                },
-                "AimedDepartureTime": "2024-08-17T03:45:30.000Z",
-                "ArrivalStatus": "onTime"
-            },
-            "TrainNumbers": {
-                "TrainNumberRef": [
-                    {
-                        "value": "113601"
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "RecordedAtTime": "2024-08-16T12:55:08.482Z",
-        "ItemIdentifier": "SNCF_ACCES_CLOUD:Item::41039_116086:LOC",
-        "MonitoringRef": {
-            "value": "STIF:StopPoint:Q:41039:"
-        },
-        "MonitoredVehicleJourney": {
-            "LineRef": {
-                "value": "STIF:Line::C01729:"
-            },
-            "OperatorRef": {
-                "value": "SNCF_ACCES_CLOUD:Operator::SNCF:"
-            },
-            "FramedVehicleJourneyRef": {
-                "DataFrameRef": {
-                    "value": "any"
-                },
-                "DatedVehicleJourneyRef": "SNCF_ACCES_CLOUD:VehicleJourney::d6d99d15-fc1d-4f69-9a1d-4fbd71d4f987:LOC"
-            },
-            "DirectionName": [],
-            "DestinationRef": {
-                "value": "STIF:StopPoint:Q:41127:"
-            },
-            "DestinationName": [
-                {
-                    "value": "Haussmann Saint-Lazare"
-                }
-            ],
-            "VehicleJourneyName": [],
-            "JourneyNote": [
-                {
-                    "value": "HOCI"
-                }
-            ],
-            "MonitoredCall": {
-                "StopPointName": [
-                    {
-                        "value": "Gare de Chelles Gournay"
-                    }
-                ],
-                "VehicleAtStop": false,
-                "DestinationDisplay": [
-                    {
-                        "value": "Haussmann Saint-Lazare"
-                    }
-                ],
-                "DepartureStatus": "onTime",
-                "Order": 1,
-                "AimedDepartureTime": "2024-08-17T04:00:30.000Z",
-                "ArrivalStatus": ""
-            },
-            "TrainNumbers": {
-                "TrainNumberRef": [
-                    {
-                        "value": "116086"
-                    }
-                ]
-            }
+            ]
         }
     }
-]
+}

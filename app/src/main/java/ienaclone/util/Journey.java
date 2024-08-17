@@ -13,6 +13,7 @@ public class Journey {
     private TimeStatus timeStatus;
     private PlaceStatus placeStatus;
     private Optional<LocalDateTime> expectedArrivalTime, expectedDepartureTime;
+    private Optional<LocalDateTime> aimedArrivalTime, aimedDepartureTime;
     private ArrayList<String> nextStations;
 
     public Journey(JourneyBuilder builder) {
@@ -26,6 +27,8 @@ public class Journey {
         this.placeStatus = builder.placeStatus;
         this.expectedArrivalTime = Optional.ofNullable(builder.expectedArrivalTime);
         this.expectedDepartureTime = Optional.ofNullable(builder.expectedDepartureTime);
+        this.aimedArrivalTime = Optional.ofNullable(builder.aimedArrivalTime);
+        this.aimedDepartureTime = Optional.ofNullable(builder.aimedDepartureTime);
         this.nextStations = new ArrayList<>();
         this.nextStations.addAll(builder.nextStations);
     }
@@ -66,6 +69,14 @@ public class Journey {
         return expectedDepartureTime;
     }
 
+    public Optional<LocalDateTime> getAimedArrivalTime() {
+        return aimedArrivalTime;
+    }
+
+    public Optional<LocalDateTime> getAimedDepartureTime() {
+        return aimedDepartureTime;
+    }
+
     public ArrayList<String> getNextStations() {
         return nextStations;
     }
@@ -100,6 +111,14 @@ public class Journey {
 
     public void setExpectedDepartureTime(Optional<LocalDateTime> expectedDepartureTime) {
         this.expectedDepartureTime = expectedDepartureTime;
+    }
+
+    public void setAimedArrivalTime(Optional<LocalDateTime> aimedArrivalTime) {
+        this.aimedArrivalTime = aimedArrivalTime;
+    }
+
+    public void setAimedDepartureTime(Optional<LocalDateTime> aimedDepartureTime) {
+        this.aimedDepartureTime = aimedDepartureTime;
     }
 
     public void setNextStations(ArrayList<String> nextStations) {

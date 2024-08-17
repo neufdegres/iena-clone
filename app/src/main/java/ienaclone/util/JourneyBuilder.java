@@ -12,6 +12,7 @@ public class JourneyBuilder {
     public TimeStatus timeStatus;
     public PlaceStatus placeStatus;
     public LocalDateTime expectedArrivalTime, expectedDepartureTime;
+    public LocalDateTime aimedArrivalTime, aimedDepartureTime;
     public ArrayList<String> nextStations;
 
     public JourneyBuilder() {
@@ -23,6 +24,8 @@ public class JourneyBuilder {
         this.placeStatus = PlaceStatus.UNKNOWN;
         this.expectedArrivalTime = null;
         this.expectedDepartureTime = null;
+        this.aimedArrivalTime = null;
+        this.aimedDepartureTime = null;
         this.nextStations = new ArrayList<>();
     }
 }

@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import ienaclone.util.Line;
 import ienaclone.util.Stop;
+import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
@@ -80,18 +80,24 @@ public class Requests {
             bld.mission = (String) getJsonValue(mvj, "JourneyNote#0>value:String");
             
             var lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
-            bld.line = new Line(lineRef);
+            bld.line = AllLinesSingleton.getInstance().getLineByCode(lineRef).orElse(null);
             
             var mc = mvj.getJSONObject("MonitoredCall");
             if (mc == null) continue;
 
             bld.platform = (String) getJsonValue(mc, "ArrivalPlatformName>value:String");
             
-            var arrivalTime = (String) getJsonValue(mc, "ExpectedArrivalTime:String");
-            bld.expectedArrivalTime = Functions.getDateTime(arrivalTime).orElse(null);
+            var aimedArrivalTime = (String) getJsonValue(mc, "AimedArrivalTime:String");
+            bld.aimedArrivalTime = Functions.getDateTime(aimedArrivalTime).orElse(null);
             
-            var departureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
-            bld.expectedDepartureTime = Functions.getDateTime(departureTime).orElse(null);
+            var aimedDepartureTime = (String) getJsonValue(mc, "AimedDepartureTime:String");
+            bld.aimedDepartureTime = Functions.getDateTime(aimedDepartureTime).orElse(null);
+            
+            var expectedArrivalTime = (String) getJsonValue(mc, "ExpectedArrivalTime:String");
+            bld.expectedArrivalTime = Functions.getDateTime(expectedArrivalTime).orElse(null);
+            
+            var expectedDepartureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
+            bld.expectedDepartureTime = Functions.getDateTime(expectedDepartureTime).orElse(null);
 
             res.add(new Journey(bld));
         }

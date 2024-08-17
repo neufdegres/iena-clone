@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import ienaclone.prim.Requests;
@@ -97,7 +98,7 @@ public class Files {
 
                 return Requests.parseNextJourneys(json);
             }
-        } catch (IOException | URISyntaxException e) {
+        } catch (IOException | URISyntaxException | JSONException e) {
             return null;
         }
 

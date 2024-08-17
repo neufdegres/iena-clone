@@ -14,7 +14,6 @@ import ienaclone.prim.Requests;
 import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Files;
 import ienaclone.util.Journey;
-import ienaclone.util.Line;
 import ienaclone.util.Stop;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
@@ -289,27 +288,21 @@ public class DashboardController {
             sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
             sb.append("Ref : ").append(j.getRef()).append("\n");
             sb.append("Ligne : ");
-            var ligne = AllLinesSingleton.getInstance().getLineByCode(
-                    j.getLine().orElse(new Line("N/A")).getCode());
-            if (ligne.isPresent()) {
-                sb.append(ligne.get().getName()).append("\n");
-            } else {
-                sb.append("N/A").append("\n");
-            }
+            sb.append(j.getLine().map(line -> line.getName()).orElse("N/A")).append("\n");
             sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");
             sb.append("Direction : ").append(j.getDestination().orElse(new Stop()).getName()).append("\n");
             sb.append("Quai : ").append(j.getPlatform().orElse("N/A")).append("\n");
-            sb.append("Heure d'arrivée estimée : ");
-            if (j.getExpectedArrivalTime().isPresent())
-                sb.append(j.getExpectedArrivalTime().get()).append("\n");
-            else
-                sb.append("N/A").append("\n");
-            sb.append("Heure de départ estimée : ");
-            if (j.getExpectedDepartureTime().isPresent())
-                sb.append(j.getExpectedDepartureTime().get()).append("\n");
-            else
-                sb.append("N/A").append("\n");
-
+            if (j.getExpectedArrivalTime().isPresent() || j.getExpectedDepartureTime().isPresent()) {
+                sb.append("Heure d'arrivée estimée : ");
+                sb.append(j.getExpectedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+                sb.append("Heure de départ estimée : ");
+                sb.append(j.getExpectedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+            } else {
+                sb.append("Heure d'arrivée visée : ");
+                sb.append(j.getAimedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+                sb.append("Heure de départ visée : ");
+                sb.append(j.getAimedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+            }
             System.out.println(sb.toString());
             i++;
             if (i > total) break;
