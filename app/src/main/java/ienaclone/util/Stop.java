@@ -19,6 +19,10 @@ public class Stop {
         this(code, name, new ArrayList<>());
     }
 
+    public Stop() {
+        this("N/A", "N/A");
+    }
+
     public String getCode() {
         return code;
     }

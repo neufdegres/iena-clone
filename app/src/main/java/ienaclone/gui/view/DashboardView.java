@@ -1,6 +1,7 @@
 package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
+import ienaclone.gui.controller.util.DisplayMode;
 
 import java.util.stream.Stream;
 
@@ -30,8 +31,8 @@ public class DashboardView extends AbstractView {
     private ChoiceBox<String> gareCB;
     private FilterBox filterBox;
     private HBox gareBox;
+    private VBox displayBox;
     private Button displayButton;
-    private CheckBox nextStopCB;
 
     public DashboardView(Stage main, DashboardController controller) {
         this.main = main;
@@ -72,25 +73,53 @@ public class DashboardView extends AbstractView {
             }
         });
 
-        Label afficher = new Label("Afficher par...");
+        Label afficherPar = new Label("Afficher par...");
         l.setStyle("-fx-font-size: 18pt;");
 
         filterBox = new FilterBox();
 
-        nextStopCB = new CheckBox("Afficher uniquement le prochain passage");
-        nextStopCB.setStyle("-fx-font-size: 12pt;");
-        nextStopCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
+        Label modeAffichage = new Label("Mode d'affichage :");
+        l.setStyle("-fx-font-size: 18pt;");
+
+        HBox displayValuesBox = new HBox(5);
+        displayValuesBox.setPadding(new Insets(10,10,0,10));
+
+        ToggleGroup displayTG = new ToggleGroup();
+
+        var d1CB = new DisplayRadioButton(DisplayMode.OUT_OF_PLATFORM, "\"hors quai\" (non dispo)");
+        var d2CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_1_TRAIN, "quai - 1 train (WIP)");
+        var d3CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_3_TRAINS, "quai - 3 trains (non dispo)");
+
+        Stream.of(d1CB, d2CB, d3CB)
+            .forEach(d -> {
+                d.setStyle("-fx-font-size: 12pt;");
+                d.setToggleGroup(displayTG);
+                displayValuesBox.getChildren().add(d);
+            });
+
+        displayTG.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
             @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                controller.nextChecked(newValue);
-            }
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                    var selected = (DisplayRadioButton)newValue;
+                    controller.displayModeSelected(selected.getKey());
+                }
+
         });
-        nextStopCB.setVisible(false);
+
+        if (displayTG.getToggles().size() > 0)
+            displayTG.selectToggle(displayTG.getToggles().get(1));
+
+        displayBox = new VBox();
+
+        displayBox.setVisible(false);
+        displayBox.getChildren().addAll(modeAffichage, displayValuesBox);
+            
  
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, testGareCB, afficher, filterBox, nextStopCB);
+        body.getChildren().addAll(gareBox, testGareCB, afficherPar, filterBox, displayBox);
 
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
@@ -106,7 +135,7 @@ public class DashboardView extends AbstractView {
 
         layout.getChildren().addAll(l, body, displayButton);
 
-        Scene scene = new Scene(layout, 700, 500);
+        Scene scene = new Scene(layout, 700, 580);
         scene.getStylesheets().add("/ienaclone/gui/view/dashboard.css");
         main.setScene(scene);
         main.show();
@@ -213,37 +242,37 @@ public class DashboardView extends AbstractView {
                 case LOADING:
                     disableOptionToggles();
                     optionListBox.setLoadingView();
-                    nextStopCB.setVisible(false);
+                    displayBox.setVisible(false);
                     break;
                 case NO_STOP_SELECTED:
                     disableOptionToggles();
                     optionListBox.setDefaultView();
-                    nextStopCB.setVisible(false);
+                    displayBox.setVisible(false);
                     break;
 
                 case NO_TRAIN: 
                     disableOptionToggles();
                     optionListBox.setNoValues();
-                    nextStopCB.setVisible(false);
+                    displayBox.setVisible(false);
                     break;
 
                 case ALL_TRAINS:
                     enableOptionToggles();
                     selectFirstToggle();
                     optionListBox.removeValues();
-                    nextStopCB.setVisible(true);
+                    displayBox.setVisible(true);
                     break;
 
                 case DATA_SET:
                     enableOptionToggles();
                     optionListBox.setValues(values);
-                    nextStopCB.setVisible(true);
+                    displayBox.setVisible(true);
                     break;
 
                 case NO_INTERNET_CONNEXION:
                     disableOptionToggles();
                     optionListBox.setNoInternetConnexionView();
-                    nextStopCB.setVisible(false);
+                    displayBox.setVisible(false);
                     break;
 
                 case NO_API_KEY:
@@ -254,7 +283,7 @@ public class DashboardView extends AbstractView {
                 case ERROR:
                     disableOptionToggles();
                     optionListBox.setErrorView();
-                    nextStopCB.setVisible(false);
+                    displayBox.setVisible(false);
                     break;
             }
         }
@@ -329,12 +358,14 @@ public class DashboardView extends AbstractView {
 
         public void setNoValues() {
             this.getChildren().clear();
-            this.getChildren().addAll(new Label("Aucun train de prévu pour les 2 prochaines heures"));
+            Label warning = new Label("Aucun train de prévu pour les 2 prochaines heures");
+            this.getChildren().add(warning);
         }
 
         public void removeValues() {
             this.getChildren().clear();
-            this.getChildren().addAll(new Label("Afficher tous les passages"));
+            Label warning = new Label("Afficher tous les passages");
+            this.getChildren().add(warning);
         }
 
         public void setDefaultView() {
@@ -394,6 +425,19 @@ public class DashboardView extends AbstractView {
         }
 
         public String getKey() {
+            return key;
+        }
+    }
+
+    private class DisplayRadioButton extends RadioButton {
+        private final DisplayMode key;
+
+        public DisplayRadioButton(DisplayMode nameKey, String text) {
+            super(text);
+            this.key = nameKey;
+        }
+
+        public DisplayMode getKey() {
             return key;
         }
     }

@@ -2,7 +2,7 @@ package ienaclone.gui.view;
 
 import java.util.LinkedList;
 
-import ienaclone.gui.view.DisplayView.StopBox.MODE;
+import ienaclone.gui.controller.DisplayController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -20,11 +20,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class DisplayView extends AbstractView {
+public class OnPlatformDisplayView extends AbstractView {
     private final Stage main;
+    private final DisplayController controller;
+    private Label timeLabel, platformNumLabel;
 
-    public DisplayView(Stage main) {
+    public OnPlatformDisplayView(Stage main, DisplayController c) {
         this.main = main;
+        this.controller = c;
+        controller.setView(this);
     }
 
     @Override
@@ -117,24 +121,43 @@ public class DisplayView extends AbstractView {
 
         main.setScene(scene);
         main.show();
+
+        controller.firstLoad();
     }
     
+    public Stage getMain() {
+        return main;
+    }
+
+    public Label getTimeLabel() {
+        return timeLabel;
+    }
+
+    public Label getPlatformNumLabel() {
+        return platformNumLabel;
+    }
+
     public class JourneyBox extends VBox {
+        private Image lineIcon;
+        private Label pages, destination, status, mission;
+        private AllStopsBox allStopsBox;
+
         public JourneyBox() {
             Label trainLen = new Label ("Train Long");
             trainLen.getStyleClass().add("train-length");
 
             // LEFT
 
-            Image lineImage = new Image(
-                DashboardView.class.getResourceAsStream("icon/E.png"));
+            // TODO : mettre une image par défaut
+            lineIcon = new Image( 
+                DashboardView.class.getResourceAsStream("icon/A.png")); 
             
-            ImageView lineImageView = new ImageView();
-            lineImageView.setImage(lineImage);
-            lineImageView.setPreserveRatio(true);
-            lineImageView.setFitHeight(80);
+            ImageView lineIconView = new ImageView();
+            lineIconView.setImage(lineIcon);
+            lineIconView.setPreserveRatio(true);
+            lineIconView.setFitHeight(80);
 
-            Label pages = new Label("Page\n1/1");
+            pages = new Label("Page\n1/1");
             pages.getStyleClass().add("pages-label");
 
             VBox pagesBox = new VBox(pages);
@@ -142,18 +165,18 @@ public class DisplayView extends AbstractView {
             HBox.setHgrow(pagesBox, Priority.ALWAYS);
 
             VBox dataLeftBox = new VBox(8);
-            dataLeftBox.getChildren().addAll(lineImageView, pagesBox);
+            dataLeftBox.getChildren().addAll(lineIconView, pagesBox);
 
             // CENTER
 
-            Label destination = new Label("Tournan-en-Brie");
+            destination = new Label("Destination");
             destination.getStyleClass().add("destination-label");
 
             AnchorPane destinationPane = new AnchorPane();
             HBox.setHgrow(destinationPane, Priority.ALWAYS);
             destinationPane.getChildren().add(destination);
 
-            Label status = new Label("à quai");
+            status = new Label("0 min");
             status.getStyleClass().add("status-label");
 
             HBox destStatBox = new HBox();
@@ -161,7 +184,7 @@ public class DisplayView extends AbstractView {
             destStatBox.getChildren().addAll(destinationPane, status);
 
 
-            Label mission = new Label("TAVA");
+            mission = new Label("XXXX");
             mission.getStyleClass().add("mission-label");
 
             Label dessert = new Label("Dessert");
@@ -176,7 +199,87 @@ public class DisplayView extends AbstractView {
 
             // NEXT STATIONS
 
-            AllStopsBox allStopsBox = new AllStopsBox();
+            allStopsBox = new AllStopsBox();
+
+            VBox dataCenterBox = new VBox();
+            HBox.setHgrow(dataCenterBox, Priority.ALWAYS);
+            dataCenterBox.getChildren().addAll(destStatBox, missDessBox, allStopsBox);
+
+
+            ///////
+
+            HBox dataBox = new HBox(12);
+            VBox.setVgrow(dataBox, Priority.ALWAYS);
+            dataBox.getChildren().addAll(dataLeftBox, dataCenterBox);
+            dataBox.getStyleClass().add("data-box");
+
+            VBox backgroundBox = new VBox();
+            VBox.setVgrow(backgroundBox, Priority.ALWAYS);
+            backgroundBox.getStyleClass().add("background-box");
+            backgroundBox.getChildren().add(dataBox);
+
+            this.setAlignment(Pos.TOP_RIGHT);
+            this.getStyleClass().add("journey-box");
+            this.getChildren().addAll(trainLen, backgroundBox);
+        }
+
+        /* public JourneyBox() { // save
+            Label trainLen = new Label ("Train Long");
+            trainLen.getStyleClass().add("train-length");
+
+            // LEFT
+
+            lineIcon = new Image(
+                DashboardView.class.getResourceAsStream("icon/E.png"));
+            
+            ImageView lineIconView = new ImageView();
+            lineIconView.setImage(lineIcon);
+            lineIconView.setPreserveRatio(true);
+            lineIconView.setFitHeight(80);
+
+            pages = new Label("Page\n1/1");
+            pages.getStyleClass().add("pages-label");
+
+            VBox pagesBox = new VBox(pages);
+            pagesBox.setAlignment(Pos.CENTER);
+            HBox.setHgrow(pagesBox, Priority.ALWAYS);
+
+            VBox dataLeftBox = new VBox(8);
+            dataLeftBox.getChildren().addAll(lineIconView, pagesBox);
+
+            // CENTER
+
+            destination = new Label("Tournan-en-Brie");
+            destination.getStyleClass().add("destination-label");
+
+            AnchorPane destinationPane = new AnchorPane();
+            HBox.setHgrow(destinationPane, Priority.ALWAYS);
+            destinationPane.getChildren().add(destination);
+
+            status = new Label("à quai");
+            status.getStyleClass().add("status-label");
+
+            HBox destStatBox = new HBox();
+            destStatBox.getStyleClass().add("dest-stat-box");
+            destStatBox.getChildren().addAll(destinationPane, status);
+
+
+            mission = new Label("TAVA");
+            mission.getStyleClass().add("mission-label");
+
+            Label dessert = new Label("Dessert");
+            dessert.getStyleClass().add("dessert-label");
+
+            VBox dessertBox = new VBox();
+            dessertBox.setAlignment(Pos.CENTER);
+            dessertBox.getChildren().add(dessert);
+
+            HBox missDessBox = new HBox(10);
+            missDessBox.getChildren().addAll(mission, dessertBox);
+
+            // NEXT STATIONS
+
+            allStopsBox = new AllStopsBox();
 
             String[] sts = {"Rosa Parks", "Pantin", "Noisy-Le-Sec", "Val de Fontenay", "Villiers-P.Trév",
                             "Les Yvris Noisy-le-G", "Émerainv. Pontault", "Roissy-en-Brie",
@@ -212,7 +315,33 @@ public class DisplayView extends AbstractView {
             this.setAlignment(Pos.TOP_RIGHT);
             this.getStyleClass().add("journey-box");
             this.getChildren().addAll(trainLen, backgroundBox);
+        } */
+
+        public Image getLineIcon() {
+            return lineIcon;
         }
+
+        public Label getPages() {
+            return pages;
+        }
+
+        public Label getDestination() {
+            return destination;
+        }
+
+        public Label getStatus() {
+            return status;
+        }
+
+        public Label getMission() {
+            return mission;
+        }
+
+        public AllStopsBox getAllStopsBox() {
+            return allStopsBox;
+        }
+    
+        
     }
 
     public class AllStopsBox extends HBox {
@@ -274,7 +403,7 @@ public class DisplayView extends AbstractView {
         }
     }
 
-    public class StopBox extends HBox{
+    public class StopBox extends HBox {
         private String name;
         private String color;
 

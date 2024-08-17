@@ -1,17 +1,18 @@
 package ienaclone.prim;
 
 import java.util.ArrayList;
-import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;
 
 public class Parcer {
-    
+
     public static ArrayList<Stop> parseDirectionsFromData(ArrayList<Journey> data) {
         ArrayList<Stop> res = new ArrayList<>();
         for (var j : data) {
-            Stop tmp = new Stop(j.getDestinationRef(), j.getDestinationName());
+            Stop tmp = j.getDestination().get();
+            // TODO : que faire si pas de direction (possible ?)
+            if (tmp == null) continue;
             if (!res.contains(tmp)) res.add(tmp);
         }   
 
@@ -22,7 +23,7 @@ public class Parcer {
         ArrayList<String> res = new ArrayList<>();
 
         for (var j : data) {
-            String pltf = j.getArivalPlatform();
+            String pltf = j.getPlatform().orElse("N/A");
             if (!res.contains(pltf)) res.add(pltf);
         }   
 
@@ -33,7 +34,7 @@ public class Parcer {
         ArrayList<String> res = new ArrayList<>();
 
         for (var j : data) {
-            String miss = j.getMissionCode();
+            String miss = j.getMission().orElse("N/A");
             if (!res.contains(miss)) res.add(miss);
         }   
 
@@ -44,8 +45,7 @@ public class Parcer {
         ArrayList<Line> res = new ArrayList<>();
 
         for (var j : data) {
-            var allLines = AllLinesSingleton.getInstance();
-            var tmp = allLines.getLineByCode(j.getLineRef());
+            var tmp = j.getLine();
             if (tmp.isPresent()) {
                 if(!res.contains(tmp.get()))
                     res.add(tmp.get());

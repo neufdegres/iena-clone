@@ -1,22 +1,28 @@
 package ienaclone.util;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 public class JourneyBuilder {
-    public String destinationName, destinationRef;
-    public String journeyRef;
-    public String missionCode;
-    public String lineRef;
-    public String arrivalPlatform;
-    public String expectedArrivalTime, expectedDepartureTime;
+    public String ref;
+    public Line line;
+    public Stop destination;
+    public String mission;
+    public String platform;
+    public TimeStatus timeStatus;
+    public PlaceStatus placeStatus;
+    public LocalDateTime expectedArrivalTime, expectedDepartureTime;
+    public ArrayList<String> nextStations;
 
     public JourneyBuilder() {
-        this.destinationName = null;
-        this.destinationRef = null;
-        this.journeyRef = null;
-        this.missionCode = null;
-        this.lineRef = null;
-        this.arrivalPlatform = null;
+        this.line = null;
+        this.destination = null;
+        this.mission = null;
+        this.platform = null;
+        this.timeStatus = TimeStatus.UNKNOWN;
+        this.placeStatus = PlaceStatus.UNKNOWN;
         this.expectedArrivalTime = null;
         this.expectedDepartureTime = null;
+        this.nextStations = new ArrayList<>();
     }
-
 }

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.time.LocalDateTime;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
@@ -39,9 +40,13 @@ public class RequestsTest {
 
                 // System.out.println(c0.toString());
 
-                String expectedArrivalTime = "2024-03-09T20:13:27.000Z";
+                LocalDateTime expectedArrivalTime = LocalDateTime.parse("2024-03-09T21:13:27");
 
-                assertEquals(expectedArrivalTime, c0.getExpectedArrivalTime());
+                var actual = c0.getExpectedArrivalTime().orElse(null);
+
+                assertNotNull(actual);
+
+                assertEquals(expectedArrivalTime, actual);
             }
         } catch (IOException | URISyntaxException e) {
             assertFalse(true);

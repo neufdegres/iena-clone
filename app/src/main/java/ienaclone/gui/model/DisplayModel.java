@@ -7,14 +7,21 @@ import ienaclone.util.Stop;
 
 public class DisplayModel {
     private final Stop actualStop;
-    private ArrayList<Journey> journeys;
-    // private final ArrayList<Alerts> alerts;
-    private boolean isTestStopChecked;
+    private final ArrayList<Journey> journeys;
+    // TODO : private final ArrayList<Alerts> alerts;
+    private final boolean isTestStop;
+
 
     public DisplayModel(Stop st) {
         this.actualStop = st;
         this.journeys = new ArrayList<>();
-        this.isTestStopChecked = false;
+        this.isTestStop = false;
+    }
+
+    public DisplayModel(DisplaySettings st) {
+        this.actualStop = st.getSelected();
+        this.journeys = new ArrayList<>();
+        this.isTestStop = st.isTest();
     }
 
     public ArrayList<Journey> getJourneys() {
@@ -25,16 +32,8 @@ public class DisplayModel {
         return actualStop;
     }
 
-    public boolean isTestStopChecked() {
-        return isTestStopChecked;
-    }
-
-    public void setJourneys(ArrayList<Journey> journeys) {
-        this.journeys = journeys;
-    }
-
-    public void setTestStopChecked(boolean value) {
-        this.isTestStopChecked = value;
+    public boolean isTestStop() {
+        return isTestStop;
     }
 
 }

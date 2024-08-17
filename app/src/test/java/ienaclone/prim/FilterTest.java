@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
@@ -18,9 +19,9 @@ import ienaclone.util.Journey;
 
 public class FilterTest {
 
-    ArrayList<Journey> getTestJourneys() {
+    ArrayList<Journey> getTestJourneys(String filename) {
         try {
-            URL a = RequestsTest.class.getResource("chelles.json");
+            URL a = RequestsTest.class.getResource(filename);
             File file = new File(a.toURI());
 
             if (file.exists()){
@@ -41,7 +42,7 @@ public class FilterTest {
 
     @Test
     void testByDirection() {
-        var journeys = getTestJourneys();
+        var journeys = getTestJourneys("chelles.json");
 
         assertNotNull(journeys);
 
@@ -54,7 +55,7 @@ public class FilterTest {
 
     @Test
     void testByDirectionRef() {
-        var journeys = getTestJourneys();
+        var journeys = getTestJourneys("chelles.json");
 
         assertNotNull(journeys);
 
@@ -67,7 +68,7 @@ public class FilterTest {
 
     @Test
     void testByPlatform() {
-        var journeys = getTestJourneys();
+        var journeys = getTestJourneys("chelles.json");
 
         assertNotNull(journeys);
 
@@ -80,7 +81,7 @@ public class FilterTest {
 
     @Test
     void testByMission() {
-        var journeys = getTestJourneys();
+        var journeys = getTestJourneys("chelles.json");
 
         assertNotNull(journeys);
 
@@ -93,7 +94,7 @@ public class FilterTest {
 
     @Test
     void testByLine() {
-        var journeys = getTestJourneys();
+        var journeys = getTestJourneys("chelles.json");
 
         assertNotNull(journeys);
 
@@ -103,4 +104,78 @@ public class FilterTest {
 
         assertEquals(7, filtered.size());   
     }
+
+    @Test
+    void testRemoveAlreadyPassedTrainsCase1() {
+        /* 
+         *   cas milieu de journée
+         *   = `journeys` contient des passages déjà éffectés et à venir
+         */
+
+        var journeys = getTestJourneys("chelles.json");
+
+        assertNotNull(journeys);
+
+        LocalDateTime now = LocalDateTime.parse("2024-03-09T21:41:18");
+
+        var nextJourneys = Filter.removeAlreadyPassedTrains(journeys, now);
+
+        assertNotNull(nextJourneys);
+
+        for (var j : nextJourneys) {
+            System.out.println(j.getExpectedArrivalTime());
+        }
+
+        assertEquals(7, nextJourneys.size());
+    }
+
+    @Test
+    void testRemoveAlreadyPassedTrainsCase2() {
+        /* 
+         *   cas fin de journée
+         *   = `journeys` contient que des passages déjà éffectés
+         */
+
+        var journeys = getTestJourneys("chelles.json");
+
+        assertNotNull(journeys);
+
+        LocalDateTime now = LocalDateTime.parse("2024-03-09T23:00:00");
+
+        var nextJourneys = Filter.removeAlreadyPassedTrains(journeys, now);
+
+        assertNotNull(nextJourneys);
+
+        for (var j : nextJourneys) {
+            System.out.println(j.getExpectedArrivalTime());
+        }
+
+        assertEquals(0, nextJourneys.size());
+    }
+
+    @Test
+    void testRemoveAlreadyPassedTrainsCase3() {
+        /* 
+         *   cas début de journée
+         *   = `journeys` contient que des passages à venir
+         */
+
+        var journeys = getTestJourneys("chelles.json");
+
+        assertNotNull(journeys);
+
+        LocalDateTime now = LocalDateTime.parse("2024-03-09T19:00:00");
+
+        var nextJourneys = Filter.removeAlreadyPassedTrains(journeys, now);
+
+        assertNotNull(nextJourneys);
+
+        for (var j : nextJourneys) {
+            System.out.println(j.getExpectedArrivalTime());
+        }
+
+        assertEquals(11, nextJourneys.size());
+    }
+
+
 }

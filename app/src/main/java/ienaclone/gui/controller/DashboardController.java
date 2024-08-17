@@ -3,7 +3,9 @@ package ienaclone.gui.controller;
 import java.util.ArrayList;
 
 import ienaclone.gui.Window;
+import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.gui.model.DashboardModel;
+import ienaclone.gui.model.DisplaySettings;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
 import ienaclone.prim.Filter;
@@ -12,6 +14,7 @@ import ienaclone.prim.Requests;
 import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Files;
 import ienaclone.util.Journey;
+import ienaclone.util.Line;
 import ienaclone.util.Stop;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
@@ -50,10 +53,6 @@ public class DashboardController {
             resetCurrentValues();
         }
         
-    }
-
-    public void nextChecked(boolean isChecked) {
-        model.setNextStopChecked(isChecked);
     }
 
     public void modeSelected(String selected) {
@@ -107,12 +106,31 @@ public class DashboardController {
         model.setSelectedValue(selected);
     }
 
+    public void displayModeSelected(DisplayMode selected) {
+        model.setSelectedDisplayMode(selected);
+    }
+
     public void displayPressed() {
         if (model.getCurrentStop() == null) return;
-        // System.out.println();
-        // displayOnTerminal();
-        Window.openDisplayWindow(model.getCurrentStop(),
-                model.getSelectedFilter(), model.isTestStopChecked());
+        System.out.println();
+        displayOnTerminal(getTotalNbOfTrains());
+        var settings = new DisplaySettings();
+        settings.setSelected(model.getCurrentStop());
+        settings.setFilter(model.getSelectedFilter());
+        settings.setTest(model.isTestStopChecked());
+        settings.setMode(model.getSelectedDisplayMode());
+        Window.openDisplayWindow(settings);
+    }
+    
+    private int getTotalNbOfTrains() {
+        switch (model.getSelectedDisplayMode()) {
+            case ON_PLATFORM_1_TRAIN:
+                return 1;
+            case ON_PLATFORM_3_TRAINS:
+                return 3;
+            case OUT_OF_PLATFORM:
+        }
+        return 999;
     }
 
     public void loadStops() {
@@ -168,9 +186,10 @@ public class DashboardController {
                         if (model.isTestStopChecked()) { // pour tester si il n'y pas de trains (ex: la nuit)
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
+                            ArrayList<Journey> allJourneys;
                             var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
                             if (rep.containsKey("data")) {
-                                nextJourneys = rep.get("data");
+                                allJourneys = rep.get("data");
                             } else {
                                 Platform.runLater(() -> {
                                     if (rep.containsKey("error_internet")) {
@@ -186,6 +205,8 @@ public class DashboardController {
                                 });
                                 return null;
                             }
+
+                            nextJourneys = Filter.removeAlreadyPassedTrains(allJourneys, null);
                         }
 
                         model.setJourneys(nextJourneys);
@@ -259,28 +280,39 @@ public class DashboardController {
 
 
     // TODO : temporaire !!
-    public void displayOnTerminal() {
+    public void displayOnTerminal(int total) {
         ArrayList<Journey> journeys = applySelectedFilter();
 
         int i = 1;
         for (var j : journeys) {
             StringBuilder sb = new StringBuilder();
             sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
+            sb.append("Ref : ").append(j.getRef()).append("\n");
             sb.append("Ligne : ");
-            var ligne = AllLinesSingleton.getInstance().getLineByCode(j.getLineRef());
+            var ligne = AllLinesSingleton.getInstance().getLineByCode(
+                    j.getLine().orElse(new Line("N/A")).getCode());
             if (ligne.isPresent()) {
                 sb.append(ligne.get().getName()).append("\n");
             } else {
                 sb.append("N/A").append("\n");
             }
-            sb.append("Nom de la mission : ").append(j.getMissionCode()).append("\n");
-            sb.append("Direction : ").append(j.getDestinationName()).append("\n");
-            sb.append("Quai : ").append(j.getArivalPlatform()).append("\n");
-            sb.append("Heure d'arrivée estimée : ").append(j.getExpectedArrivalTime()).append("\n");
-            sb.append("Heure de départ estimée : ").append(j.getExpectedDepartureTime()).append("\n");
+            sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");
+            sb.append("Direction : ").append(j.getDestination().orElse(new Stop()).getName()).append("\n");
+            sb.append("Quai : ").append(j.getPlatform().orElse("N/A")).append("\n");
+            sb.append("Heure d'arrivée estimée : ");
+            if (j.getExpectedArrivalTime().isPresent())
+                sb.append(j.getExpectedArrivalTime().get()).append("\n");
+            else
+                sb.append("N/A").append("\n");
+            sb.append("Heure de départ estimée : ");
+            if (j.getExpectedDepartureTime().isPresent())
+                sb.append(j.getExpectedDepartureTime().get()).append("\n");
+            else
+                sb.append("N/A").append("\n");
 
             System.out.println(sb.toString());
             i++;
+            if (i > total) break;
         }
     }
 }

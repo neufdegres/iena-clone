@@ -10,7 +10,7 @@ Pour le moment, les résultats s'affichent uniquement dans le terminal.
 
 Pour pouvoir récupérer les données de l'API d'Île-de-France Mobilité (nommée PRIM), vous devez initialiser une variable d'environnement nommée `prim_api`
 dans votre terminal, ayant pour valeur votre propre clé d'API obtenue en créant un compte sur le site de [PRIM](https://prim.iledefrance-mobilites.fr),
-puis en allant dans [cette section](https://prim.iledefrance-mobilites.fr/fr/mes-jetons-authentification). 
+puis en allant dans [cette section](https://prim.iledefrance-mobilites.fr/fr/mes-jetons-authentification).
 
 Sinon, vous pouvez toujours tester le logiciel avec des données de test pré-chargées, sélectionnable depuis le tableau de bord (voir section suivante).
 

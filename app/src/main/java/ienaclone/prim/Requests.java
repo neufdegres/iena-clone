@@ -1,9 +1,7 @@
 package ienaclone.prim;
 
-import java.io.IOException;
 import java.net.ConnectException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -15,6 +13,9 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import ienaclone.util.Line;
+import ienaclone.util.Stop;
+import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
 
@@ -50,7 +51,7 @@ public class Requests {
             res.put("error_internet", null);
         } catch (NoApiKeyException e) {
             res.put("error_apikey", null);
-        } catch (URISyntaxException | IOException | InterruptedException e) {    
+        } catch (Exception e) { 
             res.put("error_else", null);
         }
         
@@ -71,20 +72,83 @@ public class Requests {
 
             if (mvj == null) continue;
 
-            bld.destinationName = (String) getJsonValue(mvj, "DestinationName#0>value:String");
-            bld.destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
-            bld.journeyRef = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
-            bld.missionCode = (String) getJsonValue(mvj, "JourneyNote#0>value:String");
-            bld.lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
+            var destinationName = (String) getJsonValue(mvj, "DestinationName#0>value:String");
+            var destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
+            bld.destination = new Stop(destinationRef, destinationName);
+
+            bld.ref = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
+            bld.mission = (String) getJsonValue(mvj, "JourneyNote#0>value:String");
+            
+            var lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
+            bld.line = new Line(lineRef);
             
             var mc = mvj.getJSONObject("MonitoredCall");
             if (mc == null) continue;
 
-            bld.arrivalPlatform = (String) getJsonValue(mc, "ArrivalPlatformName>value:String");
-            bld.expectedArrivalTime = (String) getJsonValue(mc, "ExpectedArrivalTime:String");
-            bld.expectedDepartureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
+            bld.platform = (String) getJsonValue(mc, "ArrivalPlatformName>value:String");
+            
+            var arrivalTime = (String) getJsonValue(mc, "ExpectedArrivalTime:String");
+            bld.expectedArrivalTime = Functions.getDateTime(arrivalTime).orElse(null);
+            
+            var departureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
+            bld.expectedDepartureTime = Functions.getDateTime(departureTime).orElse(null);
 
             res.add(new Journey(bld));
+        }
+
+        return res;
+    }
+
+    public static HashMap<String, Object> getJourneyStopsData(String ref) {
+        HashMap<String, ArrayList<Journey>> res = new HashMap<>();
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        String url = HOST + "/marketplace/v2/navitia/vehicle_journeys/"
+                     + ref + "?disable_disruption=true";
+
+        try {
+            if (API_KEY == null) throw new NoApiKeyException();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                .header("Accept", "application/json")
+                .header("apikey", API_KEY)
+                .uri(new URI(url))
+                .GET()
+                .build();
+
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+
+            final JSONObject jsonRep = new JSONObject(response.body());
+
+            // res.put("data", parseNextJourneys(jsonRep));
+
+            // TODO !!!
+
+        } catch (ConnectException e1) {
+            res.put("error_internet", null);
+        } catch (NoApiKeyException e) {
+            res.put("error_apikey", null);
+        } catch (Exception e) {    
+            res.put("error_else", null);
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Object> parseJourneyStopsData(JSONObject json) {
+        ArrayList<Object> res = new ArrayList<>();
+        
+        var stops = (JSONArray) getJsonValue(json, "vehicle_journey#0>stop_times:Array"); 
+
+        boolean isSkippedStop = false;
+
+        for(int i=0; i<stops.length(); i++) {
+            isSkippedStop = (boolean) getJsonValue(json, "skipped_stop:boolean");
+
+            if (isSkippedStop) continue;
+
+            
         }
 
         return res;
