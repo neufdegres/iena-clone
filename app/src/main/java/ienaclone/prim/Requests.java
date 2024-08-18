@@ -105,8 +105,10 @@ public class Requests {
         return res;
     }
 
-    public static HashMap<String, Object> getJourneyStopsData(String ref) {
-        HashMap<String, ArrayList<Journey>> res = new HashMap<>();
+    // TODO : changer l'hashmap, pour un String quand tte les gares de Paris
+    // serons répertoiriées
+    public static HashMap<String, ArrayList<HashMap<String,String>>> getJourneyStopList(String ref) {
+        HashMap<String, ArrayList<HashMap<String,String>>> res = new HashMap<>();
 
         HttpClient client = HttpClient.newHttpClient();
 
@@ -127,9 +129,7 @@ public class Requests {
 
             final JSONObject jsonRep = new JSONObject(response.body());
 
-            // res.put("data", parseNextJourneys(jsonRep));
-
-            // TODO !!!
+            res.put("data", parseJourneyStopList(jsonRep));
 
         } catch (ConnectException e1) {
             res.put("error_internet", null);
@@ -139,22 +139,30 @@ public class Requests {
             res.put("error_else", null);
         }
 
-        return null;
+        return res;
     }
 
-    public static ArrayList<Object> parseJourneyStopsData(JSONObject json) {
-        ArrayList<Object> res = new ArrayList<>();
+    public static ArrayList<HashMap<String,String>> parseJourneyStopList(JSONObject json) {
+        ArrayList<HashMap<String,String>> res = new ArrayList<>();
         
-        var stops = (JSONArray) getJsonValue(json, "vehicle_journey#0>stop_times:Array"); 
+        var stops = (JSONArray) getJsonValue(json, "vehicle_journeys#0>stop_times:Array"); 
 
         boolean isSkippedStop = false;
 
         for(int i=0; i<stops.length(); i++) {
-            isSkippedStop = (boolean) getJsonValue(json, "skipped_stop:boolean");
+            var stopJson = stops.getJSONObject(i);
+            isSkippedStop = (boolean) getJsonValue(stopJson, "skipped_stop:boolean");
 
             if (isSkippedStop) continue;
 
-            
+            var stopRef = (String) getJsonValue(stopJson, "stop_point>codes#1>value:String");
+            var fareZone = (String) getJsonValue(stopJson, "stop_point>fare_zone>name:String");
+
+            var tmp = new HashMap<String, String>();
+            tmp.put("stopRef", stopRef);
+            tmp.put("fareZone", fareZone);
+
+            res.add(tmp);
         }
 
         return res;

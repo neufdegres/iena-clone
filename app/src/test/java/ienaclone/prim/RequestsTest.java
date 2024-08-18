@@ -52,4 +52,40 @@ public class RequestsTest {
             assertFalse(true);
         }
     }
+
+    @Test
+    void testParseJourneyStopList() {
+        try {
+            URL a = RequestsTest.class.getResource("E.json");
+            File file = new File(a.toURI());
+
+            if (file.exists()){
+                InputStream is;
+                is = new FileInputStream(file);
+                String jsonTxt = IOUtils.toString(is, "UTF-8");
+                
+                JSONObject json = new JSONObject(jsonTxt);
+
+                var stops = Requests.parseJourneyStopList(json);
+
+                assertNotNull(stops);
+
+                var s1 = stops.get(1);
+
+                assertNotNull(s1);
+
+                String expected = "41126"; // Magenta
+
+                String actual = s1.get("stopRef");
+
+                assertNotNull(actual);
+
+                assertEquals(expected, actual);
+
+                assertEquals("1", s1.get("fareZone"));
+            }
+        } catch (IOException | URISyntaxException e) {
+            assertFalse(true);
+        }
+    }
 }

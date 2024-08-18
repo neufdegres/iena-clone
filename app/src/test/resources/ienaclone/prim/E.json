@@ -1,0 +1,841 @@
+{
+    "pagination": {
+        "total_result": 1,
+        "start_page": 0,
+        "items_per_page": 25,
+        "items_on_page": 1
+    },
+    "feed_publishers": [
+        {
+            "id": "osm",
+            "name": "openstreetmap",
+            "url": "https://www.openstreetmap.org/copyright",
+            "license": "ODbL"
+        },
+        {
+            "id": "IDFM:transilien_netex",
+            "name": "transilien_netex",
+            "url": "",
+            "license": "private"
+        }
+    ],
+    "disruptions": [],
+    "context": {
+        "current_datetime": "20240818T002328",
+        "timezone": "Europe/Paris"
+    },
+    "vehicle_journeys": [
+        {
+            "id": "vehicle_journey:IDFM:TN:SNCF:4d201b92-e3b6-47f5-a665-b74f25e5d799",
+            "name": "116793",
+            "journey_pattern": {
+                "id": "journey_pattern:9193",
+                "name": "journey_pattern:9193"
+            },
+            "stop_times": [
+                {
+                    "arrival_time": "005810",
+                    "utc_arrival_time": "225810",
+                    "departure_time": "005810",
+                    "utc_departure_time": "225810",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:58718",
+                        "name": "Haussmann Saint-Lazare",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:58718"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41127"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471272"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471498"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472516"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472796"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:58718"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:58718:FR1"
+                            }
+                        ],
+                        "label": "Haussmann Saint-Lazare (Paris)",
+                        "coord": {
+                            "lon": "2.328646",
+                            "lat": "48.874999"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.328646;48.874999",
+                            "name": "Rue de Caumartin",
+                            "house_number": 60,
+                            "coord": {
+                                "lon": "2.328646",
+                                "lat": "48.874999"
+                            },
+                            "label": "60 Rue de Caumartin (Paris)"
+                        },
+                        "fare_zone": {
+                            "name": "1"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": false,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "010120",
+                    "utc_arrival_time": "230120",
+                    "departure_time": "010210",
+                    "utc_departure_time": "230210",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:58572",
+                        "name": "Magenta",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:58572"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41126"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471721"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471917"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472036"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472124"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:58572"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:58572:FR1"
+                            }
+                        ],
+                        "label": "Magenta (Paris)",
+                        "coord": {
+                            "lon": "2.358696",
+                            "lat": "48.88081"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.358696;48.88081",
+                            "name": "Rue Demarquay",
+                            "house_number": 13,
+                            "coord": {
+                                "lon": "2.358696",
+                                "lat": "48.88081"
+                            },
+                            "label": "13 Rue Demarquay (Paris)"
+                        },
+                        "fare_zone": {
+                            "name": "1"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "010500",
+                    "utc_arrival_time": "230500",
+                    "departure_time": "010550",
+                    "utc_departure_time": "230550",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:58498",
+                        "name": "Rosa Parks",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:58498"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "420316"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471119"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472747"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:58498"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:58498:FR1"
+                            }
+                        ],
+                        "label": "Rosa Parks (Paris)",
+                        "coord": {
+                            "lon": "2.373718",
+                            "lat": "48.896458"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.373718;48.896458",
+                            "name": "Rue Gaston Tessier",
+                            "house_number": 41,
+                            "coord": {
+                                "lon": "2.373718",
+                                "lat": "48.896458"
+                            },
+                            "label": "41 Rue Gaston Tessier (Paris)"
+                        },
+                        "fare_zone": {
+                            "name": "1"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "010810",
+                    "utc_arrival_time": "230810",
+                    "departure_time": "010900",
+                    "utc_departure_time": "230900",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:43176",
+                        "name": "Pantin",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:43176"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41011"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "470857"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471103"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471454"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471540"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472870"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472972"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "480227"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:43176"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:43176:FR1"
+                            }
+                        ],
+                        "label": "Pantin (Pantin)",
+                        "coord": {
+                            "lon": "2.401041",
+                            "lat": "48.897987"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.401041;48.897987",
+                            "name": "Avenue de la Gare",
+                            "house_number": 8,
+                            "coord": {
+                                "lon": "2.401041",
+                                "lat": "48.897987"
+                            },
+                            "label": "8 Avenue de la Gare (Pantin)"
+                        },
+                        "fare_zone": {
+                            "name": "2"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "011330",
+                    "utc_arrival_time": "231330",
+                    "departure_time": "011410",
+                    "utc_departure_time": "231410",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:44201",
+                        "name": "Noisy-le-Sec",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:44201"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41012"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471015"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471749"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472317"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472591"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472656"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472744"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472746"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472805"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:44201"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:44201:FR1"
+                            }
+                        ],
+                        "label": "Noisy-le-Sec (Noisy-le-Sec)",
+                        "coord": {
+                            "lon": "2.459198",
+                            "lat": "48.896663"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.459198;48.896663",
+                            "name": "Rue de la Gare",
+                            "house_number": 6,
+                            "coord": {
+                                "lon": "2.459198",
+                                "lat": "48.896663"
+                            },
+                            "label": "6 Rue de la Gare (Noisy-le-Sec)"
+                        },
+                        "fare_zone": {
+                            "name": "3"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "011600",
+                    "utc_arrival_time": "231600",
+                    "departure_time": "011640",
+                    "utc_departure_time": "231640",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:43096",
+                        "name": "Bondy",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:43096"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41013"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "470990"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471881"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472144"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472644"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472881"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "473020"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:43096"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:43096:FR1"
+                            }
+                        ],
+                        "label": "Bondy (Bondy)",
+                        "coord": {
+                            "lon": "2.47958",
+                            "lat": "48.893966"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.47958;48.893966",
+                            "name": "Route de Villemomble",
+                            "house_number": 20,
+                            "coord": {
+                                "lon": "2.47958",
+                                "lat": "48.893966"
+                            },
+                            "label": "20 Route de Villemomble (Bondy)"
+                        },
+                        "fare_zone": {
+                            "name": "3"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "011920",
+                    "utc_arrival_time": "231920",
+                    "departure_time": "012000",
+                    "utc_departure_time": "232000",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:47901",
+                        "name": "Le Raincy - Villemomble - Montfermeil",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:47901"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41014"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471874"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471977"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472187"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472799"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:47901"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:47901:FR1"
+                            }
+                        ],
+                        "label": "Le Raincy - Villemomble - Montfermeil (Villemomble)",
+                        "coord": {
+                            "lon": "2.513061",
+                            "lat": "48.888854"
+                        },
+                        "links": [],
+                        "equipments": [],
+                        "address": {
+                            "id": "2.513061;48.888854",
+                            "name": "Boulevard Carnot",
+                            "house_number": 14,
+                            "coord": {
+                                "lon": "2.513061",
+                                "lat": "48.888854"
+                            },
+                            "label": "14 Boulevard Carnot (Villemomble)"
+                        },
+                        "fare_zone": {
+                            "name": "4"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "012130",
+                    "utc_arrival_time": "232130",
+                    "departure_time": "012210",
+                    "utc_departure_time": "232210",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:43044",
+                        "name": "Gagny",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:43044"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41015"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "470639"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "470927"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471596"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471685"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:43044"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:43044:FR1"
+                            }
+                        ],
+                        "label": "Gagny (Gagny)",
+                        "coord": {
+                            "lon": "2.525405",
+                            "lat": "48.883729"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.525405;48.883729",
+                            "name": "Rue Clemenceau",
+                            "house_number": 0,
+                            "coord": {
+                                "lon": "2.525405",
+                                "lat": "48.883729"
+                            },
+                            "label": "Rue Clemenceau (Gagny)"
+                        },
+                        "fare_zone": {
+                            "name": "4"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "012420",
+                    "utc_arrival_time": "232420",
+                    "departure_time": "012500",
+                    "utc_departure_time": "232500",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:43127",
+                        "name": "Le Chénay Gagny",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:43127"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41016"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471024"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472429"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472631"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472956"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:43127"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:43127:FR1"
+                            }
+                        ],
+                        "label": "Le Chénay Gagny (Gagny)",
+                        "coord": {
+                            "lon": "2.552772",
+                            "lat": "48.877159"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.552772;48.877159",
+                            "name": "Rue du Chemin de Fer",
+                            "house_number": 50,
+                            "coord": {
+                                "lon": "2.552772",
+                                "lat": "48.877159"
+                            },
+                            "label": "50 Rue du Chemin de Fer (Gagny)"
+                        },
+                        "fare_zone": {
+                            "name": "4"
+                        }
+                    },
+                    "pickup_allowed": true,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                },
+                {
+                    "arrival_time": "012720",
+                    "utc_arrival_time": "232720",
+                    "departure_time": "012720",
+                    "utc_departure_time": "232720",
+                    "headsign": "COHI",
+                    "stop_point": {
+                        "id": "stop_point:IDFM:monomodalStopPlace:58879",
+                        "name": "Chelles - Gournay",
+                        "codes": [
+                            {
+                                "type": "netex_monomodal_stopplace",
+                                "value": "monomodalStopPlace:58879"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "41039"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471173"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "471788"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472240"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "472324"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "480224"
+                            },
+                            {
+                                "type": "netex_zder_quay",
+                                "value": "monomodalStopPlace:58879"
+                            },
+                            {
+                                "type": "source",
+                                "value": "FR::monomodalStopPlace:58879:FR1"
+                            }
+                        ],
+                        "label": "Chelles - Gournay (Chelles)",
+                        "coord": {
+                            "lon": "2.583381",
+                            "lat": "48.874119"
+                        },
+                        "links": [],
+                        "equipments": [
+                            "has_wheelchair_boarding"
+                        ],
+                        "address": {
+                            "id": "2.583381;48.874119",
+                            "name": "Allée Alexis Legrand",
+                            "house_number": 0,
+                            "coord": {
+                                "lon": "2.583381",
+                                "lat": "48.874119"
+                            },
+                            "label": "Allée Alexis Legrand (Chelles)"
+                        },
+                        "fare_zone": {
+                            "name": "4"
+                        }
+                    },
+                    "pickup_allowed": false,
+                    "drop_off_allowed": true,
+                    "skipped_stop": false
+                }
+            ],
+            "codes": [
+                {
+                    "type": "source",
+                    "value": "SNCF:ServiceJourney:4d201b92-e3b6-47f5-a665-b74f25e5d799:LOC"
+                }
+            ],
+            "validity_pattern": {
+                "beginning_date": "20240813",
+                "days": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000"
+            },
+            "calendars": [
+                {
+                    "week_pattern": {
+                        "monday": false,
+                        "tuesday": false,
+                        "wednesday": false,
+                        "thursday": false,
+                        "friday": false,
+                        "saturday": true,
+                        "sunday": false
+                    },
+                    "active_periods": [
+                        {
+                            "begin": "20240817",
+                            "end": "20240818"
+                        }
+                    ]
+                }
+            ],
+            "trip": {
+                "id": "IDFM:TN:SNCF:4d201b92-e3b6-47f5-a665-b74f25e5d799",
+                "name": "116793"
+            },
+            "disruptions": [],
+            "headsign": "COHI"
+        }
+    ],
+    "links": [
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/stop_points/{stop_point.id}",
+            "templated": true,
+            "rel": "stop_points",
+            "type": "stop_point"
+        },
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/trips/{trip.id}",
+            "templated": true,
+            "rel": "trips",
+            "type": "trip"
+        },
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/addresses/{address.id}",
+            "templated": true,
+            "rel": "addresses",
+            "type": "address"
+        },
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/journey_patterns/{journey_pattern.id}",
+            "templated": true,
+            "rel": "journey_patterns",
+            "type": "journey_pattern"
+        },
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/vehicle_journeys/{vehicle_journeys.id}",
+            "templated": true,
+            "rel": "vehicle_journeys",
+            "type": "vehicle_journeys"
+        },
+        {
+            "href": "https://api-idfm.navitia.io/v1/coverage/idfm/vehicle_journeys/vehicle_journey:IDFM:TN:SNCF:4d201b92-e3b6-47f5-a665-b74f25e5d799?disable_disruption=true",
+            "type": "first",
+            "templated": false
+        }
+    ]
+}

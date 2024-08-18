@@ -12,6 +12,7 @@ import ienaclone.prim.Filter;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
 import ienaclone.util.AllLinesSingleton;
+import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Files;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
@@ -141,7 +142,7 @@ public class DashboardController {
 
                     @Override
                     protected Void call() throws Exception {
-                        var stops = Files.getAllStops();
+                        var stops = AllStopsSingleton.getInstance().getItems();
                         model.setStops(stops);
                         var stopNames = getNameFromStops(stops);
 
