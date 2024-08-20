@@ -14,7 +14,7 @@ public class Journey {
     private PlaceStatus placeStatus;
     private Optional<LocalDateTime> expectedArrivalTime, expectedDepartureTime;
     private Optional<LocalDateTime> aimedArrivalTime, aimedDepartureTime;
-    private ArrayList<String> nextStations;
+    private ArrayList<Stop> nextStations;
 
     public Journey(JourneyBuilder builder) {
         assert(builder.ref != null);
@@ -77,7 +77,7 @@ public class Journey {
         return aimedDepartureTime;
     }
 
-    public ArrayList<String> getNextStations() {
+    public ArrayList<Stop> getNextStations() {
         return nextStations;
     }
 
@@ -121,7 +121,7 @@ public class Journey {
         this.aimedDepartureTime = aimedDepartureTime;
     }
 
-    public void setNextStations(ArrayList<String> nextStations) {
+    public void setNextStations(ArrayList<Stop> nextStations) {
         this.nextStations = nextStations;
     }
 

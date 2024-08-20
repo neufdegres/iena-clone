@@ -7,6 +7,7 @@ import ienaclone.gui.model.DisplayModel;
 import ienaclone.gui.model.DisplaySettings;
 import ienaclone.gui.view.AbstractView;
 import ienaclone.gui.view.DashboardView;
+import ienaclone.gui.view.DisplayView;
 import ienaclone.gui.view.OnPlatformDisplayView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,7 +15,6 @@ import javafx.stage.Stage;
 public class Window extends Application {
     public static Stage main;
     private static AbstractView view;
-    public static OnPlatformDisplayView displayView;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,10 +38,12 @@ public class Window extends Application {
         stage.setMinHeight(720);
         stage.setResizable(false); // pour le moment
         var model = new DisplayModel(settings);
+        var controller = new DisplayController(model);
         switch (settings.getMode()) {
             case ON_PLATFORM_1_TRAIN:
-                displayView = new OnPlatformDisplayView(stage, new DisplayController(model));
-                displayView.display();
+                view = new OnPlatformDisplayView(stage, controller);
+                controller.setView((DisplayView)view);
+                view.display();
                 break;
             case ON_PLATFORM_3_TRAINS:
                 break;

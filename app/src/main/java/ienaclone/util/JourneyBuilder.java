@@ -13,7 +13,7 @@ public class JourneyBuilder {
     public PlaceStatus placeStatus;
     public LocalDateTime expectedArrivalTime, expectedDepartureTime;
     public LocalDateTime aimedArrivalTime, aimedDepartureTime;
-    public ArrayList<String> nextStations;
+    public ArrayList<Stop> nextStations;
 
     public JourneyBuilder() {
         this.line = null;

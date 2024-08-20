@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import ienaclone.util.Stop;
 import ienaclone.util.AllLinesSingleton;
+import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
@@ -72,11 +72,12 @@ public class Requests {
 
             if (mvj == null) continue;
 
-            var destinationName = (String) getJsonValue(mvj, "DestinationName#0>value:String");
             var destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
-            bld.destination = new Stop(destinationRef, destinationName);
+            bld.destination = AllStopsSingleton.getInstance() // TODO
+                                .getStopByCode(destinationRef).orElse(null);
 
-            bld.ref = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
+            var refRaw = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
+            bld.ref = getJourneyRef(refRaw);
             bld.mission = (String) getJsonValue(mvj, "JourneyNote#0>value:String");
             
             var lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
@@ -105,10 +106,8 @@ public class Requests {
         return res;
     }
 
-    // TODO : changer l'hashmap, pour un String quand tte les gares de Paris
-    // serons répertoiriées
-    public static HashMap<String, ArrayList<HashMap<String,String>>> getJourneyStopList(String ref) {
-        HashMap<String, ArrayList<HashMap<String,String>>> res = new HashMap<>();
+    public static HashMap<String, ArrayList<String>> getJourneyStopList(String ref) {
+        HashMap<String, ArrayList<String>> res = new HashMap<>();
 
         HttpClient client = HttpClient.newHttpClient();
 
@@ -137,13 +136,14 @@ public class Requests {
             res.put("error_apikey", null);
         } catch (Exception e) {    
             res.put("error_else", null);
+            e.printStackTrace();
         }
 
         return res;
     }
 
-    public static ArrayList<HashMap<String,String>> parseJourneyStopList(JSONObject json) {
-        ArrayList<HashMap<String,String>> res = new ArrayList<>();
+    public static ArrayList<String> parseJourneyStopList(JSONObject json) {
+        ArrayList<String> res = new ArrayList<>();
         
         var stops = (JSONArray) getJsonValue(json, "vehicle_journeys#0>stop_times:Array"); 
 
@@ -156,13 +156,8 @@ public class Requests {
             if (isSkippedStop) continue;
 
             var stopRef = (String) getJsonValue(stopJson, "stop_point>codes#1>value:String");
-            var fareZone = (String) getJsonValue(stopJson, "stop_point>fare_zone>name:String");
 
-            var tmp = new HashMap<String, String>();
-            tmp.put("stopRef", stopRef);
-            tmp.put("fareZone", fareZone);
-
-            res.add(tmp);
+            res.add(stopRef);
         }
 
         return res;
@@ -203,6 +198,11 @@ public class Requests {
             }
         }
         return null;
+    }
+
+    private static String getJourneyRef(String raw) {
+        var tab = raw.split(":");
+        return "vehicle_journey:IDFM:TN:SNCF:" + tab[3];
     }
 
     private static boolean isNumber(String s) {

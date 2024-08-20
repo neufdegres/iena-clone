@@ -1,8 +1,9 @@
 package ienaclone.gui.view;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.time.LocalDateTime;
 
-import ienaclone.gui.controller.DisplayController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -20,10 +21,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class OnPlatformDisplayView extends AbstractView {
+import ienaclone.gui.controller.DisplayController;
+import ienaclone.gui.view.OnPlatformDisplayView.StopBox.MODE;
+import ienaclone.util.Journey;
+
+public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
     private final DisplayController controller;
     private Label timeLabel, platformNumLabel;
+    private JourneyBox journeyBox;
 
     public OnPlatformDisplayView(Stage main, DisplayController c) {
         this.main = main;
@@ -37,7 +43,7 @@ public class OnPlatformDisplayView extends AbstractView {
 
         // l'heure
 
-        Label timeLabel = new Label("20:20");
+        timeLabel = new Label("20:20");
         timeLabel.getStyleClass().add("time-label");
 
         VBox timeBox = new VBox();
@@ -87,7 +93,7 @@ public class OnPlatformDisplayView extends AbstractView {
         Label platformLabel = new Label("Voie");
         platformLabel.getStyleClass().add("platform-label");
 
-        Label platformNumLabel = new Label("51");
+        platformNumLabel = new Label("51");
         platformNumLabel.getStyleClass().add("platform-num-label");
 
         HBox platformBox = new HBox(5);
@@ -99,7 +105,7 @@ public class OnPlatformDisplayView extends AbstractView {
 
         // RIGHT-BODY
 
-        JourneyBox journeyBox = new JourneyBox();
+        journeyBox = new JourneyBox();
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
         ///
@@ -120,7 +126,7 @@ public class OnPlatformDisplayView extends AbstractView {
         scene.getStylesheets().add("/ienaclone/gui/view/display.css");
 
         main.setScene(scene);
-        main.show();
+        // main.show();
 
         controller.firstLoad();
     }
@@ -137,8 +143,95 @@ public class OnPlatformDisplayView extends AbstractView {
         return platformNumLabel;
     }
 
-    public class JourneyBox extends VBox {
-        private Image lineIcon;
+    @Override
+    public void updateView(ArrayList<Journey> journeys) {
+        Journey actual = journeys.get(0);
+
+        // nom de la voie
+        platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
+
+        // TODO : vérifier si terminus
+
+        // pictogramme
+        var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
+        Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
+        journeyBox.getLineIconView().setImage(img);
+
+        // destination
+        journeyBox.getDestination().setText(
+            actual.getDestination().map(d -> d.getName()).orElse("Non renseigné")
+        );
+
+        // code mission
+        journeyBox.getMission().setText(actual.getMission().orElse("XXXX"));
+
+        // temps d'attente
+        // TODO
+
+        // liste des gares
+        var stops = actual.getNextStations();
+        var stopsBox = journeyBox.getAllStopsBox();
+
+        if (stops.isEmpty()) return;
+
+        boolean currentlyInParis = false;
+
+        var color = actual.getLine().map(l -> l.getColor()).orElse("797979");
+
+        int len = stops.size();
+
+        for (int i=0; i<len; i++) {
+            var st = stops.get(i);
+            var name = st.getName();
+
+            // System.out.println(name + " " + st.isParis());
+
+            if (i == 0) { // le premier item
+                if (st.isParis()) {
+                    stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_DEBUT));
+                    currentlyInParis = true;
+                } else {
+                    stopsBox.addStop(new StopBox("", color, MODE.NORMAL_DEBUT));
+                }
+            } 
+
+            if (i+1 == len) { // le terminus
+                if (currentlyInParis) {
+                    stopsBox.addStop(new StopBox(name, color, MODE.PARIS_BOTTOM_TERMINUS));
+                } else {
+                    stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_TERMINUS));
+                }
+
+            } else { 
+                if (currentlyInParis) {
+                    if (stops.get(i+1).isParis()) {
+                        stopsBox.addStop(new StopBox(name, color, MODE.PARIS_MIDDLE));
+                    } else {
+                        stopsBox.addStop(new StopBox(name, color, MODE.PARIS_BOTTOM_MIDDLE));
+                        currentlyInParis = false;
+                    }
+                } else {
+                    if (st.isParis()) {
+                        stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_MIDDLE));
+                        stopsBox.addStop(new StopBox(name, color, MODE.PARIS_MIDDLE));
+                        currentlyInParis = true;
+                    } else {
+                        stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_MIDDLE));
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    @Override
+    public void updateTime(LocalDateTime now) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'updateTime'");
+    }
+
+    class JourneyBox extends VBox {
+        private ImageView lineIconView;
         private Label pages, destination, status, mission;
         private AllStopsBox allStopsBox;
 
@@ -148,11 +241,10 @@ public class OnPlatformDisplayView extends AbstractView {
 
             // LEFT
 
-            // TODO : mettre une image par défaut
-            lineIcon = new Image( 
-                DashboardView.class.getResourceAsStream("icon/A.png")); 
+            Image lineIcon = new Image( 
+                DisplayView.class.getResourceAsStream("icon/0.png")); 
             
-            ImageView lineIconView = new ImageView();
+            lineIconView = new ImageView();
             lineIconView.setImage(lineIcon);
             lineIconView.setPreserveRatio(true);
             lineIconView.setFitHeight(80);
@@ -317,8 +409,8 @@ public class OnPlatformDisplayView extends AbstractView {
             this.getChildren().addAll(trainLen, backgroundBox);
         } */
 
-        public Image getLineIcon() {
-            return lineIcon;
+        public ImageView getLineIconView() {
+            return lineIconView;
         }
 
         public Label getPages() {
@@ -344,7 +436,7 @@ public class OnPlatformDisplayView extends AbstractView {
         
     }
 
-    public class AllStopsBox extends HBox {
+    class AllStopsBox extends HBox {
         private final LinkedList<StopsPageBox> pages;
         private int currentPage;
 
@@ -378,7 +470,7 @@ public class OnPlatformDisplayView extends AbstractView {
         }
     }
 
-    public class StopsPageBox extends HBox {
+    class StopsPageBox extends HBox {
         private VBox left, right;
 
         public StopsPageBox() {
@@ -403,7 +495,7 @@ public class OnPlatformDisplayView extends AbstractView {
         }
     }
 
-    public class StopBox extends HBox {
+    class StopBox extends HBox {
         private String name;
         private String color;
 
@@ -451,7 +543,9 @@ public class OnPlatformDisplayView extends AbstractView {
                     res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_TOP_MIDDLE:
+                    bg = getParisTopBg();
                     line = getMiddleLineDesign();
+                    res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_MIDDLE:
@@ -467,7 +561,9 @@ public class OnPlatformDisplayView extends AbstractView {
                     res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_BOTTOM_TERMINUS:
+                    bg = getParisBottomBg();
                     line = getTerminusLineDesign();
+                    res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
             }

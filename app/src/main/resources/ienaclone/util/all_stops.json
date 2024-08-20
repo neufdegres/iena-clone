@@ -3,6 +3,7 @@
 		{
 			"nom": "Ablon",
 			"code": "41311",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -10,6 +11,7 @@
 		{
 			"nom": "Achères Grand Cormier",
 			"code": "411358",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -18,6 +20,7 @@
 		{
 			"nom": "Achères Ville",
 			"code": "41528",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -26,6 +29,7 @@
 		{
 			"nom": "Andrésy",
 			"code": "41149",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -33,6 +37,7 @@
 		{
 			"nom": "Argenteuil",
 			"code": "41166",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -40,6 +45,7 @@
 		{
 			"nom": "Arpajon",
 			"code": "41318",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -47,6 +53,7 @@
 		{
 			"nom": "Asnières",
 			"code": "41138",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -55,6 +62,7 @@
 		{
 			"nom": "Athis Mons",
 			"code": "41310",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -62,6 +70,7 @@
 		{
 			"nom": "Aubergenville Elisabethville",
 			"code": "41201",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -69,6 +78,7 @@
 		{
 			"nom": "Aulnay-Sous-Bois",
 			"code": "411410",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -76,6 +86,7 @@
 		{
 			"nom": "Austerlitz",
 			"code": "41333",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -83,6 +94,7 @@
 		{
 			"nom": "Auvers sur Oise",
 			"code": "41112",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -90,6 +102,7 @@
 		{
 			"nom": "Avenue Foch",
 			"code": "41132",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -97,6 +110,7 @@
 		{
 			"nom": "Avenue Henri Martin",
 			"code": "41133",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -104,6 +118,7 @@
 		{
 			"nom": "Avenue du Président Kennedy",
 			"code": "41295",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -111,6 +126,7 @@
 		{
 			"nom": "Bagneaux sur Loing",
 			"code": "41392",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -118,6 +134,7 @@
 		{
 			"nom": "Ballancourt",
 			"code": "41350",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -125,6 +142,7 @@
 		{
 			"nom": "Becon les Bruyères",
 			"code": "41171",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -133,6 +151,7 @@
 		{
 			"nom": "Bellevue",
 			"code": "41215",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -140,6 +159,7 @@
 		{
 			"nom": "Belloy Saint-Martin",
 			"code": "41113",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -147,6 +167,7 @@
 		{
 			"nom": "Bessancourt",
 			"code": "41121",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -154,6 +175,7 @@
 		{
 			"nom": "Beynes",
 			"code": "41231",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -161,6 +183,7 @@
 		{
 			"nom": "Bibliothèque François Mitterrand",
 			"code": "41128",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -168,6 +191,7 @@
 		{
 			"nom": "Bièvres",
 			"code": "41242",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -175,6 +199,7 @@
 		{
 			"nom": "Boigneville",
 			"code": "41395",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -182,6 +207,7 @@
 		{
 			"nom": "Bois Colombes",
 			"code": "41134",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -189,6 +215,7 @@
 		{
 			"nom": "Bois le Roi",
 			"code": "41371",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -196,6 +223,7 @@
 		{
 			"nom": "Boissise le Roi",
 			"code": "41386",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -204,6 +232,7 @@
 		{
 			"nom": "Boissy l'Aillerie",
 			"code": "41140",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -211,6 +240,7 @@
 		{
 			"nom": "Bondy",
 			"code": "41013",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -219,6 +249,7 @@
 		{
 			"nom": "Bonnières",
 			"code": "41290",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -226,6 +257,7 @@
 		{
 			"nom": "Boran sur Oise",
 			"code": "411331",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -233,6 +265,7 @@
 		{
 			"nom": "Bouffémont Moisselles",
 			"code": "41106",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -240,6 +273,7 @@
 		{
 			"nom": "Bougival",
 			"code": "41183",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -247,6 +281,7 @@
 		{
 			"nom": "Boulainvilliers",
 			"code": "41294",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -254,6 +289,7 @@
 		{
 			"nom": "Bouray",
 			"code": "41302",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -261,6 +297,7 @@
 		{
 			"nom": "Bourron Marlotte Grez",
 			"code": "41390",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -268,6 +305,7 @@
 		{
 			"nom": "Boussy Saint-Antoine",
 			"code": "41365",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -276,6 +314,7 @@
 		{
 			"nom": "Boutigny",
 			"code": "41352",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -283,6 +322,7 @@
 		{
 			"nom": "Breuillet Bruyères le Chatel",
 			"code": "41320",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -290,6 +330,7 @@
 		{
 			"nom": "Breuillet Village",
 			"code": "41321",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -297,6 +338,7 @@
 		{
 			"nom": "Brunoy",
 			"code": "41364",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -305,6 +347,7 @@
 		{
 			"nom": "Bruyères sur Oise",
 			"code": "41104",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -312,6 +355,7 @@
 		{
 			"nom": "Brétigny",
 			"code": "41304",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -319,6 +363,7 @@
 		{
 			"nom": "Bréval",
 			"code": "41157",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -326,6 +371,7 @@
 		{
 			"nom": "Buno Gironville",
 			"code": "41354",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -333,6 +379,7 @@
 		{
 			"nom": "Cergy Le Haut",
 			"code": "40918",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -340,6 +387,7 @@
 		{
 			"nom": "Cergy Préfecture",
 			"code": "411352",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -347,6 +395,7 @@
 		{
 			"nom": "Cergy Saint-Christophe",
 			"code": "411368",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -354,6 +403,7 @@
 		{
 			"nom": "Cernay",
 			"code": "41086",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -362,6 +412,7 @@
 		{
 			"nom": "Cesson",
 			"code": "41368",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -370,6 +421,7 @@
 		{
 			"nom": "Chamarande",
 			"code": "41300",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -377,6 +429,7 @@
 		{
 			"nom": "Champ de Courses d'Enghien",
 			"code": "41084",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -384,6 +437,7 @@
 		{
 			"nom": "Champ de Mars Tour Eiffel",
 			"code": "41210",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -391,6 +445,7 @@
 		{
 			"nom": "Champagne sur Oise",
 			"code": "41109",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -398,6 +453,7 @@
 		{
 			"nom": "Champagne sur Seine",
 			"code": "41382",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -405,6 +461,7 @@
 		{
 			"nom": "Champbenoist Poigny",
 			"code": "41030",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -412,6 +469,7 @@
 		{
 			"nom": "Changis Saint-Jean",
 			"code": "41061",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -419,6 +477,7 @@
 		{
 			"nom": "Chanteloup les Vignes",
 			"code": "41147",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -426,6 +485,7 @@
 		{
 			"nom": "Chantilly Gouvieux",
 			"code": "411427",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -433,6 +493,7 @@
 		{
 			"nom": "Chaponval",
 			"code": "41094",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -440,6 +501,7 @@
 		{
 			"nom": "Chars",
 			"code": "41144",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -447,6 +509,7 @@
 		{
 			"nom": "Chartrettes",
 			"code": "41378",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -454,6 +517,7 @@
 		{
 			"nom": "Chaumont en Vexin",
 			"code": "411344",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -461,6 +525,7 @@
 		{
 			"nom": "Chaville Rive Droite",
 			"code": "41176",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -470,6 +535,7 @@
 		{
 			"nom": "Chaville Rive Gauche",
 			"code": "41220",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -477,6 +543,7 @@
 		{
 			"nom": "Chaville Vélizy",
 			"code": "41219",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -484,6 +551,7 @@
 		{
 			"nom": "Chelles Gournay",
 			"code": "41039",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -492,6 +560,7 @@
 		{
 			"nom": "Chemin d'Antony",
 			"code": "41330",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -499,6 +568,7 @@
 		{
 			"nom": "Chenay Gagny",
 			"code": "41016",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -507,6 +577,7 @@
 		{
 			"nom": "Chilly Mazarin",
 			"code": "41247",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -514,6 +585,7 @@
 		{
 			"nom": "Choisy le Roi",
 			"code": "41313",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -521,6 +593,7 @@
 		{
 			"nom": "Château Thierry",
 			"code": "411377",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -528,6 +601,7 @@
 		{
 			"nom": "Châtelet Les Halles",
 			"code": "412815",
+			"is_paris": true,
 			"lignes": [
 				"D"
 			]
@@ -535,6 +609,7 @@
 		{
 			"nom": "Chézy sur Marne",
 			"code": "411380",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -542,6 +617,7 @@
 		{
 			"nom": "Clamart",
 			"code": "41206",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -549,6 +625,7 @@
 		{
 			"nom": "Clichy Levallois",
 			"code": "41137",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -557,6 +634,7 @@
 		{
 			"nom": "Coignières",
 			"code": "41224",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -564,6 +642,7 @@
 		{
 			"nom": "Colombes",
 			"code": "41135",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -571,6 +650,7 @@
 		{
 			"nom": "Combs la Ville Quincy",
 			"code": "41366",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -579,6 +659,7 @@
 		{
 			"nom": "Compans",
 			"code": "41080",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -586,6 +667,7 @@
 		{
 			"nom": "Conflans Sainte-Honorine",
 			"code": "41170",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -593,6 +675,7 @@
 		{
 			"nom": "Conflans-Fin d'Oise",
 			"code": "411350",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -601,6 +684,7 @@
 		{
 			"nom": "Corbeil Essonnes",
 			"code": "41336",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -609,6 +693,7 @@
 		{
 			"nom": "Cormeilles en Parisis",
 			"code": "41167",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -616,6 +701,7 @@
 		{
 			"nom": "Coudray Montceaux",
 			"code": "41358",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -624,6 +710,7 @@
 		{
 			"nom": "Couilly Saint-Germain Quincy",
 			"code": "41067",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -631,6 +718,7 @@
 		{
 			"nom": "Coulommiers",
 			"code": "41050",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -638,6 +726,7 @@
 		{
 			"nom": "Courbevoie",
 			"code": "41172",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -645,6 +734,7 @@
 		{
 			"nom": "Creil",
 			"code": "411439",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"H"
@@ -653,6 +743,7 @@
 		{
 			"nom": "Crepy en Valois",
 			"code": "411395",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -660,6 +751,7 @@
 		{
 			"nom": "Crouy sur Ourcq",
 			"code": "41066",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -667,6 +759,7 @@
 		{
 			"nom": "Crécy la Chapelle",
 			"code": "41069",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -674,6 +767,7 @@
 		{
 			"nom": "Créteil Pompadour",
 			"code": "41530",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -682,6 +776,7 @@
 		{
 			"nom": "Dammartin Juilly Saint-Mard",
 			"code": "41077",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -689,6 +784,7 @@
 		{
 			"nom": "Deuil Montmagny",
 			"code": "411425",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -696,6 +792,7 @@
 		{
 			"nom": "Domont",
 			"code": "41103",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -703,6 +800,7 @@
 		{
 			"nom": "Dordives",
 			"code": "41394",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -710,6 +808,7 @@
 		{
 			"nom": "Dourdan",
 			"code": "41324",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -717,6 +816,7 @@
 		{
 			"nom": "Dourdan la Foret",
 			"code": "41292",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -724,6 +824,7 @@
 		{
 			"nom": "Drancy",
 			"code": "411409",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -731,6 +832,7 @@
 		{
 			"nom": "Dreux",
 			"code": "411491",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -738,6 +840,7 @@
 		{
 			"nom": "Ecouen - Ézanville",
 			"code": "41102",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -745,6 +848,7 @@
 		{
 			"nom": "Emerainville Pontault-Combault",
 			"code": "41034",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -753,6 +857,7 @@
 		{
 			"nom": "Enghien-les-Bains",
 			"code": "41083",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -760,6 +865,7 @@
 		{
 			"nom": "Epinay Villetaneuse",
 			"code": "411415",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -767,6 +873,7 @@
 		{
 			"nom": "Epinay-sur-Orge",
 			"code": "41307",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -774,6 +881,7 @@
 		{
 			"nom": "Epinay-sur-Seine",
 			"code": "41073",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -781,6 +889,7 @@
 		{
 			"nom": "Epluches",
 			"code": "41092",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -788,6 +897,7 @@
 		{
 			"nom": "Eragny Neuville",
 			"code": "41145",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -795,6 +905,7 @@
 		{
 			"nom": "Ermont Eaubonne",
 			"code": "41085",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H",
@@ -804,6 +915,7 @@
 		{
 			"nom": "Ermont Halte",
 			"code": "41116",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -811,6 +923,7 @@
 		{
 			"nom": "Esbly",
 			"code": "41052",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -819,6 +932,7 @@
 		{
 			"nom": "Essonnes Robinson",
 			"code": "41355",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -827,6 +941,7 @@
 		{
 			"nom": "Faremoutiers Pommeuse",
 			"code": "41047",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -834,6 +949,7 @@
 		{
 			"nom": "Ferrières Fontenay",
 			"code": "411487",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -841,6 +957,7 @@
 		{
 			"nom": "Fontaine le Port",
 			"code": "41379",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -848,6 +965,7 @@
 		{
 			"nom": "Fontainebleau Avon",
 			"code": "41372",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -855,6 +973,7 @@
 		{
 			"nom": "Fontenay-le-Fleury",
 			"code": "41232",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -862,6 +981,7 @@
 		{
 			"nom": "Franconville le Plessis Bouchard",
 			"code": "41087",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -870,6 +990,7 @@
 		{
 			"nom": "Frépillon",
 			"code": "41122",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -877,6 +998,7 @@
 		{
 			"nom": "Gagny",
 			"code": "41015",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -885,6 +1007,7 @@
 		{
 			"nom": "Garancières la Queue",
 			"code": "41235",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -892,6 +1015,7 @@
 		{
 			"nom": "Garches Marnes la Coquette",
 			"code": "41174",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -899,6 +1023,7 @@
 		{
 			"nom": "Gare Montparnasse",
 			"code": "41203",
+			"is_paris": true,
 			"lignes": [
 				"N"
 			]
@@ -906,6 +1031,7 @@
 		{
 			"nom": "Gare Saint-Lazare",
 			"code": "41194",
+			"is_paris": true,
 			"lignes": [
 				"J",
 				"L"
@@ -914,6 +1040,7 @@
 		{
 			"nom": "Gare Vaugirard",
 			"code": "41204",
+			"is_paris": true,
 			"lignes": [
 				"N"
 			]
@@ -921,6 +1048,7 @@
 		{
 			"nom": "Gare de Lyon",
 			"code": "41396",
+			"is_paris": true,
 			"lignes": [
 				"D",
 				"R"
@@ -929,6 +1057,7 @@
 		{
 			"nom": "Gare de l'Est",
 			"code": "41010",
+			"is_paris": true,
 			"lignes": [
 				"E",
 				"P"
@@ -937,6 +1066,7 @@
 		{
 			"nom": "Gare du Nord",
 			"code": "41071",
+			"is_paris": true,
 			"lignes": [
 				"D",
 				"H",
@@ -946,6 +1076,7 @@
 		{
 			"nom": "Gargenville",
 			"code": "41152",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -953,6 +1084,7 @@
 		{
 			"nom": "Garges Sarcelles",
 			"code": "411426",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -960,6 +1092,7 @@
 		{
 			"nom": "Gennevilliers",
 			"code": "41075",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -967,6 +1100,7 @@
 		{
 			"nom": "Gisors",
 			"code": "411340",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -974,6 +1108,7 @@
 		{
 			"nom": "Goussainville",
 			"code": "41099",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -981,6 +1116,7 @@
 		{
 			"nom": "Grand Bourg",
 			"code": "41343",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -989,6 +1125,7 @@
 		{
 			"nom": "Gravigny Balizy",
 			"code": "41248",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -996,6 +1133,7 @@
 		{
 			"nom": "Gretz Armainvilliers",
 			"code": "41031",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1004,6 +1142,7 @@
 		{
 			"nom": "Grigny Centre",
 			"code": "41345",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1012,6 +1151,7 @@
 		{
 			"nom": "Gros Noyer Saint-Prix",
 			"code": "41117",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1019,6 +1159,7 @@
 		{
 			"nom": "Groslay",
 			"code": "411424",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1026,6 +1167,7 @@
 		{
 			"nom": "Guérard la Celle sur Morin",
 			"code": "41046",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1033,6 +1175,7 @@
 		{
 			"nom": "Haussmann Saint-Lazare",
 			"code": "41127",
+			"is_paris": true,
 			"lignes": [
 				"E"
 			]
@@ -1040,6 +1183,7 @@
 		{
 			"nom": "Herblay",
 			"code": "41169",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1047,6 +1191,7 @@
 		{
 			"nom": "Houdan",
 			"code": "41238",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1054,6 +1199,7 @@
 		{
 			"nom": "Houilles - Carrières-sur-Seine",
 			"code": "411357",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -1062,6 +1208,7 @@
 		{
 			"nom": "Héricy",
 			"code": "41380",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1069,6 +1216,7 @@
 		{
 			"nom": "Igny",
 			"code": "41243",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1076,6 +1224,7 @@
 		{
 			"nom": "Invalides",
 			"code": "41208",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -1083,6 +1232,7 @@
 		{
 			"nom": "Isles Armentières Congis",
 			"code": "41064",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1090,6 +1240,7 @@
 		{
 			"nom": "Issou Porcheville",
 			"code": "41153",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1097,6 +1248,7 @@
 		{
 			"nom": "Issy",
 			"code": "41212",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1104,6 +1256,7 @@
 		{
 			"nom": "Issy Val-de-Seine",
 			"code": "41227",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1111,6 +1264,7 @@
 		{
 			"nom": "Ivry-sur-Seine",
 			"code": "41315",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1118,6 +1272,7 @@
 		{
 			"nom": "Javel",
 			"code": "41211",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -1125,6 +1280,7 @@
 		{
 			"nom": "Jouy en Josas",
 			"code": "41240",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1132,6 +1288,7 @@
 		{
 			"nom": "Juvisy",
 			"code": "41309",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"D",
@@ -1141,6 +1298,7 @@
 		{
 			"nom": "Juziers",
 			"code": "41151",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1148,6 +1306,7 @@
 		{
 			"nom": "L'Isle Adam Parmain",
 			"code": "41110",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1155,6 +1314,7 @@
 		{
 			"nom": "L'Étang la Ville",
 			"code": "41186",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1162,6 +1322,7 @@
 		{
 			"nom": "La Barre Ormesson",
 			"code": "41074",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1169,6 +1330,7 @@
 		{
 			"nom": "La Borne Blanche",
 			"code": "411417",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1176,6 +1338,7 @@
 		{
 			"nom": "La Celle Saint-Cloud",
 			"code": "41182",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1183,6 +1346,7 @@
 		{
 			"nom": "La Courneuve-Aubervilliers",
 			"code": "40990",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1190,6 +1354,7 @@
 		{
 			"nom": "La Défense (Grande Arche)",
 			"code": "40951",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"L",
@@ -1200,6 +1365,7 @@
 		{
 			"nom": "La Ferté Alais",
 			"code": "41351",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1207,6 +1373,7 @@
 		{
 			"nom": "La Ferté Milon",
 			"code": "411371",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1214,6 +1381,7 @@
 		{
 			"nom": "La Ferté sous Jouarre",
 			"code": "41062",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1221,6 +1389,7 @@
 		{
 			"nom": "La Frette Montigny",
 			"code": "41168",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1228,6 +1397,7 @@
 		{
 			"nom": "La Garenne Colombes",
 			"code": "41195",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -1236,6 +1406,7 @@
 		{
 			"nom": "La Grande Paroisse",
 			"code": "41384",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1243,6 +1414,7 @@
 		{
 			"nom": "La Norville Saint-Germain les Arpajon",
 			"code": "41317",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1250,6 +1422,7 @@
 		{
 			"nom": "La Plaine - Stade de France",
 			"code": "411369",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1257,6 +1430,7 @@
 		{
 			"nom": "La Verrière",
 			"code": "41223",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N",
@@ -1266,6 +1440,7 @@
 		{
 			"nom": "Lagny Thorigny",
 			"code": "41051",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1274,6 +1449,7 @@
 		{
 			"nom": "Lardy",
 			"code": "41301",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1281,6 +1457,7 @@
 		{
 			"nom": "Lavilletertre",
 			"code": "411347",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1288,6 +1465,7 @@
 		{
 			"nom": "Le Blanc-Mesnil",
 			"code": "411401",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1295,6 +1473,7 @@
 		{
 			"nom": "Le Bourget",
 			"code": "411408",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1302,6 +1481,7 @@
 		{
 			"nom": "Le Bras de Fer",
 			"code": "41347",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1310,6 +1490,7 @@
 		{
 			"nom": "Le Mée",
 			"code": "41369",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1318,6 +1499,7 @@
 		{
 			"nom": "Le Perray",
 			"code": "41226",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1325,6 +1507,7 @@
 		{
 			"nom": "Le Plessis Belleville",
 			"code": "411404",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1332,6 +1515,7 @@
 		{
 			"nom": "Le Plessis Chenet",
 			"code": "41357",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1340,6 +1524,7 @@
 		{
 			"nom": "Le Raincy Villemomble",
 			"code": "41014",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1348,6 +1533,7 @@
 		{
 			"nom": "Le Stade",
 			"code": "41136",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1355,6 +1541,7 @@
 		{
 			"nom": "Le Val d'Or",
 			"code": "41179",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -1364,6 +1551,7 @@
 		{
 			"nom": "Le Vert de Maisons",
 			"code": "41338",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1372,6 +1560,7 @@
 		{
 			"nom": "Les Ardoines",
 			"code": "41291",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1379,6 +1568,7 @@
 		{
 			"nom": "Les Boullereaux Champigny",
 			"code": "41021",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1387,6 +1577,7 @@
 		{
 			"nom": "Les Clairières de Verneuil",
 			"code": "41199",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1394,6 +1585,7 @@
 		{
 			"nom": "Les Essarts le Roi",
 			"code": "41225",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1401,6 +1593,7 @@
 		{
 			"nom": "Les Grésillons",
 			"code": "41082",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1408,6 +1601,7 @@
 		{
 			"nom": "Les Mureaux",
 			"code": "41200",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1415,6 +1609,7 @@
 		{
 			"nom": "Les Noues",
 			"code": "41098",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1422,6 +1617,7 @@
 		{
 			"nom": "Les Saules",
 			"code": "41328",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1429,6 +1625,7 @@
 		{
 			"nom": "Les Vallées",
 			"code": "41196",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -1437,6 +1634,7 @@
 		{
 			"nom": "Les Yvris Noisy-le-Grand",
 			"code": "41023",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1445,6 +1643,7 @@
 		{
 			"nom": "Liancourt Saint-Pierre",
 			"code": "411341",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1452,6 +1651,7 @@
 		{
 			"nom": "Lieusaint Moissy",
 			"code": "41367",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1460,6 +1660,7 @@
 		{
 			"nom": "Limay",
 			"code": "41154",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1467,6 +1668,7 @@
 		{
 			"nom": "Livry sur Seine",
 			"code": "41377",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1474,6 +1676,7 @@
 		{
 			"nom": "Lizy sur Ourcq",
 			"code": "41065",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1481,6 +1684,7 @@
 		{
 			"nom": "Longjumeau",
 			"code": "41245",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1488,6 +1692,7 @@
 		{
 			"nom": "Longueville",
 			"code": "41040",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1495,6 +1700,7 @@
 		{
 			"nom": "Louveciennes",
 			"code": "41184",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1502,6 +1708,7 @@
 		{
 			"nom": "Louvres",
 			"code": "41100",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1509,6 +1716,7 @@
 		{
 			"nom": "Luzarches",
 			"code": "41115",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1516,6 +1724,7 @@
 		{
 			"nom": "Magenta",
 			"code": "41126",
+			"is_paris": true,
 			"lignes": [
 				"E"
 			]
@@ -1523,6 +1732,7 @@
 		{
 			"nom": "Maisons Alfort Alfortville",
 			"code": "41337",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1531,6 +1741,7 @@
 		{
 			"nom": "Maisons Laffitte",
 			"code": "41527",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -1539,6 +1750,7 @@
 		{
 			"nom": "Maisse",
 			"code": "41353",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1546,6 +1758,7 @@
 		{
 			"nom": "Malesherbes",
 			"code": "411484",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1553,6 +1766,7 @@
 		{
 			"nom": "Mantes Station",
 			"code": "41155",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"N"
@@ -1561,6 +1775,7 @@
 		{
 			"nom": "Mantes la Jolie",
 			"code": "41150",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"N"
@@ -1569,6 +1784,7 @@
 		{
 			"nom": "Marchezais Broue",
 			"code": "411494",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1576,6 +1792,7 @@
 		{
 			"nom": "Mareil sur Mauldre",
 			"code": "41158",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1583,6 +1800,7 @@
 		{
 			"nom": "Mareuil sur Ourcq",
 			"code": "411374",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1590,6 +1808,7 @@
 		{
 			"nom": "Marles en Brie",
 			"code": "41044",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1597,6 +1816,7 @@
 		{
 			"nom": "Marly le Roi",
 			"code": "41185",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1604,6 +1824,7 @@
 		{
 			"nom": "Marolles en Hurepoix",
 			"code": "41303",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1611,6 +1832,7 @@
 		{
 			"nom": "Massy Verrières",
 			"code": "41193",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1618,6 +1840,7 @@
 		{
 			"nom": "Massy-Palaiseau",
 			"code": "412833",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1625,6 +1848,7 @@
 		{
 			"nom": "Maule",
 			"code": "41159",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1632,6 +1856,7 @@
 		{
 			"nom": "Maurecourt",
 			"code": "41148",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1639,6 +1864,7 @@
 		{
 			"nom": "Meaux",
 			"code": "41038",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1647,6 +1873,7 @@
 		{
 			"nom": "Melun",
 			"code": "41361",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1655,6 +1882,7 @@
 		{
 			"nom": "Mennecy",
 			"code": "41349",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1662,6 +1890,7 @@
 		{
 			"nom": "Mery sur Oise",
 			"code": "41123",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1669,6 +1898,7 @@
 		{
 			"nom": "Meudon",
 			"code": "41214",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1676,6 +1906,7 @@
 		{
 			"nom": "Meudon Val Fleury",
 			"code": "41213",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1683,6 +1914,7 @@
 		{
 			"nom": "Meulan Hardricourt",
 			"code": "41165",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1690,6 +1922,7 @@
 		{
 			"nom": "Mitry-Claye",
 			"code": "411402",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1697,6 +1930,7 @@
 		{
 			"nom": "Montargis",
 			"code": "411481",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1704,6 +1938,7 @@
 		{
 			"nom": "Montereau",
 			"code": "41376",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1711,6 +1946,7 @@
 		{
 			"nom": "Montfort l'Amaury Méré",
 			"code": "41254",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1718,6 +1954,7 @@
 		{
 			"nom": "Montgeron Crosne",
 			"code": "41362",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1726,6 +1963,7 @@
 		{
 			"nom": "Montgeroult Courcelles",
 			"code": "41141",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1733,6 +1971,7 @@
 		{
 			"nom": "Montigny Beauchamp",
 			"code": "41088",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -1741,6 +1980,7 @@
 		{
 			"nom": "Montigny sur Loing",
 			"code": "41389",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1748,6 +1988,7 @@
 		{
 			"nom": "Montreuil",
 			"code": "41191",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1755,6 +1996,7 @@
 		{
 			"nom": "Montry Condé",
 			"code": "41059",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1762,6 +2004,7 @@
 		{
 			"nom": "Montsoult Maffliers",
 			"code": "41107",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1769,6 +2012,7 @@
 		{
 			"nom": "Moret Veneux les Sablons",
 			"code": "41374",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1776,6 +2020,7 @@
 		{
 			"nom": "Mormant",
 			"code": "41036",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1783,6 +2028,7 @@
 		{
 			"nom": "Mortcerf",
 			"code": "41045",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1790,6 +2036,7 @@
 		{
 			"nom": "Moulin Galant",
 			"code": "41348",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1797,6 +2044,7 @@
 		{
 			"nom": "Mouroux",
 			"code": "41048",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1804,6 +2052,7 @@
 		{
 			"nom": "Musée d'Orsay",
 			"code": "41334",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -1811,6 +2060,7 @@
 		{
 			"nom": "Mériel",
 			"code": "41124",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1818,6 +2068,7 @@
 		{
 			"nom": "Nangis",
 			"code": "41037",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1825,6 +2076,7 @@
 		{
 			"nom": "Nanterre La Folie",
 			"code": "487016",
+			"is_paris": false,
 			"lignes": [
 				"E"
 			]
@@ -1832,6 +2084,7 @@
 		{
 			"nom": "Nanterre Université",
 			"code": "411356",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -1840,6 +2093,7 @@
 		{
 			"nom": "Nanteuil Saacy",
 			"code": "41063",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1847,6 +2101,7 @@
 		{
 			"nom": "Nanteuil le Haudoin",
 			"code": "411389",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1854,6 +2109,7 @@
 		{
 			"nom": "Nemours Saint-Pierre",
 			"code": "41391",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -1861,6 +2117,7 @@
 		{
 			"nom": "Neuilly Porte Maillot",
 			"code": "41131",
+			"is_paris": true,
 			"lignes": [
 				"C",
 				"E"
@@ -1869,6 +2126,7 @@
 		{
 			"nom": "Neuville-Université",
 			"code": "411321",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -1876,6 +2134,7 @@
 		{
 			"nom": "Nogent l'Artaud Charly",
 			"code": "411383",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -1883,6 +2142,7 @@
 		{
 			"nom": "Nogent le Perreux",
 			"code": "41020",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1891,6 +2151,7 @@
 		{
 			"nom": "Nointel Mours",
 			"code": "41125",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1898,6 +2159,7 @@
 		{
 			"nom": "Noisy le Sec",
 			"code": "41012",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1906,6 +2168,7 @@
 		{
 			"nom": "Nézel Aulnay",
 			"code": "41160",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1913,6 +2176,7 @@
 		{
 			"nom": "Orangis Bois de l'Epine",
 			"code": "41342",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -1921,6 +2185,7 @@
 		{
 			"nom": "Orgerus Béhoust",
 			"code": "41236",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -1928,6 +2193,7 @@
 		{
 			"nom": "Orly Ville",
 			"code": "41327",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1935,6 +2201,7 @@
 		{
 			"nom": "Ormoy-Villers",
 			"code": "411386",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -1942,6 +2209,7 @@
 		{
 			"nom": "Orry-la-Ville Coye la Forêt",
 			"code": "411420",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -1949,6 +2217,7 @@
 		{
 			"nom": "Osny",
 			"code": "41139",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -1956,6 +2225,7 @@
 		{
 			"nom": "Ozoir-la-Ferrière",
 			"code": "41032",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1964,6 +2234,7 @@
 		{
 			"nom": "Pantin",
 			"code": "41011",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -1972,6 +2243,7 @@
 		{
 			"nom": "Pereire Levallois",
 			"code": "411230",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -1979,6 +2251,7 @@
 		{
 			"nom": "Persan Beaumont",
 			"code": "41105",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -1986,6 +2259,7 @@
 		{
 			"nom": "Petit Jouy les Loges",
 			"code": "41239",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -1993,6 +2267,7 @@
 		{
 			"nom": "Petit Vaux",
 			"code": "41249",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2000,6 +2275,7 @@
 		{
 			"nom": "Pierrefitte Stains",
 			"code": "411416",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -2007,6 +2283,7 @@
 		{
 			"nom": "Pierrelaye",
 			"code": "41089",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -2015,6 +2292,7 @@
 		{
 			"nom": "Plaisir Grignon",
 			"code": "41234",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2022,6 +2300,7 @@
 		{
 			"nom": "Plaisir les Clayes",
 			"code": "41246",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2029,6 +2308,7 @@
 		{
 			"nom": "Poissy",
 			"code": "411359",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -2037,6 +2317,7 @@
 		{
 			"nom": "Pont Cardinet",
 			"code": "411351",
+			"is_paris": true,
 			"lignes": [
 				"J",
 				"L"
@@ -2045,6 +2326,7 @@
 		{
 			"nom": "Pont Petit",
 			"code": "41093",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2052,6 +2334,7 @@
 		{
 			"nom": "Pont de Rungis",
 			"code": "41326",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2059,6 +2342,7 @@
 		{
 			"nom": "Pont de l'Alma",
 			"code": "41209",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -2066,6 +2350,7 @@
 		{
 			"nom": "Pont du Garigliano - Hôpital Européen G. Pompidou",
 			"code": "41229",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -2073,6 +2358,7 @@
 		{
 			"nom": "Ponthierry Pringy",
 			"code": "41387",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2081,6 +2367,7 @@
 		{
 			"nom": "Pontoise",
 			"code": "41091",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H",
@@ -2090,6 +2377,7 @@
 		{
 			"nom": "Porchefontaine",
 			"code": "41218",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2097,6 +2385,7 @@
 		{
 			"nom": "Porte de Clichy",
 			"code": "41009",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -2104,6 +2393,7 @@
 		{
 			"nom": "Presles Courcelles",
 			"code": "41108",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2111,6 +2401,7 @@
 		{
 			"nom": "Provins",
 			"code": "41041",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -2118,6 +2409,7 @@
 		{
 			"nom": "Précy sur Oise",
 			"code": "411325",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2125,6 +2417,7 @@
 		{
 			"nom": "Puteaux",
 			"code": "41181",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -2134,6 +2427,7 @@
 		{
 			"nom": "Rambouillet",
 			"code": "41228",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2141,6 +2435,7 @@
 		{
 			"nom": "Ris Orangis",
 			"code": "41341",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2149,6 +2444,7 @@
 		{
 			"nom": "Roissy en Brie",
 			"code": "41033",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2157,6 +2453,7 @@
 		{
 			"nom": "Rosa Parks",
 			"code": "420316",
+			"is_paris": true,
 			"lignes": [
 				"E",
 				"P"
@@ -2165,6 +2462,7 @@
 		{
 			"nom": "Rosny Bois Perrier",
 			"code": "41017",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2173,6 +2471,7 @@
 		{
 			"nom": "Rosny sous Bois",
 			"code": "41018",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2181,6 +2480,7 @@
 		{
 			"nom": "Rosny sur Seine",
 			"code": "41289",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2188,6 +2488,7 @@
 		{
 			"nom": "Rungis la Fraternelle",
 			"code": "41329",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2195,6 +2496,7 @@
 		{
 			"nom": "Saint-Chéron",
 			"code": "41322",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2202,6 +2504,7 @@
 		{
 			"nom": "Saint-Cloud",
 			"code": "41178",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -2211,6 +2514,7 @@
 		{
 			"nom": "Saint-Cyr l'Ecole",
 			"code": "41222",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N",
@@ -2220,6 +2524,7 @@
 		{
 			"nom": "Saint-Denis",
 			"code": "411414",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"H"
@@ -2228,6 +2533,7 @@
 		{
 			"nom": "Saint-Fargeau",
 			"code": "41388",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2236,6 +2542,7 @@
 		{
 			"nom": "Saint-Gratien",
 			"code": "41095",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2243,6 +2550,7 @@
 		{
 			"nom": "Saint-Leu d'Esserent",
 			"code": "411328",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2250,6 +2558,7 @@
 		{
 			"nom": "Saint-Leu la Foret",
 			"code": "41118",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2257,6 +2566,7 @@
 		{
 			"nom": "Saint-Mammès",
 			"code": "41375",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -2264,6 +2574,7 @@
 		{
 			"nom": "Saint-Martin d'Etampes",
 			"code": "41316",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2271,6 +2582,7 @@
 		{
 			"nom": "Saint-Michel Notre-Dame",
 			"code": "412816",
+			"is_paris": true,
 			"lignes": [
 				"C"
 			]
@@ -2278,6 +2590,7 @@
 		{
 			"nom": "Saint-Michel-sur-Orge",
 			"code": "41305",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2285,6 +2598,7 @@
 		{
 			"nom": "Saint-Nom-la-Bretèche Forêt de Marly",
 			"code": "41187",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -2292,6 +2606,7 @@
 		{
 			"nom": "Saint-Ouen",
 			"code": "41076",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2299,6 +2614,7 @@
 		{
 			"nom": "Saint-Ouen-l'Aumône",
 			"code": "41090",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -2307,6 +2623,7 @@
 		{
 			"nom": "Saint-Ouen-l'Aumône Liesse",
 			"code": "41129",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"H"
@@ -2315,6 +2632,7 @@
 		{
 			"nom": "Saint-Ouen-l'Aumône Quartier de l'Église",
 			"code": "41146",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2322,6 +2640,7 @@
 		{
 			"nom": "Saint-Quentin en Yvelines",
 			"code": "41251",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N",
@@ -2331,6 +2650,7 @@
 		{
 			"nom": "Sainte-Colombe Septveilles",
 			"code": "41042",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -2338,6 +2658,7 @@
 		{
 			"nom": "Sainte-Geneviève des Bois",
 			"code": "41306",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2345,6 +2666,7 @@
 		{
 			"nom": "Sannois",
 			"code": "41096",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2352,6 +2674,7 @@
 		{
 			"nom": "Santeuil le Perchay",
 			"code": "41143",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2359,6 +2682,7 @@
 		{
 			"nom": "Sarcelles Saint-Brice",
 			"code": "411423",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2366,6 +2690,7 @@
 		{
 			"nom": "Sartrouville",
 			"code": "411360",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"L"
@@ -2374,6 +2699,7 @@
 		{
 			"nom": "Savigny le Temple Nandy",
 			"code": "41370",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2382,6 +2708,7 @@
 		{
 			"nom": "Savigny sur Orge",
 			"code": "41308",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2389,6 +2716,7 @@
 		{
 			"nom": "Sermaise",
 			"code": "41323",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2396,6 +2724,7 @@
 		{
 			"nom": "Seugy",
 			"code": "41079",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2403,6 +2732,7 @@
 		{
 			"nom": "Sevran - Livry",
 			"code": "411411",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -2410,6 +2740,7 @@
 		{
 			"nom": "Sevres Rive Gauche",
 			"code": "41216",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2417,6 +2748,7 @@
 		{
 			"nom": "Sevres Ville d'Avray",
 			"code": "41177",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -2426,6 +2758,7 @@
 		{
 			"nom": "Souppes",
 			"code": "41393",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -2433,6 +2766,7 @@
 		{
 			"nom": "Stade de France Saint-Denis",
 			"code": "411370",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"H"
@@ -2441,6 +2775,7 @@
 		{
 			"nom": "Suresnes Mont Valerien",
 			"code": "41180",
+			"is_paris": false,
 			"lignes": [
 				"L",
 				"N",
@@ -2450,6 +2785,7 @@
 		{
 			"nom": "Survilliers Fosses",
 			"code": "41101",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -2457,6 +2793,7 @@
 		{
 			"nom": "Tacoignières Richebourg",
 			"code": "41237",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2464,6 +2801,7 @@
 		{
 			"nom": "Taverny",
 			"code": "41120",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2471,6 +2809,7 @@
 		{
 			"nom": "Thieux Nantouillet",
 			"code": "41081",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -2478,6 +2817,7 @@
 		{
 			"nom": "Thomery",
 			"code": "41373",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -2485,6 +2825,7 @@
 		{
 			"nom": "Thun le Paradis",
 			"code": "41164",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2492,6 +2833,7 @@
 		{
 			"nom": "Tournan",
 			"code": "41043",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2500,6 +2842,7 @@
 		{
 			"nom": "Trappes",
 			"code": "41250",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N",
@@ -2509,6 +2852,7 @@
 		{
 			"nom": "Trie-Château",
 			"code": "411337",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2516,6 +2860,7 @@
 		{
 			"nom": "Triel-sur-Seine",
 			"code": "41162",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2523,6 +2868,7 @@
 		{
 			"nom": "Trilport",
 			"code": "41060",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -2530,6 +2876,7 @@
 		{
 			"nom": "Us",
 			"code": "41142",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2537,6 +2884,7 @@
 		{
 			"nom": "Vaires Torcy",
 			"code": "41049",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2545,6 +2893,7 @@
 		{
 			"nom": "Val d'Argenteuil",
 			"code": "41161",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2552,6 +2901,7 @@
 		{
 			"nom": "Val de Fontenay",
 			"code": "41019",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2560,6 +2910,7 @@
 		{
 			"nom": "Valmondois",
 			"code": "41111",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2567,6 +2918,7 @@
 		{
 			"nom": "Vanves - Malakoff",
 			"code": "41205",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2574,6 +2926,7 @@
 		{
 			"nom": "Vauboyen",
 			"code": "41241",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2581,6 +2934,7 @@
 		{
 			"nom": "Vaucelles",
 			"code": "41119",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2588,6 +2942,7 @@
 		{
 			"nom": "Vaucresson",
 			"code": "41175",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -2595,6 +2950,7 @@
 		{
 			"nom": "Vaux sur Seine",
 			"code": "41163",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2602,6 +2958,7 @@
 		{
 			"nom": "Verneuil l'Étang",
 			"code": "41035",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -2609,6 +2966,7 @@
 		{
 			"nom": "Vernon",
 			"code": "41287",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2616,6 +2974,7 @@
 		{
 			"nom": "Vernou-sur-Seine",
 			"code": "41383",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -2623,6 +2982,7 @@
 		{
 			"nom": "Vernouillet Verneuil",
 			"code": "41198",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2630,6 +2990,7 @@
 		{
 			"nom": "Versailles Chantiers",
 			"code": "41207",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N",
@@ -2639,6 +3000,7 @@
 		{
 			"nom": "Versailles Château - Rive Gauche",
 			"code": "41217",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2646,6 +3008,7 @@
 		{
 			"nom": "Versailles Rive Droite",
 			"code": "41190",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -2653,6 +3016,7 @@
 		{
 			"nom": "Vert-Galant",
 			"code": "411412",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -2660,6 +3024,7 @@
 		{
 			"nom": "Viarmes",
 			"code": "41114",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2667,6 +3032,7 @@
 		{
 			"nom": "Vigneux-sur-Seine",
 			"code": "41339",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2675,6 +3041,7 @@
 		{
 			"nom": "Villabé",
 			"code": "41356",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2683,6 +3050,7 @@
 		{
 			"nom": "Villaines",
 			"code": "41078",
+			"is_paris": false,
 			"lignes": [
 				"H"
 			]
@@ -2690,6 +3058,7 @@
 		{
 			"nom": "Villeneuve Triage",
 			"code": "41359",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2698,6 +3067,7 @@
 		{
 			"nom": "Villeneuve-Saint-Georges",
 			"code": "41360",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2706,6 +3076,7 @@
 		{
 			"nom": "Villeneuve-le-Roi",
 			"code": "41312",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2713,6 +3084,7 @@
 		{
 			"nom": "Villennes-sur-Seine",
 			"code": "41197",
+			"is_paris": false,
 			"lignes": [
 				"J"
 			]
@@ -2720,6 +3092,7 @@
 		{
 			"nom": "Villeparisis - Mitry-Le-Neuf",
 			"code": "411403",
+			"is_paris": false,
 			"lignes": [
 				"K"
 			]
@@ -2727,6 +3100,7 @@
 		{
 			"nom": "Villepreux les Clayes",
 			"code": "41233",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2734,6 +3108,7 @@
 		{
 			"nom": "Villiers Montbarbin",
 			"code": "41068",
+			"is_paris": false,
 			"lignes": [
 				"P"
 			]
@@ -2741,6 +3116,7 @@
 		{
 			"nom": "Villiers Neauphle Pontchartrain",
 			"code": "41253",
+			"is_paris": false,
 			"lignes": [
 				"N"
 			]
@@ -2748,6 +3124,7 @@
 		{
 			"nom": "Villiers-le-Bel Gonesse Arnouville",
 			"code": "41097",
+			"is_paris": false,
 			"lignes": [
 				"D"
 			]
@@ -2755,6 +3132,7 @@
 		{
 			"nom": "Villiers-sur-Marne Plessis Trévise",
 			"code": "41022",
+			"is_paris": false,
 			"lignes": [
 				"E",
 				"P"
@@ -2763,6 +3141,7 @@
 		{
 			"nom": "Viroflay Rive Droite",
 			"code": "41192",
+			"is_paris": false,
 			"lignes": [
 				"L"
 			]
@@ -2770,6 +3149,7 @@
 		{
 			"nom": "Viroflay Rive Gauche",
 			"code": "41221",
+			"is_paris": false,
 			"lignes": [
 				"C",
 				"N"
@@ -2778,6 +3158,7 @@
 		{
 			"nom": "Viry-Châtillon",
 			"code": "41340",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2786,6 +3167,7 @@
 		{
 			"nom": "Vitry-sur-Seine",
 			"code": "41314",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2793,6 +3175,7 @@
 		{
 			"nom": "Vosves",
 			"code": "41385",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2801,6 +3184,7 @@
 		{
 			"nom": "Vulaines-sur-Seine Samoreau",
 			"code": "41381",
+			"is_paris": false,
 			"lignes": [
 				"R"
 			]
@@ -2808,6 +3192,7 @@
 		{
 			"nom": "Yerres",
 			"code": "41363",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2816,6 +3201,7 @@
 		{
 			"nom": "Égly",
 			"code": "41319",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2823,6 +3209,7 @@
 		{
 			"nom": "Épône Mézières",
 			"code": "41202",
+			"is_paris": false,
 			"lignes": [
 				"J",
 				"N"
@@ -2831,6 +3218,7 @@
 		{
 			"nom": "Étampes",
 			"code": "41298",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2838,6 +3226,7 @@
 		{
 			"nom": "Étréchy",
 			"code": "41299",
+			"is_paris": false,
 			"lignes": [
 				"C"
 			]
@@ -2845,6 +3234,7 @@
 		{
 			"nom": "Évry",
 			"code": "41344",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"
@@ -2853,6 +3243,7 @@
 		{
 			"nom": "Évry Courcouronnes",
 			"code": "41346",
+			"is_paris": false,
 			"lignes": [
 				"D",
 				"R"

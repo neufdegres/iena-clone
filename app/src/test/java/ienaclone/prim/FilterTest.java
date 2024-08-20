@@ -177,5 +177,28 @@ public class FilterTest {
         assertEquals(11, nextJourneys.size());
     }
 
+    @Test
+    void testRemoveAlreadyPassedTrainsCase4() {
+        /* 
+         *   cas 1 seul train déjà passé (et pas le reste)
+         */
+
+        var journeys = getTestJourneys("chelles_bis.json");
+
+        assertNotNull(journeys);
+
+        LocalDateTime now = LocalDateTime.parse("2024-08-16T05:10");
+
+        var nextJourneys = Filter.removeAlreadyPassedTrains(journeys, now);
+
+        assertNotNull(nextJourneys);
+
+        for (var j : nextJourneys) {
+            System.out.println(j.getExpectedArrivalTime());
+        }
+
+        assertEquals(32, nextJourneys.size());
+    }
+
 
 }

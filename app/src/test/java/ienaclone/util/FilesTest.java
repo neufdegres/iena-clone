@@ -21,7 +21,7 @@ public class FilesTest {
     }
 
     @Test
-    void testgetAllLines() {
+    void testGetAllLines() {
         var actual = Files.getAllLines();
 
         assertNotNull(actual);
@@ -31,5 +31,18 @@ public class FilesTest {
         assertNotNull(trainE);
 
         assertEquals("E", trainE);
+    }
+
+    @Test
+    void testLoadTestNextStopsValues() {
+        var data = Files.loadTestNextStopsValues();
+
+        assertNotNull(data);
+
+        var dest = data.get("41038");
+
+        assertNotNull(dest);
+
+        assertEquals(4, dest.size());
     }
 }

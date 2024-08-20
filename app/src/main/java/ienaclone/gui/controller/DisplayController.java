@@ -3,82 +3,31 @@ package ienaclone.gui.controller;
 import java.util.ArrayList;
 
 import ienaclone.gui.model.DisplayModel;
-import ienaclone.gui.view.DashboardView.FilterBox;
-import ienaclone.gui.view.OnPlatformDisplayView;
-import ienaclone.prim.Parcer;
+import ienaclone.gui.view.DisplayView;
+import ienaclone.prim.Filter;
 import ienaclone.prim.Requests;
+import ienaclone.util.AllLinesSingleton;
+import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Files;
+import ienaclone.util.Journey;
+import ienaclone.util.Stop;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 
 public class DisplayController {
     private DisplayModel model;
-    private OnPlatformDisplayView view;
+    private DisplayView view;
 
     public DisplayController(DisplayModel m) {
         this.model = m;
     }
 
-    public void setView(OnPlatformDisplayView view) {
+    public void setView(DisplayView view) {
         this.view = view;
     }
 
 	public void firstLoad() {
-        /* TODO :
-         * On a :
-         * - les données de l'arrêt demandée
-         * - le filtre appliqué
-         * - si c'est le "test stop" ou non
-         * 
-         * A partir de tt ça :
-         * - Faire une requête à l'API 1 pour obtenir les prochains passages
-         * - Pour chaque passage **affiché**, faire une requête à l'API 2 pour
-         * obtenir les horraires + les prochains arrêts de chaque train
-         * - Donner l'heure actuelle
-         */
-
-        if (model.isTestStop()) {
-            
-        } else {
-            new Service<Void>() {
-
-                @Override
-                protected Task<Void> createTask() {
-                    return new Task<Void>() {
-
-                        @Override
-                        protected Void call() throws Exception {
-                            // var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
-                            // if (rep.containsKey("data")) {
-                            //     nextJourneys = rep.get("data");
-                            // } else {
-                            //     return null;
-                            // }
-                            return null;
-                        }
-                        
-                    };
-                }
-                
-            }.start();
-        }
-
-        /* if (!model.isOnlyNext()) {
-            // TODO : à implémenter
-            // à  récupérer :
-            // - pictogramme
-            // - destination
-            // - code mission
-            // - temps d'attente
-            // - liste des gares
-        } else {
-            
-        }
-        view.getMain().show(); */
-	}
-
-    public void loadFirstJourney() {
         new Service<Void>() {
 
             @Override
@@ -87,37 +36,131 @@ public class DisplayController {
 
                     @Override
                     protected Void call() throws Exception {
-                        /* ArrayList<Journey> nextJourneys;
-                        
-                        var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
+                        ArrayList<Journey> nextJourneys;
+
+                        // 1 - récupérer les prochains passages
+
+                        if (model.isTestStop()) {
+                            nextJourneys = Files.loadTestNextJourneysValues();
+                        } else {
+                            ArrayList<Journey> allJourneys;
+                            var rep = Requests.getNextJourneys(model.getActualStop().getCode());
                             if (rep.containsKey("data")) {
-                                nextJourneys = rep.get("data");
+                                allJourneys = rep.get("data");
                             } else {
-                                Platform.runLater(() -> {
-                                    if (rep.containsKey("error_internet")) {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.NO_INTERNET_CONNEXION, null);
-                                    } else if (rep.containsKey("error_apikey")) {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.NO_API_KEY, null);
-                                    } else {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.ERROR, null);
-                                    }
-                                });
+                                if (rep.containsKey("error_internet")) {
+                                    System.err.println("req1 : pas de connexion internet");
+                                } else if (rep.containsKey("error_apikey")) {
+                                    System.err.println("req1 : pas de clée api");
+                                } else {
+                                    System.err.println("req1 : autre erreur");
+                                }
                                 return null;
                             }
+
+                            nextJourneys = Filter.removeAlreadyPassedTrains(allJourneys, null);
                         }
 
-                        model.setJourneys(nextJourneys); */
-                        
+                        // 2 - appliquer le filtre (s'il y en a 1)
+
+                        var filtered = applySelectedFilter(nextJourneys);
+
+                        // 3 - récupérer les prochaines gares (limite 6)
+
+                        if (model.isTestStop()) {
+                            for (var j : filtered) {                                
+                                var data = Files.loadTestNextStopsValues();
+                                
+                                var dest = j.getDestination().map(s -> s.getCode()).orElse("");
+
+                                var stops = data.getOrDefault(dest, null);
+
+                                if (stops != null) j.getNextStations().addAll(stops);
+                            }
+
+                        } else {
+                            // TODO : parraléliser l'étape ?
+
+                            int i=0;
+                            for (var j : filtered) {
+                                ArrayList<String> stopRefs;
+
+                                var ref = j.getRef();
+                                var rep2 = Requests.getJourneyStopList(ref);
+
+                                if (rep2.containsKey("data")) {
+                                    stopRefs = rep2.get("data");
+                                    ArrayList<Stop> tmp = new ArrayList<>();
+                                    for (var sr : stopRefs) {
+                                        var stop = AllStopsSingleton.getInstance().getStopByCode(sr);
+                                        tmp.add(stop.orElse(new Stop()));
+                                    }
+                                    var tmp2 = removeAlreadyPassedStops(tmp);
+                                    j.getNextStations().addAll(tmp2);
+                                } else {
+                                    // TODO
+                                    if (rep2.containsKey("error_internet")) {
+                                        System.err.println("req2 : pas de connexion internet");
+                                    } else if (rep2.containsKey("error_apikey")) {
+                                        System.err.println("req2 : pas de clée api");
+                                    } else {
+                                        System.err.println("req2 : autre erreur");
+                                    }
+                                    return null;
+                                }
+
+                                i++;
+                                if (i>5) break;
+                            }
+                        }
+                        model.getJourneys().clear();
+                        model.getJourneys().addAll(filtered);
+
+                        // 4 - on update la vue
+
+                        Platform.runLater(() -> {
+                            view.updateView(model.getJourneys());
+                            view.getMain().show();
+                        });
+
                         return null;
                     }
                     
                 };
-                
-            } 
+            }
+            
         }.start();
+	}
+
+    private ArrayList<Journey> applySelectedFilter(ArrayList<Journey> raw) {
+        var filter = model.getFilter();
+
+        String key = filter.key();
+        String value = filter.value();
+
+        if (key == null) return raw;
+
+        switch (key) {
+            case "direction":
+                return (ArrayList<Journey>) Filter.byDirection(raw, value);
+            case "platform":
+                return (ArrayList<Journey>) Filter.byPlatform(raw, value);
+            case "mission":
+                return (ArrayList<Journey>) Filter.byMission(raw, value);
+            case "line":
+                var ligne = AllLinesSingleton.getInstance().getLineByName(value);
+                String code = "";
+                if (ligne.isPresent()) code = ligne.get().getCode();
+                return (ArrayList<Journey>) Filter.byLine(raw, code);
+        }
+
+        return raw;
+    }
+
+    private ArrayList<Stop> removeAlreadyPassedStops(ArrayList<Stop> stops) {
+        int idx = stops.indexOf(model.getActualStop());
+        var tmp = stops.subList(idx+1, stops.size());
+        return new ArrayList<Stop>(tmp);
     }
     
 }

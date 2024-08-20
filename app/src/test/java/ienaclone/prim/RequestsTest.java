@@ -70,19 +70,13 @@ public class RequestsTest {
 
                 assertNotNull(stops);
 
-                var s1 = stops.get(1);
-
-                assertNotNull(s1);
-
-                String expected = "41126"; // Magenta
-
-                String actual = s1.get("stopRef");
+                var actual = stops.get(1);
 
                 assertNotNull(actual);
 
-                assertEquals(expected, actual);
+                String expected = "41126"; // Magenta
 
-                assertEquals("1", s1.get("fareZone"));
+                assertEquals(expected, actual);
             }
         } catch (IOException | URISyntaxException e) {
             assertFalse(true);

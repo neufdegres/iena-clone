@@ -7,16 +7,18 @@ import ienaclone.prim.Parcer;
 public class Stop {
     private final String code;
     private final String name;
+    private final boolean isParis;
     private final ArrayList<String> lines;
 
-    public Stop(String code, String name, ArrayList<String> lines) {
+    public Stop(String code, String name, boolean isParis, ArrayList<String> lines) {
         this.code = code;
         this.name = name;
+        this.isParis = isParis;
         this.lines = lines;
     }
 
     public Stop(String code, String name) {
-        this(code, name, new ArrayList<>());
+        this(code, name, false, new ArrayList<>());
     }
 
     public Stop() {
@@ -29,6 +31,10 @@ public class Stop {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isParis() {
+        return isParis;
     }
 
     public ArrayList<String> getLines() {
