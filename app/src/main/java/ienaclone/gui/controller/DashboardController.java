@@ -19,7 +19,7 @@ import ienaclone.util.Stop;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 
 public class DashboardController {
     public DashboardView view;
@@ -146,7 +146,7 @@ public class DashboardController {
                         model.setStops(stops);
                         var stopNames = getNameFromStops(stops);
 
-                        ChoiceBox<String> newCB = new ChoiceBox<>();
+                        ComboBox<String> newCB = new ComboBox<>();
                         newCB.getItems().add("------------------------");
                         newCB.getSelectionModel().select(0);
                         stopNames.forEach(e -> {
@@ -287,7 +287,7 @@ public class DashboardController {
         for (var j : journeys) {
             StringBuilder sb = new StringBuilder();
             sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
-            sb.append("Ref : ").append(j.getRef()).append("\n");
+            // sb.append("Ref : ").append(j.getRef()).append("\n");
             sb.append("Ligne : ");
             sb.append(j.getLine().map(line -> line.getName()).orElse("N/A")).append("\n");
             sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");

@@ -12,7 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class DashboardView extends AbstractView {
     private final Stage main; 
     private final DashboardController controller;
-    private ChoiceBox<String> gareCB;
+    private ComboBox<String> gareCB;
     private FilterBox filterBox;
     private HBox gareBox;
     private VBox displayBox;
@@ -47,7 +47,7 @@ public class DashboardView extends AbstractView {
         l.setStyle("-fx-font-size: 28pt;");
 
         Label gare = new Label("Gare ");
-        gareCB = new ChoiceBox<String>();
+        gareCB = new ComboBox<String>();
         gareCB.getItems().add("chargement en cours.........");
         gareCB.getSelectionModel().select(0);
 
@@ -143,7 +143,7 @@ public class DashboardView extends AbstractView {
         controller.loadStops();
     }
 
-    public ChoiceBox<String> getGareCB() {
+    public ComboBox<String> getGareCB() {
         return gareCB;
     }
 
@@ -155,7 +155,7 @@ public class DashboardView extends AbstractView {
         return displayButton;
     }
 
-    public void remplaceGareCB(ChoiceBox<String> newCB) {
+    public void remplaceGareCB(ComboBox<String> newCB) {
         gareBox.getChildren().remove(1);
         gareBox.getChildren().add(newCB);
 

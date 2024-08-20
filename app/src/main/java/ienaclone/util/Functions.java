@@ -28,4 +28,41 @@ public class Functions {
 
         return Optional.ofNullable(timeInParis.toLocalDateTime());
     }
+
+    // TODO : do something better ?
+    public static String raccourcir(String raw, int limit) {
+        String res = raw;
+        if (res.length() < limit) return res;
+        res = res.replace("Saint", "St");
+        if (res.length() < limit) return res;
+        res = res.replace("Avenue", "Av.");
+        if (res.length() < limit) return res;
+        res = res.replace("Porte", "Pte");
+        if (res.length() < limit) return res;
+        res = res.replace("Notre", "Nte");
+        if (res.length() < limit) return res;
+        res = res.replace("du Président", "Pdt");
+        if (res.length() < limit) return res;
+        res = res.replace("sur", "s/");
+        if (res.length() < limit) return res;
+        res = res.replace("sous", "s/");
+        if (res.length() < limit) return res;
+
+        var tab = raw.split(" - ");
+        res = tab[0];
+        if (res.length() < limit) return res;
+
+        tab = raw.split(" ");
+        int i = tab.length -1;
+
+        while(true) {
+            tab[i] = tab[i].charAt(0) + ".";
+            res = String.join(" ", tab);
+            if (res.length() < limit) return res;
+            i--;
+            if (i==0) break;
+        }
+
+        return res;
+    }
 }

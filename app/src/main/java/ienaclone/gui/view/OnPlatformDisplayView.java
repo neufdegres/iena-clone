@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import ienaclone.gui.controller.DisplayController;
 import ienaclone.gui.view.OnPlatformDisplayView.StopBox.MODE;
+import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 
 public class OnPlatformDisplayView extends DisplayView {
@@ -570,7 +571,8 @@ public class OnPlatformDisplayView extends DisplayView {
 
             // texte
             if (!name.isBlank()) {
-                Text nameText = new Text(name);
+                var toWrite = Functions.raccourcir(name, 19);
+                Text nameText = new Text(toWrite);
                 nameText.setX(40);
                 nameText.setY(30);
                 nameText.setFill(Color.valueOf("eeeeee"));
