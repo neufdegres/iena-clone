@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class Functions {
 
@@ -29,7 +30,12 @@ public class Functions {
         return Optional.ofNullable(timeInParis.toLocalDateTime());
     }
 
-    // TODO : do something better ?
+    public static long getWaitingTime(LocalDateTime toWait) {
+        LocalDateTime now = LocalDateTime.now();
+        return MINUTES.between(now, toWait);
+    }
+
+    // TODO : à améliorer
     public static String raccourcir(String raw, int limit) {
         String res = raw;
         if (res.length() < limit) return res;
@@ -52,17 +58,17 @@ public class Functions {
         res = tab[0];
         if (res.length() < limit) return res;
 
-        tab = raw.split(" ");
-        int i = tab.length -1;
+        // tab = raw.split(" ");
+        // int i = tab.length -1;
 
-        while(true) {
-            tab[i] = tab[i].charAt(0) + ".";
-            res = String.join(" ", tab);
-            if (res.length() < limit) return res;
-            i--;
-            if (i==0) break;
-        }
+        // while(true) {
+        //     tab[i] = tab[i].charAt(0) + ".";
+        //     res = String.join(" ", tab);
+        //     if (res.length() < limit) return res;
+        //     i--;
+        //     if (i==0) break;
+        // }
 
-        return res;
+        return res.substring(0,limit);
     }
 }

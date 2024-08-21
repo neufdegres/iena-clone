@@ -1,6 +1,13 @@
 package ienaclone.gui.controller;
 
 import java.util.ArrayList;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
+
+import javafx.application.Platform;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 
 import ienaclone.gui.model.DisplayModel;
 import ienaclone.gui.view.DisplayView;
@@ -9,11 +16,9 @@ import ienaclone.prim.Requests;
 import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Files;
+import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
-import javafx.application.Platform;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 
 public class DisplayController {
     private DisplayModel model;
@@ -113,15 +118,22 @@ public class DisplayController {
                                 if (i>5) break;
                             }
                         }
+
                         model.getJourneys().clear();
                         model.getJourneys().addAll(filtered);
 
                         // 4 - on update la vue
 
                         Platform.runLater(() -> {
+                            view.getMain().setTitle(getWindowName());
                             view.updateView(model.getJourneys());
+                            view.updateClock(LocalTime.now());
                             view.getMain().show();
                         });
+
+                        // 5 - on lance le thread qui update l'heure
+
+                        updateClock();
 
                         return null;
                     }
@@ -131,6 +143,85 @@ public class DisplayController {
             
         }.start();
 	}
+
+    public void updateClock() {
+        new Service<Void>() {
+
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        LocalTime now = LocalTime.now();
+                        int min = now.getMinute();
+                        while (true) {
+                            try {
+                                TimeUnit.SECONDS.sleep(1);
+                                now = LocalTime.now();
+                                if (now.getMinute() != min) {
+                                    final var toUpdate = LocalTime.of(now.getHour(), now.getMinute());
+                                    min = now.getMinute();
+                                    Platform.runLater(() -> {
+                                        view.updateClock(toUpdate);
+                                    });
+                                }
+                            } catch (InterruptedException e) {
+                                return null;
+                            }
+                        } 
+                    }
+                };
+            }
+            
+        }.start();
+    }
+
+    private String getWaitingTimeLabel(Journey journey) {
+        LocalDateTime toWait = null;
+        if (journey.getExpectedArrivalTime().isPresent()) {
+            toWait = journey.getExpectedArrivalTime().get();
+        } else if (journey.getExpectedDepartureTime().isPresent()) {
+            toWait = journey.getExpectedDepartureTime().get();
+        } else if (journey.getExpectedArrivalTime().isPresent()) {
+            toWait = journey.getExpectedArrivalTime().get();
+        } else if (journey.getExpectedDepartureTime().isPresent()) {
+            toWait = journey.getExpectedDepartureTime().get();
+        }
+
+        if (toWait != null) {
+            long time = Functions.getWaitingTime(toWait);
+            return time + " min";
+        }
+
+        return "-- min";        
+    }
+
+    private String getWindowName() {
+        String res = "";
+        res += model.getActualStop().getName();
+        res += " ";
+        if (model.getFilter().key() != null) {
+            res += "(" + model.getFilter().key();
+            res += " : " + model.getFilter().value();
+            res += ") ";
+        } else {
+            res += "(non filtré) ";
+        }
+        switch(model.getMode()) {
+            case ON_PLATFORM_1_TRAIN:
+                res += "[1 train]";
+                break;
+            case ON_PLATFORM_3_TRAINS:
+                res += "[3 train]";
+                break;
+            case OUT_OF_PLATFORM:
+                res += "[5 train]";
+                break;            
+        }
+
+        return res;
+    }
 
     private ArrayList<Journey> applySelectedFilter(ArrayList<Journey> raw) {
         var filter = model.getFilter();

@@ -2,7 +2,8 @@ package ienaclone.gui.view;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -44,7 +45,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // l'heure
 
-        timeLabel = new Label("20:20");
+        timeLabel = new Label("00:00");
         timeLabel.getStyleClass().add("time-label");
 
         VBox timeBox = new VBox();
@@ -55,16 +56,16 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // TODO: créer une classe spéciale
 
-        Label headline = new Label("Information travaux");
+        Label headline = new Label("Information sûreté");
         headline.getStyleClass().add("alert-headline-label");
 
         HBox headlineBox = new HBox();
         headline.getStyleClass().add("alert-headline-box");
         headlineBox.getChildren().addAll(/* le pictogramme, */headline);
 
-        String exAlert = "RER E : Le 09/03 et 10/03, les gares de Rosa Parks et Pantin " +
-                         "ne sont pas desservies en direction de Chelles, Villiers et " +
-                         "Tournan. Motif : Travaux.";
+        String exAlert = "Pour votre sécurité, vous vous invitons à ne laisser aucun " +
+                         "bagage sans surveillance. Veuillez nous signaler tout colis " +
+                         "ou bagage qui vous paraitrait abandonné. Merci de votre vigilance";
         Label content = new Label(exAlert);
         content.getStyleClass().add("alert-content-label");
 
@@ -127,7 +128,6 @@ public class OnPlatformDisplayView extends DisplayView {
         scene.getStylesheets().add("/ienaclone/gui/view/display.css");
 
         main.setScene(scene);
-        // main.show();
 
         controller.firstLoad();
     }
@@ -165,9 +165,6 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // code mission
         journeyBox.getMission().setText(actual.getMission().orElse("XXXX"));
-
-        // temps d'attente
-        // TODO
 
         // liste des gares
         var stops = actual.getNextStations();
@@ -223,21 +220,30 @@ public class OnPlatformDisplayView extends DisplayView {
                 }
             }
         }
+
+        int nbPages = journeyBox.getAllStopsBox().getPages().size();
+        journeyBox.getPagesCount().setText("Page\n1/" + nbPages);
+        
     }
 
     @Override
-    public void updateTime(LocalDateTime now) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateTime'");
+    public void updateClock(LocalTime now) {
+        var txt = now.format(DateTimeFormatter.ofPattern("HH:mm"));
+        timeLabel.setText(txt);
+    }
+
+    @Override
+    public void updateWaitingTime(String text, int pos) {
+        journeyBox.getWaitingTime().setText(text);
     }
 
     class JourneyBox extends VBox {
         private ImageView lineIconView;
-        private Label pages, destination, status, mission;
+        private Label pagesCount, destination, waitingTime, mission;
         private AllStopsBox allStopsBox;
 
         public JourneyBox() {
-            Label trainLen = new Label ("Train Long");
+            Label trainLen = new Label ("Train Court");
             trainLen.getStyleClass().add("train-length");
 
             // LEFT
@@ -250,10 +256,10 @@ public class OnPlatformDisplayView extends DisplayView {
             lineIconView.setPreserveRatio(true);
             lineIconView.setFitHeight(80);
 
-            pages = new Label("Page\n1/1");
-            pages.getStyleClass().add("pages-label");
+            pagesCount = new Label("Page\n1/1");
+            pagesCount.getStyleClass().add("pages-label");
 
-            VBox pagesBox = new VBox(pages);
+            VBox pagesBox = new VBox(pagesCount);
             pagesBox.setAlignment(Pos.CENTER);
             HBox.setHgrow(pagesBox, Priority.ALWAYS);
 
@@ -269,12 +275,12 @@ public class OnPlatformDisplayView extends DisplayView {
             HBox.setHgrow(destinationPane, Priority.ALWAYS);
             destinationPane.getChildren().add(destination);
 
-            status = new Label("0 min");
-            status.getStyleClass().add("status-label");
+            waitingTime = new Label("0 min");
+            waitingTime.getStyleClass().add("status-label");
 
             HBox destStatBox = new HBox();
             destStatBox.getStyleClass().add("dest-stat-box");
-            destStatBox.getChildren().addAll(destinationPane, status);
+            destStatBox.getChildren().addAll(destinationPane, waitingTime);
 
 
             mission = new Label("XXXX");
@@ -316,114 +322,20 @@ public class OnPlatformDisplayView extends DisplayView {
             this.getChildren().addAll(trainLen, backgroundBox);
         }
 
-        /* public JourneyBox() { // save
-            Label trainLen = new Label ("Train Long");
-            trainLen.getStyleClass().add("train-length");
-
-            // LEFT
-
-            lineIcon = new Image(
-                DashboardView.class.getResourceAsStream("icon/E.png"));
-            
-            ImageView lineIconView = new ImageView();
-            lineIconView.setImage(lineIcon);
-            lineIconView.setPreserveRatio(true);
-            lineIconView.setFitHeight(80);
-
-            pages = new Label("Page\n1/1");
-            pages.getStyleClass().add("pages-label");
-
-            VBox pagesBox = new VBox(pages);
-            pagesBox.setAlignment(Pos.CENTER);
-            HBox.setHgrow(pagesBox, Priority.ALWAYS);
-
-            VBox dataLeftBox = new VBox(8);
-            dataLeftBox.getChildren().addAll(lineIconView, pagesBox);
-
-            // CENTER
-
-            destination = new Label("Tournan-en-Brie");
-            destination.getStyleClass().add("destination-label");
-
-            AnchorPane destinationPane = new AnchorPane();
-            HBox.setHgrow(destinationPane, Priority.ALWAYS);
-            destinationPane.getChildren().add(destination);
-
-            status = new Label("à quai");
-            status.getStyleClass().add("status-label");
-
-            HBox destStatBox = new HBox();
-            destStatBox.getStyleClass().add("dest-stat-box");
-            destStatBox.getChildren().addAll(destinationPane, status);
-
-
-            mission = new Label("TAVA");
-            mission.getStyleClass().add("mission-label");
-
-            Label dessert = new Label("Dessert");
-            dessert.getStyleClass().add("dessert-label");
-
-            VBox dessertBox = new VBox();
-            dessertBox.setAlignment(Pos.CENTER);
-            dessertBox.getChildren().add(dessert);
-
-            HBox missDessBox = new HBox(10);
-            missDessBox.getChildren().addAll(mission, dessertBox);
-
-            // NEXT STATIONS
-
-            allStopsBox = new AllStopsBox();
-
-            String[] sts = {"Rosa Parks", "Pantin", "Noisy-Le-Sec", "Val de Fontenay", "Villiers-P.Trév",
-                            "Les Yvris Noisy-le-G", "Émerainv. Pontault", "Roissy-en-Brie",
-                            "Ozoir-la-Ferrière", "Gretz-Armainvilliers", "Tournan-en-Brie"};
-
-            allStopsBox.addStop(new StopBox("", "b94e9a", MODE.PARIS_TOP_DEBUT));
-            allStopsBox.addStop(new StopBox(sts[0], "b94e9a", MODE.PARIS_BOTTOM_MIDDLE));
-
-            for(int i=1; i<10; i++) {
-                var tmp = new StopBox(sts[i], "b94e9a", MODE.NORMAL_MIDDLE);
-                allStopsBox.addStop(tmp);
-            }
-
-            allStopsBox.addStop(new StopBox(sts[10], "b94e9a", MODE.NORMAL_TERMINUS));
-
-            VBox dataCenterBox = new VBox();
-            HBox.setHgrow(dataCenterBox, Priority.ALWAYS);
-            dataCenterBox.getChildren().addAll(destStatBox, missDessBox, allStopsBox);
-
-
-            ///////
-
-            HBox dataBox = new HBox(12);
-            VBox.setVgrow(dataBox, Priority.ALWAYS);
-            dataBox.getChildren().addAll(dataLeftBox, dataCenterBox);
-            dataBox.getStyleClass().add("data-box");
-
-            VBox backgroundBox = new VBox();
-            VBox.setVgrow(backgroundBox, Priority.ALWAYS);
-            backgroundBox.getStyleClass().add("background-box");
-            backgroundBox.getChildren().add(dataBox);
-
-            this.setAlignment(Pos.TOP_RIGHT);
-            this.getStyleClass().add("journey-box");
-            this.getChildren().addAll(trainLen, backgroundBox);
-        } */
-
         public ImageView getLineIconView() {
             return lineIconView;
         }
 
-        public Label getPages() {
-            return pages;
+        public Label getPagesCount() {
+            return pagesCount;
         }
 
         public Label getDestination() {
             return destination;
         }
 
-        public Label getStatus() {
-            return status;
+        public Label getWaitingTime() {
+            return waitingTime;
         }
 
         public Label getMission() {
@@ -434,7 +346,6 @@ public class OnPlatformDisplayView extends DisplayView {
             return allStopsBox;
         }
     
-        
     }
 
     class AllStopsBox extends HBox {
@@ -453,6 +364,10 @@ public class OnPlatformDisplayView extends DisplayView {
 
         public void setCurrentPage(int currentPage) {
             this.currentPage = currentPage;
+        }
+
+        public LinkedList<StopsPageBox> getPages() {
+            return pages;
         }
 
         public int getCurrentPage() {
@@ -781,6 +696,5 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
     }
-
 
 }

@@ -17,7 +17,8 @@
 }
 
 .alert-box {
-    -fx-background-color: #e78754;
+    /* -fx-background-color: #e78754; */
+    -fx-background-color: #313131;
     -fx-background-radius: 0pt 10pt 10pt 0pt;
     -fx-padding: 20pt 8pt 20pt 8pt;
     /* -fx-border-insets: 10pt; */
@@ -33,7 +34,7 @@
 }
 
 .alert-headline-label {
-    -fx-font-size: 20pt;
+    -fx-font-size: 22pt;
 }
 
 .alert-content-label {
