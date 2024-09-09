@@ -2,20 +2,24 @@ package ienaclone.gui.controller;
 
 import java.util.ArrayList;
 
+import ienaclone.gui.Window;
+import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.gui.model.DashboardModel;
+import ienaclone.gui.model.DisplaySettings;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
 import ienaclone.prim.Filter;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
-import ienaclone.util.AllLinesSingleton;
+import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Files;
+import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 
 public class DashboardController {
     public DashboardView view;
@@ -29,22 +33,26 @@ public class DashboardController {
         this.view = view;
     }
 
+    public DashboardModel getModel() {
+        return model;
+    }
+
     public void stopSelected(int i) {
         Stop selected = model.getStops().get(i);
         resetCurrentValues();
         model.setCurrentStop(selected);
-        System.out.println(selected);
+        Functions.writeLog("'" + selected.getName() + "' selected !");
         loadJourneys();
     }
     
     public void testChecked(boolean isChecked) {
         model.setTestStopChecked(isChecked);
         if (isChecked) {
-            Stop testSt = new Stop("41010", "Chelles Gournay");
-            testSt.getLines().add("P");
-            testSt.getLines().add("E");
+            Stop testSt = AllStopsSingleton.getInstance()
+                                           .getStopByCode("41039")
+                                           .get();
             model.setCurrentStop(testSt);
-            System.out.println(testSt);
+            Functions.writeLog("'" + testSt.getName() + "' selected !");
         } else {
             resetCurrentValues();
         }
@@ -102,10 +110,18 @@ public class DashboardController {
         model.setSelectedValue(selected);
     }
 
+    public void displayModeSelected(DisplayMode selected) {
+        model.setSelectedDisplayMode(selected);
+    }
+
     public void displayPressed() {
         if (model.getCurrentStop() == null) return;
-        System.out.println();
-        displayOnTerminal();
+        var settings = new DisplaySettings();
+        settings.setSelected(model.getCurrentStop());
+        settings.setFilter(model.getSelectedFilter());
+        settings.setTest(model.isTestStopChecked());
+        settings.setMode(model.getSelectedDisplayMode());
+        Window.openDisplayWindow(settings);
     }
 
     public void loadStops() {
@@ -117,11 +133,11 @@ public class DashboardController {
 
                     @Override
                     protected Void call() throws Exception {
-                        var stops = Files.getAllStops();
+                        var stops = AllStopsSingleton.getInstance().getItems();
                         model.setStops(stops);
                         var stopNames = getNameFromStops(stops);
 
-                        ChoiceBox<String> newCB = new ChoiceBox<>();
+                        ComboBox<String> newCB = new ComboBox<>();
                         newCB.getItems().add("------------------------");
                         newCB.getSelectionModel().select(0);
                         stopNames.forEach(e -> {
@@ -161,9 +177,10 @@ public class DashboardController {
                         if (model.isTestStopChecked()) { // pour tester si il n'y pas de trains (ex: la nuit)
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
+                            ArrayList<Journey> allJourneys;
                             var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
                             if (rep.containsKey("data")) {
-                                nextJourneys = rep.get("data");
+                                allJourneys = rep.get("data");
                             } else {
                                 Platform.runLater(() -> {
                                     if (rep.containsKey("error_internet")) {
@@ -179,6 +196,8 @@ public class DashboardController {
                                 });
                                 return null;
                             }
+
+                            nextJourneys = Filter.removeAlreadyPassedTrains(allJourneys, null);
                         }
 
                         model.setJourneys(nextJourneys);
@@ -221,59 +240,4 @@ public class DashboardController {
         model.setSelectedValue(null);
     }
 
-    // TODO : temporaire
-    public ArrayList<Journey> applySelectedFilter() {
-        var raw = model.getJourneys();
-        String key = model.getSelectedKey();
-        String value = model.getSelectedFilter();
-
-        if (key == null) return raw;
-
-        switch (key) {
-            case "direction":
-                System.out.println("Filtre : direction > " + value);
-                return (ArrayList<Journey>) Filter.byDirection(raw, value);
-            case "platform":
-                System.out.println("Filtre : quai > " + value + " \n");
-                return (ArrayList<Journey>) Filter.byPlatform(raw, value);
-            case "mission":
-                System.out.println("Filtre : mission > " + value + " \n");
-                return (ArrayList<Journey>) Filter.byMission(raw, value);
-            case "line":
-                System.out.println("Filtre : ligne > " + value + " \n");
-                var ligne = AllLinesSingleton.getInstance().getLineByName(value);
-                String code = "";
-                if (ligne.isPresent()) code = ligne.get().getCode();
-                return (ArrayList<Journey>) Filter.byLine(raw, code);
-        }
-
-        return raw;
-    }
-
-
-    // TODO : temporaire !!
-    public void displayOnTerminal() {
-        ArrayList<Journey> journeys = applySelectedFilter();
-
-        int i = 1;
-        for (var j : journeys) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
-            sb.append("Ligne : ");
-            var ligne = AllLinesSingleton.getInstance().getLineByCode(j.getLineRef());
-            if (ligne.isPresent()) {
-                sb.append(ligne.get().getName()).append("\n");
-            } else {
-                sb.append("N/A").append("\n");
-            }
-            sb.append("Nom de la mission : ").append(j.getMissionCode()).append("\n");
-            sb.append("Direction : ").append(j.getDestinationName()).append("\n");
-            sb.append("Quai : ").append(j.getArivalPlatform()).append("\n");
-            sb.append("Heure d'arrivée estimée : ").append(j.getExpectedArrivalTime()).append("\n");
-            sb.append("Heure de départ estimée : ").append(j.getExpectedDepartureTime()).append("\n");
-
-            System.out.println(sb.toString());
-            i++;
-        }
-    }
 }

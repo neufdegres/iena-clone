@@ -2,24 +2,27 @@ package ienaclone.gui.model;
 
 import java.util.ArrayList;
 
+import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;
 
 public class DashboardModel {
     private ArrayList<Stop> stops;
-    private ArrayList<Journey> journeys; // TODO : temporaire
+    private ArrayList<Journey> journeys;
     private ArrayList<Stop> currentDirections;
     private ArrayList<String> currentPlatforms;
     private ArrayList<String> currentMissions;
     private ArrayList<Line> currentLines;
     private Stop currentStop;
     private boolean isTestStopChecked;
+    private DisplayMode selectedDisplayMode;
     private String[] selectedFilter;
 
     public void setStops(ArrayList<Stop> stops) {
         this.stops = stops;
         this.isTestStopChecked = false;
+        this.selectedDisplayMode = DisplayMode.ON_PLATFORM_1_TRAIN;
         this.selectedFilter = new String[2];
     }
 
@@ -53,6 +56,10 @@ public class DashboardModel {
 
     public void setSelectedKey(String key) {
         this.selectedFilter[0] = key;
+    }
+
+    public void setSelectedDisplayMode(DisplayMode selectedDisplayMode) {
+        this.selectedDisplayMode = selectedDisplayMode;
     }
 
     public void setSelectedValue(String value) {
@@ -91,11 +98,19 @@ public class DashboardModel {
         return isTestStopChecked;
     }
 
+    public String[] getSelectedFilter() {
+        return selectedFilter;
+    }
+
     public String getSelectedKey() {
         return selectedFilter[0];
     }
 
-    public String getSelectedFilter() {
+    public DisplayMode getSelectedDisplayMode() {
+        return selectedDisplayMode;
+    }
+
+    public String getSelectedValue() {
         return selectedFilter[1];
     }
 

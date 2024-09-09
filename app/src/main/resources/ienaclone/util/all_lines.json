@@ -2,55 +2,68 @@
 	"lines": [
 		{
 			"name": "A",
-			"code": "C01742"
+			"code": "C01742",
+			"color": "eb2132"
 		},
 		{
 			"name": "B",
-			"code": "C01743"
+			"code": "C01743",
+			"color": "5091cb"
 		},
 		{
 			"name": "C",
-			"code": "C01727"
+			"code": "C01727",
+			"color": "ffcc30"
 		},
 		{
 			"name": "D",
-			"code": "C01728"
+			"code": "C01728",
+			"color": "008b5b"
 		},
 		{
 			"name": "E",
-			"code": "C01729"
+			"code": "C01729",
+			"color": "b94e9a"
 		},
 		{
 			"name": "H",
-			"code": "C01737"
+			"code": "C01737",
+			"color": "84653d"
 		},
 		{
 			"name": "J",
-			"code": "C01739"
+			"code": "C01739",
+			"color": "cec73d"
 		},
 		{
 			"name": "K",
-			"code": "C01738"
+			"code": "C01738",
+			"color": "9b9842"
 		},
 		{
 			"name": "L",
-			"code": "C01740"
+			"code": "C01740",
+			"color": "c4a4cc"
 		},
 		{
 			"name": "N",
-			"code": "C01736"
+			"code": "C01736",
+			"color": "00b297"
 		},
 		{
 			"name": "P",
-			"code": "C01730"
+			"code": "C01730",
+			"color": "f58f53"
 		},
 		{
 			"name": "R",
-			"code": "C01731"
+			"code": "C01731",
+			"color": "f49fb3"
 		},
 		{
 			"name": "U",
-			"code": "C01741"
+			"code": "C01741",
+			"color": "b6134c"
 		}
 	]
 }

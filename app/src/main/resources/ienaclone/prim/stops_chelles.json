@@ -1,0 +1,200 @@
+{
+    "data": [
+        {
+            "destinationRef": "41010",
+            "stops": [
+                {
+                    "ref":"41038",
+                    "status": "start"
+                },
+                {
+                    "ref":"41052",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41051",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41049",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41039",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41016",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41015",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41014",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41013",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41012",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41011",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41010",
+                    "status": "terminus"
+                }
+            ]
+        },
+        {
+            "destinationRef": "41038",
+            "stops": [
+                {
+                    "ref":"41010",
+                    "status": "start"
+                },
+                {
+                    "ref":"41011",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41012",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41013",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41014",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41015",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41016",
+                    "status": "skipped"
+                },
+                {
+                    "ref":"41039",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41049",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41051",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41052",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41038",
+                    "status": "terminus"
+                }
+            ]
+        },
+        {
+            "destinationRef": "41127",
+            "stops": [
+                {
+                    "ref":"41039",
+                    "status": "start"
+                },
+                {
+                    "ref":"41016",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41015",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41014",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41013",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41012",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41011",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"420316",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41126",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41127",
+                    "status": "terminus"
+                }
+            ]
+        },
+        {
+            "destinationRef": "41039",
+            "stops": [
+                {
+                    "ref":"41127",
+                    "status": "start"
+                },
+                {
+                    "ref":"41126",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"420316",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41011",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41012",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41013",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41014",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41015",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41016",
+                    "status": "inclued"
+                },
+                {
+                    "ref":"41039",
+                    "status": "terminus"
+                }
+            ] 
+        }
+    ]
+}

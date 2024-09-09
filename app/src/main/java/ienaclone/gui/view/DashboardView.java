@@ -1,6 +1,8 @@
 package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
+import ienaclone.gui.controller.util.DisplayMode;
+import ienaclone.util.Functions;
 
 import java.util.stream.Stream;
 
@@ -11,7 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -27,9 +29,10 @@ import javafx.stage.Stage;
 public class DashboardView extends AbstractView {
     private final Stage main; 
     private final DashboardController controller;
-    private ChoiceBox<String> gareCB;
+    private ComboBox<String> gareCB;
     private FilterBox filterBox;
     private HBox gareBox;
+    private VBox displayBox;
     private Button displayButton;
 
     public DashboardView(Stage main, DashboardController controller) {
@@ -45,7 +48,7 @@ public class DashboardView extends AbstractView {
         l.setStyle("-fx-font-size: 28pt;");
 
         Label gare = new Label("Gare ");
-        gareCB = new ChoiceBox<String>();
+        gareCB = new ComboBox<String>();
         gareCB.getItems().add("chargement en cours.........");
         gareCB.getSelectionModel().select(0);
 
@@ -53,7 +56,7 @@ public class DashboardView extends AbstractView {
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
-        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay)");
+        CheckBox testGareCB = new CheckBox("Utiliser des données pré-chargées (gare de Chelles Gournay)");
         testGareCB.setStyle("-fx-font-size: 12pt;");
         testGareCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -71,15 +74,56 @@ public class DashboardView extends AbstractView {
             }
         });
 
-        Label afficher = new Label("Afficher par...");
+        Label afficherPar = new Label("Afficher par...");
         l.setStyle("-fx-font-size: 18pt;");
 
         filterBox = new FilterBox();
+
+        Label modeAffichage = new Label("Mode d'affichage :");
+        l.setStyle("-fx-font-size: 18pt;");
+
+        HBox displayValuesBox = new HBox(5);
+        displayValuesBox.setPadding(new Insets(10,10,0,10));
+
+        ToggleGroup displayTG = new ToggleGroup();
+
+        var d1CB = new DisplayRadioButton(DisplayMode.OUT_OF_PLATFORM, "\"hors quai\"");
+        var d2CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_1_TRAIN, "quai - 1 train");
+        var d3CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_3_TRAINS, "quai - 3 trains");
+
+        d1CB.setDisable(true);
+        d3CB.setDisable(true);
+
+        Stream.of(d1CB, d2CB, d3CB)
+            .forEach(d -> {
+                d.setStyle("-fx-font-size: 12pt;");
+                d.setToggleGroup(displayTG);
+                displayValuesBox.getChildren().add(d);
+            });
+
+        displayTG.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+                public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                    var selected = (DisplayRadioButton)newValue;
+                    controller.displayModeSelected(selected.getKey());
+                }
+
+        });
+
+        if (displayTG.getToggles().size() > 0)
+            displayTG.selectToggle(displayTG.getToggles().get(1));
+
+        displayBox = new VBox();
+
+        displayBox.setVisible(false);
+        displayBox.getChildren().addAll(modeAffichage, displayValuesBox);
+            
  
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, testGareCB, afficher, filterBox);
+        body.getChildren().addAll(gareBox, testGareCB, afficherPar, filterBox, displayBox);
 
         displayButton = new Button("Afficher");
         displayButton.setDisable(true);
@@ -95,7 +139,7 @@ public class DashboardView extends AbstractView {
 
         layout.getChildren().addAll(l, body, displayButton);
 
-        Scene scene = new Scene(layout, 700, 500);
+        Scene scene = new Scene(layout, 700, 580);
         scene.getStylesheets().add("/ienaclone/gui/view/dashboard.css");
         main.setScene(scene);
         main.show();
@@ -103,7 +147,7 @@ public class DashboardView extends AbstractView {
         controller.loadStops();
     }
 
-    public ChoiceBox<String> getGareCB() {
+    public ComboBox<String> getGareCB() {
         return gareCB;
     }
 
@@ -115,7 +159,7 @@ public class DashboardView extends AbstractView {
         return displayButton;
     }
 
-    public void remplaceGareCB(ChoiceBox<String> newCB) {
+    public void remplaceGareCB(ComboBox<String> newCB) {
         gareBox.getChildren().remove(1);
         gareBox.getChildren().add(newCB);
 
@@ -137,6 +181,8 @@ public class DashboardView extends AbstractView {
                 }
             }
         });
+
+        gareCB.setVisibleRowCount(12);
     }
 
     public class FilterBox extends VBox {
@@ -202,31 +248,37 @@ public class DashboardView extends AbstractView {
                 case LOADING:
                     disableOptionToggles();
                     optionListBox.setLoadingView();
+                    displayBox.setVisible(false);
                     break;
                 case NO_STOP_SELECTED:
                     disableOptionToggles();
                     optionListBox.setDefaultView();
+                    displayBox.setVisible(false);
                     break;
 
                 case NO_TRAIN: 
                     disableOptionToggles();
                     optionListBox.setNoValues();
+                    displayBox.setVisible(false);
                     break;
 
                 case ALL_TRAINS:
                     enableOptionToggles();
                     selectFirstToggle();
                     optionListBox.removeValues();
+                    displayBox.setVisible(true);
                     break;
 
                 case DATA_SET:
                     enableOptionToggles();
                     optionListBox.setValues(values);
+                    displayBox.setVisible(true);
                     break;
 
                 case NO_INTERNET_CONNEXION:
                     disableOptionToggles();
                     optionListBox.setNoInternetConnexionView();
+                    displayBox.setVisible(false);
                     break;
 
                 case NO_API_KEY:
@@ -237,6 +289,7 @@ public class DashboardView extends AbstractView {
                 case ERROR:
                     disableOptionToggles();
                     optionListBox.setErrorView();
+                    displayBox.setVisible(false);
                     break;
             }
         }
@@ -298,6 +351,8 @@ public class DashboardView extends AbstractView {
                 public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                     var selected = (ValueRadioButton)newValue;
                     controller.filterValueSelected(selected.getKey());
+                    var key = ((OptionToggle)filterBox.getButtonsGroup().getSelectedToggle()).getKey();
+                    Functions.writeLog("Filter '" + key + " > " + selected.getKey() + "' set !");
                 }
 
             });
@@ -311,12 +366,14 @@ public class DashboardView extends AbstractView {
 
         public void setNoValues() {
             this.getChildren().clear();
-            this.getChildren().addAll(new Label("Aucun train de prévu pour les 2 prochaines heures"));
+            Label warning = new Label("Aucun train de prévu pour les 2 prochaines heures");
+            this.getChildren().add(warning);
         }
 
         public void removeValues() {
             this.getChildren().clear();
-            this.getChildren().addAll(new Label("Afficher tous les passages"));
+            Label warning = new Label("Ne pas filtrer les passages à venir");
+            this.getChildren().add(warning);
         }
 
         public void setDefaultView() {
@@ -340,9 +397,10 @@ public class DashboardView extends AbstractView {
 
         public void setNoApiKeyView() {
             this.getChildren().clear();
-            String msg = "La variable d'environnement `prim_api` n'a pas été initialisée.\n"
+            String msg = "Pas de clé d'API enregistrée : impossible d'obtenir les données des passages.\n"
                          + "Voir le README pour plus d'infos.";
             Label warning = new Label(msg);
+            warning.setWrapText(true);
             this.getChildren().add(warning);
         }
 
@@ -376,6 +434,19 @@ public class DashboardView extends AbstractView {
         }
 
         public String getKey() {
+            return key;
+        }
+    }
+
+    private class DisplayRadioButton extends RadioButton {
+        private final DisplayMode key;
+
+        public DisplayRadioButton(DisplayMode nameKey, String text) {
+            super(text);
+            this.key = nameKey;
+        }
+
+        public DisplayMode getKey() {
             return key;
         }
     }

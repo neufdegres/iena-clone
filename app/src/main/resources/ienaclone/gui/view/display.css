@@ -1,0 +1,155 @@
+.label {
+    -fx-font-family: "sans-serif";
+    -fx-font-weight: bold;
+}
+
+.layout-box {
+    -fx-background-color: #c5d1e3;
+}
+
+.time-label {
+    -fx-font-size: 18pt;
+    -fx-text-fill: #1f266c;
+    -fx-font-weight: bold;
+    -fx-background-color: #eee;
+    -fx-background-radius: 10pt;
+    -fx-padding: 2pt 6pt 2pt 6pt;
+}
+
+.alert-box {
+    /* -fx-background-color: #e78754; */
+    -fx-background-color: #313131;
+    -fx-background-radius: 0pt 10pt 10pt 0pt;
+    -fx-padding: 20pt 8pt 20pt 8pt;
+    /* -fx-border-insets: 10pt; */
+}
+
+.alert-box .label {
+    -fx-text-fill: #eee;
+    -fx-wrap-text: true;
+}
+
+.alert-headline-box {
+    -fx-padding: 0pt 4pt 20pt 4pt;
+}
+
+.alert-headline-label {
+    -fx-font-size: 22pt;
+}
+
+.alert-content-label {
+    -fx-font-size: 16pt;
+}
+
+/* RIGHT */
+
+.right-box {
+    -fx-padding: 5pt 10pt 0pt 10pt;
+}
+
+.next-train-label, .platform-num-label {
+    -fx-font-size: 22pt;
+    -fx-font-weight: 400;
+}
+
+.platform-label {
+    -fx-background-color: #1f266c;
+    -fx-background-radius: 10pt;
+    -fx-text-fill: #c5d1e3;
+    -fx-padding: 1pt 4pt 1pt 4pt;
+}
+
+.platform-num-label {
+    -fx-background-color: #eee;
+    -fx-background-radius: 5pt;
+    -fx-border-color: #1f266c;
+    -fx-border-radius: 5pt;
+    -fx-padding: 1pt 4pt 1pt 4pt;
+}
+
+.platform-box {
+    -fx-alignment: center;
+}
+
+
+.journey-box .label {
+    -fx-text-fill: #eeeeee;
+}
+
+.train-length {
+    -fx-font-size: 14pt;
+    -fx-background-radius: 4pt 4pt 0pt 0pt;
+    -fx-padding: 1pt 4pt 1pt 4pt;
+}
+
+.background-box, .train-length {
+    -fx-background-color: #1c969e;
+}
+
+.background-box {
+    -fx-background-radius: 10pt 0pt 0pt 0pt;
+}
+
+.data-box {
+    -fx-background-color: #1f266c;
+    -fx-background-radius: 10pt 10pt 0pt 0pt;
+    -fx-padding: 10pt;
+}
+
+.pages-label {
+    -fx-font-size: 12pt;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.destination-label, .status-label {
+    -fx-font-size: 32pt;
+}
+
+.cancelled-label .text {
+    -fx-fill: #71759a;
+}
+
+.destination-tag-label {
+    -fx-font-size: 24pt;
+    -fx-font-weight: 200;
+    -fx-font-style: italic;
+    -fx-fill: #a2a2a2;
+}
+
+.status-label {
+    -fx-font-weight: lighter;
+}
+
+.dest-stat-box {
+    -fx-padding: 0pt 0pt 5pt 0pt;
+}
+
+.mission-label {
+    -fx-font-weight: lighter;
+    -fx-font-size: 26pt;
+}
+
+.dessert-label {
+    -fx-font-size: 16pt;
+}
+
+.name-label {
+    -fx-font-size: 24pt;
+    -fx-font-weight: 400;
+}
+
+.paris-label {
+    -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+
+.title-terminus-label {
+    -fx-font-size: 36pt;
+    -fx-font-weight: bold;
+}
+
+.desc-terminus-label {
+    -fx-font-size: 28pt;
+    -fx-font-weight: bold;
+}
