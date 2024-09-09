@@ -18,10 +18,11 @@ import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
+import ienaclone.util.TimeStatus;
 
 public class Requests {
     private static String HOST = "https://prim.iledefrance-mobilites.fr";
-    private static String API_KEY = System.getenv("prim_api");
+    private static String API_KEY = Functions.getApiKey();
 
     public static HashMap<String, ArrayList<Journey>> getNextJourneys(String monitoringRef) {
         HashMap<String, ArrayList<Journey>> res = new HashMap<>();
@@ -73,7 +74,7 @@ public class Requests {
             if (mvj == null) continue;
 
             var destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
-            bld.destination = AllStopsSingleton.getInstance() // TODO
+            bld.destination = AllStopsSingleton.getInstance()
                                 .getStopByCode(destinationRef).orElse(null);
 
             var refRaw = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
@@ -82,6 +83,9 @@ public class Requests {
             
             var lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
             bld.line = AllLinesSingleton.getInstance().getLineByCode(lineRef).orElse(null);
+
+            // pour retirer les TER
+            if (bld.line == null) continue;
             
             var mc = mvj.getJSONObject("MonitoredCall");
             if (mc == null) continue;
@@ -100,14 +104,22 @@ public class Requests {
             var expectedDepartureTime = (String) getJsonValue(mc, "ExpectedDepartureTime:String");
             bld.expectedDepartureTime = Functions.getDateTime(expectedDepartureTime).orElse(null);
 
+            var statusD = (String) getJsonValue(mc, "DepartureStatus:String");
+            var statusA = (String) getJsonValue(mc, "ArrivalStatus:String");
+
+            if (statusD.equals("cancelled") || statusA.equals("cancelled"))
+                bld.timeStatus = TimeStatus.CANCELLED;
+            else
+                bld.timeStatus = TimeStatus.ON_TIME;
+
             res.add(new Journey(bld));
         }
 
         return res;
     }
 
-    public static HashMap<String, ArrayList<String>> getJourneyStopList(String ref) {
-        HashMap<String, ArrayList<String>> res = new HashMap<>();
+    public static HashMap<String, ArrayList<StopData>> getJourneyStopList(String ref) {
+        HashMap<String, ArrayList<StopData>> res = new HashMap<>();
 
         HttpClient client = HttpClient.newHttpClient();
 
@@ -128,7 +140,10 @@ public class Requests {
 
             final JSONObject jsonRep = new JSONObject(response.body());
 
-            res.put("data", parseJourneyStopList(jsonRep));
+            var data = parseJourneyStopList(jsonRep);
+
+            if (data == null) res.put("unknown_ref", null);
+            else res.put("data", data);
 
         } catch (ConnectException e1) {
             res.put("error_internet", null);
@@ -142,22 +157,24 @@ public class Requests {
         return res;
     }
 
-    public static ArrayList<String> parseJourneyStopList(JSONObject json) {
-        ArrayList<String> res = new ArrayList<>();
+    public static ArrayList<StopData> parseJourneyStopList(JSONObject json) {
+        ArrayList<StopData> res = new ArrayList<>();
         
         var stops = (JSONArray) getJsonValue(json, "vehicle_journeys#0>stop_times:Array"); 
 
-        boolean isSkippedStop = false;
+        if (stops == null) return null;
 
         for(int i=0; i<stops.length(); i++) {
             var stopJson = stops.getJSONObject(i);
-            isSkippedStop = (boolean) getJsonValue(stopJson, "skipped_stop:boolean");
-
-            if (isSkippedStop) continue;
 
             var stopRef = (String) getJsonValue(stopJson, "stop_point>codes#1>value:String");
+            var pickupAllowed = (boolean) getJsonValue(stopJson, "pickup_allowed:boolean");;
+            var dropOffAllowed = (boolean) getJsonValue(stopJson, "drop_off_allowed:boolean");;
+            var skippedStop = (boolean) getJsonValue(stopJson, "skipped_stop:boolean");
 
-            res.add(stopRef);
+            var data = new StopData(stopRef, pickupAllowed, dropOffAllowed, skippedStop);
+
+            res.add(data);
         }
 
         return res;
@@ -208,6 +225,10 @@ public class Requests {
     private static boolean isNumber(String s) {
         return Pattern.matches("\\d+", s);
     }
+
+ 
+    public static record StopData(String stopRef, boolean pickupAllowed,
+                                boolean dropOffAllowed, boolean skippedStop) {}
 
     public static class NoApiKeyException extends Exception {}
 

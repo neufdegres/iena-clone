@@ -31,8 +31,30 @@ public class Functions {
     }
 
     public static long getWaitingTime(LocalDateTime toWait) {
+        if (toWait == null) return -99999L;
         LocalDateTime now = LocalDateTime.now();
         return MINUTES.between(now, toWait);
+    }
+
+    public static String getApiKey() {
+        String res = null;
+
+        res = System.getenv("prim_api");
+
+        if (res != null) return res;
+
+        res = Files.getApiKeyFromFile();
+
+        return res;
+    }
+
+    public static void writeLog(String text) {
+        var time = getCurrentDateTime().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+        if (text.startsWith("\n"))
+            System.out.println("\n[" + time + "]\t" + text.substring(1));
+        else
+            System.out.println("[" + time + "]\t" + text);
     }
 
     // TODO : à améliorer

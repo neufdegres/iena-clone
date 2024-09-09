@@ -55,6 +55,7 @@ public class Filter {
         int i = len-1;
         boolean toRemove = false;
         for (; i>=0; i-- ) { 
+            toRemove = false;
             var tmp = all.get(i);
 
             departure = tmp.getExpectedDepartureTime();
@@ -63,17 +64,23 @@ public class Filter {
             if (departure.isEmpty() && arrival.isEmpty()) {
                 if (i>0) continue;
             } else if (departure.isEmpty()) {
-                if (now.isBefore(arrival.get())) if (i>0) continue;
-                toRemove = true;
+                if (now.isBefore(arrival.get())) {
+                    if (i>0) continue;
+                } else {
+                    toRemove = true;
+                }
             } else {
-                if (now.isBefore(departure.get())) if (i>0) continue;
-                toRemove = true;
+                if (now.isBefore(departure.get())) {
+                    if (i>0) continue;
+                } else {
+                    toRemove = true;
+                }
             }
 
             if (i > 0 || toRemove)
                 res.addAll(all.subList(i+1, len));
             else 
-                res.addAll(all.subList(i, len));
+                res.addAll(all);
             
                 break;
         }

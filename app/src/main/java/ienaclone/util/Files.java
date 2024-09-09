@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ienaclone.prim.Requests;
+import javafx.util.Pair;
 
 import org.apache.commons.io.IOUtils;
 
@@ -107,7 +108,7 @@ public class Files {
         return null;
     }
 
-    public static HashMap<String, ArrayList<Stop>> loadTestNextStopsValues() {
+    public static HashMap<String, ArrayList<Pair<Stop, Stop.STATUS>>> loadTestNextStopsValues() {
         try {
             URL a = Requests.class.getResource("stops_chelles.json");
             File file = new File(a.toURI());
@@ -128,23 +129,25 @@ public class Files {
         return null;
     }
 
-    private static HashMap<String, ArrayList<Stop>> parseTestNextStops(JSONObject json) {
+    private static HashMap<String, ArrayList<Pair<Stop, Stop.STATUS>>> parseTestNextStops(JSONObject json) {
         try {
-            var res = new HashMap<String, ArrayList<Stop>>();
+            var res = new HashMap<String, ArrayList<Pair<Stop, Stop.STATUS>>>();
             JSONArray data = json.getJSONArray("data");
             for (int i=0; i<data.length(); i++) {
                 var tmp = data.getJSONObject(i);
 
                 String key = tmp.getString("destinationRef");
-                var values = new ArrayList<Stop>();
+                var values = new ArrayList<Pair<Stop, Stop.STATUS>>();
 
                 var stops = tmp.getJSONArray("stops");
 
                 for(int y=0; y<stops.length(); y++) {
-                    var ref = stops.getString(y);
+                    var curr = stops.getJSONObject(y);
+                    var ref = curr.getString("ref");
                     var stop = AllStopsSingleton.getInstance()
                                 .getStopByCode(ref).orElse(new Stop());
-                    values.add(stop);
+                    var status = curr.getString("status");
+                    values.add(new Pair<Stop, Stop.STATUS>(stop, Stop.getStatus(status)));
                 }
 
                 res.put(key, values);
@@ -156,4 +159,29 @@ public class Files {
         }
         
     }
+
+    public static String getApiKeyFromFile() {
+        String res = null;
+
+        try {
+            File file = new File(System.getProperty("user.dir") + "/../api_key.txt");
+
+            if (file.exists()){
+                InputStream is;
+                is = new FileInputStream(file);
+                String txt = IOUtils.toString(is, "UTF-8");
+                
+                if (!txt.contains("api_key=")) return null;
+
+                res = txt.split("api_key=")[1].split("\n")[0].strip();
+
+                if (res.length() != 32) return null;
+            }
+        } catch (IOException e) {
+            return null;
+        }
+
+        return res;
+    }
+
 }

@@ -1,0 +1,6 @@
+*****************************************************************
+| Veuillez copier votre clé d'api que vous avez récupéré sur le |
+| site de "prim" (voir README) à la place du "<YOUR_API_KEY>".  |
+*****************************************************************
+
+api_key=<YOUR_API_KEY>

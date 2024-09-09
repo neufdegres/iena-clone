@@ -11,9 +11,9 @@ import ienaclone.gui.view.DashboardView.FilterBox;
 import ienaclone.prim.Filter;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
-import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Files;
+import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
 import javafx.application.Platform;
@@ -33,22 +33,26 @@ public class DashboardController {
         this.view = view;
     }
 
+    public DashboardModel getModel() {
+        return model;
+    }
+
     public void stopSelected(int i) {
         Stop selected = model.getStops().get(i);
         resetCurrentValues();
         model.setCurrentStop(selected);
-        System.out.println(selected);
+        Functions.writeLog("'" + selected.getName() + "' selected !");
         loadJourneys();
     }
     
     public void testChecked(boolean isChecked) {
         model.setTestStopChecked(isChecked);
         if (isChecked) {
-            Stop testSt = new Stop("41010", "Chelles Gournay");
-            testSt.getLines().add("P");
-            testSt.getLines().add("E");
+            Stop testSt = AllStopsSingleton.getInstance()
+                                           .getStopByCode("41039")
+                                           .get();
             model.setCurrentStop(testSt);
-            System.out.println(testSt);
+            Functions.writeLog("'" + testSt.getName() + "' selected !");
         } else {
             resetCurrentValues();
         }
@@ -112,25 +116,12 @@ public class DashboardController {
 
     public void displayPressed() {
         if (model.getCurrentStop() == null) return;
-        System.out.println();
-        displayOnTerminal(getTotalNbOfTrains());
         var settings = new DisplaySettings();
         settings.setSelected(model.getCurrentStop());
         settings.setFilter(model.getSelectedFilter());
         settings.setTest(model.isTestStopChecked());
         settings.setMode(model.getSelectedDisplayMode());
         Window.openDisplayWindow(settings);
-    }
-    
-    private int getTotalNbOfTrains() {
-        switch (model.getSelectedDisplayMode()) {
-            case ON_PLATFORM_1_TRAIN:
-                return 1;
-            case ON_PLATFORM_3_TRAINS:
-                return 3;
-            case OUT_OF_PLATFORM:
-        }
-        return 999;
     }
 
     public void loadStops() {
@@ -249,64 +240,4 @@ public class DashboardController {
         model.setSelectedValue(null);
     }
 
-    // TODO : temporaire
-    public ArrayList<Journey> applySelectedFilter() {
-        var raw = model.getJourneys();
-        String key = model.getSelectedKey();
-        String value = model.getSelectedValue();
-
-        if (key == null) return raw;
-
-        switch (key) {
-            case "direction":
-                System.out.println("Filtre : direction > " + value);
-                return (ArrayList<Journey>) Filter.byDirection(raw, value);
-            case "platform":
-                System.out.println("Filtre : quai > " + value + " \n");
-                return (ArrayList<Journey>) Filter.byPlatform(raw, value);
-            case "mission":
-                System.out.println("Filtre : mission > " + value + " \n");
-                return (ArrayList<Journey>) Filter.byMission(raw, value);
-            case "line":
-                System.out.println("Filtre : ligne > " + value + " \n");
-                var ligne = AllLinesSingleton.getInstance().getLineByName(value);
-                String code = "";
-                if (ligne.isPresent()) code = ligne.get().getCode();
-                return (ArrayList<Journey>) Filter.byLine(raw, code);
-        }
-
-        return raw;
-    }
-
-
-    // TODO : temporaire !!
-    public void displayOnTerminal(int total) {
-        ArrayList<Journey> journeys = applySelectedFilter();
-
-        int i = 1;
-        for (var j : journeys) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("-----------------PASSAGE ").append(i).append("-----------------\n");
-            // sb.append("Ref : ").append(j.getRef()).append("\n");
-            sb.append("Ligne : ");
-            sb.append(j.getLine().map(line -> line.getName()).orElse("N/A")).append("\n");
-            sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");
-            sb.append("Direction : ").append(j.getDestination().orElse(new Stop()).getName()).append("\n");
-            sb.append("Quai : ").append(j.getPlatform().orElse("N/A")).append("\n");
-            if (j.getExpectedArrivalTime().isPresent() || j.getExpectedDepartureTime().isPresent()) {
-                sb.append("Heure d'arrivée estimée : ");
-                sb.append(j.getExpectedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
-                sb.append("Heure de départ estimée : ");
-                sb.append(j.getExpectedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
-            } else {
-                sb.append("Heure d'arrivée visée : ");
-                sb.append(j.getAimedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
-                sb.append("Heure de départ visée : ");
-                sb.append(j.getAimedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
-            }
-            System.out.println(sb.toString());
-            i++;
-            if (i > total) break;
-        }
-    }
 }

@@ -2,6 +2,7 @@ package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
 import ienaclone.gui.controller.util.DisplayMode;
+import ienaclone.util.Functions;
 
 import java.util.stream.Stream;
 
@@ -55,7 +56,7 @@ public class DashboardView extends AbstractView {
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
 
-        CheckBox testGareCB = new CheckBox("Utiliser des données de test (Chelles Gournay)");
+        CheckBox testGareCB = new CheckBox("Utiliser des données pré-chargées (gare de Chelles Gournay)");
         testGareCB.setStyle("-fx-font-size: 12pt;");
         testGareCB.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -86,9 +87,12 @@ public class DashboardView extends AbstractView {
 
         ToggleGroup displayTG = new ToggleGroup();
 
-        var d1CB = new DisplayRadioButton(DisplayMode.OUT_OF_PLATFORM, "\"hors quai\" (non dispo)");
-        var d2CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_1_TRAIN, "quai - 1 train (WIP)");
-        var d3CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_3_TRAINS, "quai - 3 trains (non dispo)");
+        var d1CB = new DisplayRadioButton(DisplayMode.OUT_OF_PLATFORM, "\"hors quai\"");
+        var d2CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_1_TRAIN, "quai - 1 train");
+        var d3CB = new DisplayRadioButton(DisplayMode.ON_PLATFORM_3_TRAINS, "quai - 3 trains");
+
+        d1CB.setDisable(true);
+        d3CB.setDisable(true);
 
         Stream.of(d1CB, d2CB, d3CB)
             .forEach(d -> {
@@ -177,6 +181,8 @@ public class DashboardView extends AbstractView {
                 }
             }
         });
+
+        gareCB.setVisibleRowCount(12);
     }
 
     public class FilterBox extends VBox {
@@ -345,6 +351,8 @@ public class DashboardView extends AbstractView {
                 public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                     var selected = (ValueRadioButton)newValue;
                     controller.filterValueSelected(selected.getKey());
+                    var key = ((OptionToggle)filterBox.getButtonsGroup().getSelectedToggle()).getKey();
+                    Functions.writeLog("Filter '" + key + " > " + selected.getKey() + "' set !");
                 }
 
             });
@@ -364,7 +372,7 @@ public class DashboardView extends AbstractView {
 
         public void removeValues() {
             this.getChildren().clear();
-            Label warning = new Label("Afficher tous les passages");
+            Label warning = new Label("Ne pas filtrer les passages à venir");
             this.getChildren().add(warning);
         }
 
@@ -389,9 +397,10 @@ public class DashboardView extends AbstractView {
 
         public void setNoApiKeyView() {
             this.getChildren().clear();
-            String msg = "La variable d'environnement `prim_api` n'a pas été initialisée.\n"
+            String msg = "Pas de clé d'API enregistrée : impossible d'obtenir les données des passages.\n"
                          + "Voir le README pour plus d'infos.";
             Label warning = new Label(msg);
+            warning.setWrapText(true);
             this.getChildren().add(warning);
         }
 

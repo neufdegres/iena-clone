@@ -10,9 +10,7 @@ public class Parcer {
     public static ArrayList<Stop> parseDirectionsFromData(ArrayList<Journey> data) {
         ArrayList<Stop> res = new ArrayList<>();
         for (var j : data) {
-            Stop tmp = j.getDestination().orElse(null);
-            // TODO : que faire si pas de direction (possible ?)
-            if (tmp == null) continue;
+            Stop tmp = j.getDestination().orElse(new Stop());
             if (!res.contains(tmp)) res.add(tmp);
         }   
 

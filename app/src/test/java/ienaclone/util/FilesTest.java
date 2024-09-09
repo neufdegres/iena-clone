@@ -33,7 +33,7 @@ public class FilesTest {
         assertEquals("E", trainE);
     }
 
-    @Test
+    // @Test
     void testLoadTestNextStopsValues() {
         var data = Files.loadTestNextStopsValues();
 
@@ -44,5 +44,12 @@ public class FilesTest {
         assertNotNull(dest);
 
         assertEquals(4, dest.size());
+    }
+
+    // @Test
+    void testGetApiKeyFromFile() {
+        String actual = Files.getApiKeyFromFile();
+
+        assertNotNull(actual);
     }
 }

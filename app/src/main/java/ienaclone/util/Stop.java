@@ -10,6 +10,8 @@ public class Stop {
     private final boolean isParis;
     private final ArrayList<String> lines;
 
+    public enum STATUS {INCLUDED, SKIPPED, START, TERMINUS, UNKOWN}
+
     public Stop(String code, String name, boolean isParis, ArrayList<String> lines) {
         this.code = code;
         this.name = name;
@@ -39,6 +41,20 @@ public class Stop {
 
     public ArrayList<String> getLines() {
         return lines;
+    }
+
+    public static STATUS getStatus(String txt) {
+        switch (txt) {
+            case "start":
+                return STATUS.START;
+            case "included":
+            return STATUS.INCLUDED;
+            case "skipped":
+            return STATUS.SKIPPED;
+            case "terminus":
+            return STATUS.TERMINUS;
+        }
+        return STATUS.UNKOWN;
     }
 
     @Override

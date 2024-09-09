@@ -2,6 +2,8 @@ package ienaclone.gui.view;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.stream.IntStream;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,14 +26,20 @@ import javafx.stage.Stage;
 
 import ienaclone.gui.controller.DisplayController;
 import ienaclone.gui.view.OnPlatformDisplayView.StopBox.MODE;
+import ienaclone.util.AllLinesSingleton;
+import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
+import ienaclone.util.Line;
+import ienaclone.util.Stop;
+import ienaclone.util.Stop.STATUS;
 
 public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
     private final DisplayController controller;
     private Label timeLabel, platformNumLabel;
     private JourneyBox journeyBox;
+    private VBox rightBox;
 
     public OnPlatformDisplayView(Stage main, DisplayController c) {
         this.main = main;
@@ -105,17 +113,12 @@ public class OnPlatformDisplayView extends DisplayView {
         HBox rightTopBox = new HBox();
         rightTopBox.getChildren().addAll(nextTrainBox, platformBox);
 
-        // RIGHT-BODY
-
-        journeyBox = new JourneyBox();
-        VBox.setVgrow(journeyBox, Priority.ALWAYS);
-
         ///
 
-        VBox rightBox = new VBox(10);
+        rightBox = new VBox(10);
         HBox.setHgrow(rightBox, Priority.ALWAYS);
         rightBox.getStyleClass().add("right-box");
-        rightBox.getChildren().addAll(rightTopBox, journeyBox);
+        rightBox.getChildren().add(rightTopBox);
 
 
         /////////////////////////////
@@ -128,8 +131,6 @@ public class OnPlatformDisplayView extends DisplayView {
         scene.getStylesheets().add("/ienaclone/gui/view/display.css");
 
         main.setScene(scene);
-
-        controller.firstLoad();
     }
     
     public Stage getMain() {
@@ -145,13 +146,47 @@ public class OnPlatformDisplayView extends DisplayView {
     }
 
     @Override
-    public void updateView(ArrayList<Journey> journeys) {
+    public void updateView(Stop stop, ArrayList<Journey> journeys, int difference) {
+        if (journeys.isEmpty()) {
+            clearJourneyBox();
+            return;
+        }
+
         Journey actual = journeys.get(0);
 
+        switch (actual.getTimeStatus()) {
+            case UNKNOWN:
+            case ON_TIME:
+                if (actual.getStopStatus(stop) == Stop.STATUS.TERMINUS) {
+                    if (difference < 0) {
+                        setTerminusOfJourney(actual, stop);
+                        displayOnTerminal(actual);
+                    }
+                } else {
+                    if (difference < 0) {
+                        setNewJourney(actual, stop);
+                        displayOnTerminal(actual);
+                    }
+                    var label = controller.getWaitingTimeLabel(actual, stop);
+                    updateWaitingTime(label, 0);   
+                }
+                break;
+            case CANCELLED:
+                if (difference < 0) {
+                    setCancelledJourney(actual, stop);
+                    displayOnTerminal(actual);
+                } 
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void setNewJourney(Journey actual, Stop stop) {
         // nom de la voie
         platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
 
-        // TODO : vérifier si terminus
+        journeyBox = new JourneyBox(JourneyBox.MODE.NORMAL);
 
         // pictogramme
         var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
@@ -159,9 +194,14 @@ public class OnPlatformDisplayView extends DisplayView {
         journeyBox.getLineIconView().setImage(img);
 
         // destination
-        journeyBox.getDestination().setText(
-            actual.getDestination().map(d -> d.getName()).orElse("Non renseigné")
-        );
+        var dest = Functions.raccourcir(
+                actual.getDestination().map(d -> d.getName()).orElse("Non renseigné")
+                , 19);
+        journeyBox.getDestination().setText(dest);
+
+        // destination tag
+        var destTag = getDestinationTag(actual, stop);
+        journeyBox.getDestinationTag().setText(destTag);
 
         // code mission
         journeyBox.getMission().setText(actual.getMission().orElse("XXXX"));
@@ -178,13 +218,22 @@ public class OnPlatformDisplayView extends DisplayView {
 
         int len = stops.size();
 
-        for (int i=0; i<len; i++) {
-            var st = stops.get(i);
+        int idx = IntStream.range(0, len)
+                            .filter(i -> stops.get(i).getKey().equals(stop))
+                            .findFirst()
+                            .orElse(-1);  // TODO : erreur si -1
+                        
+        for (int i=idx+1; i<len; i++) {
+            var stData = stops.get(i);
+            var st = stData.getKey();
+
+            var status = stData.getValue();
+
+            if (status == STATUS.SKIPPED) continue;
+
             var name = st.getName();
 
-            // System.out.println(name + " " + st.isParis());
-
-            if (i == 0) { // le premier item
+            if (stopsBox.getStopCount() == 0) { // le premier item
                 if (st.isParis()) {
                     stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_DEBUT));
                     currentlyInParis = true;
@@ -193,8 +242,11 @@ public class OnPlatformDisplayView extends DisplayView {
                 }
             } 
 
-            if (i+1 == len) { // le terminus
+            if (status == STATUS.TERMINUS) { // le terminus
                 if (currentlyInParis) {
+                    stopsBox.addStop(new StopBox(name, color, MODE.PARIS_BOTTOM_TERMINUS));
+                } else if (st.isParis()) {
+                    stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_MIDDLE));
                     stopsBox.addStop(new StopBox(name, color, MODE.PARIS_BOTTOM_TERMINUS));
                 } else {
                     stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_TERMINUS));
@@ -202,7 +254,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
             } else { 
                 if (currentlyInParis) {
-                    if (stops.get(i+1).isParis()) {
+                    if (stops.get(i+1).getKey().isParis()) {
                         stopsBox.addStop(new StopBox(name, color, MODE.PARIS_MIDDLE));
                     } else {
                         stopsBox.addStop(new StopBox(name, color, MODE.PARIS_BOTTOM_MIDDLE));
@@ -223,7 +275,161 @@ public class OnPlatformDisplayView extends DisplayView {
 
         int nbPages = journeyBox.getAllStopsBox().getPages().size();
         journeyBox.getPagesCount().setText("Page\n1/" + nbPages);
-        
+
+        VBox.setVgrow(journeyBox, Priority.ALWAYS);
+
+        // TODO : ajouter une transition (fade) 
+        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
+        rightBox.getChildren().add(journeyBox);
+    }
+
+    private void setCancelledJourney(Journey actual, Stop stop) {
+        // nom de la voie
+        platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
+
+        journeyBox = new JourneyBox(JourneyBox.MODE.CANCELLED);
+
+        // pictogramme
+        var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
+        Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
+        journeyBox.getLineIconView().setImage(img);
+
+        // destination
+        var dest = Functions.raccourcir(
+                actual.getDestination().map(d -> d.getName()).orElse("Non renseigné")
+                , 19);
+        journeyBox.getDestination().setText(dest);
+
+        // destination tag
+        var destTag = getDestinationTag(actual, stop);
+        journeyBox.getDestinationTag().setText(destTag);
+
+        // code mission
+        journeyBox.getMission().setText(actual.getMission().orElse("XXXX"));
+
+        VBox.setVgrow(journeyBox, Priority.ALWAYS);
+
+        // TODO : ajouter une transition (fade) 
+        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
+        rightBox.getChildren().add(journeyBox);
+    }
+
+    private void setTerminusOfJourney(Journey actual, Stop stop) {
+        // nom de la voie
+        platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
+
+    
+        journeyBox = new JourneyBox(JourneyBox.MODE.TERMINUS);
+
+        VBox.setVgrow(journeyBox, Priority.ALWAYS);
+
+        // TODO : ajouter une transition (fade) 
+        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
+        rightBox.getChildren().add(journeyBox);
+    }
+
+    private void clearJourneyBox() {
+        rightBox.getChildren().clear();
+    }
+
+    private String getDestinationTag(Journey journey, Stop stop) {
+        var path = journey.getNextStations();
+
+        int len = path.size();
+
+        int idx = IntStream.range(0, len)
+                            .filter(i -> path.get(i).getKey().equals(stop))
+                            .findFirst()
+                            .orElse(-1);  // TODO : erreur si -1
+
+        var subPath = path.subList(idx+1, len);
+
+        int subLen = subPath.size();
+
+        if (subPath.isEmpty()) return "";
+
+        var allStops = AllStopsSingleton.getInstance();
+        var allLines = AllLinesSingleton.getInstance();
+
+        var dest = subPath.get(subLen-1);
+
+        // via Paris
+
+        if (!stop.isParis()
+                && subPath.stream()
+                          .anyMatch(st -> st.getKey().isParis())
+                && !dest.getKey().isParis()) {
+
+            return "via Paris";
+        }
+
+        // via Orly
+
+        // TODO : ajouter Antony (RER B)
+
+        // Pont de Rungis
+        Stop orlyC = allStops.getStopByCode("41326").get();
+
+        Line c = allLines.getLineByName("C").get();
+
+        if (c.equals(journey.getLine().orElse(null))
+                    && subPath.stream()
+                              .anyMatch(st -> st.getKey().equals(orlyC))) {
+
+            return "via Orly";
+        }
+
+        // via Evry Courcouronnes
+        Stop evryCour = allStops.getStopByCode("41346").get();
+
+        Line d = allLines.getLineByName("D").get();
+
+        if (d.equals(journey.getLine().orElse(null))
+                    && subPath.stream()
+                              .anyMatch(st -> st.getKey().equals(evryCour))) {
+
+            return "via Évry C.";
+        }
+
+        // >> Direct
+
+        if (!stop.isParis()
+                && subLen > 2
+                && dest.getKey().isParis()
+                && subPath.subList(0, subLen-2)
+                          .stream()
+                          .allMatch(st -> st.getValue() == STATUS.SKIPPED)) {
+
+            return ">> Direct";
+        }
+
+        return "";
+    }
+
+    private void displayOnTerminal(Journey j) {
+        int displayId = controller.getDisplayId();
+
+        Functions.writeLog("\n----[" + displayId + "] PROCHAIN PASSAGE-----");
+
+        StringBuilder sb = new StringBuilder();
+        // sb.append("Ref : ").append(j.getRef()).append("\n");
+        sb.append("Ligne : ");
+        sb.append(j.getLine().map(line -> line.getName()).orElse("N/A")).append("\n");
+        sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");
+        sb.append("Direction : ").append(j.getDestination().orElse(new Stop()).getName()).append("\n");
+        sb.append("Quai : ").append(j.getPlatform().orElse("N/A")).append("\n");
+        if (j.getExpectedArrivalTime().isPresent() || j.getExpectedDepartureTime().isPresent()) {
+            sb.append("Heure d'arrivée estimée : ");
+            sb.append(j.getExpectedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+            sb.append("Heure de départ estimée : ");
+            sb.append(j.getExpectedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+        } else {
+            sb.append("Heure d'arrivée visée : ");
+            sb.append(j.getAimedArrivalTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+            sb.append("Heure de départ visée : ");
+            sb.append(j.getAimedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
+        }
+        System.out.println(sb.toString());
     }
 
     @Override
@@ -239,10 +445,35 @@ public class OnPlatformDisplayView extends DisplayView {
 
     class JourneyBox extends VBox {
         private ImageView lineIconView;
-        private Label pagesCount, destination, waitingTime, mission;
+        private Label pagesCount, destination, destinationTag, waitingTime, mission;
         private AllStopsBox allStopsBox;
 
-        public JourneyBox() {
+
+        public enum MODE {NORMAL, TERMINUS, CANCELLED}
+
+        public JourneyBox(MODE mode) {
+            lineIconView = null;
+            pagesCount = null;
+            destination = null;
+            destinationTag = null;
+            waitingTime = null;
+            mission = null;
+            allStopsBox = null;
+
+            switch (mode) {
+                case NORMAL:
+                    normalMode();
+                    break;
+                case TERMINUS:
+                    terminusMode();
+                    break;
+                case CANCELLED:
+                    cancelledMode();
+                    break;
+            }
+        }
+
+        private void normalMode() {
             Label trainLen = new Label ("Train Court");
             trainLen.getStyleClass().add("train-length");
 
@@ -271,9 +502,14 @@ public class OnPlatformDisplayView extends DisplayView {
             destination = new Label("Destination");
             destination.getStyleClass().add("destination-label");
 
-            AnchorPane destinationPane = new AnchorPane();
+            destinationTag = new Label("test");
+            HBox.setMargin(destinationTag, new Insets(0, 0, 3, 0));
+            destinationTag.getStyleClass().add("destination-tag-label");
+
+            HBox destinationPane = new HBox(10);
+            destinationPane.setAlignment(Pos.BOTTOM_LEFT);
             HBox.setHgrow(destinationPane, Priority.ALWAYS);
-            destinationPane.getChildren().add(destination);
+            destinationPane.getChildren().addAll(destination, destinationTag);
 
             waitingTime = new Label("0 min");
             waitingTime.getStyleClass().add("status-label");
@@ -322,6 +558,143 @@ public class OnPlatformDisplayView extends DisplayView {
             this.getChildren().addAll(trainLen, backgroundBox);
         }
 
+        private void terminusMode() {
+            Label trainLen = new Label ("Train Court");
+            trainLen.getStyleClass().add("train-length");
+            
+
+            Image icon = new Image( 
+                DisplayView.class.getResourceAsStream("forbidden.png")); 
+            
+            ImageView iconImageView = new ImageView();
+            iconImageView.setImage(icon);
+            iconImageView.setPreserveRatio(true);
+            iconImageView.setFitHeight(200);
+
+            Label title = new Label("Terminus");
+            title.getStyleClass().add("title-terminus-label");
+            Label desc = new Label("Ce train ne prend\npas de voyageurs");
+            desc.getStyleClass().add("desc-terminus-label");
+
+            VBox textBox = new VBox(20);
+            textBox.setAlignment(Pos.CENTER_LEFT);
+            textBox.getChildren().addAll(title, desc);
+
+            HBox contentBox = new HBox(30);
+            contentBox.setAlignment(Pos.CENTER);
+            contentBox.getChildren().addAll(iconImageView, textBox);
+
+            ///////
+
+            HBox dataBox = new HBox();
+            VBox.setVgrow(dataBox, Priority.ALWAYS);
+            dataBox.setAlignment(Pos.CENTER);
+            dataBox.getStyleClass().add("data-box");
+            dataBox.getChildren().addAll(contentBox);
+
+
+            VBox backgroundBox = new VBox();
+            VBox.setVgrow(backgroundBox, Priority.ALWAYS);
+            // backgroundBox.setAlignment(Pos.CENTER);
+            backgroundBox.getStyleClass().add("background-box");
+            backgroundBox.getChildren().add(dataBox);
+
+            this.setAlignment(Pos.TOP_RIGHT);
+            this.getStyleClass().add("journey-box");
+            this.getChildren().addAll(trainLen, backgroundBox);
+
+        }
+
+        private void cancelledMode() {
+            Label trainLen = new Label ("Train Court");
+            trainLen.getStyleClass().add("train-length");
+
+            // LEFT
+
+            Image lineIcon = new Image( 
+                DisplayView.class.getResourceAsStream("icon/0.png")); 
+            
+            lineIconView = new ImageView();
+            lineIconView.setImage(lineIcon);
+            lineIconView.setPreserveRatio(true);
+            lineIconView.setFitHeight(80);
+
+            pagesCount = new Label("Page\n1/1");
+            pagesCount.getStyleClass().add("pages-label");
+
+            VBox pagesBox = new VBox(pagesCount);
+            pagesBox.setAlignment(Pos.CENTER);
+            HBox.setHgrow(pagesBox, Priority.ALWAYS);
+
+            VBox dataLeftBox = new VBox(8);
+            dataLeftBox.getChildren().addAll(lineIconView, pagesBox);
+
+            // CENTER
+
+            destination = new Label("Destination");
+            destination.getStyleClass().addAll("destination-label", "cancelled-label");
+
+            destinationTag = new Label("test");
+            HBox.setMargin(destinationTag, new Insets(0, 0, 3, 0));
+            destinationTag.getStyleClass().add("destination-tag-label");
+
+            HBox destinationPane = new HBox(10);
+            destinationPane.setAlignment(Pos.BOTTOM_LEFT);
+            HBox.setHgrow(destinationPane, Priority.ALWAYS);
+            destinationPane.getChildren().addAll(destination, destinationTag);
+
+            waitingTime = new Label("supprimé");
+            waitingTime.getStyleClass().add("status-label");
+
+            HBox destStatBox = new HBox();
+            destStatBox.getStyleClass().add("dest-stat-box");
+            destStatBox.getChildren().addAll(destinationPane, waitingTime);
+
+
+            mission = new Label("XXXX");
+            mission.getStyleClass().addAll("mission-label", "cancelled-label");
+
+            // Label dessert = new Label("Dessert");
+            // // dessert.getStyleClass().add("dessert-label");
+
+            // VBox dessertBox = new VBox();
+            // dessertBox.setAlignment(Pos.CENTER);
+            // dessertBox.getChildren().add(dessert);
+
+            HBox missDessBox = new HBox(10);
+            // missDessBox.getChildren().addAll(mission, dessertBox);
+            missDessBox.getChildren().add(mission);
+
+            // NEXT STATIONS
+
+            // allStopsBox = new AllStopsBox();
+
+            VBox dataCenterBox = new VBox();
+            HBox.setHgrow(dataCenterBox, Priority.ALWAYS);
+            // dataCenterBox.getChildren().addAll(destStatBox, missDessBox, allStopsBox);
+            dataCenterBox.getChildren().addAll(destStatBox, missDessBox);
+
+
+            ///////
+
+            HBox dataBox = new HBox(12);
+            VBox.setVgrow(dataBox, Priority.ALWAYS);
+            dataBox.getChildren().addAll(dataLeftBox, dataCenterBox);
+            // dataBox.getChildren().add(dataLeftBox);
+            dataBox.getStyleClass().add("data-box");
+
+            VBox backgroundBox = new VBox();
+            VBox.setVgrow(backgroundBox, Priority.ALWAYS);
+            backgroundBox.getStyleClass().add("background-box");
+            backgroundBox.getChildren().add(dataBox);
+
+            this.setAlignment(Pos.TOP_RIGHT);
+            this.getStyleClass().add("journey-box");
+            this.getChildren().addAll(trainLen, backgroundBox);
+            // this.getChildren().add(backgroundBox);
+            
+        }
+
         public ImageView getLineIconView() {
             return lineIconView;
         }
@@ -332,6 +705,10 @@ public class OnPlatformDisplayView extends DisplayView {
 
         public Label getDestination() {
             return destination;
+        }
+
+        public Label getDestinationTag() {
+            return destinationTag;
         }
 
         public Label getWaitingTime() {
@@ -350,11 +727,12 @@ public class OnPlatformDisplayView extends DisplayView {
 
     class AllStopsBox extends HBox {
         private final LinkedList<StopsPageBox> pages;
-        private int currentPage;
+        private int currentPage, stopCount;
 
         public AllStopsBox() {
             this.pages = new LinkedList<>();
             this.currentPage = 1;
+            this.stopCount = 0;
 
             var firstPage = new StopsPageBox();
 
@@ -374,6 +752,10 @@ public class OnPlatformDisplayView extends DisplayView {
             return currentPage;
         }
 
+        public int getStopCount() {
+            return stopCount;
+        }
+
         public void addStop(StopBox st) {
             var lastPage = pages.getLast();
             if (!lastPage.isFull()) {
@@ -383,6 +765,7 @@ public class OnPlatformDisplayView extends DisplayView {
                 newPage.getChildren().add(st);
                 pages.add(newPage);
             }
+            stopCount++;
         }
     }
 
@@ -403,7 +786,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // on admet que part2 n'est pas rempli
         public void addStop(StopBox st) {
-            if (left.getChildren().size() >= 10) {
+            if (left.getChildren().size() > 10) {
                 right.getChildren().add(st);
             } else {
                 left.getChildren().add(st);
@@ -442,7 +825,7 @@ public class OnPlatformDisplayView extends DisplayView {
                     break;
                 case NORMAL_MIDDLE:
                     bg = getTransparentBg();
-                    line = getMiddleLineDesign();
+                    line = getMiddleLineDesign(false);
                     res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
@@ -460,19 +843,19 @@ public class OnPlatformDisplayView extends DisplayView {
                     break;
                 case PARIS_TOP_MIDDLE:
                     bg = getParisTopBg();
-                    line = getMiddleLineDesign();
+                    line = getMiddleLineDesign(true);
                     res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_MIDDLE:
                     bg = getParisMiddleBg();
-                    line = getMiddleLineDesign();
+                    line = getMiddleLineDesign(false);
                     res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
-                case PARIS_BOTTOM_MIDDLE:  // ROSA PARKS
+                case PARIS_BOTTOM_MIDDLE: 
                     bg = getParisBottomBg();
-                    line = getMiddleLineDesign();
+                    line = getMiddleLineDesign(false);
                     res.getChildren().addAll(bg.getChildren());
                     res.getChildren().addAll(line.getChildren());
                     break;
@@ -503,7 +886,7 @@ public class OnPlatformDisplayView extends DisplayView {
             r1.setX(10.0);
             r1.setY(0);
             r1.setWidth(12.0f);
-            if (isParis) r1.setHeight(40.0f);
+            if (isParis) r1.setHeight(40.0f); // TODO !!!!!
             else r1.setHeight(10.0f);
             r1.setFill(Color.valueOf(color));
 
@@ -524,13 +907,15 @@ public class OnPlatformDisplayView extends DisplayView {
             return new Group(r1, r2, r3);
         }
 
-        private Group getMiddleLineDesign() {
+        private Group getMiddleLineDesign(boolean isParis) {
             Rectangle r1 = new Rectangle();
             r1.setX(10.0);
             r1.setY(0);
             r1.setWidth(12.0f);
             r1.setHeight(40.0f);
             r1.setFill(Color.valueOf(color));
+
+            if (isParis) return new Group(r1);
 
             Circle c1 = new Circle();
             c1.setCenterX(16.0f);

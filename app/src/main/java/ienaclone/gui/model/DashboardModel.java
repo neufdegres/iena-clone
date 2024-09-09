@@ -9,7 +9,7 @@ import ienaclone.util.Stop;
 
 public class DashboardModel {
     private ArrayList<Stop> stops;
-    private ArrayList<Journey> journeys; // TODO : temporaire
+    private ArrayList<Journey> journeys;
     private ArrayList<Stop> currentDirections;
     private ArrayList<String> currentPlatforms;
     private ArrayList<String> currentMissions;

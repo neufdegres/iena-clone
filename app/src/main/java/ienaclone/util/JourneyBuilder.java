@@ -1,7 +1,9 @@
 package ienaclone.util;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+
+import javafx.util.Pair;
 
 public class JourneyBuilder {
     public String ref;
@@ -13,7 +15,8 @@ public class JourneyBuilder {
     public PlaceStatus placeStatus;
     public LocalDateTime expectedArrivalTime, expectedDepartureTime;
     public LocalDateTime aimedArrivalTime, aimedDepartureTime;
-    public ArrayList<Stop> nextStations;
+    public ArrayList<Stop> nextStationsBis;
+    public ArrayList<Pair<Stop, Stop.STATUS>> nextStations;
 
     public JourneyBuilder() {
         this.line = null;

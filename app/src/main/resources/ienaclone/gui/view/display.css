@@ -106,6 +106,17 @@
     -fx-font-size: 32pt;
 }
 
+.cancelled-label .text {
+    -fx-fill: #71759a;
+}
+
+.destination-tag-label {
+    -fx-font-size: 24pt;
+    -fx-font-weight: 200;
+    -fx-font-style: italic;
+    -fx-fill: #a2a2a2;
+}
+
 .status-label {
     -fx-font-weight: lighter;
 }
@@ -130,5 +141,15 @@
 
 .paris-label {
     -fx-font-size: 11pt;
+    -fx-font-weight: bold;
+}
+
+.title-terminus-label {
+    -fx-font-size: 36pt;
+    -fx-font-weight: bold;
+}
+
+.desc-terminus-label {
+    -fx-font-size: 28pt;
     -fx-font-weight: bold;
 }

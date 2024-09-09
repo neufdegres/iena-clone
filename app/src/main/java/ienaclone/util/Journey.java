@@ -1,8 +1,11 @@
 package ienaclone.util;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Optional;
+
+import java.util.ArrayList;
+import java.time.LocalDateTime;
+
+import javafx.util.Pair;
 
 public class Journey {
     private final String ref;
@@ -14,7 +17,8 @@ public class Journey {
     private PlaceStatus placeStatus;
     private Optional<LocalDateTime> expectedArrivalTime, expectedDepartureTime;
     private Optional<LocalDateTime> aimedArrivalTime, aimedDepartureTime;
-    private ArrayList<Stop> nextStations;
+    private ArrayList<Pair<Stop, Stop.STATUS>> nextStations;
+    private boolean areNextStationsLoaded;
 
     public Journey(JourneyBuilder builder) {
         assert(builder.ref != null);
@@ -31,6 +35,7 @@ public class Journey {
         this.aimedDepartureTime = Optional.ofNullable(builder.aimedDepartureTime);
         this.nextStations = new ArrayList<>();
         this.nextStations.addAll(builder.nextStations);
+        this.areNextStationsLoaded = false;
     }
 
     public String getRef() {
@@ -77,7 +82,11 @@ public class Journey {
         return aimedDepartureTime;
     }
 
-    public ArrayList<Stop> getNextStations() {
+    public boolean areNextStationsLoaded() {
+        return areNextStationsLoaded;
+    }
+
+    public ArrayList<Pair<Stop, Stop.STATUS>> getNextStations() {
         return nextStations;
     }
 
@@ -121,8 +130,37 @@ public class Journey {
         this.aimedDepartureTime = aimedDepartureTime;
     }
 
-    public void setNextStations(ArrayList<Stop> nextStations) {
+    public void setNextStations(ArrayList<Pair<Stop, Stop.STATUS>> nextStations) {
         this.nextStations = nextStations;
     }
 
+    public void setNextStationsLoaded(boolean areNextStationsLoaded) {
+        this.areNextStationsLoaded = areNextStationsLoaded;
+    }
+
+    public Stop.STATUS getStopStatus(Stop stop) {
+        var st = nextStations.stream()
+                             .filter(a -> a.getKey().equals(stop))
+                             .findFirst();
+
+        if (st.isPresent()) return st.get().getValue();
+
+        return Stop.STATUS.UNKOWN;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Journey)) return false;
+        var j = (Journey)obj;
+        return j.getRef().equals(this.getRef());
+    }
+
+    @Override
+    public String toString() {
+        String res = mission + " -> ";
+        if (expectedArrivalTime.isPresent()) res += expectedArrivalTime;
+        else res += expectedDepartureTime;
+        return res;
+    }
 }
