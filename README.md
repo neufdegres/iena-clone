@@ -23,12 +23,11 @@ Sinon, vous pouvez toujours tester le logiciel avec des données pré-chargées,
 
 Il a 3 types d'afficheurs disponibles en gares SNCF :
 
-- un qui affiche le prochain train à venir *sur le quai ou il est implanté*;
-![Photo d'un afficheur du prochain à venir en gare de Magenta.](pics/1_train.jpg)
-- un autre qui affiche les 3 prochains trains à venir;
-![Photo d'un afficheur de 3 passages à venir en gare de Châtelet - Les Halles.](pics/3_trains.jpg)
-- et le dernier qui affiche les 5 prochains (souvent situé en dehors des quais).
-![Photo d'un afficheur de 5 passages à venir en gare de Magenta.](pics/5_trains.jpg)
+|No| Type d'afficheur | Image |
+|--|------------------|-------|
+|01|affiche le prochain train à venir *au quai où il est placé*|![Photo d'un afficheur du prochain à venir en gare de Magenta.](pics/1_train.jpg)|
+|02|affiche les 3 prochains trains à venir *au quai où il est placé*|![Photo d'un afficheur de 3 passages à venir en gare de Châtelet - Les Halles.](pics/3_trains.jpg)|
+|03|affiche 5 prochains passages (souvent situé en dehors des quais)|![Photo d'un afficheur de 5 passages à venir à Paris - Gare du Nord.](pics/5_trains.jpg)|
 
 Actuellement, uniquement le premier type est implémenté.
 
@@ -36,7 +35,7 @@ Actuellement, uniquement le premier type est implémenté.
 
 Voici un exemple d'afficheur généré par le logiciel.
 
-![Capture d'écran du clone d'un afficheur de la gare de Magenta.](pics/display.png)
+![Capture d'écran du clone généré d'un afficheur de la gare de Conflans Sainte-Honorine.](pics/display.png)
 
 ## Comment utiliser l'application
 
@@ -44,7 +43,7 @@ Au démarage, la liste des arrêts de trains disponibles est chargée.
 
 Après avoir choisi une gare, si vous avez une connexion internet et si vous avez bien enregistré votre clé d'API ([voir 1e section](#accès-aux-données-dîle-de-france-mobilité)), les données des prochains passages en gares sont préchagés et, *si il en a*, sont filtrés.
 
-Vous pouvez à présent choisir les filtres voulus.
+Vous pouvez à présent choisir le filtre voulu.
 
 Ensuite, il vous est demandé le type d'affichage ([voir section précédente](#exemple-de-présentation-de-lafficheur)).
 

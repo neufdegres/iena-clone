@@ -71,25 +71,16 @@ public class Functions {
         if (res.length() < limit) return res;
         res = res.replace("du Président", "Pdt");
         if (res.length() < limit) return res;
+        res = res.replace("François ", "F.");
+        if (res.length() < limit) return res;
         res = res.replace("sur", "s/");
         if (res.length() < limit) return res;
         res = res.replace("sous", "s/");
         if (res.length() < limit) return res;
 
-        var tab = raw.split(" - ");
+        var tab = res.split(" - ");
         res = tab[0];
         if (res.length() < limit) return res;
-
-        // tab = raw.split(" ");
-        // int i = tab.length -1;
-
-        // while(true) {
-        //     tab[i] = tab[i].charAt(0) + ".";
-        //     res = String.join(" ", tab);
-        //     if (res.length() < limit) return res;
-        //     i--;
-        //     if (i==0) break;
-        // }
 
         return res.substring(0,limit);
     }
