@@ -71,7 +71,7 @@ public class OnPlatformDisplayView extends DisplayView {
         headline.getStyleClass().add("alert-headline-box");
         headlineBox.getChildren().addAll(/* le pictogramme, */headline);
 
-        String exAlert = "Pour votre sécurité, vous vous invitons à ne laisser aucun " +
+        String exAlert = "Pour votre sécurité, nous vous invitons à ne laisser aucun " +
                          "bagage sans surveillance. Veuillez nous signaler tout colis " +
                          "ou bagage qui vous paraitrait abandonné. Merci de votre vigilance";
         Label content = new Label(exAlert);
@@ -856,14 +856,26 @@ public class OnPlatformDisplayView extends DisplayView {
             // texte
             if (!name.isBlank()) {
                 Text nameText = null;
-                int limit = 19;
+                int limit = 0;
+                String styleClass = "";
+                
+                // TODO : voir si c'est vraiment utile
+                if (System.getProperty("os.name").contains("Windows")) {
+                    styleClass = "name-label-windows";
+                    limit = 30;
+                } else {
+                    styleClass = "name-label";
+                    limit = 19;
+                }
+
                 while(true) {
                     var toWrite = Functions.raccourcir(name, limit);
                     nameText = new Text(toWrite);
-                    nameText.getStyleClass().add("name-label");
+                    nameText.getStyleClass().add(styleClass);
                     if(nameText.getBoundsInLocal().getWidth() < 126) break;
                     limit--;
                 }
+
                 nameText.setX(40);
                 nameText.setY(30);
                 nameText.setFill(Color.valueOf("eeeeee"));

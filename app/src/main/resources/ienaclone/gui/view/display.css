@@ -139,6 +139,11 @@
     -fx-font-weight: 400;
 }
 
+.name-label-windows {
+    -fx-font-size: 20pt;
+    -fx-font-weight: 400;
+}
+
 .paris-label {
     -fx-font-size: 11pt;
     -fx-font-weight: bold;
