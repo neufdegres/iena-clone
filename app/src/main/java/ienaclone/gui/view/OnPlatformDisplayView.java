@@ -806,7 +806,7 @@ public class OnPlatformDisplayView extends DisplayView {
             this.name = name;
             this.color = color;
 
-            Group leftDesign = getLeftDesign(mode);
+            Group leftDesign = getBackgroundDesign(mode);
 
             VBox shapeBox = new VBox();
             shapeBox.getChildren().add(leftDesign);
@@ -814,68 +814,61 @@ public class OnPlatformDisplayView extends DisplayView {
             this.getChildren().addAll(shapeBox);
         }
 
-        private Group getLeftDesign(MODE mode) {
+        private Group getBackgroundDesign(MODE mode) {
             Group res = new Group(), line = null, bg = null;
             switch (mode) {
                 case NORMAL_DEBUT:
                     bg = getTransparentBg();
                     line = getDebutLineDesign(false);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case NORMAL_MIDDLE:
                     bg = getTransparentBg();
                     line = getMiddleLineDesign(false);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case NORMAL_TERMINUS:
                     bg = getTransparentBg();
                     line = getTerminusLineDesign();
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_TOP_DEBUT: // celui tt en haut
                     bg = getParisTopBg();
                     line = getDebutLineDesign(true);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_TOP_MIDDLE:
                     bg = getParisTopBg();
                     line = getMiddleLineDesign(true);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_MIDDLE:
                     bg = getParisMiddleBg();
                     line = getMiddleLineDesign(false);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_BOTTOM_MIDDLE: 
                     bg = getParisBottomBg();
                     line = getMiddleLineDesign(false);
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
                 case PARIS_BOTTOM_TERMINUS:
                     bg = getParisBottomBg();
                     line = getTerminusLineDesign();
-                    res.getChildren().addAll(bg.getChildren());
-                    res.getChildren().addAll(line.getChildren());
                     break;
             }
+            res.getChildren().addAll(bg.getChildren());
+            res.getChildren().addAll(line.getChildren());
 
             // texte
             if (!name.isBlank()) {
-                var toWrite = Functions.raccourcir(name, 19);
-                Text nameText = new Text(toWrite);
+                Text nameText = null;
+                int limit = 19;
+                while(true) {
+                    var toWrite = Functions.raccourcir(name, limit);
+                    nameText = new Text(toWrite);
+                    nameText.getStyleClass().add("name-label");
+                    if(nameText.getBoundsInLocal().getWidth() < 126) break;
+                    limit--;
+                }
                 nameText.setX(40);
                 nameText.setY(30);
                 nameText.setFill(Color.valueOf("eeeeee"));
-                nameText.getStyleClass().add("name-label");
                 res.getChildren().add(nameText);
+                
             }
 
             return res;
@@ -883,7 +876,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         private Group getDebutLineDesign(boolean isParis) {
             Rectangle r1 = new Rectangle();
-            r1.setX(10.0);
+            r1.setX(13.0f);
             r1.setY(0);
             r1.setWidth(12.0f);
             if (isParis) r1.setHeight(40.0f); // TODO !!!!!
@@ -891,14 +884,14 @@ public class OnPlatformDisplayView extends DisplayView {
             r1.setFill(Color.valueOf(color));
 
             Rectangle r2 = new Rectangle();
-            r2.setX(10.0f);
+            r2.setX(13.0f);
             r2.setY(2.0f);
             r2.setWidth(12.0f);
             r2.setHeight(2.0f);
             r2.setFill(Color.valueOf("1f266c"));
 
             Rectangle r3 = new Rectangle();
-            r3.setX(10.0f);
+            r3.setX(13.0f);
             r3.setY(6.0f);
             r3.setWidth(12.0f);
             r3.setHeight(2.0f);
@@ -909,7 +902,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         private Group getMiddleLineDesign(boolean isParis) {
             Rectangle r1 = new Rectangle();
-            r1.setX(10.0);
+            r1.setX(13.0f);
             r1.setY(0);
             r1.setWidth(12.0f);
             r1.setHeight(40.0f);
@@ -918,13 +911,13 @@ public class OnPlatformDisplayView extends DisplayView {
             if (isParis) return new Group(r1);
 
             Circle c1 = new Circle();
-            c1.setCenterX(16.0f);
+            c1.setCenterX(19.0f);
             c1.setCenterY(20.0f);
             c1.setRadius(10.0f);
             c1.setFill(Color.valueOf(color));
 
             Circle c2 = new Circle();
-            c2.setCenterX(16.0f);
+            c2.setCenterX(19.0f);
             c2.setCenterY(20.0f);
             c2.setRadius(7.0f);
             c2.setFill(Color.valueOf("1f266c"));
@@ -934,20 +927,20 @@ public class OnPlatformDisplayView extends DisplayView {
 
         private Group getTerminusLineDesign() {
             Rectangle r1 = new Rectangle();
-            r1.setX(10.0f);
+            r1.setX(13.0f);
             r1.setY(0);
             r1.setWidth(12.0f);
             r1.setHeight(30.0f);
             r1.setFill(Color.valueOf(color));
 
             Circle c1 = new Circle();
-            c1.setCenterX(16.0f);
+            c1.setCenterX(19.0f);
             c1.setCenterY(20.0f);
             c1.setRadius(13.0f);
             c1.setFill(Color.valueOf(color));
 
             Circle c2 = new Circle();
-            c2.setCenterX(16.0f);
+            c2.setCenterX(19.0f);
             c2.setCenterY(20.0f);
             c2.setRadius(7.0f);
             c2.setFill(Color.valueOf("1f266c"));

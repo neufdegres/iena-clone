@@ -4,6 +4,10 @@ Implémentation d'un clone de l'actuel système d'information voyageurs en gare 
 
 Pour lancer l'application, se placer à la **racine du dépôt**, puis exécuter la commande `./gradlew run`.
 
+## Dépendances
+
+- Java 21 minimum.
+
 ## Accès aux données d'Île-de-France Mobilité
 
 Pour pouvoir récupérer les données des APIs de la plateforme d'Île-de-France Mobilité (nommée PRIM), vous devenez gérérer une clé personnelle d'API sur en créant un compte sur le site de [PRIM](https://prim.iledefrance-mobilites.fr), puis en allant dans [cette section](https://prim.iledefrance-mobilites.fr/fr/mes-jetons-authentification).
@@ -49,8 +53,9 @@ Ensuite, il vous est demandé le type d'affichage ([voir section précédente](#
 
 Vous pouvez maintenant cliquer sur le bouton pour afficher l'afficheur généré.
 
-### A savoir
+### Important
 
+- Il peut avoir des bugs d'affichage sur Windows, préférer donc lancer le logiciel sur une distribution **Linux**.
 - Vous pouvez générer plusieurs afficheurs (avec des filtres différents ou non) de la même gare. Si vous vous en générer un d'une autre gare, tous les afficheurs actuellement ouverts se ferment.
 - Seules les gares traversées par les lignes SNCF d'Ile-de-France, soit les **lignes RER C, D et E**, ainsi que les **Transilliens (H,J,K,L,N,P,R,U)**, sont disponibles.
 - Pour les quelques passages des lignes **RATP (RER A & B)** affichables dans l'applications (dans les gares partagées avec d'autres lignes dans leurs trançons SNCF respectifs (ex: Mitry-Claye, Poissy)), leurs parcours peuvent ne pas être affichés correctement.
