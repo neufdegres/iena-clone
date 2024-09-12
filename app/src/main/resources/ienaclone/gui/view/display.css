@@ -7,10 +7,13 @@
     -fx-background-color: #c5d1e3;
 }
 
-.time-label {
+.clock-text {
     -fx-font-size: 18pt;
     -fx-text-fill: #1f266c;
     -fx-font-weight: bold;
+}
+
+.clock-box {
     -fx-background-color: #eee;
     -fx-background-radius: 10pt;
     -fx-padding: 2pt 6pt 2pt 6pt;

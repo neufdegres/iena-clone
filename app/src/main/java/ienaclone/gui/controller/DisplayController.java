@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.animation.Animation.Status;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,6 +20,7 @@ import javafx.concurrent.Worker;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.util.Duration;
 import ienaclone.gui.Window;
 import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.gui.model.DisplayModel;
@@ -32,7 +37,8 @@ public class DisplayController {
     private final DisplayModel model;
     private DisplayView view;
     private JourneysDataLoader jdl;
-    private Service<Void> mainService, clockService;
+    private Service<Void> mainService;
+    private Timeline clockTimeline;
     private String mainServiceStatus;
     private int displayId;
 
@@ -41,7 +47,7 @@ public class DisplayController {
         this.mainServiceStatus = "";
         this.displayId = -1;
         mainServiceInit();
-        clockServiceInit();
+        clockTimelineInit();
     }
 
     public void setView(DisplayView view) {
@@ -64,8 +70,8 @@ public class DisplayController {
         return mainService;
     }
 
-    public Service<Void> getClockService() {
-        return clockService;
+    public Timeline getClockTimeline() {
+        return clockTimeline;
     }
 
     public Stop getActualStop() {
@@ -77,7 +83,7 @@ public class DisplayController {
     }
 
     public void onViewClosed() {
-        clockService.cancel();
+        clockTimeline.stop();
         mainService.cancel();
         Window.notifyDisplayerClosed(this);
         Functions.writeLog("[" + displayId + "] closed !");
@@ -135,7 +141,8 @@ public class DisplayController {
                         Platform.runLater(() -> {
                             view.getMain().setTitle(getWindowName());
                             view.updateView(model.getActualStop(), model.getDisplayedJourneys(), -1);
-                            view.updateClock(LocalTime.now());
+                            view.updateClock(LocalTime.now()
+                                    .format(DateTimeFormatter.ofPattern("HH:mm")));
                             view.getMain().show();
                         });
 
@@ -264,14 +271,17 @@ public class DisplayController {
                             Platform.runLater(() -> {
                                 view.getMain().setTitle(getWindowName());
                                 view.updateView(model.getActualStop(), model.getJourneys(), diff);
-                                view.updateClock(LocalTime.now());
+                                view.updateClock(LocalTime.now()
+                                                    .format(DateTimeFormatter.ofPattern("HH:mm")));
                                 view.getMain().show();
                             });
 
                             // 6 - on lance le thread qui update l'heure (si besoin)
 
                             Platform.runLater(() -> {
-                                if (!clockService.isRunning()) clockService.start();
+                                if (clockTimeline.getStatus() != Status.RUNNING) {
+                                    clockTimeline.play();
+                                }
                             });
 
                             Functions.writeLog("[" + displayId + "] updated !");
@@ -307,37 +317,23 @@ public class DisplayController {
         });
     }
 
-    private void clockServiceInit() {
-        clockService = new Service<Void>() {
-
-            @Override
-            protected Task<Void> createTask() {
-                return new Task<Void>() {
-
-                    @Override
-                    protected Void call() throws Exception {
-                        LocalTime now = LocalTime.now();
-                        int min = now.getMinute();
-                        while (true) {
-                            try {
-                                TimeUnit.SECONDS.sleep(1);
-                                now = LocalTime.now();
-                                if (now.getMinute() != min) {
-                                    final var toUpdate = LocalTime.of(now.getHour(), now.getMinute());
-                                    min = now.getMinute();
-                                    Platform.runLater(() -> {
-                                        view.updateClock(toUpdate);
-                                    });
-                                }
-                            } catch (InterruptedException e) {
-                                return null;
-                            }
-                        } 
-                    }
-                };
-            }
-            
-        };
+    private void clockTimelineInit() {
+        clockTimeline = new Timeline(
+            new KeyFrame(
+                Duration.ZERO, e ->  {
+                    Platform.runLater(() -> {
+                        var time = LocalDateTime.now();
+                        if (time.getSecond() % 2 == 0) {
+                            view.updateClock(time.format(DateTimeFormatter.ofPattern("HH:mm")));
+                        } else {
+                            view.updateClock(time.format(DateTimeFormatter.ofPattern("HH mm")));
+                        }
+                    });
+                }
+            ),
+            new KeyFrame(Duration.seconds(1))
+        );
+        clockTimeline.setCycleCount(Animation.INDEFINITE);
     }
 
     public String getWaitingTimeLabel(Journey journey, Stop actual) {

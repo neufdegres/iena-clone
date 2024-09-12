@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -22,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import ienaclone.gui.controller.DisplayController;
@@ -37,9 +35,9 @@ import ienaclone.util.Stop.STATUS;
 public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
     private final DisplayController controller;
-    private Label timeLabel, platformNumLabel;
+    private Label platformNumLabel;
     private JourneyBox journeyBox;
-    private VBox rightBox;
+    private VBox rightBox, subClockBox;
 
     public OnPlatformDisplayView(Stage main, DisplayController c) {
         this.main = main;
@@ -53,12 +51,14 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // l'heure
 
-        timeLabel = new Label("00:00");
-        timeLabel.getStyleClass().add("time-label");
+        var clockText = createClock("00 00");
 
-        VBox timeBox = new VBox();
-        VBox.setMargin(timeBox, new Insets(8, 0, 20, 10));
-        timeBox.getChildren().add(timeLabel);
+        subClockBox = new VBox(clockText);
+        HBox.setMargin(subClockBox, new Insets(8, 0, 20, 10));
+        subClockBox.getStyleClass().add("clock-box");
+
+        HBox clockBox = new HBox();
+        clockBox.getChildren().addAll(subClockBox);
 
         // les alertes
 
@@ -87,7 +87,7 @@ public class OnPlatformDisplayView extends DisplayView {
         VBox leftBox = new VBox(5);
         alertBox.getStyleClass().add("left-box");
         leftBox.setPrefWidth(1280*0.25);
-        leftBox.getChildren().addAll(timeBox, alertBox);
+        leftBox.getChildren().addAll(clockBox, alertBox);
 
         // RIGHT
 
@@ -135,10 +135,6 @@ public class OnPlatformDisplayView extends DisplayView {
     
     public Stage getMain() {
         return main;
-    }
-
-    public Label getTimeLabel() {
-        return timeLabel;
     }
 
     public Label getPlatformNumLabel() {
@@ -432,10 +428,25 @@ public class OnPlatformDisplayView extends DisplayView {
         System.out.println(sb.toString());
     }
 
+    private TextFlow createClock(String text) {
+        if (text.length() != 5) return new TextFlow();
+        TextFlow res = new TextFlow();
+
+        Text h = new Text(text.substring(0, 2));
+        Text m = new Text(text.substring(3, 5));
+        Text sep = new Text(":");
+        if (text.charAt(2) == ' ') sep.setFill(Color.valueOf("eee"));
+
+        res.getChildren().addAll(h, sep, m);
+        res.getStyleClass().add("clock-text");
+        return res;
+    }
+
     @Override
-    public void updateClock(LocalTime now) {
-        var txt = now.format(DateTimeFormatter.ofPattern("HH:mm"));
-        timeLabel.setText(txt);
+    public void updateClock(String now) {
+        var newClock = createClock(now);
+        subClockBox.getChildren().clear();
+        subClockBox.getChildren().add(newClock);
     }
 
     @Override
