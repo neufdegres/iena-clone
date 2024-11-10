@@ -20,4 +20,14 @@ public class FunctionsTest {
 
         assertEquals(expected, result);
     }
+
+    @Test
+    void testGetWaitingTime() {
+        var from = LocalDateTime.of(2024, 10, 1, 20, 20, 20);
+        var toWait = LocalDateTime.of(2024, 10, 1, 20, 20, 40);
+
+        long time = Functions.getWaitingTime(toWait, from);
+
+        assertEquals(20, time);
+    }
 }

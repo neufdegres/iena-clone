@@ -408,7 +408,7 @@ public class OnPlatformDisplayView extends DisplayView {
         Functions.writeLog("\n----[" + displayId + "] PROCHAIN PASSAGE-----");
 
         StringBuilder sb = new StringBuilder();
-        // sb.append("Ref : ").append(j.getRef()).append("\n");
+        sb.append("Ref : ").append(j.getRef()).append("\n");
         sb.append("Ligne : ");
         sb.append(j.getLine().map(line -> line.getName()).orElse("N/A")).append("\n");
         sb.append("Nom de la mission : ").append(j.getMission().orElse("N/A")).append("\n");

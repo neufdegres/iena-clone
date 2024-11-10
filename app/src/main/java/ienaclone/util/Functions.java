@@ -6,7 +6,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import static java.time.temporal.ChronoUnit.MINUTES;
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class Functions {
 
@@ -30,10 +30,13 @@ public class Functions {
         return Optional.ofNullable(timeInParis.toLocalDateTime());
     }
 
-    public static long getWaitingTime(LocalDateTime toWait) {
+    public static long getWaitingTime(LocalDateTime toWait, LocalDateTime from) {
         if (toWait == null) return -99999L;
-        LocalDateTime now = LocalDateTime.now();
-        return MINUTES.between(now, toWait);
+        return SECONDS.between(from, toWait);
+    }
+
+    public static long getWaitingTime(LocalDateTime toWait) {
+        return getWaitingTime(toWait, LocalDateTime.now());
     }
 
     public static String getApiKey() {

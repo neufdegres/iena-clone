@@ -362,15 +362,15 @@ public class DisplayController {
             long timeUtilArrival = Functions.getWaitingTime(arrival);
             long timeUtilDeparture = Functions.getWaitingTime(departure);
 
-            if (timeUtilArrival >= 60 || timeUtilDeparture >= 60) {
-                if (timeUtilArrival >= 60)
+            if (timeUtilArrival >= 3600 || timeUtilDeparture >= 3600) {
+                if (timeUtilArrival >= 3600)
                     return arrival.format(DateTimeFormatter.ofPattern("HH:mm"));
                 return departure.format(DateTimeFormatter.ofPattern("HH:mm"));
             }
 
-            if (timeUtilArrival > 2 || timeUtilDeparture > 2) {
-                if (timeUtilArrival > 2) return timeUtilArrival + " min";
-                return timeUtilDeparture + " min";
+            if (timeUtilArrival > 120 || timeUtilDeparture > 120) {
+                if (timeUtilArrival > 120) return timeUtilArrival/60 + " min";
+                return timeUtilDeparture/60 + " min";
             }
 
             if (status == Stop.STATUS.START) {
@@ -381,6 +381,7 @@ public class DisplayController {
             }
 
             if (arrival != null) {
+                if (timeUtilArrival > 60) return timeUtilArrival/60 + " min";
                 if (timeUtilArrival > 0) return "à l'approche";
                 return "à quai";
             }
