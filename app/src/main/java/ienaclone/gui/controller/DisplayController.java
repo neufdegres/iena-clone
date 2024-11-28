@@ -223,7 +223,7 @@ public class DisplayController {
 
                             var filtered = applySelectedFilter(nextJourneys);
 
-                            // 3 - récupérer les prochaines gares (limite 6)
+                            // 3 - récupérer les prochaines gares (limite 5)
 
                             TimeUnit.MILLISECONDS.sleep(500);
 
@@ -261,6 +261,8 @@ public class DisplayController {
                             // 4 - on "sélectionne" les journeys à afficher
 
                             var toDisplay = model.getXJourneys(limit);
+
+                            jdl.updateDisplayedJourneyRefs(id, extractRefs(toDisplay));
 
                             int diff = getDifference(model.getDisplayedJourneys(), toDisplay);
 
@@ -467,6 +469,15 @@ public class DisplayController {
         }
 
         return raw;
+    }
+
+    private String[] extractRefs(ArrayList<Journey> l) {
+        int len = l.size();
+        String[] res = new String[len];
+        for(int i=0; i<len; i++) {
+            res[i] = l.get(i).getRef();
+        }
+        return res;
     }
 
 }

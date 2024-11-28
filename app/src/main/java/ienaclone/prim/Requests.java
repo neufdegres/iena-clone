@@ -15,10 +15,19 @@ import org.json.JSONObject;
 
 import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.AllStopsSingleton;
+import ienaclone.util.TripDisruption;
+import ienaclone.util.TripDisruptionBuilder;
+import ienaclone.util.StopDisruption.TYPE;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
+import ienaclone.util.StopDisruption;
 import ienaclone.util.TimeStatus;
+import ienaclone.util.TripDisruption.CATEGORY;
+import ienaclone.util.TripDisruption.CAUSE;
+import ienaclone.util.TripDisruption.EFFECT;
+import ienaclone.util.TripDisruption.STATUS;
+import ienaclone.util.TripDisruption.TAG;
 
 public class Requests {
     private static String HOST = "https://prim.iledefrance-mobilites.fr";
@@ -179,6 +188,237 @@ public class Requests {
 
         return res;
     }
+
+    public static HashMap<String, ArrayList<TripDisruption>> getTripDisruptions(String ref) {
+        HashMap<String, ArrayList<TripDisruption>> res = new HashMap<>();
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        String url = HOST + "/marketplace/v2/navitia/vehicle_journeys/" + ref;
+
+        try {
+            if (API_KEY == null) throw new NoApiKeyException();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                .header("Accept", "application/json")
+                .header("apikey", API_KEY)
+                .uri(new URI(url))
+                .GET()
+                .build();
+
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+
+            final JSONObject jsonRep = new JSONObject(response.body());
+
+            var data = parseTripDisruptions(jsonRep);
+
+            if (data == null) res.put("unknown_ref", null);
+            else res.put("data", data);
+
+        } catch (ConnectException e1) {
+            res.put("error_internet", null);
+        } catch (NoApiKeyException e) {
+            res.put("error_apikey", null);
+        } catch (Exception e) {    
+            res.put("error_else", null);
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    public static ArrayList<TripDisruption> parseTripDisruptions(JSONObject json) {
+        ArrayList<TripDisruption> res = new ArrayList<>();
+        
+        var disr = (JSONArray) getJsonValue(json, "disruptions:Array"); 
+
+        if (disr == null) return null;
+
+        for(int i=0; i<disr.length(); i++) {
+            var db = new TripDisruptionBuilder();
+
+            var disrJson = disr.getJSONObject(i);
+
+            db.id = (String) getJsonValue(disrJson, "id:String");
+
+            db.lastUpdated = (String) getJsonValue(disrJson, "updated_at:String");
+            
+            var statusStr = (String) getJsonValue(disrJson, "status:String");
+            TripDisruption.STATUS status;
+            switch (statusStr) {
+                case "past": status = STATUS.PAST; break;
+                case "active": status = STATUS.ACTIVE; break;
+                default: status = STATUS.FUTURE; break;
+            }
+            db.status = status;
+
+            var tagStr = (String) getJsonValue(disrJson, "tags#0>String");
+            TripDisruption.TAG tag;
+            if (tagStr != null)  {
+                switch (statusStr) {
+                    case "Actualité": tag = TAG.ACTUALITE; break;
+                    default: tag = TAG.NONE; break;
+                }
+            } else {
+                tag = TAG.NONE;
+            }
+            db.tag = tag;
+
+            var causeStr = (String) getJsonValue(disrJson, "cause:String");
+            TripDisruption.CAUSE cause;
+            if (causeStr != null)  {
+                switch (causeStr) {
+                    case "perturbation": cause = CAUSE.PERTUBATION; break;
+                    case "travaux": cause = CAUSE.TRAVAUX; break;
+                    default: cause = CAUSE.NONE; break;
+                }
+            } else {
+                cause = CAUSE.NONE;
+            }
+            db.cause = cause;
+
+            var categoryStr = (String) getJsonValue(disrJson, "category:String");
+            CATEGORY category;
+            if (categoryStr != null)  {
+                switch (categoryStr) {
+                    case "Incidents": category = CATEGORY.INCIDENTS; break;
+                    default: category = CATEGORY.NONE; break;
+                }
+            } else {
+                category = CATEGORY.NONE;
+            }
+            db.category = category;
+
+            var severityJson = disrJson.optJSONObject("severity");
+
+            var effectStr = (String) getJsonValue(severityJson, "effect:String");
+            EFFECT effect;
+            if (effectStr != null) {
+                switch (effectStr) {
+                    case "SIGNIFICANT_DELAYS": effect = EFFECT.SIGNIFICANT_DELAYS; break;
+                    case "ADDITIONAL_SERVICE": effect = EFFECT.ADDITIONAL_SERVICE; break;
+                    case "NO_SERVICE": effect = EFFECT.NO_SERVICE; break;
+                    case "REDUCED_SERVICE": effect = EFFECT.REDUCED_SERVICE; break;
+                    default: effect = EFFECT.OTHER_EFFECT; break;
+                }
+            } else {
+                effect = EFFECT.OTHER_EFFECT;
+            }
+            db.effect = effect;
+
+            db.color = (String) getJsonValue(severityJson, "color:String");
+
+            db.priority = (int) getJsonValue(severityJson, "priority:int");
+
+            var messagesJson = (JSONArray) getJsonValue(disrJson, "messages:Array");
+
+            if (messagesJson == null) {
+                // pour le moment on skip
+                continue;
+            }
+
+            String title = "", message = "";
+
+            for (int j=0; j<messagesJson.length(); j++) {
+                if (!title.isEmpty() && !message.isEmpty()) break;
+
+                var tmpMessJson = messagesJson.getJSONObject(j);
+
+                var type = (String)getJsonValue(tmpMessJson, "channel>name:String");
+                var text = (String)getJsonValue(tmpMessJson, "text:String");
+
+                if (type.equals("moteur")) {
+                    message = text;
+                } else {
+                    title = text;
+                }
+            }
+            db.title = title;
+            db.message = message;
+
+            var data = new TripDisruption(db);
+
+            res.add(data);
+        }
+
+        return res;
+    }
+
+    public static HashMap<String, ArrayList<StopDisruption>> getStopDisruptions(String ref) {
+        HashMap<String, ArrayList<StopDisruption>> res = new HashMap<>();
+
+        HttpClient client = HttpClient.newHttpClient();
+        
+        String url = HOST + "/marketplace/general-message?StopPointRef=STIF%3AStopPoint%3AQ%3A"
+                     + ref + "%3A";
+
+        try {
+            if (API_KEY == null) throw new NoApiKeyException();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                .header("Accept", "application/json")
+                .header("apikey", API_KEY)
+                .uri(new URI(url))
+                .GET()
+                .build();
+
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+
+            final JSONObject jsonRep = new JSONObject(response.body());
+
+            var data = parseStopDisruptions(jsonRep);
+
+            if (data == null) res.put("unknown_ref", null);
+            else res.put("data", data);
+
+        } catch (ConnectException e1) {
+            res.put("error_internet", null);
+        } catch (NoApiKeyException e) {
+            res.put("error_apikey", null);
+        } catch (Exception e) {    
+            res.put("error_else", null);
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    public static ArrayList<StopDisruption> parseStopDisruptions(JSONObject json) {
+        ArrayList<StopDisruption> res = new ArrayList<>();
+
+        // System.out.println(json.toString(4));
+
+        var disruptions = (JSONArray) getJsonValue(json, 
+            "Siri>ServiceDelivery>GeneralMessageDelivery#0>InfoMessage:Array");
+
+        for(int i=0; i<disruptions.length(); i++) {
+            var d = disruptions.getJSONObject(i);
+            
+            var id = (String) getJsonValue(d, "ItemIdentifier:String");
+            
+            var type_raw = (String) getJsonValue(d, "InfoChannelRef>value:String");
+            TYPE type;
+            switch (type_raw) {
+                case "Information":
+                    type = TYPE.INFORMATION;          
+                    break;
+                case "Perturbation":
+                    type = TYPE.PERTURBATION;          
+                    break;
+                default:
+                    type = TYPE.COMMERCIAL;
+                    break;
+            }
+
+            var message = (String) getJsonValue(d, "Content>Message#0>MessageText>value:String");
+
+            var tmp = new StopDisruption(id, type, message);
+            res.add(tmp);
+        }
+
+        return res;
+    }
+
 
     // ex : MonitoredVehicleJourney>MonitoredCall>DestinationDisplay#0>value:String>
     // on admet que s est bien formé

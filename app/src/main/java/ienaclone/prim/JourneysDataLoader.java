@@ -2,6 +2,7 @@ package ienaclone.prim;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import javafx.concurrent.Task;
@@ -14,18 +15,25 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 
 import ienaclone.util.Stop;
+import ienaclone.util.StopDisruption;
 import ienaclone.util.TimeStatus;
 import ienaclone.prim.Requests.StopData;
 import ienaclone.util.AllStopsSingleton;
+import ienaclone.util.TripDisruption;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 
 public class JourneysDataLoader {
     private final Stop stop;
-    private Service<Void> mainService, stopsDataLoadService;
+    private Service<Void> mainService, stopsDataLoadService, tripDisruptionsLoadService, stopDisruptionsLoadService;
     private volatile ArrayList<Journey> journeys;
-    private volatile STATUS mainServiceStatus, sdlServiceStatus;
+    private volatile ArrayList<TripDisruption> tripDisruptions;
+    private volatile ArrayList<StopDisruption> stopDisruptions;
+    private volatile ArrayList<String> displayedJourneyRefsList; 
+    private volatile HashMap<Integer, String[]> displayedJourneyRefsMap; 
+    private volatile STATUS mainServiceStatus, sdlServiceStatus, tripDLServiceStatus, stopDLServiceStatus;
     private volatile int id;
+    private Object key = new Object();
 
     public enum STATUS {NOT_STARTED, LOADING, DATA_SET, NO_INTERNET_CONNEXION, NO_API_KEY, ERROR_ELSE}
 
@@ -33,11 +41,19 @@ public class JourneysDataLoader {
         assert(stop != null);
         this.stop = stop;
         journeys = new ArrayList<>();
+        tripDisruptions = new ArrayList<>();
+        stopDisruptions = new ArrayList<>();
         mainServiceStatus = STATUS.NOT_STARTED;
         sdlServiceStatus = STATUS.NOT_STARTED;
+        tripDLServiceStatus = STATUS.NOT_STARTED;
+        stopDLServiceStatus = STATUS.NOT_STARTED;
+        displayedJourneyRefsList = new ArrayList<>();
+        displayedJourneyRefsMap = new HashMap<>();
         id = -1;
         mainServiceInit();
         stopsDataLoadServiceInit();
+        tripDisruptionsLoadServiceInit();
+        stopDisruptionsLoadServiceInit();
     }
 
     public List<Journey> getJourneys() {
@@ -83,9 +99,27 @@ public class JourneysDataLoader {
                                     break;                               
                             }
 
+                            switch (tripDLServiceStatus) {
+                                case NO_API_KEY:
+                                case NO_INTERNET_CONNEXION:
+                                case ERROR_ELSE:
+                                    // TODO : pour le moment on arrête pas
+                                    // this.cancel(); 
+                                    // break;
+                                default:
+                                    Platform.runLater(() -> {
+                                        tripDisruptionsLoadService.reset();
+                                    });
+                                    break;                               
+                            }
+
                             id++;
                             mainServiceStatus = STATUS.LOADING;
                             Functions.writeLog("journeys data loading !");
+
+                            if (stopDLServiceStatus != STATUS.DATA_SET) {
+                                stopDisruptionsLoadService.start();
+                            }
 
                             var rep = Requests.getNextJourneys(stop.getCode());
                             
@@ -111,6 +145,15 @@ public class JourneysDataLoader {
                                         } else {
                                             stopsDataLoadService.start();
                                         }
+                                        
+                                        // if (disruptionsLoadService.isRunning()) {
+                                        //     disruptionsLoadService.restart();
+                                        // } /* else if (disrLoadServiceStatus == STATUS.ERROR_ELSE) {
+                                        //     disruptionsLoadService.reset();
+                                        //     disruptionsLoadService.start();
+                                        // }  */else {
+                                        //     disruptionsLoadService.start();
+                                        // }
                                     });
                                     break;
                                 case NO_API_KEY:
@@ -254,6 +297,10 @@ public class JourneysDataLoader {
 
                         Functions.writeLog("stops data loaded !");
 
+                        Platform.runLater(() -> {
+                            tripDisruptionsLoadService.start();
+                        });         
+
                         return null;
                     }
                 };
@@ -271,6 +318,145 @@ public class JourneysDataLoader {
                         break;
                     case SUCCEEDED:
                         stopsDataLoadService.reset();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
+    private void tripDisruptionsLoadServiceInit() {
+        tripDisruptionsLoadService = new Service<Void>() {
+
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        Functions.writeLog("trip disruptions data loading !");
+                        tripDLServiceStatus = STATUS.LOADING;
+
+                        TimeUnit.SECONDS.sleep(2);
+
+                        displayedJourneyRefsToList();
+
+                        for (var ref : displayedJourneyRefsList) {
+                            var rep = Requests.getTripDisruptions(ref);
+
+                            ArrayList<TripDisruption> disrData;
+
+                            if (rep.containsKey("data")) {
+                                disrData = rep.get("data");
+                                updateTripDisruptions(disrData);
+                                tripDLServiceStatus = STATUS.DATA_SET;
+                            } else {
+                                if (rep.containsKey("error_internet")) {
+                                    tripDLServiceStatus = STATUS.NO_INTERNET_CONNEXION;
+                                } else if (rep.containsKey("error_apikey")) {
+                                    tripDLServiceStatus = STATUS.NO_API_KEY;
+                                } else if (rep.containsKey("unknown_ref")) {
+                                    // TODO : !!!
+                                    Functions.writeLog("[dl] ref inconnue : " + ref);
+                                    tripDLServiceStatus = STATUS.ERROR_ELSE;
+                                } else {
+                                    tripDLServiceStatus = STATUS.ERROR_ELSE;
+                                }
+                                return null;
+                            }
+                            
+                        }
+
+                        Functions.writeLog("trip disruptions data loaded !");
+
+                        /* for (var d : tripDisruptions) {
+                            System.out.println(d + "\n");
+                        } */
+
+                        return null;
+                    }
+                };
+            }
+        };
+
+        tripDisruptionsLoadService.stateProperty().addListener(new ChangeListener<Worker.State>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Worker.State> observableValue, Worker.State oldValue, Worker.State newValue) {
+                switch (newValue) {
+                    case FAILED:
+                        Functions.writeLog("disr failed !!");
+                    case CANCELLED:
+                        mainServiceStop();
+                        break;
+                    case SUCCEEDED:
+                        tripDisruptionsLoadService.reset();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
+    private void stopDisruptionsLoadServiceInit() {
+        stopDisruptionsLoadService = new Service<Void>() {
+
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        Functions.writeLog("stop disruptions data loading !");
+                        stopDLServiceStatus = STATUS.LOADING;
+
+                        TimeUnit.SECONDS.sleep(2);
+
+                        var rep = Requests.getStopDisruptions(stop.getCode());
+
+                        ArrayList<StopDisruption> disrData;
+
+                        if (rep.containsKey("data")) {
+                            disrData = rep.get("data");
+                            stopDisruptions.addAll(disrData);
+                            stopDLServiceStatus = STATUS.DATA_SET;
+                        } else {
+                            if (rep.containsKey("error_internet")) {
+                                stopDLServiceStatus = STATUS.NO_INTERNET_CONNEXION;
+                            } else if (rep.containsKey("error_apikey")) {
+                                stopDLServiceStatus = STATUS.NO_API_KEY;
+                            } else if (rep.containsKey("unknown_ref")) {
+                                Functions.writeLog("[dl] gare inconnue ????");
+                                stopDLServiceStatus = STATUS.ERROR_ELSE;
+                            } else {
+                                stopDLServiceStatus = STATUS.ERROR_ELSE;
+                            }
+                            return null;
+                        }
+
+                        Functions.writeLog("stop disruptions data loaded !");
+                        
+                        // for (var d : stopDisruptions) {
+                        //     System.out.println(d + "\n");
+                        // }
+
+                        return null;
+                    }
+                };
+            }
+        };
+
+        stopDisruptionsLoadService.stateProperty().addListener(new ChangeListener<Worker.State>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Worker.State> observableValue, Worker.State oldValue, Worker.State newValue) {
+                switch (newValue) {
+                    case FAILED:
+                        Functions.writeLog("stop disr failed !!");
+                    case CANCELLED:
+                        mainServiceStop();
                         break;
                     default:
                         break;
@@ -325,8 +511,40 @@ public class JourneysDataLoader {
             journeys.addAll(newest.subList(idx+1, newest.size()));
     }
 
+    public void updateTripDisruptions(ArrayList<TripDisruption> newest) {
+        // System.out.println("newest:" + newest.size());
+        for (var d : newest) {
+            int idx = tripDisruptions.lastIndexOf(d);
+            if (idx == -1) tripDisruptions.add(d);
+            else {
+                if (tripDisruptions.get(idx).getId().equals(d.getId())) {
+                    tripDisruptions.remove(idx);
+                    tripDisruptions.add(idx, d);
+                }
+            }
+        }
+    }
+
     public void clearJourneys() {
         journeys.clear();
+    }
+
+    public void updateDisplayedJourneyRefs(int id, String[] refs) {
+        synchronized(key) {
+            displayedJourneyRefsMap.put(id, refs);
+        }
+    }
+
+    private void displayedJourneyRefsToList() {
+        ArrayList<String> res = new ArrayList<>();
+        for (var e : displayedJourneyRefsMap.entrySet()) {
+            var l = e.getValue();
+            for (int i=0; i<l.length; i++) {
+                if (!res.contains(l[i])) res.add(l[i]);
+            }
+        }
+        displayedJourneyRefsList.clear();
+        displayedJourneyRefsList.addAll(res);
     }
 
     private ArrayList<Pair<Stop, Stop.STATUS>> parseStopsData(ArrayList<StopData> sd) {
