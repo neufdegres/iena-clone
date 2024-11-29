@@ -61,6 +61,11 @@ public class JourneysDataLoader {
         return FXCollections.unmodifiableObservableList(obs);
     }
 
+    public List<StopDisruption> getStopDisruptions() {
+        var obs = FXCollections.observableArrayList(stopDisruptions);
+        return FXCollections.unmodifiableObservableList(obs);
+    }
+
     public Service<Void> getMainService() {
         return mainService;
     }
@@ -71,6 +76,10 @@ public class JourneysDataLoader {
 
     public STATUS getSdlServiceStatus() {
         return sdlServiceStatus;
+    }
+
+    public STATUS getStopDLServiceStatus() {
+        return stopDLServiceStatus;
     }
 
     public int getId() {
@@ -411,8 +420,6 @@ public class JourneysDataLoader {
                     protected Void call() throws Exception {
                         Functions.writeLog("stop disruptions data loading !");
                         stopDLServiceStatus = STATUS.LOADING;
-
-                        TimeUnit.SECONDS.sleep(2);
 
                         var rep = Requests.getStopDisruptions(stop.getCode());
 

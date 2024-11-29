@@ -2,8 +2,10 @@ package ienaclone.gui.model;
 
 import java.util.ArrayList;
 
-import ienaclone.gui.controller.util.DisplayMode;
-import ienaclone.gui.controller.util.SelectedFilter;
+import ienaclone.gui.util.DisplayMode;
+import ienaclone.gui.util.InfosCircularQueue;
+import ienaclone.gui.util.SelectedFilter;
+import ienaclone.gui.util.StopDisruptionsClassed;
 import ienaclone.util.Journey;
 import ienaclone.util.Stop;
 
@@ -11,7 +13,8 @@ public class DisplayModel {
     private final Stop actualStop;
     private final ArrayList<Journey> journeys;
     private final ArrayList<Journey> displayedJourneys;
-    // TODO : private final ArrayList<Alerts> alerts;
+    private final StopDisruptionsClassed disruptions;
+    private final InfosCircularQueue infosQueue;
     private final SelectedFilter filter;
     private final DisplayMode mode;
     private final boolean isTestStop;
@@ -20,6 +23,8 @@ public class DisplayModel {
         this.actualStop = st.getSelected();
         this.journeys = new ArrayList<>();
         this.displayedJourneys = new ArrayList<>();
+        this.disruptions = new StopDisruptionsClassed();
+        this.infosQueue = new InfosCircularQueue();
         this.isTestStop = st.isTest();
         this.filter = new SelectedFilter(st.getFilter()[0], st.getFilter()[1]);
         this.mode = st.getMode();
@@ -43,6 +48,14 @@ public class DisplayModel {
 
     public ArrayList<Journey> getDisplayedJourneys() {
         return displayedJourneys;
+    }
+
+    public StopDisruptionsClassed getDisruptions() {
+        return disruptions;
+    }
+
+    public InfosCircularQueue getInfosQueue() {
+        return infosQueue;
     }
 
     public Stop getActualStop() {

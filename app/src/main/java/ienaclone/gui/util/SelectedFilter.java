@@ -1,3 +1,3 @@
-package ienaclone.gui.controller.util;
+package ienaclone.gui.util;
 
 public record SelectedFilter(String key, String value) {}

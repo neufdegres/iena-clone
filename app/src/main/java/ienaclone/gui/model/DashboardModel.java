@@ -2,7 +2,7 @@ package ienaclone.gui.model;
 
 import java.util.ArrayList;
 
-import ienaclone.gui.controller.util.DisplayMode;
+import ienaclone.gui.util.DisplayMode;
 import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;

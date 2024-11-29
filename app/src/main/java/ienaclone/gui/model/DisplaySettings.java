@@ -1,6 +1,6 @@
 package ienaclone.gui.model;
 
-import ienaclone.gui.controller.util.DisplayMode;
+import ienaclone.gui.util.DisplayMode;
 import ienaclone.util.Stop;
 
 public class DisplaySettings {

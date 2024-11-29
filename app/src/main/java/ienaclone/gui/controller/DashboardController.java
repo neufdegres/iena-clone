@@ -3,9 +3,9 @@ package ienaclone.gui.controller;
 import java.util.ArrayList;
 
 import ienaclone.gui.Window;
-import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.gui.model.DashboardModel;
 import ienaclone.gui.model.DisplaySettings;
+import ienaclone.gui.util.DisplayMode;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
 import ienaclone.prim.Filter;

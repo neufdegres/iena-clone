@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,11 +32,13 @@ import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;
 import ienaclone.util.Stop.STATUS;
+import ienaclone.util.StopDisruption.TYPE;
 
 public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
     private final DisplayController controller;
     private Label platformNumLabel;
+    private InfoBox infoBox;
     private JourneyBox journeyBox;
     private VBox rightBox, subClockBox;
 
@@ -62,32 +65,16 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // les alertes
 
-        // TODO: créer une classe spéciale
-
-        Label headline = new Label("Information sûreté");
-        headline.getStyleClass().add("alert-headline-label");
-
-        HBox headlineBox = new HBox();
-        headline.getStyleClass().add("alert-headline-box");
-        headlineBox.getChildren().addAll(/* le pictogramme, */headline);
-
-        String exAlert = "Pour votre sécurité, nous vous invitons à ne laisser aucun " +
-                         "bagage sans surveillance. Veuillez nous signaler tout colis " +
-                         "ou bagage qui vous paraitrait abandonné. Merci de votre vigilance";
-        Label content = new Label(exAlert);
-        content.getStyleClass().add("alert-content-label");
-
-        VBox alertBox = new VBox();
-        alertBox.getStyleClass().add("alert-box");
-        alertBox.getChildren().addAll(headlineBox, content);
-
+        infoBox = new InfoBox();
 
         ///
 
         VBox leftBox = new VBox(5);
-        alertBox.getStyleClass().add("left-box");
+        infoBox.getStyleClass().add("left-box");
         leftBox.setPrefWidth(1280*0.25);
-        leftBox.getChildren().addAll(clockBox, alertBox);
+        // System.out.println(infoBox.layoutXProperty());
+        // System.out.println(infoBox.layoutYProperty());
+        leftBox.getChildren().addAll(clockBox, infoBox);
 
         // RIGHT
 
@@ -126,6 +113,7 @@ public class OnPlatformDisplayView extends DisplayView {
         HBox layout = new HBox();
         layout.getStyleClass().add("layout-box");
         layout.getChildren().addAll(leftBox, rightBox);
+        // layout.getChildren().addAll(rightBox);
 
         Scene scene = new Scene(layout,1280, 720);
         scene.getStylesheets().add("/ienaclone/gui/view/display.css");
@@ -142,7 +130,45 @@ public class OnPlatformDisplayView extends DisplayView {
     }
 
     @Override
-    public void updateView(Stop stop, ArrayList<Journey> journeys, int difference) {
+    public Pane getInfoBox() {
+        return infoBox;
+    }
+
+    /* INFOS */
+
+    @Override
+    public void updateInfosView(TYPE type, String message) {
+        // TODO :pictogramme
+        
+        // couleur de fond + headline
+        String color = "", headline = "";
+
+        switch (type) {
+            case INFORMATION:
+                color = "#313131";
+                headline = "Information sûreté";
+                break;
+            case PERTURBATION:
+                color = "#e78754";
+                headline = "Information travaux";
+                break;
+            case COMMERCIAL:
+                color = "#313131";
+                headline = "#e78754";
+                break;
+        }
+
+        infoBox.setStyle("-fx-background-color:" + color);
+        infoBox.getHeadline().setText(headline);
+
+        // message
+        infoBox.getContent().setText(message);
+    }
+
+    /* JOURNEYS */
+
+    @Override
+    public void updateJourneysView(Stop stop, ArrayList<Journey> journeys, int difference) {
         if (journeys.isEmpty()) {
             clearJourneyBox();
             return;
@@ -428,6 +454,13 @@ public class OnPlatformDisplayView extends DisplayView {
         System.out.println(sb.toString());
     }
 
+    @Override
+    public void updateWaitingTime(String text, int pos) {
+        journeyBox.getWaitingTime().setText(text);
+    }
+
+    /* CLOCK */
+
     private TextFlow createClock(String text) {
         if (text.length() != 5) return new TextFlow();
         TextFlow res = new TextFlow();
@@ -449,9 +482,39 @@ public class OnPlatformDisplayView extends DisplayView {
         subClockBox.getChildren().add(newClock);
     }
 
-    @Override
-    public void updateWaitingTime(String text, int pos) {
-        journeyBox.getWaitingTime().setText(text);
+
+    /***** INNER CLASSES *****/
+
+    class InfoBox extends VBox {
+        private Label headline, content;
+
+        public InfoBox() {
+            headline = new Label("Information sûreté");
+            headline.getStyleClass().add("alert-headline-label");
+
+            HBox headlineBox = new HBox();
+            headline.getStyleClass().add("alert-headline-box");
+            headlineBox.getChildren().addAll(/* le pictogramme, */headline);
+
+            String exAlert = "Pour votre sécurité, nous vous invitons à ne laisser aucun " +
+                                "bagage sans surveillance. Veuillez nous signaler tout colis " +
+                                "ou bagage qui vous paraitrait abandonné. Merci de votre vigilance";
+            content = new Label(exAlert);
+            content.getStyleClass().add("alert-content-label");
+
+            this.setStyle("-fx-background-color:#313131");
+            // this.setStyle(Color.valueOf("#313131"));
+            this.getStyleClass().add("alert-box");
+            this.getChildren().addAll(headlineBox, content);
+        }
+
+        public Label getHeadline() {
+            return headline;
+        }
+
+        public Label getContent() {
+            return content;
+        }
     }
 
     class JourneyBox extends VBox {

@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
+// import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.animation.Animation.Status;
 import javafx.application.Platform;
@@ -22,8 +23,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
 import ienaclone.gui.Window;
-import ienaclone.gui.controller.util.DisplayMode;
 import ienaclone.gui.model.DisplayModel;
+import ienaclone.gui.util.DisplayMode;
 import ienaclone.gui.view.DisplayView;
 import ienaclone.prim.Filter;
 import ienaclone.prim.JourneysDataLoader;
@@ -38,7 +39,7 @@ public class DisplayController {
     private DisplayView view;
     private JourneysDataLoader jdl;
     private Service<Void> mainService;
-    private Timeline clockTimeline;
+    private Timeline clockTimeline, infoPanel;
     private String mainServiceStatus;
     private int displayId;
 
@@ -49,6 +50,8 @@ public class DisplayController {
         mainServiceInit();
         clockTimelineInit();
     }
+
+    /* SETTERS */
 
     public void setView(DisplayView view) {
         this.view = view;
@@ -61,6 +64,8 @@ public class DisplayController {
     public void setDisplayId(int displayId) {
         this.displayId = displayId;
     }
+
+    /* GETTERS */
 
     public DisplayView getView() {
         return view;
@@ -81,6 +86,8 @@ public class DisplayController {
     public int getDisplayId() {
         return displayId;
     }
+
+    /* METHODS */
 
     public void onViewClosed() {
         clockTimeline.stop();
@@ -140,7 +147,7 @@ public class DisplayController {
 
                         Platform.runLater(() -> {
                             view.getMain().setTitle(getWindowName());
-                            view.updateView(model.getActualStop(), model.getDisplayedJourneys(), -1);
+                            view.updateJourneysView(model.getActualStop(), model.getDisplayedJourneys(), -1);
                             view.updateClock(LocalTime.now()
                                     .format(DateTimeFormatter.ofPattern("HH:mm")));
                             view.getMain().show();
@@ -165,6 +172,7 @@ public class DisplayController {
             return;
         }
 
+        startInfoPanelTimeline();
         mainService.start();
     }
 
@@ -272,7 +280,7 @@ public class DisplayController {
 
                             Platform.runLater(() -> {
                                 view.getMain().setTitle(getWindowName());
-                                view.updateView(model.getActualStop(), model.getJourneys(), diff);
+                                view.updateJourneysView(model.getActualStop(), model.getJourneys(), diff);
                                 view.updateClock(LocalTime.now()
                                                     .format(DateTimeFormatter.ofPattern("HH:mm")));
                                 view.getMain().show();
@@ -336,6 +344,55 @@ public class DisplayController {
             new KeyFrame(Duration.seconds(1))
         );
         clockTimeline.setCycleCount(Animation.INDEFINITE);
+    }
+
+    public void startInfoPanelTimeline() {
+        new Service<Void>() {
+
+            @Override
+            protected Task<Void> createTask() {
+                return new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        while (jdl.getStopDLServiceStatus() != JourneysDataLoader.STATUS.DATA_SET) {
+                            TimeUnit.MILLISECONDS.sleep(100);
+                        }
+
+                        var disr = jdl.getStopDisruptions();
+                        model.getDisruptions().setAll(disr);
+
+                        createInfosQueue();
+
+                        infoPanel.play();
+
+                        return null;
+                    }
+                    
+                };
+            }
+            
+        }.start();
+    }
+
+    public void infoPanelTimelineInit() {
+        // var panel = view.getInfoBox();
+        infoPanel = new Timeline(
+            new KeyFrame(
+                Duration.ZERO, e ->  {
+                    Platform.runLater(() -> {
+                        // 1 - pop une annonce
+                        var next = model.getInfosQueue().dequeue(); 
+                        // 2 - l'afficher dans le carré
+                        view.updateInfosView(next.getType(), next.getMessage());
+                    });
+                }
+            ),
+            new KeyFrame(Duration.seconds(2)),
+            new KeyFrame(Duration.seconds(10)),
+            new KeyFrame( Duration.seconds(2))
+        );
+        infoPanel.setCycleCount(Animation.INDEFINITE);
     }
 
     public String getWaitingTimeLabel(Journey journey, Stop actual) {
@@ -480,4 +537,35 @@ public class DisplayController {
         return res;
     }
 
+    private void createInfosQueue() {
+        var queue = model.getInfosQueue();
+        var d = model.getDisruptions();
+
+        var informations = d.getInformations();
+        var perturbations = d.getPerturbations();
+        var commercial = d.getCommercial();
+
+        int cI=0, cP=0, cC=0;
+        boolean tI = false, tP=false, tC=false;
+
+        while(!(tI && tP && tC)) {
+            if (!informations.isEmpty()) {
+                queue.enqueue(informations.get(cI));
+                cI = (cI+1) % informations.size();
+                if (cI == 0) tI = true;
+            } else tI = true;
+
+            if (!perturbations.isEmpty()) {
+                queue.enqueue(perturbations.get(cP));
+                cP = (cP+1) % perturbations.size();
+                if (cP == 0) tP = true;
+            } else tP = true;
+
+            if (!commercial.isEmpty()) {
+                queue.enqueue(commercial.get(cC));
+                cC = (cC+1) % commercial.size();
+                if (cC == 0) tC = true;
+            } else tC = true;
+        }
+    }
 }

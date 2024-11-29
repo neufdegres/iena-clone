@@ -1,7 +1,7 @@
 package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
-import ienaclone.gui.controller.util.DisplayMode;
+import ienaclone.gui.util.DisplayMode;
 import ienaclone.util.Functions;
 
 import java.util.stream.Stream;
@@ -126,7 +126,7 @@ public class DashboardView extends AbstractView {
         body.getChildren().addAll(gareBox, testGareCB, afficherPar, filterBox, displayBox);
 
         displayButton = new Button("Afficher");
-        displayButton.setDisable(true);
+        // displayButton.setDisable(true);
         displayButton.getStyleClass().add("display-button");
         displayButton.setTooltip(new Tooltip("Afficher dans le terminal"));
         displayButton.setOnAction(e -> {
