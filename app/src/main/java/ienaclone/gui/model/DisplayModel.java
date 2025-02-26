@@ -3,7 +3,7 @@ package ienaclone.gui.model;
 import java.util.ArrayList;
 
 import ienaclone.gui.util.DisplayMode;
-import ienaclone.gui.util.InfosCircularQueue;
+import ienaclone.gui.util.DisruptionsCircularQueue;
 import ienaclone.gui.util.SelectedFilter;
 import ienaclone.gui.util.StopDisruptionsClassed;
 import ienaclone.util.Journey;
@@ -14,7 +14,7 @@ public class DisplayModel {
     private final ArrayList<Journey> journeys;
     private final ArrayList<Journey> displayedJourneys;
     private final StopDisruptionsClassed disruptions;
-    private final InfosCircularQueue infosQueue;
+    private final DisruptionsCircularQueue disruptionsQueue;
     private final SelectedFilter filter;
     private final DisplayMode mode;
     private final boolean isTestStop;
@@ -24,7 +24,7 @@ public class DisplayModel {
         this.journeys = new ArrayList<>();
         this.displayedJourneys = new ArrayList<>();
         this.disruptions = new StopDisruptionsClassed();
-        this.infosQueue = new InfosCircularQueue();
+        this.disruptionsQueue = new DisruptionsCircularQueue();
         this.isTestStop = st.isTest();
         this.filter = new SelectedFilter(st.getFilter()[0], st.getFilter()[1]);
         this.mode = st.getMode();
@@ -54,8 +54,8 @@ public class DisplayModel {
         return disruptions;
     }
 
-    public InfosCircularQueue getInfosQueue() {
-        return infosQueue;
+    public DisruptionsCircularQueue getDisruptionsQueue() {
+        return disruptionsQueue;
     }
 
     public Stop getActualStop() {

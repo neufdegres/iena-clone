@@ -4,10 +4,10 @@ import java.util.ArrayDeque;
 
 import ienaclone.util.StopDisruption;
 
-public class InfosCircularQueue {
+public class DisruptionsCircularQueue {
     private ArrayDeque<StopDisruption> queue;
 
-    public InfosCircularQueue() {
+    public DisruptionsCircularQueue() {
         queue = new ArrayDeque<>();
     }
 

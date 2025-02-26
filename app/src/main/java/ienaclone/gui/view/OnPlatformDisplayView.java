@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -38,7 +39,7 @@ public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
     private final DisplayController controller;
     private Label platformNumLabel;
-    private InfoBox infoBox;
+    private DisruptionsBox disruptionsBox;
     private JourneyBox journeyBox;
     private VBox rightBox, subClockBox;
 
@@ -63,18 +64,34 @@ public class OnPlatformDisplayView extends DisplayView {
         HBox clockBox = new HBox();
         clockBox.getChildren().addAll(subClockBox);
 
+        VBox leftBox = new VBox(5);
+        leftBox.setPrefWidth(1280*0.25);
+        leftBox.getChildren().addAll(clockBox);
+
         // les alertes
 
-        infoBox = new InfoBox();
+        disruptionsBox = new DisruptionsBox();
+        disruptionsBox.getStyleClass().add("left-box");
+        disruptionsBox.setPrefWidth(1280*0.25);
+        disruptionsBox.setMaxWidth(1280*0.25);
+
+        disruptionsBox.setTranslateX(disruptionsBox.getTranslateX() - 0);
+
+        var clockTextBis = createClock("00 00");
+
+        VBox subClockBoxBis = new VBox(clockTextBis);
+        HBox.setMargin(subClockBoxBis, new Insets(8, 0, 20, 10));
+        subClockBoxBis.getStyleClass().add("clock-box");
+
+        HBox clockBoxBis = new HBox();
+        clockBoxBis.setVisible(false);
+        clockBoxBis.getChildren().addAll(subClockBoxBis);
+
+        VBox leftBoxBis = new VBox(5);
+        leftBoxBis.setPrefWidth(1280*0.25);
+        leftBoxBis.getChildren().addAll(clockBoxBis, disruptionsBox);
 
         ///
-
-        VBox leftBox = new VBox(5);
-        infoBox.getStyleClass().add("left-box");
-        leftBox.setPrefWidth(1280*0.25);
-        // System.out.println(infoBox.layoutXProperty());
-        // System.out.println(infoBox.layoutYProperty());
-        leftBox.getChildren().addAll(clockBox, infoBox);
 
         // RIGHT
 
@@ -110,12 +127,18 @@ public class OnPlatformDisplayView extends DisplayView {
 
         /////////////////////////////
 
-        HBox layout = new HBox();
-        layout.getStyleClass().add("layout-box");
-        layout.getChildren().addAll(leftBox, rightBox);
+        HBox floor1 = new HBox();
+        floor1.getStyleClass().add("layout-box");
+        floor1.getChildren().addAll(leftBox, rightBox);
         // layout.getChildren().addAll(rightBox);
 
-        Scene scene = new Scene(layout,1280, 720);
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(floor1, leftBoxBis);
+        // stackPane.getChildren().addAll(floor1, disruptionsBox);
+        // StackPane.setAlignment(disruptionsBox, Pos.CENTER_LEFT);
+        StackPane.setAlignment(leftBoxBis, Pos.CENTER_LEFT);
+
+        Scene scene = new Scene(stackPane,1280, 720);
         scene.getStylesheets().add("/ienaclone/gui/view/display.css");
 
         main.setScene(scene);
@@ -130,14 +153,14 @@ public class OnPlatformDisplayView extends DisplayView {
     }
 
     @Override
-    public Pane getInfoBox() {
-        return infoBox;
+    public Pane getDisruptionsBox() {
+        return disruptionsBox;
     }
 
     /* INFOS */
 
     @Override
-    public void updateInfosView(TYPE type, String message) {
+    public void updateDisruptionView(TYPE type, String message) {
         // TODO :pictogramme
         
         // couleur de fond + headline
@@ -158,11 +181,11 @@ public class OnPlatformDisplayView extends DisplayView {
                 break;
         }
 
-        infoBox.setStyle("-fx-background-color:" + color);
-        infoBox.getHeadline().setText(headline);
+        disruptionsBox.setStyle("-fx-background-color:" + color);
+        disruptionsBox.getHeadline().setText(headline);
 
         // message
-        infoBox.getContent().setText(message);
+        disruptionsBox.getContent().setText(message);
     }
 
     /* JOURNEYS */
@@ -485,10 +508,10 @@ public class OnPlatformDisplayView extends DisplayView {
 
     /***** INNER CLASSES *****/
 
-    class InfoBox extends VBox {
+    class DisruptionsBox extends VBox {
         private Label headline, content;
 
-        public InfoBox() {
+        public DisruptionsBox() {
             headline = new Label("Information sûreté");
             headline.getStyleClass().add("alert-headline-label");
 

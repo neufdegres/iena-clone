@@ -85,7 +85,7 @@ public class Window extends Application {
         stage.setOnHiding(event -> controller.onViewClosed());
         dv.display();
 
-        controller.infoPanelTimelineInit();
+        controller.disruptionsPanelTransitionInit();
 
         Functions.writeLog("[" + did + "] opened !");
 

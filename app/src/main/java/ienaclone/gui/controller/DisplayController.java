@@ -9,9 +9,11 @@ import java.util.concurrent.TimeUnit;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-// import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.animation.Animation.Status;
+import javafx.animation.Interpolator;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,7 +41,8 @@ public class DisplayController {
     private DisplayView view;
     private JourneysDataLoader jdl;
     private Service<Void> mainService;
-    private Timeline clockTimeline, infoPanel;
+    private Timeline clockTimeline;
+    private TranslateTransition disruptionsTransition;
     private String mainServiceStatus;
     private int displayId;
 
@@ -172,7 +175,7 @@ public class DisplayController {
             return;
         }
 
-        startInfoPanelTimeline();
+        startDisruptionsPanelTransition();
         mainService.start();
     }
 
@@ -346,7 +349,7 @@ public class DisplayController {
         clockTimeline.setCycleCount(Animation.INDEFINITE);
     }
 
-    public void startInfoPanelTimeline() {
+    public void startDisruptionsPanelTransition() {
         new Service<Void>() {
 
             @Override
@@ -362,9 +365,9 @@ public class DisplayController {
                         var disr = jdl.getStopDisruptions();
                         model.getDisruptions().setAll(disr);
 
-                        createInfosQueue();
+                        createDisruptionsQueue();
 
-                        infoPanel.play();
+                        if (!model.getDisruptionsQueue().isEmpty()) disruptionsTransitionPlay();
 
                         return null;
                     }
@@ -375,24 +378,38 @@ public class DisplayController {
         }.start();
     }
 
-    public void infoPanelTimelineInit() {
-        // var panel = view.getInfoBox();
-        infoPanel = new Timeline(
-            new KeyFrame(
-                Duration.ZERO, e ->  {
-                    Platform.runLater(() -> {
-                        // 1 - pop une annonce
-                        var next = model.getInfosQueue().dequeue(); 
-                        // 2 - l'afficher dans le carré
-                        view.updateInfosView(next.getType(), next.getMessage());
-                    });
-                }
-            ),
-            new KeyFrame(Duration.seconds(2)),
-            new KeyFrame(Duration.seconds(10)),
-            new KeyFrame( Duration.seconds(2))
-        );
-        infoPanel.setCycleCount(Animation.INDEFINITE);
+    public void disruptionsPanelTransitionInit() {
+        var panel = view.getDisruptionsBox();
+        
+        disruptionsTransition = new TranslateTransition(Duration.seconds(1), panel);
+        disruptionsTransition.setFromX(-400);
+        disruptionsTransition.setToX(0);
+        disruptionsTransition.setInterpolator(Interpolator.EASE_OUT); // Animation plus naturelle
+        disruptionsTransition.setOnFinished(e -> {
+
+            // Après affichage, attendre un peu puis repartir
+            PauseTransition pause = new PauseTransition(Duration.seconds(9));
+            pause.setOnFinished(e2 -> {
+                TranslateTransition exitTransition = new TranslateTransition(Duration.seconds(1), panel);
+                exitTransition.setFromX(0);
+                exitTransition.setToX(-400);
+                exitTransition.setInterpolator(Interpolator.EASE_IN);
+                exitTransition.setOnFinished(e3 -> {
+                    disruptionsTransitionPlay();
+                });
+                exitTransition.play();
+            });
+            pause.play();
+        });
+    }
+
+    private void disruptionsTransitionPlay() {
+        // 1 - pop une annonce
+        var next = model.getDisruptionsQueue().dequeue(); 
+        // 2 - l'afficher dans le carré
+        view.updateDisruptionView(next.getType(), next.getMessage());
+
+        disruptionsTransition.play();
     }
 
     public String getWaitingTimeLabel(Journey journey, Stop actual) {
@@ -537,8 +554,8 @@ public class DisplayController {
         return res;
     }
 
-    private void createInfosQueue() {
-        var queue = model.getInfosQueue();
+    private void createDisruptionsQueue() {
+        var queue = model.getDisruptionsQueue();
         var d = model.getDisruptions();
 
         var informations = d.getInformations();

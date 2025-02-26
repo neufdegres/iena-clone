@@ -13,7 +13,7 @@ public abstract class DisplayView extends AbstractView {
 
     public abstract void updateJourneysView(Stop stop, ArrayList<Journey> journeys, int difference);
 
-    public abstract void updateInfosView(TYPE type, String message);
+    public abstract void updateDisruptionView(TYPE type, String message);
 
     public abstract void updateClock(String now);
 
@@ -21,6 +21,6 @@ public abstract class DisplayView extends AbstractView {
 
     public abstract Stage getMain();
 
-    public abstract Pane getInfoBox(); 
+    public abstract Pane getDisruptionsBox(); 
     
 }
