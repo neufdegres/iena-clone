@@ -32,6 +32,7 @@ import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;
+import ienaclone.util.TrainLength;
 import ienaclone.util.Stop.STATUS;
 import ienaclone.util.StopDisruption.TYPE;
 
@@ -233,6 +234,11 @@ public class OnPlatformDisplayView extends DisplayView {
 
         journeyBox = new JourneyBox(JourneyBox.MODE.NORMAL);
 
+        // longueur du train
+        if (actual.getTrainLength() == TrainLength.SHORT) 
+            journeyBox.getTrainLen().setText("Train Court");
+        else journeyBox.getTrainLen().setText("Train Long");
+
         // pictogramme
         var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
         Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
@@ -334,6 +340,11 @@ public class OnPlatformDisplayView extends DisplayView {
 
         journeyBox = new JourneyBox(JourneyBox.MODE.CANCELLED);
 
+        // longueur du train
+        if (actual.getTrainLength() == TrainLength.SHORT) 
+            journeyBox.getTrainLen().setText("Train Court");
+        else journeyBox.getTrainLen().setText("Train Long");
+
         // pictogramme
         var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
         Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
@@ -362,9 +373,13 @@ public class OnPlatformDisplayView extends DisplayView {
     private void setTerminusOfJourney(Journey actual, Stop stop) {
         // nom de la voie
         platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
-
     
         journeyBox = new JourneyBox(JourneyBox.MODE.TERMINUS);
+
+        // longueur du train
+        if (actual.getTrainLength() == TrainLength.SHORT) 
+            journeyBox.getTrainLen().setText("Train Court");
+        else journeyBox.getTrainLen().setText("Train Long");
 
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
@@ -435,6 +450,10 @@ public class OnPlatformDisplayView extends DisplayView {
 
             return "via Évry C.";
         }
+
+        // TODO : via Valmondois
+
+        // TODO : via Montsoult
 
         // >> Direct
 
@@ -542,7 +561,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
     class JourneyBox extends VBox {
         private ImageView lineIconView;
-        private Label pagesCount, destination, destinationTag, waitingTime, mission;
+        private Label trainLen, pagesCount, destination, destinationTag, waitingTime, mission;
         private AllStopsBox allStopsBox;
 
 
@@ -571,7 +590,7 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
         private void normalMode() {
-            Label trainLen = new Label ("Train Court");
+            trainLen = new Label ("Train Court");
             trainLen.getStyleClass().add("train-length");
 
             // LEFT
@@ -656,7 +675,7 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
         private void terminusMode() {
-            Label trainLen = new Label ("Train Court");
+            trainLen = new Label ("Train Court");
             trainLen.getStyleClass().add("train-length");
             
 
@@ -703,7 +722,7 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
         private void cancelledMode() {
-            Label trainLen = new Label ("Train Court");
+            trainLen = new Label ("Train Court");
             trainLen.getStyleClass().add("train-length");
 
             // LEFT
@@ -790,6 +809,10 @@ public class OnPlatformDisplayView extends DisplayView {
             this.getChildren().addAll(trainLen, backgroundBox);
             // this.getChildren().add(backgroundBox);
             
+        }
+
+        public Label getTrainLen() {
+            return trainLen;
         }
 
         public ImageView getLineIconView() {

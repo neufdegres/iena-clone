@@ -10,7 +10,7 @@ public class Stop {
     private final boolean isParis;
     private final ArrayList<String> lines;
 
-    public enum STATUS {INCLUDED, SKIPPED, START, TERMINUS, UNKOWN}
+    public enum STATUS {INCLUDED, SKIPPED, START, TERMINUS, UNKNOWN}
 
     public Stop(String code, String name, boolean isParis, ArrayList<String> lines) {
         this.code = code;
@@ -54,7 +54,7 @@ public class Stop {
             case "terminus":
             return STATUS.TERMINUS;
         }
-        return STATUS.UNKOWN;
+        return STATUS.UNKNOWN;
     }
 
     @Override

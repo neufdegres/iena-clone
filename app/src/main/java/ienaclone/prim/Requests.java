@@ -23,6 +23,7 @@ import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
 import ienaclone.util.StopDisruption;
 import ienaclone.util.TimeStatus;
+import ienaclone.util.TrainLength;
 import ienaclone.util.TripDisruption.CATEGORY;
 import ienaclone.util.TripDisruption.CAUSE;
 import ienaclone.util.TripDisruption.EFFECT;
@@ -121,6 +122,17 @@ public class Requests {
             else
                 bld.timeStatus = TimeStatus.ON_TIME;
 
+            var lengthArray = mvj.optJSONArray("VehicleFeatureRef");
+            if (lengthArray.isEmpty())
+                bld.trainLength = TrainLength.UNKNOWN;
+            else {
+                var length = lengthArray.getString(0);
+                if (length.equals("shortTrain"))
+                    bld.trainLength = TrainLength.SHORT;
+                else
+                    bld.trainLength = TrainLength.LONG;
+            }
+                
             res.add(new Journey(bld));
         }
 
@@ -252,7 +264,7 @@ public class Requests {
             }
             db.status = status;
 
-            var tagStr = (String) getJsonValue(disrJson, "tags#0>String");
+            /* var tagStr = (String) getJsonValue(disrJson, "tags#0>String");
             TripDisruption.TAG tag;
             if (tagStr != null)  {
                 switch (statusStr) {
@@ -262,7 +274,9 @@ public class Requests {
             } else {
                 tag = TAG.NONE;
             }
-            db.tag = tag;
+            db.tag = tag; */ // TODO
+
+            db.tag = TAG.NONE;
 
             var causeStr = (String) getJsonValue(disrJson, "cause:String");
             TripDisruption.CAUSE cause;
@@ -421,7 +435,7 @@ public class Requests {
 
 
     // ex : MonitoredVehicleJourney>MonitoredCall>DestinationDisplay#0>value:String>
-    // on admet que s est bien formé
+    // on admet que s est bien formé     "VehicleFeatureRef#0>String"
     private static Object getJsonValue(JSONObject last, String s) {
         var tab = s.split(">");
         for (var key : tab) {

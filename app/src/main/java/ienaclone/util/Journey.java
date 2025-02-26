@@ -15,6 +15,7 @@ public class Journey {
     private Optional<String> platform;
     private TimeStatus timeStatus;
     private PlaceStatus placeStatus;
+    private TrainLength trainLength;
     private Optional<LocalDateTime> expectedArrivalTime, expectedDepartureTime;
     private Optional<LocalDateTime> aimedArrivalTime, aimedDepartureTime;
     private ArrayList<Pair<Stop, Stop.STATUS>> nextStations;
@@ -29,6 +30,7 @@ public class Journey {
         this.platform = Optional.ofNullable(builder.platform);
         this.timeStatus = builder.timeStatus;
         this.placeStatus = builder.placeStatus;
+        this.trainLength = builder.trainLength;
         this.expectedArrivalTime = Optional.ofNullable(builder.expectedArrivalTime);
         this.expectedDepartureTime = Optional.ofNullable(builder.expectedDepartureTime);
         this.aimedArrivalTime = Optional.ofNullable(builder.aimedArrivalTime);
@@ -64,6 +66,10 @@ public class Journey {
 
     public PlaceStatus getPlaceStatus() {
         return placeStatus;
+    }
+
+    public TrainLength getTrainLength() {
+        return trainLength;
     }
 
     public Optional<LocalDateTime> getExpectedArrivalTime() {
@@ -114,6 +120,10 @@ public class Journey {
         this.placeStatus = placeStatus;
     }
 
+    public void setTrainLength(TrainLength trainLength) {
+        this.trainLength = trainLength;
+    }
+
     public void setExpectedArrivalTime(Optional<LocalDateTime> expectedArrivalTime) {
         this.expectedArrivalTime = expectedArrivalTime;
     }
@@ -145,7 +155,7 @@ public class Journey {
 
         if (st.isPresent()) return st.get().getValue();
 
-        return Stop.STATUS.UNKOWN;
+        return Stop.STATUS.UNKNOWN;
     }
 
 

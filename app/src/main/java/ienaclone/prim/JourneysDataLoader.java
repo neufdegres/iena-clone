@@ -572,7 +572,7 @@ public class JourneysDataLoader {
             } else if (!st.skippedStop()) {
                 pair = new Pair<>(stop, Stop.STATUS.INCLUDED);
             } else {
-                pair = new Pair<>(stop, Stop.STATUS.UNKOWN);
+                pair = new Pair<>(stop, Stop.STATUS.UNKNOWN);
             }
 
             res.add(pair);

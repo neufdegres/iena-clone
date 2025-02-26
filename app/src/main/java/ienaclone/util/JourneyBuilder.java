@@ -13,6 +13,7 @@ public class JourneyBuilder {
     public String platform;
     public TimeStatus timeStatus;
     public PlaceStatus placeStatus;
+    public TrainLength trainLength;
     public LocalDateTime expectedArrivalTime, expectedDepartureTime;
     public LocalDateTime aimedArrivalTime, aimedDepartureTime;
     public ArrayList<Stop> nextStationsBis;
@@ -25,6 +26,7 @@ public class JourneyBuilder {
         this.platform = null;
         this.timeStatus = TimeStatus.UNKNOWN;
         this.placeStatus = PlaceStatus.UNKNOWN;
+        this.trainLength = TrainLength.UNKNOWN;
         this.expectedArrivalTime = null;
         this.expectedDepartureTime = null;
         this.aimedArrivalTime = null;
