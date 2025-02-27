@@ -277,6 +277,7 @@ public class DisplayController {
 
                             int diff = getDifference(model.getDisplayedJourneys(), toDisplay);
 
+                            model.getDisplayedJourneys().clear();
                             model.getDisplayedJourneys().addAll(toDisplay);
 
                             // 5 - on update la vue
@@ -384,10 +385,8 @@ public class DisplayController {
         disruptionsTransition = new TranslateTransition(Duration.seconds(1), panel);
         disruptionsTransition.setFromX(-400);
         disruptionsTransition.setToX(0);
-        disruptionsTransition.setInterpolator(Interpolator.EASE_OUT); // Animation plus naturelle
+        disruptionsTransition.setInterpolator(Interpolator.EASE_OUT); 
         disruptionsTransition.setOnFinished(e -> {
-
-            // Après affichage, attendre un peu puis repartir
             PauseTransition pause = new PauseTransition(Duration.seconds(9));
             pause.setOnFinished(e2 -> {
                 TranslateTransition exitTransition = new TranslateTransition(Duration.seconds(1), panel);

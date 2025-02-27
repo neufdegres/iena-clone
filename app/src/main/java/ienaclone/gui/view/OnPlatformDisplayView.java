@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -23,6 +26,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import ienaclone.gui.controller.DisplayController;
 import ienaclone.gui.view.OnPlatformDisplayView.StopBox.MODE;
@@ -32,9 +36,9 @@ import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.Line;
 import ienaclone.util.Stop;
-import ienaclone.util.TrainLength;
 import ienaclone.util.Stop.STATUS;
 import ienaclone.util.StopDisruption.TYPE;
+import ienaclone.util.TrainLength;
 
 public class OnPlatformDisplayView extends DisplayView {
     private final Stage main;
@@ -233,6 +237,7 @@ public class OnPlatformDisplayView extends DisplayView {
         platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
 
         journeyBox = new JourneyBox(JourneyBox.MODE.NORMAL);
+        journeyBox.setOpacity(0);
 
         // longueur du train
         if (actual.getTrainLength() == TrainLength.SHORT) 
@@ -329,9 +334,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
-        // TODO : ajouter une transition (fade) 
-        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
-        rightBox.getChildren().add(journeyBox);
+        playTransition();
     }
 
     private void setCancelledJourney(Journey actual, Stop stop) {
@@ -339,6 +342,7 @@ public class OnPlatformDisplayView extends DisplayView {
         platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
 
         journeyBox = new JourneyBox(JourneyBox.MODE.CANCELLED);
+        journeyBox.setOpacity(0);
 
         // longueur du train
         if (actual.getTrainLength() == TrainLength.SHORT) 
@@ -365,9 +369,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
-        // TODO : ajouter une transition (fade) 
-        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
-        rightBox.getChildren().add(journeyBox);
+        playTransition();
     }
 
     private void setTerminusOfJourney(Journey actual, Stop stop) {
@@ -375,6 +377,7 @@ public class OnPlatformDisplayView extends DisplayView {
         platformNumLabel.setText(actual.getPlatform().orElse("N/A"));
     
         journeyBox = new JourneyBox(JourneyBox.MODE.TERMINUS);
+        journeyBox.setOpacity(0);
 
         // longueur du train
         if (actual.getTrainLength() == TrainLength.SHORT) 
@@ -383,13 +386,12 @@ public class OnPlatformDisplayView extends DisplayView {
 
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
-        // TODO : ajouter une transition (fade) 
-        if (rightBox.getChildren().size() > 1) rightBox.getChildren().remove(1);
-        rightBox.getChildren().add(journeyBox);
+        playTransition();
     }
 
     private void clearJourneyBox() {
-        rightBox.getChildren().clear();
+        journeyBox = null;
+        playTransition();
     }
 
     private String getDestinationTag(Journey journey, Stop stop) {
@@ -494,6 +496,74 @@ public class OnPlatformDisplayView extends DisplayView {
             sb.append(j.getAimedDepartureTime().map(time -> time.toString()).orElse("N/A")).append("\n");
         }
         System.out.println(sb.toString());
+    }
+
+    private void playTransition() {
+        int sizeBefore = rightBox.getChildren().size();
+        Node old = null;
+        if (sizeBefore > 1) old = rightBox.getChildren().get(1);
+
+        if (journeyBox == null) {
+            // si pas de nouveau passage, on fait seulement une anim de sortie
+            if (sizeBefore > 0) {
+                animationOut(old);
+                rightBox.getChildren().remove(old);
+            }
+            // sinon, on fait rien (on arrive jamais dans ce cas)
+        } else {
+            // si nouveau passage + ancien existant, on fait in et out
+            if (sizeBefore > 0) {
+                animationOutIn(old, journeyBox);
+            } else {
+                // sinon, seulement in
+                rightBox.getChildren().add(journeyBox);
+                animationIn(journeyBox);
+            }
+        }
+    }
+
+    private void animationOutIn(Node oldBox, Node newBox) {
+        FadeTransition ftOut = new FadeTransition(Duration.millis(1000), oldBox);
+        ftOut.setFromValue(1.0);
+        ftOut.setToValue(0);
+        ftOut.setAutoReverse(false);
+        ftOut.setOnFinished(e -> {
+
+            PauseTransition pause = new PauseTransition(Duration.millis(500));
+            pause.setOnFinished(e2 -> {
+                FadeTransition ftIn = new FadeTransition(Duration.millis(1000), newBox);
+                ftIn.setFromValue(0);
+                ftIn.setToValue(1.0);
+                ftIn.setAutoReverse(false);
+
+                ftIn.play();
+            });
+
+            rightBox.getChildren().remove(oldBox);
+            rightBox.getChildren().add(newBox);
+
+            pause.play();
+        });
+
+        ftOut.play();
+    }
+
+    private void animationIn(Node box) {
+        FadeTransition ftIn = new FadeTransition(Duration.millis(1000), box);
+        ftIn.setFromValue(0);
+        ftIn.setToValue(1.0);
+        ftIn.setAutoReverse(false);
+
+        ftIn.play();
+    }
+
+    private void animationOut(Node box) {
+        FadeTransition ftOut = new FadeTransition(Duration.millis(1000), box);
+        ftOut.setFromValue(1.0);
+        ftOut.setToValue(0);
+        ftOut.setAutoReverse(false);
+
+        ftOut.play();
     }
 
     @Override
