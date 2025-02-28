@@ -5,7 +5,9 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
 import javafx.animation.PauseTransition;
+import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -126,6 +128,7 @@ public class OnPlatformDisplayView extends DisplayView {
 
         rightBox = new VBox(10);
         HBox.setHgrow(rightBox, Priority.ALWAYS);
+        rightBox.setMaxWidth(1280*0.75);
         rightBox.getStyleClass().add("right-box");
         rightBox.getChildren().add(rightTopBox);
 
@@ -135,12 +138,9 @@ public class OnPlatformDisplayView extends DisplayView {
         HBox floor1 = new HBox();
         floor1.getStyleClass().add("layout-box");
         floor1.getChildren().addAll(leftBox, rightBox);
-        // layout.getChildren().addAll(rightBox);
 
         StackPane stackPane = new StackPane();
         stackPane.getChildren().addAll(floor1, leftBoxBis);
-        // stackPane.getChildren().addAll(floor1, disruptionsBox);
-        // StackPane.setAlignment(disruptionsBox, Pos.CENTER_LEFT);
         StackPane.setAlignment(leftBoxBis, Pos.CENTER_LEFT);
 
         Scene scene = new Scene(stackPane,1280, 720);
@@ -335,6 +335,7 @@ public class OnPlatformDisplayView extends DisplayView {
         VBox.setVgrow(journeyBox, Priority.ALWAYS);
 
         playTransition();
+        playStopsBoxAnimation();
     }
 
     private void setCancelledJourney(Journey actual, Stop stop) {
@@ -571,6 +572,43 @@ public class OnPlatformDisplayView extends DisplayView {
         journeyBox.getWaitingTime().setText(text);
     }
 
+    public void playStopsBoxAnimation() {
+        var panel = journeyBox.allStopsBox;
+
+        int total = panel.getPages().size();
+
+        if (total == 1) return; // pas la peine de lancer l'animation
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(9));
+        pause.setOnFinished(e -> {
+            var to2Transition = new TranslateTransition(Duration.seconds(1), panel);
+            to2Transition.setFromX(0);
+            to2Transition.setToX(-765);
+            to2Transition.setInterpolator(Interpolator.EASE_OUT); 
+            to2Transition.setOnFinished(e1 -> {
+                PauseTransition pause2 = new PauseTransition(Duration.seconds(9));
+                pause2.setOnFinished(e2 -> {
+                    TranslateTransition to1Transition = new TranslateTransition(Duration.seconds(1), panel);
+                    to1Transition.setFromX(-765);
+                    to1Transition.setToX(0);
+                    to1Transition.setInterpolator(Interpolator.EASE_IN);
+                    to1Transition.setOnFinished(e3 -> {
+                        pause.play();
+                    });
+                    journeyBox.pagesCount.setText("Page\n1/2");
+                    to1Transition.play();
+                });
+
+                    
+                pause2.play();
+            });
+            journeyBox.pagesCount.setText("Page\n2/2");
+            to2Transition.play();
+        });
+
+        pause.play();
+    }
+
     /* CLOCK */
 
     private TextFlow createClock(String text) {
@@ -722,9 +760,22 @@ public class OnPlatformDisplayView extends DisplayView {
 
             allStopsBox = new AllStopsBox();
 
+            Pane maskASB = new Pane();
+
+            Rectangle clip = new Rectangle();
+            maskASB.setClip(clip);
+
+            // Mise à jour automatique de la taille du clip
+            allStopsBox.getPages().get(0).layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
+                    clip.setWidth(newBounds.getWidth());
+                    clip.setHeight(newBounds.getHeight());
+            });
+
+            maskASB.getChildren().addAll(allStopsBox);
+
             VBox dataCenterBox = new VBox();
             HBox.setHgrow(dataCenterBox, Priority.ALWAYS);
-            dataCenterBox.getChildren().addAll(destStatBox, missDessBox, allStopsBox);
+            dataCenterBox.getChildren().addAll(destStatBox, missDessBox, maskASB);
 
 
             ///////
@@ -920,6 +971,7 @@ public class OnPlatformDisplayView extends DisplayView {
         private int currentPage, stopCount;
 
         public AllStopsBox() {
+            super(50.0);
             this.pages = new LinkedList<>();
             this.currentPage = 1;
             this.stopCount = 0;
@@ -952,7 +1004,8 @@ public class OnPlatformDisplayView extends DisplayView {
                 lastPage.addStop(st);
             } else {
                 var newPage = new StopsPageBox();
-                newPage.getChildren().add(st);
+                this.getChildren().add(newPage);
+                newPage.addStop(st);
                 pages.add(newPage);
             }
             stopCount++;
