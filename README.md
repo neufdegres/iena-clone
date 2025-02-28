@@ -59,6 +59,5 @@ Vous pouvez maintenant cliquer sur le bouton pour afficher l'afficheur généré
 - Seules les gares traversées par les lignes SNCF d'Ile-de-France, soit les **lignes RER C, D et E**, ainsi que les **Transilliens (H,J,K,L,N,P,R,U)**, sont disponibles.
 - Pour les quelques passages des lignes **RATP (RER A & B)** affichables dans l'applications (dans les gares partagées avec d'autres lignes dans leurs trançons SNCF respectifs (ex: Mitry-Claye, Poissy)), leurs parcours peuvent ne pas être affichés correctement.
 - Les passages TER ne sont pas disponibles *pour le moment*.
-- Les annonces ne sont pas encore implémentée.
 - Il *peut* avoir des bugs d'affichage sur Windows.
 - Evitez de tester le logiciel entre 1h et 4h du matin, il n'y a pas (ou peu) de passages enregistrés dans l'API de PRIM.
