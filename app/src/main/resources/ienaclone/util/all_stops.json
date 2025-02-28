@@ -193,7 +193,7 @@
 			"code": "41242",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"V"
 			]
 		},
 		{
@@ -1218,7 +1218,7 @@
 			"code": "41243",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"V"
 			]
 		},
 		{
@@ -1282,7 +1282,7 @@
 			"code": "41240",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"V"
 			]
 		},
 		{
@@ -1842,7 +1842,8 @@
 			"code": "412833",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"C",
+				"V"
 			]
 		},
 		{
@@ -2261,7 +2262,7 @@
 			"code": "41239",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"V"
 			]
 		},
 		{
@@ -2928,7 +2929,7 @@
 			"code": "41241",
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"V"
 			]
 		},
 		{
