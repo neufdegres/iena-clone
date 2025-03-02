@@ -81,6 +81,7 @@ public class OnPlatformDisplayView extends DisplayView {
         disruptionsBox.getStyleClass().add("left-box");
         disruptionsBox.setPrefWidth(1280*0.25);
         disruptionsBox.setMaxWidth(1280*0.25);
+        // disruptionsBox.setMinHeight(720*0.5);
 
         disruptionsBox.setTranslateX(disruptionsBox.getTranslateX() - 0);
 
@@ -289,13 +290,9 @@ public class OnPlatformDisplayView extends DisplayView {
 
             var name = st.getName();
 
-            if (stopsBox.getStopCount() == 0) { // le premier item
-                if (st.isParis()) {
-                    stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_DEBUT));
-                    currentlyInParis = true;
-                } else {
-                    stopsBox.addStop(new StopBox("", color, MODE.NORMAL_DEBUT));
-                }
+            if (stopsBox.getStopCount() == 0 && st.isParis()) { // le premier item                
+                stopsBox.addStop(new StopBox("", color, MODE.PARIS_TOP_DEBUT));
+                currentlyInParis = true;                
             } 
 
             if (status == STATUS.TERMINUS) { // le terminus
@@ -322,7 +319,12 @@ public class OnPlatformDisplayView extends DisplayView {
                         stopsBox.addStop(new StopBox(name, color, MODE.PARIS_MIDDLE));
                         currentlyInParis = true;
                     } else {
-                        stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_MIDDLE));
+                        if (stopsBox.getStopCount() == 0) {
+                            stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_DEBUT));
+                        } else {
+                            stopsBox.addStop(new StopBox(name, color, MODE.NORMAL_MIDDLE));
+                        }
+                        
                     }
                     
                 }
@@ -416,12 +418,17 @@ public class OnPlatformDisplayView extends DisplayView {
 
         var dest = subPath.get(subLen-1);
 
+
+        Line c = allLines.getLineByName("C").get();
+
         // via Paris
 
         if (!stop.isParis()
                 && subPath.stream()
                           .anyMatch(st -> st.getKey().isParis())
-                && !dest.getKey().isParis()) {
+                && !dest.getKey().isParis()
+                // TODO : voir pour quelles missions exactement
+                && c.equals(journey.getLine().orElse(null))) { 
 
             return "via Paris";
         }
@@ -432,8 +439,6 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // Pont de Rungis
         Stop orlyC = allStops.getStopByCode("41326").get();
-
-        Line c = allLines.getLineByName("C").get();
 
         if (c.equals(journey.getLine().orElse(null))
                     && subPath.stream()
@@ -1024,7 +1029,7 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
         public boolean isFull() {
-            return right.getChildren().size() >= 10;
+            return right.getChildren().size() > 10;
         }
 
         // on admet que part2 n'est pas rempli
@@ -1062,7 +1067,7 @@ public class OnPlatformDisplayView extends DisplayView {
             switch (mode) {
                 case NORMAL_DEBUT:
                     bg = getTransparentBg();
-                    line = getDebutLineDesign(false);
+                    line = getNormalDebutLineDesign();
                     break;
                 case NORMAL_MIDDLE:
                     bg = getTransparentBg();
@@ -1074,7 +1079,7 @@ public class OnPlatformDisplayView extends DisplayView {
                     break;
                 case PARIS_TOP_DEBUT: // celui tt en haut
                     bg = getParisTopBg();
-                    line = getDebutLineDesign(true);
+                    line = getParisDebutLineDesign();
                     break;
                 case PARIS_TOP_MIDDLE:
                     bg = getParisTopBg();
@@ -1129,13 +1134,13 @@ public class OnPlatformDisplayView extends DisplayView {
             return res;
         }
 
-        private Group getDebutLineDesign(boolean isParis) {
+        private Group getParisDebutLineDesign() {
             Rectangle r1 = new Rectangle();
             r1.setX(13.0f);
             r1.setY(0);
             r1.setWidth(12.0f);
-            if (isParis) r1.setHeight(40.0f); // TODO !!!!!
-            else r1.setHeight(10.0f);
+            /* if (isParis)  */r1.setHeight(40.0f); // TODO !!!!!
+            // else r1.setHeight(10.0f);
             r1.setFill(Color.valueOf(color));
 
             Rectangle r2 = new Rectangle();
@@ -1153,6 +1158,43 @@ public class OnPlatformDisplayView extends DisplayView {
             r3.setFill(Color.valueOf("1f266c"));
 
             return new Group(r1, r2, r3);
+        }
+
+        private Group getNormalDebutLineDesign() {
+            Rectangle r1 = new Rectangle();
+            r1.setX(13.0f);
+            r1.setY(0);
+            r1.setWidth(12.0f);
+            r1.setHeight(40.0f);
+            r1.setFill(Color.valueOf(color));
+
+            Rectangle r2 = new Rectangle();
+            r2.setX(13.0f);
+            r2.setY(2.0f);
+            r2.setWidth(12.0f);
+            r2.setHeight(2.0f);
+            r2.setFill(Color.valueOf("1f266c"));
+
+            Rectangle r3 = new Rectangle();
+            r3.setX(13.0f);
+            r3.setY(6.0f);
+            r3.setWidth(12.0f);
+            r3.setHeight(2.0f);
+            r3.setFill(Color.valueOf("1f266c"));
+
+            Circle c1 = new Circle();
+            c1.setCenterX(19.0f);
+            c1.setCenterY(20.0f);
+            c1.setRadius(10.0f);
+            c1.setFill(Color.valueOf(color));
+
+            Circle c2 = new Circle();
+            c2.setCenterX(19.0f);
+            c2.setCenterY(20.0f);
+            c2.setRadius(7.0f);
+            c2.setFill(Color.valueOf("1f266c"));
+
+            return new Group(r1,r2,r3,c1,c2);
         }
 
         private Group getMiddleLineDesign(boolean isParis) {
