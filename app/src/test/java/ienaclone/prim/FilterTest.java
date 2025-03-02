@@ -53,18 +53,18 @@ public class FilterTest {
         assertEquals(3, filtered.size());   
     }
 
-    @Test
-    void testByDirectionRef() {
-        var journeys = getTestJourneys("chelles.json");
+    // @Test
+    // void testByDirectionRef() {
+    //     var journeys = getTestJourneys("chelles.json");
 
-        assertNotNull(journeys);
+    //     assertNotNull(journeys);
 
-        var filtered = Filter.byDirectionRef(journeys, "41038");
+    //     var filtered = Filter.byDirectionRef(journeys, "41038");
 
-        assertNotNull(filtered);
+    //     assertNotNull(filtered);
 
-        assertEquals(3, filtered.size());   
-    }
+    //     assertEquals(3, filtered.size());   
+    // }
 
     @Test
     void testByPlatform() {

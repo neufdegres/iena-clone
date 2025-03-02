@@ -1,0 +1,4789 @@
+{
+	"stops": [
+		{
+			"nom": "Ablon",
+			"codes": [
+				"41311"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Achères Grand Cormier",
+			"codes": [
+				"411358"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Achères Ville",
+			"codes": [
+				"41528"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Andrésy",
+			"codes": [
+				"41149"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Antony",
+			"codes": [
+				"473980",
+				"473996"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Arcueil - Cachan",
+			"codes": [
+				"473979",
+				"473983"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Argenteuil",
+			"codes": [
+				"41166"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Arpajon",
+			"codes": [
+				"41318"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Asnières",
+			"codes": [
+				"41138"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Athis Mons",
+			"codes": [
+				"41310"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Auber",
+			"codes": [
+				"473924",
+				"473925"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Aubergenville Elisabethville",
+			"codes": [
+				"41201"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Aulnay-Sous-Bois",
+			"codes": [
+				"411410"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Austerlitz",
+			"codes": [
+				"41333"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Auvers sur Oise",
+			"codes": [
+				"41112"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Avenue Foch",
+			"codes": [
+				"41132"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Avenue Henri Martin",
+			"codes": [
+				"41133"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Avenue du Président Kennedy",
+			"codes": [
+				"41295"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Aéroport CDG 2 TGV",
+			"codes": [
+				"411295"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Aéroport Charles de Gaulle 1 (Terminal 3)",
+			"codes": [
+				"411398"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bagneaux sur Loing",
+			"codes": [
+				"41392"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Bagneux",
+			"codes": [
+				"473981",
+				"473986"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Ballancourt",
+			"codes": [
+				"41350"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Becon les Bruyères",
+			"codes": [
+				"41171"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Bellevue",
+			"codes": [
+				"41215"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Belloy Saint-Martin",
+			"codes": [
+				"41113"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bessancourt",
+			"codes": [
+				"41121"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Beynes",
+			"codes": [
+				"41231"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Bibliothèque François Mitterrand",
+			"codes": [
+				"41128"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bièvres",
+			"codes": [
+				"41242"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Boigneville",
+			"codes": [
+				"41395"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Bois Colombes",
+			"codes": [
+				"41134"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Bois le Roi",
+			"codes": [
+				"41371"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Boissise le Roi",
+			"codes": [
+				"41386"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Boissy l'Aillerie",
+			"codes": [
+				"41140"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Boissy-Saint-Léger",
+			"codes": [
+				"473984",
+				"473987",
+				"473988"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Bondy",
+			"codes": [
+				"41013"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Bonnières",
+			"codes": [
+				"41290"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Boran sur Oise",
+			"codes": [
+				"411331"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bouffémont Moisselles",
+			"codes": [
+				"41106"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bougival",
+			"codes": [
+				"41183"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Boulainvilliers",
+			"codes": [
+				"41294"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bouray",
+			"codes": [
+				"41302"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bourg-la-Reine",
+			"codes": [
+				"473969",
+				"473970",
+				"473971",
+				"473972"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bourron Marlotte Grez",
+			"codes": [
+				"41390"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Boussy Saint-Antoine",
+			"codes": [
+				"41365"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Boutigny",
+			"codes": [
+				"41352"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Breuillet Bruyères le Chatel",
+			"codes": [
+				"41320"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Breuillet Village",
+			"codes": [
+				"41321"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Brunoy",
+			"codes": [
+				"41364"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Bruyères sur Oise",
+			"codes": [
+				"41104"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bry-sur-Marne",
+			"codes": [
+				"473973",
+				"473974"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Brétigny",
+			"codes": [
+				"41304"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Bréval",
+			"codes": [
+				"41157"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Buno Gironville",
+			"codes": [
+				"41354"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Bures-sur-Yvette",
+			"codes": [
+				"473975",
+				"473978"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bussy-Saint-Georges",
+			"codes": [
+				"473960",
+				"473961"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Cergy Le Haut",
+			"codes": [
+				"40918"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"L"
+			]
+		},
+		{
+			"nom": "Cergy Préfecture",
+			"codes": [
+				"411352"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"L"
+			]
+		},
+		{
+			"nom": "Cergy Saint-Christophe",
+			"codes": [
+				"411368"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"L"
+			]
+		},
+		{
+			"nom": "Cernay",
+			"codes": [
+				"41086"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Cesson",
+			"codes": [
+				"41368"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Chamarande",
+			"codes": [
+				"41300"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Champ de Courses d'Enghien",
+			"codes": [
+				"41084"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Champ de Mars Tour Eiffel",
+			"codes": [
+				"41210"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Champagne sur Oise",
+			"codes": [
+				"41109"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Champagne sur Seine",
+			"codes": [
+				"41382"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Champbenoist Poigny",
+			"codes": [
+				"41030"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Champigny",
+			"codes": [
+				"473962",
+				"473963"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Changis Saint-Jean",
+			"codes": [
+				"41061"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Chanteloup les Vignes",
+			"codes": [
+				"41147"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chantilly Gouvieux",
+			"codes": [
+				"411427"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Chaponval",
+			"codes": [
+				"41094"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Charles de Gaulle - Etoile",
+			"codes": [
+				"473922",
+				"473923"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Chars",
+			"codes": [
+				"41144"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chartrettes",
+			"codes": [
+				"41378"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Chatou - Croissy",
+			"codes": [
+				"473964",
+				"473965"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Chaumont en Vexin",
+			"codes": [
+				"411344"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Chaville Rive Droite",
+			"codes": [
+				"41176"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Chaville Rive Gauche",
+			"codes": [
+				"41220"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Chaville Vélizy",
+			"codes": [
+				"41219"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Chelles Gournay",
+			"codes": [
+				"41039"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Chemin d'Antony",
+			"codes": [
+				"41330"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Chenay Gagny",
+			"codes": [
+				"41016"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Chilly Mazarin",
+			"codes": [
+				"41247"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Choisy le Roi",
+			"codes": [
+				"41313"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Château Thierry",
+			"codes": [
+				"411377"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Châtelet - Les Halles",
+			"codes": [
+				"412815",
+				"473921",
+				"473989",
+				"473990",
+				"473993"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A",
+				"B",
+				"D"
+			]
+		},
+		{
+			"nom": "Chézy sur Marne",
+			"codes": [
+				"411380"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Cité Universitaire",
+			"codes": [
+				"473991",
+				"473995"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Clamart",
+			"codes": [
+				"41206"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Clichy Levallois",
+			"codes": [
+				"41137"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Coignières",
+			"codes": [
+				"41224"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Colombes",
+			"codes": [
+				"41135"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Combs la Ville Quincy",
+			"codes": [
+				"41366"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Compans",
+			"codes": [
+				"41080"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Conflans Sainte-Honorine",
+			"codes": [
+				"41170"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Conflans-Fin d'Oise",
+			"codes": [
+				"411350"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Corbeil Essonnes",
+			"codes": [
+				"41336"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Cormeilles en Parisis",
+			"codes": [
+				"41167"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Coudray Montceaux",
+			"codes": [
+				"41358"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Couilly Saint-Germain Quincy",
+			"codes": [
+				"41067"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Coulommiers",
+			"codes": [
+				"41050"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Courbevoie",
+			"codes": [
+				"41172"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Courcelle-sur-Yvette",
+			"codes": [
+				"473966",
+				"473968"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Creil",
+			"codes": [
+				"411439"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Crepy en Valois",
+			"codes": [
+				"411395"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Crouy sur Ourcq",
+			"codes": [
+				"41066"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Crécy la Chapelle",
+			"codes": [
+				"41069"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Créteil Pompadour",
+			"codes": [
+				"41530"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Dammartin Juilly Saint-Mard",
+			"codes": [
+				"41077"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Denfert-Rochereau",
+			"codes": [
+				"473994",
+				"473997",
+				"480170"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Deuil Montmagny",
+			"codes": [
+				"411425"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Domont",
+			"codes": [
+				"41103"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Dordives",
+			"codes": [
+				"41394"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Dourdan",
+			"codes": [
+				"41324"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Dourdan la Foret",
+			"codes": [
+				"41292"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Drancy",
+			"codes": [
+				"411409"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Dreux",
+			"codes": [
+				"411491"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Ecouen - Ézanville",
+			"codes": [
+				"41102"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Égly",
+			"codes": [
+				"41319"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Emerainville Pontault-Combault",
+			"codes": [
+				"41034"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Enghien-les-Bains",
+			"codes": [
+				"41083"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Epinay Villetaneuse",
+			"codes": [
+				"411415"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Epinay-sur-Orge",
+			"codes": [
+				"41307"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Epinay-sur-Seine",
+			"codes": [
+				"41073"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Epluches",
+			"codes": [
+				"41092"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Épône Mézières",
+			"codes": [
+				"41202"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Eragny Neuville",
+			"codes": [
+				"41145"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Ermont Eaubonne",
+			"codes": [
+				"41085"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H",
+				"J"
+			]
+		},
+		{
+			"nom": "Ermont Halte",
+			"codes": [
+				"41116"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Esbly",
+			"codes": [
+				"41052"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Essonnes Robinson",
+			"codes": [
+				"41355"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Étampes",
+			"codes": [
+				"41298"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Étréchy",
+			"codes": [
+				"41299"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Évry",
+			"codes": [
+				"41344"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Évry Courcouronnes",
+			"codes": [
+				"41346"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Faremoutiers Pommeuse",
+			"codes": [
+				"41047"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Ferrières Fontenay",
+			"codes": [
+				"411487"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontaine Michalon",
+			"codes": [
+				"473954",
+				"473955"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Fontaine le Port",
+			"codes": [
+				"41379"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontainebleau Avon",
+			"codes": [
+				"41372"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Fontenay-aux-Roses",
+			"codes": [
+				"473952",
+				"473953"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Fontenay-le-Fleury",
+			"codes": [
+				"41232"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Fontenay-sous-Bois",
+			"codes": [
+				"473958",
+				"473959"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Franconville le Plessis Bouchard",
+			"codes": [
+				"41087"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Frépillon",
+			"codes": [
+				"41122"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Gagny",
+			"codes": [
+				"41015"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Garancières la Queue",
+			"codes": [
+				"41235"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Garches Marnes la Coquette",
+			"codes": [
+				"41174"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Gare Montparnasse",
+			"codes": [
+				"41203"
+			],
+			"is_paris": true,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Gare Saint-Lazare",
+			"codes": [
+				"41194"
+			],
+			"is_paris": true,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Gare Vaugirard",
+			"codes": [
+				"41204"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Gare de Lyon",
+			"codes": [
+				"41396",
+				"474062",
+				"474065"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A",
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gare de l'Est",
+			"codes": [
+				"41010"
+			],
+			"is_paris": true,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Gare du Nord",
+			"codes": [
+				"41071"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B",
+				"D",
+				"H",
+				"K"
+			]
+		},
+		{
+			"nom": "Gargenville",
+			"codes": [
+				"41152"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Garges Sarcelles",
+			"codes": [
+				"411426"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Gennevilliers",
+			"codes": [
+				"41075"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Gentilly",
+			"codes": [
+				"473956",
+				"473957"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Gif-sur-Yvette",
+			"codes": [
+				"473945",
+				"473946"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Gisors",
+			"codes": [
+				"411340"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Goussainville",
+			"codes": [
+				"41099"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Grand Bourg",
+			"codes": [
+				"41343"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gravigny Balizy",
+			"codes": [
+				"41248"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Gretz Armainvilliers",
+			"codes": [
+				"41031"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Grigny Centre",
+			"codes": [
+				"41345"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Gros Noyer Saint-Prix",
+			"codes": [
+				"41117"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Groslay",
+			"codes": [
+				"411424"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Guérard la Celle sur Morin",
+			"codes": [
+				"41046"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Haussmann Saint-Lazare",
+			"codes": [
+				"41127"
+			],
+			"is_paris": true,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Herblay",
+			"codes": [
+				"41169"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Houdan",
+			"codes": [
+				"41238"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Houilles - Carrières-sur-Seine",
+			"codes": [
+				"411357"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Héricy",
+			"codes": [
+				"41380"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Igny",
+			"codes": [
+				"41243"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Invalides",
+			"codes": [
+				"41208"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Isles Armentières Congis",
+			"codes": [
+				"41064"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Issou Porcheville",
+			"codes": [
+				"41153"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Issy",
+			"codes": [
+				"41212"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Issy Val-de-Seine",
+			"codes": [
+				"41227"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ivry-sur-Seine",
+			"codes": [
+				"41315"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Javel",
+			"codes": [
+				"41211"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Joinville-le-Pont",
+			"codes": [
+				"473943",
+				"473944",
+				"473950",
+				"473951"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Jouy en Josas",
+			"codes": [
+				"41240"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Juvisy",
+			"codes": [
+				"41309"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Juziers",
+			"codes": [
+				"41151"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "L'Étang la Ville",
+			"codes": [
+				"41186"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "L'Isle Adam Parmain",
+			"codes": [
+				"41110"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "La Barre Ormesson",
+			"codes": [
+				"41074"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "La Borne Blanche",
+			"codes": [
+				"411417"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "La Celle Saint-Cloud",
+			"codes": [
+				"41182"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "La Courneuve-Aubervilliers",
+			"codes": [
+				"40990"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "La Croix de Berny",
+			"codes": [
+				"473947",
+				"473949"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "La Défense",
+			"codes": [
+				"40951",
+				"473934",
+				"473935",
+				"473936",
+				"473937"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"E",
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "La Ferté Alais",
+			"codes": [
+				"41351"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "La Ferté Milon",
+			"codes": [
+				"411371"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "La Ferté sous Jouarre",
+			"codes": [
+				"41062"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "La Frette Montigny",
+			"codes": [
+				"41168"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "La Garenne Colombes",
+			"codes": [
+				"41195"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "La Grande Paroisse",
+			"codes": [
+				"41384"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "La Hacquinière",
+			"codes": [
+				"473940",
+				"473942"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "La Norville Saint-Germain les Arpajon",
+			"codes": [
+				"41317"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "La Plaine - Stade de France",
+			"codes": [
+				"411369"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "La Varenne - Chennevières",
+			"codes": [
+				"473928",
+				"473929",
+				"473938",
+				"473939"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "La Verrière",
+			"codes": [
+				"41223"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Lagny Thorigny",
+			"codes": [
+				"41051"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Laplace",
+			"codes": [
+				"473926",
+				"473927",
+				"473932"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Lardy",
+			"codes": [
+				"41301"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Lavilletertre",
+			"codes": [
+				"411347"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Le Blanc-Mesnil",
+			"codes": [
+				"411401"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Le Bourget",
+			"codes": [
+				"411408"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Le Bras de Fer",
+			"codes": [
+				"41347"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Guichet",
+			"codes": [
+				"473898",
+				"473902"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Le Mée",
+			"codes": [
+				"41369"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Parc de Saint-Maur",
+			"codes": [
+				"473900",
+				"473913"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Le Perray",
+			"codes": [
+				"41226"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Le Plessis Belleville",
+			"codes": [
+				"411404"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Le Plessis Chenet",
+			"codes": [
+				"41357"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Raincy Villemomble",
+			"codes": [
+				"41014"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Le Stade",
+			"codes": [
+				"41136"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Le Val d'Or",
+			"codes": [
+				"41179"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Le Vert de Maisons",
+			"codes": [
+				"41338"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Le Vésinet - Le Pecq",
+			"codes": [
+				"473909",
+				"473910",
+				"473912",
+				"479329"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Le Vésinet-Centre",
+			"codes": [
+				"473911",
+				"473914"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Les Ardoines",
+			"codes": [
+				"41291"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Baconnets",
+			"codes": [
+				"473905",
+				"473906"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Les Boullereaux Champigny",
+			"codes": [
+				"41021"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Les Clairières de Verneuil",
+			"codes": [
+				"41199"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Les Essarts le Roi",
+			"codes": [
+				"41225"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Les Grésillons",
+			"codes": [
+				"41082"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Mureaux",
+			"codes": [
+				"41200"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Les Noues",
+			"codes": [
+				"41098"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Les Saules",
+			"codes": [
+				"41328"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Les Vallées",
+			"codes": [
+				"41196"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Les Yvris Noisy-le-Grand",
+			"codes": [
+				"41023"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Liancourt Saint-Pierre",
+			"codes": [
+				"411341"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Lieusaint Moissy",
+			"codes": [
+				"41367"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Limay",
+			"codes": [
+				"41154"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Livry sur Seine",
+			"codes": [
+				"41377"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Lizy sur Ourcq",
+			"codes": [
+				"41065"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Lognes",
+			"codes": [
+				"473930",
+				"473933"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Longjumeau",
+			"codes": [
+				"41245"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Longueville",
+			"codes": [
+				"41040"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Louveciennes",
+			"codes": [
+				"41184"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Louvres",
+			"codes": [
+				"41100"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Lozère",
+			"codes": [
+				"473931",
+				"474063"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Luxembourg",
+			"codes": [
+				"473907",
+				"473908"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Luzarches",
+			"codes": [
+				"41115"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Magenta",
+			"codes": [
+				"41126"
+			],
+			"is_paris": true,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Maisons Alfort Alfortville",
+			"codes": [
+				"41337"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Maisons Laffitte",
+			"codes": [
+				"41527"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Maisse",
+			"codes": [
+				"41353"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Malesherbes",
+			"codes": [
+				"411484"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mantes Station",
+			"codes": [
+				"41155"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Mantes la Jolie",
+			"codes": [
+				"41150"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J",
+				"N"
+			]
+		},
+		{
+			"nom": "Marchezais Broue",
+			"codes": [
+				"411494"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Mareil sur Mauldre",
+			"codes": [
+				"41158"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Mareuil sur Ourcq",
+			"codes": [
+				"411374"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Marles en Brie",
+			"codes": [
+				"41044"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Marly le Roi",
+			"codes": [
+				"41185"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Marne-la-Vallée - Chessy",
+			"codes": [
+				"474059",
+				"474064"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Marolles en Hurepoix",
+			"codes": [
+				"41303"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Massy - Palaiseau",
+			"codes": [
+				"412833",
+				"474056",
+				"474058",
+				"474060",
+				"474061"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"C",
+				"V"
+			]
+		},
+		{
+			"nom": "Massy - Verrières",
+			"codes": [
+				"41193",
+				"471007",
+				"471106"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"C"
+			]
+		},
+		{
+			"nom": "Maule",
+			"codes": [
+				"41159"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Maurecourt",
+			"codes": [
+				"41148"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Meaux",
+			"codes": [
+				"41038"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Melun",
+			"codes": [
+				"41361"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Mennecy",
+			"codes": [
+				"41349"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mery sur Oise",
+			"codes": [
+				"41123"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Meudon",
+			"codes": [
+				"41214"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Meudon Val Fleury",
+			"codes": [
+				"41213"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Meulan Hardricourt",
+			"codes": [
+				"41165"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Mitry-Claye",
+			"codes": [
+				"411402"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Montargis",
+			"codes": [
+				"411481"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montereau",
+			"codes": [
+				"41376"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montfort l'Amaury Méré",
+			"codes": [
+				"41254"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Montgeron Crosne",
+			"codes": [
+				"41362"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Montgeroult Courcelles",
+			"codes": [
+				"41141"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Montigny Beauchamp",
+			"codes": [
+				"41088"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Montigny sur Loing",
+			"codes": [
+				"41389"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Montreuil",
+			"codes": [
+				"41191"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Montry Condé",
+			"codes": [
+				"41059"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Montsoult Maffliers",
+			"codes": [
+				"41107"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Moret Veneux les Sablons",
+			"codes": [
+				"41374"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Mormant",
+			"codes": [
+				"41036"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Mortcerf",
+			"codes": [
+				"41045"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Moulin Galant",
+			"codes": [
+				"41348"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Mouroux",
+			"codes": [
+				"41048"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Musée d'Orsay",
+			"codes": [
+				"41334"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Mériel",
+			"codes": [
+				"41124"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Nangis",
+			"codes": [
+				"41037"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nanterre - Préfecture",
+			"codes": [
+				"474051",
+				"474052",
+				"474054",
+				"474057"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nanterre - Université",
+			"codes": [
+				"411356",
+				"474047",
+				"474053"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Nanterre - Ville",
+			"codes": [
+				"474048",
+				"474049"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nanterre La Folie",
+			"codes": [
+				"487016"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Nanteuil Saacy",
+			"codes": [
+				"41063"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nanteuil le Haudoin",
+			"codes": [
+				"411389"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Nation",
+			"codes": [
+				"473919",
+				"473920"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nemours Saint-Pierre",
+			"codes": [
+				"41391"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Neuilly Porte Maillot",
+			"codes": [
+				"41131"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C",
+				"E"
+			]
+		},
+		{
+			"nom": "Neuilly-Plaisance",
+			"codes": [
+				"474042",
+				"474050"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Neuville-Université",
+			"codes": [
+				"411321"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"L"
+			]
+		},
+		{
+			"nom": "Nogent l'Artaud Charly",
+			"codes": [
+				"411383"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Nogent le Perreux",
+			"codes": [
+				"41020"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Nogent-sur-Marne",
+			"codes": [
+				"474043",
+				"474045"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nointel Mours",
+			"codes": [
+				"41125"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Noisiel",
+			"codes": [
+				"474038",
+				"474046"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Noisy - Champs",
+			"codes": [
+				"474039",
+				"474040"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Noisy le Sec",
+			"codes": [
+				"41012"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Noisy-le-Grand - Mont d'Est",
+			"codes": [
+				"474032",
+				"474033",
+				"474041",
+				"479183"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nézel Aulnay",
+			"codes": [
+				"41160"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Orangis Bois de l'Epine",
+			"codes": [
+				"41342"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Orgerus Béhoust",
+			"codes": [
+				"41236"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Orly Ville",
+			"codes": [
+				"41327"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ormoy-Villers",
+			"codes": [
+				"411386"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Orry-la-Ville Coye la Forêt",
+			"codes": [
+				"411420"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Orsay - Ville",
+			"codes": [
+				"473901",
+				"473903",
+				"473904"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Osny",
+			"codes": [
+				"41139"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Ozoir-la-Ferrière",
+			"codes": [
+				"41032"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Palaiseau",
+			"codes": [
+				"474034",
+				"474037"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Palaiseau - Villebon",
+			"codes": [
+				"474030",
+				"474031"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Pantin",
+			"codes": [
+				"41011"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Parc de Sceaux",
+			"codes": [
+				"474027",
+				"474029"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Parc des Expositions",
+			"codes": [
+				"411400"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Pereire Levallois",
+			"codes": [
+				"411230"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Persan Beaumont",
+			"codes": [
+				"41105"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Petit Jouy les Loges",
+			"codes": [
+				"41239"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Petit Vaux",
+			"codes": [
+				"41249"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pierrefitte Stains",
+			"codes": [
+				"411416"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Pierrelaye",
+			"codes": [
+				"41089"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Plaisir Grignon",
+			"codes": [
+				"41234"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Plaisir les Clayes",
+			"codes": [
+				"41246"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Poissy",
+			"codes": [
+				"411359"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Pont Cardinet",
+			"codes": [
+				"411351"
+			],
+			"is_paris": true,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Pont Petit",
+			"codes": [
+				"41093"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Pont de Rungis",
+			"codes": [
+				"41326"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pont de l'Alma",
+			"codes": [
+				"41209"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Pont du Garigliano - Hôpital Européen G. Pompidou",
+			"codes": [
+				"41229"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Ponthierry Pringy",
+			"codes": [
+				"41387"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Pontoise",
+			"codes": [
+				"41091"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H",
+				"J"
+			]
+		},
+		{
+			"nom": "Porchefontaine",
+			"codes": [
+				"41218"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Port Royal",
+			"codes": [
+				"473917",
+				"473918"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Porte de Clichy",
+			"codes": [
+				"41009"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Presles Courcelles",
+			"codes": [
+				"41108"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Provins",
+			"codes": [
+				"41041"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Précy sur Oise",
+			"codes": [
+				"411325"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Puteaux",
+			"codes": [
+				"41181"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Rambouillet",
+			"codes": [
+				"41228"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Ris Orangis",
+			"codes": [
+				"41341"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Robinson",
+			"codes": [
+				"474024",
+				"474025",
+				"474026"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Roissy en Brie",
+			"codes": [
+				"41033"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosa Parks",
+			"codes": [
+				"420316"
+			],
+			"is_paris": true,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny Bois Perrier",
+			"codes": [
+				"41017"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny sous Bois",
+			"codes": [
+				"41018"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Rosny sur Seine",
+			"codes": [
+				"41289"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Rueil-Malmaison",
+			"codes": [
+				"474020",
+				"474021",
+				"474022",
+				"474023"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Rungis la Fraternelle",
+			"codes": [
+				"41329"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Chéron",
+			"codes": [
+				"41322"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Cloud",
+			"codes": [
+				"41178"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Saint-Cyr l'Ecole",
+			"codes": [
+				"41222"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Saint-Denis",
+			"codes": [
+				"411414"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Fargeau",
+			"codes": [
+				"41388"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Saint-Germain-en-Laye",
+			"codes": [
+				"474015",
+				"474016",
+				"474017"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Saint-Gratien",
+			"codes": [
+				"41095"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Leu d'Esserent",
+			"codes": [
+				"411328"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Leu la Foret",
+			"codes": [
+				"41118"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Mammès",
+			"codes": [
+				"41375"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Saint-Martin d'Etampes",
+			"codes": [
+				"41316"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Maur - Créteil",
+			"codes": [
+				"474013",
+				"474014"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Saint-Michel Notre-Dame",
+			"codes": [
+				"412816",
+				"473915",
+				"473916"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B",
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Michel-sur-Orge",
+			"codes": [
+				"41305"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Nom-la-Bretèche Forêt de Marly",
+			"codes": [
+				"41187"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Saint-Ouen",
+			"codes": [
+				"41076"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône",
+			"codes": [
+				"41090"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône Liesse",
+			"codes": [
+				"41129"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Ouen-l'Aumône Quartier de l'Église",
+			"codes": [
+				"41146"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Saint-Quentin en Yvelines",
+			"codes": [
+				"41251"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Saint-Rémy-lès-Chevreuse",
+			"codes": [
+				"474009",
+				"474011",
+				"474012"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Sainte-Colombe Septveilles",
+			"codes": [
+				"41042"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Sainte-Geneviève des Bois",
+			"codes": [
+				"41306"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Sannois",
+			"codes": [
+				"41096"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Santeuil le Perchay",
+			"codes": [
+				"41143"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Sarcelles Saint-Brice",
+			"codes": [
+				"411423"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Sartrouville",
+			"codes": [
+				"411360"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Savigny le Temple Nandy",
+			"codes": [
+				"41370"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Savigny sur Orge",
+			"codes": [
+				"41308"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Sceaux",
+			"codes": [
+				"474018",
+				"474019"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Sermaise",
+			"codes": [
+				"41323"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Seugy",
+			"codes": [
+				"41079"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Sevran - Livry",
+			"codes": [
+				"411411"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Sevran-Beaudottes",
+			"codes": [
+				"411413"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Sevres Rive Gauche",
+			"codes": [
+				"41216"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Sevres Ville d'Avray",
+			"codes": [
+				"41177"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Souppes",
+			"codes": [
+				"41393"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Stade de France Saint-Denis",
+			"codes": [
+				"411370"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"H"
+			]
+		},
+		{
+			"nom": "Sucy - Bonneuil",
+			"codes": [
+				"474007",
+				"474010"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Suresnes Mont Valerien",
+			"codes": [
+				"41180"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Survilliers Fosses",
+			"codes": [
+				"41101"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Tacoignières Richebourg",
+			"codes": [
+				"41237"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Taverny",
+			"codes": [
+				"41120"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Thieux Nantouillet",
+			"codes": [
+				"41081"
+			],
+			"is_paris": false,
+			"lignes": [
+				"K"
+			]
+		},
+		{
+			"nom": "Thomery",
+			"codes": [
+				"41373"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Thun le Paradis",
+			"codes": [
+				"41164"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Torcy",
+			"codes": [
+				"474005",
+				"474006",
+				"474008"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Tournan",
+			"codes": [
+				"41043"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Trappes",
+			"codes": [
+				"41250"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N",
+				"U"
+			]
+		},
+		{
+			"nom": "Trie-Château",
+			"codes": [
+				"411337"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Triel-sur-Seine",
+			"codes": [
+				"41162"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Trilport",
+			"codes": [
+				"41060"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Us",
+			"codes": [
+				"41142"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Vaires Torcy",
+			"codes": [
+				"41049"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Val d'Argenteuil",
+			"codes": [
+				"41161"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Val d'Europe",
+			"codes": [
+				"474003",
+				"474004"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Val de Fontenay",
+			"codes": [
+				"41019",
+				"474001",
+				"474002"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Valmondois",
+			"codes": [
+				"41111"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vanves - Malakoff",
+			"codes": [
+				"41205"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Vauboyen",
+			"codes": [
+				"41241"
+			],
+			"is_paris": false,
+			"lignes": [
+				"V"
+			]
+		},
+		{
+			"nom": "Vaucelles",
+			"codes": [
+				"41119"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vaucresson",
+			"codes": [
+				"41175"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Vaux sur Seine",
+			"codes": [
+				"41163"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Verneuil l'Étang",
+			"codes": [
+				"41035"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Vernon",
+			"codes": [
+				"41287"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Vernou-sur-Seine",
+			"codes": [
+				"41383"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Vernouillet Verneuil",
+			"codes": [
+				"41198"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Versailles Chantiers",
+			"codes": [
+				"41207"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N",
+				"U",
+				"V"
+			]
+		},
+		{
+			"nom": "Versailles Château - Rive Gauche",
+			"codes": [
+				"41217"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Versailles Rive Droite",
+			"codes": [
+				"41190"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Vert-Galant",
+			"codes": [
+				"411412"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Viarmes",
+			"codes": [
+				"41114"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Vigneux-sur-Seine",
+			"codes": [
+				"41339"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villabé",
+			"codes": [
+				"41356"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villaines",
+			"codes": [
+				"41078"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Villeneuve Triage",
+			"codes": [
+				"41359"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villeneuve-Saint-Georges",
+			"codes": [
+				"41360"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Villeneuve-le-Roi",
+			"codes": [
+				"41312"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Villennes-sur-Seine",
+			"codes": [
+				"41197"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Villeparisis - Mitry-Le-Neuf",
+			"codes": [
+				"411403"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"K"
+			]
+		},
+		{
+			"nom": "Villepinte",
+			"codes": [
+				"40962"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Villepreux les Clayes",
+			"codes": [
+				"41233"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Villiers Montbarbin",
+			"codes": [
+				"41068"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Villiers Neauphle Pontchartrain",
+			"codes": [
+				"41253"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Villiers-le-Bel Gonesse Arnouville",
+			"codes": [
+				"41097"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Villiers-sur-Marne Plessis Trévise",
+			"codes": [
+				"41022"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E",
+				"P"
+			]
+		},
+		{
+			"nom": "Vincennes",
+			"codes": [
+				"473998",
+				"474000"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Viroflay Rive Droite",
+			"codes": [
+				"41192"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Viroflay Rive Gauche",
+			"codes": [
+				"41221"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"N"
+			]
+		},
+		{
+			"nom": "Viry-Châtillon",
+			"codes": [
+				"41340"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Vitry-sur-Seine",
+			"codes": [
+				"41314"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Vosves",
+			"codes": [
+				"41385"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		},
+		{
+			"nom": "Vulaines-sur-Seine Samoreau",
+			"codes": [
+				"41381"
+			],
+			"is_paris": false,
+			"lignes": [
+				"R"
+			]
+		},
+		{
+			"nom": "Yerres",
+			"codes": [
+				"41363"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D",
+				"R"
+			]
+		}
+	]
+}

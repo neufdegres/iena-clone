@@ -20,7 +20,7 @@ import org.apache.commons.io.IOUtils;
 
 public class Files {
     
-    public static ArrayList<Stop> getAllStops() {
+    /* public static ArrayList<Stop> getAllStopsOld() {
         ArrayList<Stop> res = new ArrayList<>();
 
         try {
@@ -47,6 +47,50 @@ public class Files {
                     });
 
                     res.add(new Stop(code, name, isParis, lines));
+                });                    
+            }   
+        } catch (IOException | URISyntaxException e) {
+            return null;
+        }
+
+        return res;
+    }
+ */
+
+    public static ArrayList<Stop> getAllStops() {
+        ArrayList<Stop> res = new ArrayList<>();
+
+        try {
+            URL a = Files.class.getResource("all_stops_final.json");
+            File file = new File(a.toURI());
+
+            if (file.exists()){
+                InputStream is;
+                is = new FileInputStream(file);
+                String jsonTxt = IOUtils.toString(is, "UTF-8");
+                
+                JSONObject json = new JSONObject(jsonTxt);       
+                JSONArray list = json.getJSONArray("stops");
+                
+                list.forEach(e -> {
+                    JSONObject stop = (JSONObject)e;
+                    String name = stop.getString("nom");
+
+                    ArrayList<String> codes = new ArrayList<>();
+                    var tmp2 = stop.getJSONArray("codes");
+                    tmp2.forEach(ec -> {
+                        codes.add(ec.toString());
+                    });
+
+                    boolean isParis = stop.getBoolean("is_paris");
+
+                    ArrayList<String> lines = new ArrayList<>();
+                    var tmp3 = stop.getJSONArray("lignes");
+                    tmp3.forEach(el -> {
+                        lines.add(el.toString());
+                    });
+
+                    res.add(new Stop(codes.get(0), codes, name, isParis, lines));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {

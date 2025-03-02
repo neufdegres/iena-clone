@@ -130,19 +130,30 @@ public class JourneysDataLoader {
                                 stopDisruptionsLoadService.start();
                             }
 
-                            var rep = Requests.getNextJourneys(stop.getCode());
-                            
-                            if (rep.containsKey("data")) {
-                                updateJourneys(rep.get("data"));
-                                mainServiceStatus = STATUS.DATA_SET;
-                            } else {
-                                if (rep.containsKey("error_internet")) {
-                                    mainServiceStatus = STATUS.NO_INTERNET_CONNEXION;
-                                } else if (rep.containsKey("error_apikey")) {
-                                    mainServiceStatus = STATUS.NO_API_KEY;
+                            var allJourneys = new ArrayList<ArrayList<Journey>>();
+
+                            for (var ref : stop.getCodes()) {
+
+                                var rep = Requests.getNextJourneys(ref);
+                                
+                                if (rep.containsKey("data")) {
+                                    allJourneys.add(rep.get("data"));                                    
                                 } else {
-                                    mainServiceStatus = STATUS.ERROR_ELSE;
-                                }                
+                                    if (rep.containsKey("error_internet")) {
+                                        mainServiceStatus = STATUS.NO_INTERNET_CONNEXION;
+                                    } else if (rep.containsKey("error_apikey")) {
+                                        mainServiceStatus = STATUS.NO_API_KEY;
+                                    } else {
+                                        mainServiceStatus = STATUS.ERROR_ELSE;
+                                    }   
+                                    break;             
+                                }
+                            }
+
+                            if (mainServiceStatus == STATUS.LOADING) {
+                                var filteredJourneys = Filter.mergeAllNextJourneys(allJourneys);
+                                updateJourneys(filteredJourneys);
+                                mainServiceStatus = STATUS.DATA_SET;
                             }
 
                             switch (mainServiceStatus) {
@@ -421,7 +432,8 @@ public class JourneysDataLoader {
                         Functions.writeLog("stop disruptions data loading !");
                         stopDLServiceStatus = STATUS.LOADING;
 
-                        var rep = Requests.getStopDisruptions(stop.getCode());
+                        // TODO : voir si c'est nécessaire de récup pour tous les codes
+                        var rep = Requests.getStopDisruptions(stop.getCodes().get(0));
 
                         ArrayList<StopDisruption> disrData;
 

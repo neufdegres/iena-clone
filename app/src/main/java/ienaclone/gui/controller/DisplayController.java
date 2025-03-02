@@ -123,7 +123,8 @@ public class DisplayController {
                         for (var j : filtered) {                                
                             var data = Files.loadTestNextStopsValues();
                             
-                            var dest = j.getDestination().map(s -> s.getCode()).orElse("");
+                            // TODO : adpater pour les gares à plusieurs codes
+                            var dest = j.getDestination().map(s -> s.getCodes().get(0)).orElse("");
 
                             var stops = data.getOrDefault(dest, null);
 

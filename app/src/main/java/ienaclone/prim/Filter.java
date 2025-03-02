@@ -21,12 +21,12 @@ public class Filter {
                   .collect(Collectors.toList());
     }
 
-    public static List<Journey> byDirectionRef(ArrayList<Journey> all, String filter) {
-        return all.stream()
-                  .filter(j -> Parcer.equalsRef(
-                        j.getDestination().orElse(new Stop()).getCode(), filter))
-                  .collect(Collectors.toList());
-    }
+    // public static List<Journey> byDirectionRef(ArrayList<Journey> all, String filter) {
+    //     return all.stream()
+    //               .filter(j -> Parcer.equalsRef(
+    //                     j.getDestination().orElse(new Stop()).getCode(), filter))
+    //               .collect(Collectors.toList());
+    // }
     
     public static List<Journey> byPlatform(ArrayList<Journey> all, String filter) {
         return all.stream()
@@ -63,14 +63,14 @@ public class Filter {
 
             if (departure.isEmpty() && arrival.isEmpty()) {
                 if (i>0) continue;
-            } else if (departure.isEmpty()) {
+            } else if (departure.isEmpty()) { // cas dernière gare (terminus)
                 if (now.isBefore(arrival.get())) {
                     if (i>0) continue;
                 } else {
                     toRemove = true;
                 }
             } else {
-                if (now.isBefore(departure.get())) {
+                if (now.isBefore(departure.get())) { // cas première gare
                     if (i>0) continue;
                 } else {
                     toRemove = true;
@@ -84,6 +84,51 @@ public class Filter {
             
                 break;
         }
+        return res;
+    }
+
+    public static ArrayList<Journey> mergeAllNextJourneys(ArrayList<ArrayList<Journey>> all) {
+        var res = new ArrayList<Journey>();
+
+        // for (int i=0; i<all.size(); i++) {
+        //     System.out.println("all [" + i + "]:" + all.get(i).size());
+        // }
+
+        int idx = 0;
+        
+        while(true) {
+            LocalDateTime closest = null;
+            Optional<LocalDateTime> departure = null, arrival = null;
+            for(int i=0; i<all.size(); i++) {
+
+                if (all.get(i).isEmpty()) continue;
+
+                var tmp = all.get(i).get(0);
+
+                arrival = tmp.getExpectedArrivalTime();
+                departure = tmp.getExpectedDepartureTime();
+
+                // jsp on fait quoi d'eux
+                if (arrival.isEmpty() && departure.isEmpty()) {
+                    continue;
+                } else if (arrival.isEmpty()) {
+                    if (closest == null || closest.isAfter(departure.get())) {
+                        closest = departure.get();
+                        idx = i;
+                    }
+                } else {
+                    if (closest == null || closest.isAfter(arrival.get())) {
+                        closest = arrival.get();
+                        idx = i;
+                    }
+                }
+            }
+
+            if (closest == null) break;
+
+            res.add(all.get(idx).remove(0));
+        }
+
         return res;
     }
 

@@ -29,9 +29,16 @@ public class AllStopsSingleton {
         return items;
     }
 
+    // public Optional<Stop> getStopByCode(String s) {
+    //     return items.stream()
+    //                 .filter(e -> Parcer.equalsRef(e.getCode(), s))
+    //                 .findFirst();
+    // }
+
     public Optional<Stop> getStopByCode(String s) {
         return items.stream()
-                    .filter(e -> Parcer.equalsRef(e.getCode(), s))
+                    .filter(e -> e.getCodes().stream()
+                                             .anyMatch(code -> Parcer.equalsRef(code, s)))
                     .findFirst();
     }
 }

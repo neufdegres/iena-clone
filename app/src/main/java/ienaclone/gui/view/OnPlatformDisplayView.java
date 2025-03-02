@@ -428,9 +428,19 @@ public class OnPlatformDisplayView extends DisplayView {
 
         // via Orly
 
-        // TODO : ajouter Antony (RER B)
+        // - Antony
+        Stop orlyB = allStops.getStopByCode("473980").get();
 
-        // Pont de Rungis
+        Line b = allLines.getLineByName("B").get();
+
+        if (b.equals(journey.getLine().orElse(null))
+                    && subPath.stream()
+                              .anyMatch(st -> st.getKey().equals(orlyB))) {
+
+            return "via Orly";
+        }
+
+        // - Pont de Rungis
         Stop orlyC = allStops.getStopByCode("41326").get();
 
         Line c = allLines.getLineByName("C").get();

@@ -177,27 +177,34 @@ public class DashboardController {
                         if (model.isTestStopChecked()) { // pour tester si il n'y pas de trains (ex: la nuit)
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
-                            ArrayList<Journey> allJourneys;
-                            var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
-                            if (rep.containsKey("data")) {
-                                allJourneys = rep.get("data");
-                            } else {
-                                Platform.runLater(() -> {
-                                    if (rep.containsKey("error_internet")) {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.NO_INTERNET_CONNEXION, null);
-                                    } else if (rep.containsKey("error_apikey")) {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.NO_API_KEY, null);
-                                    } else {
-                                        view.getFilterBox().changeStatus(
-                                            FilterBox.STATUS.ERROR, null);
-                                    }
-                                });
-                                return null;
+                            var allJourneys = new ArrayList<ArrayList<Journey>>();
+
+                            for (var ref : model.getCurrentStop().getCodes()) {
+                                var rep = Requests.getNextJourneys(ref);
+
+                                ArrayList<Journey> tmpJourneys;
+                                if (rep.containsKey("data")) {
+                                    tmpJourneys = rep.get("data");
+                                } else {
+                                    Platform.runLater(() -> {
+                                        if (rep.containsKey("error_internet")) {
+                                            view.getFilterBox().changeStatus(
+                                                FilterBox.STATUS.NO_INTERNET_CONNEXION, null);
+                                        } else if (rep.containsKey("error_apikey")) {
+                                            view.getFilterBox().changeStatus(
+                                                FilterBox.STATUS.NO_API_KEY, null);
+                                        } else {
+                                            view.getFilterBox().changeStatus(
+                                                FilterBox.STATUS.ERROR, null);
+                                        }
+                                    });
+                                    return null;
+                                }
+
+                                allJourneys.add(Filter.removeAlreadyPassedTrains(tmpJourneys, null));
                             }
 
-                            nextJourneys = Filter.removeAlreadyPassedTrains(allJourneys, null);
+                            nextJourneys = Filter.mergeAllNextJourneys(allJourneys);
                         }
 
                         model.setJourneys(nextJourneys);
