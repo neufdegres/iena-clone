@@ -123,7 +123,7 @@ public class DisplayController {
                         for (var j : filtered) {                                
                             var data = Files.loadTestNextStopsValues();
                             
-                            var dest = j.getDestination().map(s -> s.getCode()).orElse("");
+                            var dest = j.getDestination().map(s -> s.getPointId()).orElse("");
 
                             var stops = data.getOrDefault(dest, null);
 

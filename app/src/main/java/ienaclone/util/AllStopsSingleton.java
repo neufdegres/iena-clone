@@ -29,9 +29,25 @@ public class AllStopsSingleton {
         return items;
     }
 
-    public Optional<Stop> getStopByCode(String s) {
+    public Optional<Stop> getStopByPointId(String s) {
         return items.stream()
-                    .filter(e -> Parcer.equalsRef(e.getCode(), s))
+                    .filter(e -> Parcer.equalsRef(e.getPointId(), s))
+                    .findFirst();
+    }
+
+    public Optional<Stop> getStopByAreaId(String s) {
+        return items.stream()
+                    .filter(e -> Parcer.equalsRef(e.getAreaId(), s))
+                    .findFirst();
+    }
+
+    public Optional<Stop> getStopByTransporterId(String s) {
+        return items.stream()
+                    .filter(e -> e.getTransporterIds()
+                                  .stream()
+                                  .filter(e1 -> Parcer.equalsRef(e1, s))
+                                  .findFirst()
+                                  .isPresent())
                     .findFirst();
     }
 }

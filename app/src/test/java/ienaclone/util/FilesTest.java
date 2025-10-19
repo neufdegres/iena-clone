@@ -13,7 +13,7 @@ public class FilesTest {
 
         assertNotNull(actual);
 
-        String argenteuil = (String)actual.get(4).getCode();
+        String argenteuil = (String)actual.get(4).getPointId();
 
         assertNotNull(argenteuil);
 

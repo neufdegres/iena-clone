@@ -5,30 +5,46 @@ import java.util.ArrayList;
 import ienaclone.prim.Parcer;
 
 public class Stop {
-    private final String code;
+    private final String pointId, areaId;
+    private final ArrayList<String> transporterIds;
     private final String name;
     private final boolean isParis;
     private final ArrayList<String> lines;
 
     public enum STATUS {INCLUDED, SKIPPED, START, TERMINUS, UNKNOWN}
 
-    public Stop(String code, String name, boolean isParis, ArrayList<String> lines) {
-        this.code = code;
+    public Stop(String pointId,
+                String areaId,
+                ArrayList<String> transporterIds, 
+                String name,
+                boolean isParis,
+                ArrayList<String> lines) {
+        this.pointId = pointId;
+        this.areaId = areaId;
+        this.transporterIds = transporterIds;
         this.name = name;
         this.isParis = isParis;
         this.lines = lines;
     }
 
-    public Stop(String code, String name) {
-        this(code, name, false, new ArrayList<>());
+    public Stop(String pointId, String name) {
+        this(pointId, "", new ArrayList<>(), name, false, new ArrayList<>());
     }
 
     public Stop() {
         this("N/A", "N/A");
     }
 
-    public String getCode() {
-        return code;
+    public String getPointId() {
+        return pointId;
+    }
+
+    public String getAreaId() {
+        return areaId;
+    }
+
+    public ArrayList<String> getTransporterIds() {
+        return transporterIds;
     }
 
     public String getName() {
@@ -63,11 +79,12 @@ public class Stop {
 
         Stop curr = (Stop)obj;
 
-        return Parcer.equalsRef(curr.code, this.code);
+        return Parcer.equalsRef(curr.pointId, this.pointId)
+            && Parcer.equalsRef(curr.areaId, this.areaId);
     }
     
     @Override
     public String toString() {
-        return "[" + code + "] " + name + " -> " + lines.toString();
+        return "[" + pointId + "] " + name + " -> " + lines.toString();
     }
 }

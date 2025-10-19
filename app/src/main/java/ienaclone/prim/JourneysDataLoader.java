@@ -130,7 +130,7 @@ public class JourneysDataLoader {
                                 stopDisruptionsLoadService.start();
                             }
 
-                            var rep = Requests.getNextJourneys(stop.getCode());
+                            var rep = Requests.getNextJourneys(stop.getPointId());
                             
                             if (rep.containsKey("data")) {
                                 updateJourneys(rep.get("data"));
@@ -421,7 +421,7 @@ public class JourneysDataLoader {
                         Functions.writeLog("stop disruptions data loading !");
                         stopDLServiceStatus = STATUS.LOADING;
 
-                        var rep = Requests.getStopDisruptions(stop.getCode());
+                        var rep = Requests.getStopDisruptions(stop.getPointId());
 
                         ArrayList<StopDisruption> disrData;
 
@@ -559,7 +559,7 @@ public class JourneysDataLoader {
         
         for (var st : sd) {
             var stop = AllStopsSingleton.getInstance()
-                            .getStopByCode(st.stopRef()).orElse(new Stop());
+                            .getStopByPointId(st.stopRef()).orElse(new Stop());
             
             Pair<Stop, Stop.STATUS> pair = null;
 

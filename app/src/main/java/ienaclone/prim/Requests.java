@@ -84,8 +84,15 @@ public class Requests {
             if (mvj == null) continue;
 
             var destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
-            bld.destination = AllStopsSingleton.getInstance()
-                                .getStopByCode(destinationRef).orElse(null);
+
+            AllStopsSingleton allStops = AllStopsSingleton.getInstance();
+
+            bld.destination = allStops.getStopByAreaId(destinationRef)
+                                .orElse(allStops
+                                .getStopByPointId(destinationRef)
+                                .orElse(allStops
+                                .getStopByTransporterId(destinationRef)
+                                .orElse(null)));
 
             var refRaw = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
             bld.ref = getJourneyRef(refRaw);

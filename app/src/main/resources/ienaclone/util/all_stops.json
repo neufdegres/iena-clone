@@ -2,41 +2,104 @@
 	"stops": [
 		{
 			"nom": "Ablon",
-			"code": "41311",
+			"point_id": "69554",
+			"area_id": "46387",
+			"transporter_ids": [
+				"41311",
+				"471630",
+				"472782"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Achères Grand Cormier",
-			"code": "411358",
+			"nom": "Achères-Grand-Cormier",
+			"point_id": "65190",
+			"area_id": "47915",
+			"transporter_ids": [
+				"411358",
+				"472259",
+				"472135",
+				"472019",
+				"472507"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
-				"L"
+				"A"
 			]
 		},
 		{
-			"nom": "Achères Ville",
-			"code": "41528",
+			"nom": "Achères-Ville",
+			"point_id": "73604",
+			"area_id": "46647",
+			"transporter_ids": [
+				"41528",
+				"471010",
+				"473017"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
+				"A",
 				"L"
 			]
 		},
 		{
 			"nom": "Andrésy",
-			"code": "41149",
+			"point_id": "65542",
+			"area_id": "47916",
+			"transporter_ids": [
+				"41149",
+				"471059",
+				"472150"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
+			"nom": "Antony",
+			"point_id": "69759",
+			"area_id": "43066",
+			"transporter_ids": [
+				"473996",
+				"412829",
+				"473980"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Arcueil-Cachan",
+			"point_id": "70263",
+			"area_id": "43067",
+			"transporter_ids": [
+				"473979",
+				"473983",
+				"412836"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Argenteuil",
-			"code": "41166",
+			"point_id": "65063",
+			"area_id": "47875",
+			"transporter_ids": [
+				"472859",
+				"472730",
+				"471033",
+				"41166",
+				"472826",
+				"472690",
+				"471242"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -44,15 +107,34 @@
 		},
 		{
 			"nom": "Arpajon",
-			"code": "41318",
+			"point_id": "60072",
+			"area_id": "43068",
+			"transporter_ids": [
+				"470919",
+				"470664",
+				"41318"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Asnières",
-			"code": "41138",
+			"nom": "Asnières-sur-Seine",
+			"point_id": "72132",
+			"area_id": "43069",
+			"transporter_ids": [
+				"471962",
+				"472289",
+				"471224",
+				"472565",
+				"472391",
+				"470673",
+				"471132",
+				"472448",
+				"472878",
+				"41138"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J",
@@ -60,40 +142,75 @@
 			]
 		},
 		{
-			"nom": "Athis Mons",
-			"code": "41310",
+			"nom": "Athis-Mons",
+			"point_id": "63134",
+			"area_id": "46395",
+			"transporter_ids": [
+				"472115",
+				"470944",
+				"41310"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Aubergenville Elisabethville",
-			"code": "41201",
+			"nom": "Auber",
+			"point_id": "478926",
+			"area_id": "45873",
+			"transporter_ids": [
+				"473924",
+				"412806",
+				"473925"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Aubergenville-Élisabethville",
+			"point_id": "65490",
+			"area_id": "43070",
+			"transporter_ids": [
+				"472707",
+				"471523",
+				"472002",
+				"41201"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Aulnay-Sous-Bois",
-			"code": "411410",
+			"nom": "Aulnay-sous-Bois",
+			"point_id": "72646",
+			"area_id": "43071",
+			"transporter_ids": [
+				"411410",
+				"471766",
+				"472589",
+				"471113",
+				"470950",
+				"472815"
+			],
 			"is_paris": false,
 			"lignes": [
+				"B",
 				"K"
 			]
 		},
 		{
-			"nom": "Austerlitz",
-			"code": "41333",
-			"is_paris": true,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Auvers sur Oise",
-			"code": "41112",
+			"nom": "Auvers-sur-Oise",
+			"point_id": "67027",
+			"area_id": "47918",
+			"transporter_ids": [
+				"470610",
+				"472941",
+				"41112"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -101,7 +218,13 @@
 		},
 		{
 			"nom": "Avenue Foch",
-			"code": "41132",
+			"point_id": "71321",
+			"area_id": "45437",
+			"transporter_ids": [
+				"471843",
+				"41132",
+				"470620"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
@@ -109,7 +232,14 @@
 		},
 		{
 			"nom": "Avenue Henri Martin",
-			"code": "41133",
+			"point_id": "71286",
+			"area_id": "45447",
+			"transporter_ids": [
+				"471484",
+				"41133",
+				"471187",
+				"471355"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
@@ -117,48 +247,119 @@
 		},
 		{
 			"nom": "Avenue du Président Kennedy",
-			"code": "41295",
+			"point_id": "71212",
+			"area_id": "45419",
+			"transporter_ids": [
+				"41295",
+				"471131",
+				"471932"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Bagneaux sur Loing",
-			"code": "41392",
+			"nom": "Aéroport Charles De Gaulle 1",
+			"point_id": "73596",
+			"area_id": "462398",
+			"transporter_ids": [
+				"472226",
+				"411398",
+				"471913",
+				"472853",
+				"472997"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Aéroport Charles De Gaulle 2-TGV",
+			"point_id": "73699",
+			"area_id": "473364",
+			"transporter_ids": [
+				"411295",
+				"472284",
+				"472501",
+				"471441",
+				"471892",
+				"470932",
+				"470611"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bagneaux-sur-Loing",
+			"point_id": "61145",
+			"area_id": "47119",
+			"transporter_ids": [
+				"471282",
+				"470977",
+				"41392"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
+			"nom": "Bagneux",
+			"point_id": "70210",
+			"area_id": "44493",
+			"transporter_ids": [
+				"473986",
+				"473981",
+				"412843"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Ballancourt",
-			"code": "41350",
+			"point_id": "59825",
+			"area_id": "43087",
+			"transporter_ids": [
+				"471285",
+				"470722",
+				"41350"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Becon les Bruyères",
-			"code": "41171",
-			"is_paris": false,
-			"lignes": [
-				"J",
-				"L"
-			]
-		},
-		{
 			"nom": "Bellevue",
-			"code": "41215",
+			"point_id": "69528",
+			"area_id": "43088",
+			"transporter_ids": [
+				"472679",
+				"472441",
+				"471435",
+				"472607",
+				"41215"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Belloy Saint-Martin",
-			"code": "41113",
+			"nom": "Belloy-Saint-Martin",
+			"point_id": "67126",
+			"area_id": "47524",
+			"transporter_ids": [
+				"472664",
+				"471323",
+				"41113"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -166,7 +367,13 @@
 		},
 		{
 			"nom": "Bessancourt",
-			"code": "41121",
+			"point_id": "66672",
+			"area_id": "43090",
+			"transporter_ids": [
+				"472170",
+				"471956",
+				"41121"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -174,7 +381,13 @@
 		},
 		{
 			"nom": "Beynes",
-			"code": "41231",
+			"point_id": "64338",
+			"area_id": "46857",
+			"transporter_ids": [
+				"472129",
+				"471879",
+				"41231"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -182,7 +395,17 @@
 		},
 		{
 			"nom": "Bibliothèque François Mitterrand",
-			"code": "41128",
+			"point_id": "71572",
+			"area_id": "45301",
+			"transporter_ids": [
+				"472740",
+				"471854",
+				"41128",
+				"472741",
+				"472821",
+				"471835",
+				"472490"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
@@ -190,7 +413,13 @@
 		},
 		{
 			"nom": "Bièvres",
-			"code": "41242",
+			"point_id": "63404",
+			"area_id": "43091",
+			"transporter_ids": [
+				"472850",
+				"472234",
+				"41242"
+			],
 			"is_paris": false,
 			"lignes": [
 				"V"
@@ -198,40 +427,87 @@
 		},
 		{
 			"nom": "Boigneville",
-			"code": "41395",
+			"point_id": "59420",
+			"area_id": "43092",
+			"transporter_ids": [
+				"470853",
+				"471428",
+				"41395"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Bois Colombes",
-			"code": "41134",
+			"nom": "Bois-Colombes",
+			"point_id": "72179",
+			"area_id": "51238",
+			"transporter_ids": [
+				"471375",
+				"471402",
+				"470797",
+				"472915",
+				"41134"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Bois le Roi",
-			"code": "41371",
+			"nom": "Bois-le-Roi",
+			"point_id": "61727",
+			"area_id": "47654",
+			"transporter_ids": [
+				"471832",
+				"471532",
+				"41371"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Boissise le Roi",
-			"code": "41386",
+			"nom": "Boissise-le-Roi",
+			"point_id": "61943",
+			"area_id": "45763",
+			"transporter_ids": [
+				"472629",
+				"471316",
+				"41386"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Boissy l'Aillerie",
-			"code": "41140",
+			"nom": "Boissy-Saint-Léger",
+			"point_id": "72881",
+			"area_id": "43094",
+			"transporter_ids": [
+				"473988",
+				"473984",
+				"473987",
+				"412802"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Boissy-l'Aillerie",
+			"point_id": "67056",
+			"area_id": "46801",
+			"transporter_ids": [
+				"472168",
+				"472804",
+				"472294",
+				"41140"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -239,32 +515,59 @@
 		},
 		{
 			"nom": "Bondy",
-			"code": "41013",
+			"point_id": "72037",
+			"area_id": "43096",
+			"transporter_ids": [
+				"473020",
+				"472881",
+				"472644",
+				"470990",
+				"471881",
+				"472144",
+				"41013"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
 			"nom": "Bonnières",
-			"code": "41290",
+			"point_id": "66741",
+			"area_id": "46984",
+			"transporter_ids": [
+				"471553",
+				"470812",
+				"41290"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Boran sur Oise",
-			"code": "411331",
+			"nom": "Boran-sur-Oise",
+			"point_id": "411333",
+			"area_id": "411332",
+			"transporter_ids": [
+				"471512",
+				"472426",
+				"411331"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Bouffémont Moisselles",
-			"code": "41106",
+			"nom": "Bouffémont-Moisselles",
+			"point_id": "66795",
+			"area_id": "47517",
+			"transporter_ids": [
+				"472645",
+				"472842",
+				"41106"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -272,7 +575,13 @@
 		},
 		{
 			"nom": "Bougival",
-			"code": "41183",
+			"point_id": "64301",
+			"area_id": "47790",
+			"transporter_ids": [
+				"471671",
+				"472113",
+				"41183"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
@@ -280,7 +589,13 @@
 		},
 		{
 			"nom": "Boulainvilliers",
-			"code": "41294",
+			"point_id": "71229",
+			"area_id": "45453",
+			"transporter_ids": [
+				"470738",
+				"41294",
+				"470771"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
@@ -288,48 +603,101 @@
 		},
 		{
 			"nom": "Bouray",
-			"code": "41302",
+			"point_id": "59830",
+			"area_id": "47905",
+			"transporter_ids": [
+				"472759",
+				"470716",
+				"41302"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Bourron Marlotte Grez",
-			"code": "41390",
+			"nom": "Bourg-la-Reine",
+			"point_id": "70033",
+			"area_id": "43097",
+			"transporter_ids": [
+				"473972",
+				"473970",
+				"473971",
+				"412842",
+				"473969"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bourron-Marlotte-Grez",
+			"point_id": "61318",
+			"area_id": "47124",
+			"transporter_ids": [
+				"470903",
+				"472636",
+				"41390"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Boussy Saint-Antoine",
-			"code": "41365",
-			"is_paris": false,
-			"lignes": [
-				"D",
-				"R"
-			]
-		},
-		{
-			"nom": "Boutigny",
-			"code": "41352",
+			"nom": "Boussy-Saint-Antoine",
+			"point_id": "62596",
+			"area_id": "47924",
+			"transporter_ids": [
+				"472771",
+				"471212",
+				"471545",
+				"472445",
+				"41365"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Breuillet Bruyères le Chatel",
-			"code": "41320",
+			"nom": "Boutigny",
+			"point_id": "59565",
+			"area_id": "47895",
+			"transporter_ids": [
+				"471799",
+				"472447",
+				"41352"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Breuillet",
+			"point_id": "60028",
+			"area_id": "47925",
+			"transporter_ids": [
+				"472810",
+				"472770",
+				"41320"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Breuillet Village",
-			"code": "41321",
+			"nom": "Breuillet-Village",
+			"point_id": "59940",
+			"area_id": "43099",
+			"transporter_ids": [
+				"471627",
+				"472160",
+				"41321"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -337,72 +705,185 @@
 		},
 		{
 			"nom": "Brunoy",
-			"code": "41364",
-			"is_paris": false,
-			"lignes": [
-				"D",
-				"R"
-			]
-		},
-		{
-			"nom": "Bruyères sur Oise",
-			"code": "41104",
-			"is_paris": false,
-			"lignes": [
-				"H"
-			]
-		},
-		{
-			"nom": "Brétigny",
-			"code": "41304",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Bréval",
-			"code": "41157",
-			"is_paris": false,
-			"lignes": [
-				"J"
-			]
-		},
-		{
-			"nom": "Buno Gironville",
-			"code": "41354",
+			"point_id": "67476",
+			"area_id": "58873",
+			"transporter_ids": [
+				"471526",
+				"470689",
+				"471840",
+				"471558",
+				"41364"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
+			"nom": "Bruyères-sur-Oise",
+			"point_id": "67325",
+			"area_id": "47533",
+			"transporter_ids": [
+				"472847",
+				"472277",
+				"41104"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Bry-sur-Marne",
+			"point_id": "73166",
+			"area_id": "43101",
+			"transporter_ids": [
+				"473973",
+				"473974",
+				"412822"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Brétigny",
+			"point_id": "60247",
+			"area_id": "43098",
+			"transporter_ids": [
+				"471864",
+				"472026",
+				"471954",
+				"472590",
+				"471292",
+				"472014",
+				"472148",
+				"41304"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Buno-Gironville",
+			"point_id": "59447",
+			"area_id": "43102",
+			"transporter_ids": [
+				"470703",
+				"472752",
+				"41354"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Bures-sur-Yvette",
+			"point_id": "62851",
+			"area_id": "43103",
+			"transporter_ids": [
+				"412795",
+				"473975",
+				"473978"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Bussy-Saint-Georges",
+			"point_id": "68105",
+			"area_id": "58874",
+			"transporter_ids": [
+				"473960",
+				"412812",
+				"473961"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Bécon-les-Bruyères",
+			"point_id": "72124",
+			"area_id": "47923",
+			"transporter_ids": [
+				"470981",
+				"471758",
+				"471561",
+				"472101",
+				"471815",
+				"471714",
+				"472599",
+				"472238",
+				"41171"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L"
+			]
+		},
+		{
 			"nom": "Cergy Le Haut",
-			"code": "40918",
+			"point_id": "66834",
+			"area_id": "43104",
+			"transporter_ids": [
+				"40918",
+				"472554",
+				"478476",
+				"472384",
+				"472468"
+			],
 			"is_paris": false,
 			"lignes": [
+				"A",
 				"L"
 			]
 		},
 		{
-			"nom": "Cergy Préfecture",
-			"code": "411352",
+			"nom": "Cergy-Préfecture",
+			"point_id": "66696",
+			"area_id": "44559",
+			"transporter_ids": [
+				"472932",
+				"472439",
+				"411352"
+			],
 			"is_paris": false,
 			"lignes": [
+				"A",
 				"L"
 			]
 		},
 		{
-			"nom": "Cergy Saint-Christophe",
-			"code": "411368",
+			"nom": "Cergy-Saint-Christophe",
+			"point_id": "66858",
+			"area_id": "47897",
+			"transporter_ids": [
+				"471703",
+				"470994",
+				"411368"
+			],
 			"is_paris": false,
 			"lignes": [
+				"A",
 				"L"
 			]
 		},
 		{
 			"nom": "Cernay",
-			"code": "41086",
+			"point_id": "65752",
+			"area_id": "43105",
+			"transporter_ids": [
+				"471069",
+				"470864",
+				"41086"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -411,16 +892,29 @@
 		},
 		{
 			"nom": "Cesson",
-			"code": "41368",
+			"point_id": "62176",
+			"area_id": "42516",
+			"transporter_ids": [
+				"472531",
+				"472255",
+				"472713",
+				"472569",
+				"41368"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Chamarande",
-			"code": "41300",
+			"point_id": "59734",
+			"area_id": "47927",
+			"transporter_ids": [
+				"471964",
+				"472432",
+				"41300"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -428,63 +922,126 @@
 		},
 		{
 			"nom": "Champ de Courses d'Enghien",
-			"code": "41084",
+			"point_id": "65663",
+			"area_id": "46477",
+			"transporter_ids": [
+				"471336",
+				"471506",
+				"470845",
+				"41084"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Champ de Mars Tour Eiffel",
-			"code": "41210",
+			"nom": "Champ de Mars",
+			"point_id": "73844",
+			"area_id": "58757",
+			"transporter_ids": [
+				"471988",
+				"41210",
+				"472748"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Champagne sur Oise",
-			"code": "41109",
+			"nom": "Champagne-sur-Oise",
+			"point_id": "67241",
+			"area_id": "47590",
+			"transporter_ids": [
+				"472567",
+				"470666",
+				"41109"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Champagne sur Seine",
-			"code": "41382",
+			"nom": "Champagne-sur-Seine",
+			"point_id": "61537",
+			"area_id": "43106",
+			"transporter_ids": [
+				"472416",
+				"470966",
+				"41382"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Champbenoist Poigny",
-			"code": "41030",
+			"nom": "Champbenoist-Poigny",
+			"point_id": "62064",
+			"area_id": "47174",
+			"transporter_ids": [
+				"471938",
+				"41030"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Changis Saint-Jean",
-			"code": "41061",
+			"nom": "Champigny",
+			"point_id": "73042",
+			"area_id": "58270",
+			"transporter_ids": [
+				"473962",
+				"473963",
+				"412801"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Changis-Saint-Jean",
+			"point_id": "68980",
+			"area_id": "47928",
+			"transporter_ids": [
+				"472092",
+				"471406",
+				"41061"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Chanteloup les Vignes",
-			"code": "41147",
+			"nom": "Chanteloup-les-Vignes",
+			"point_id": "65443",
+			"area_id": "47929",
+			"transporter_ids": [
+				"472603",
+				"472114",
+				"41147"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Chantilly Gouvieux",
-			"code": "411427",
+			"nom": "Chantilly-Gouvieux",
+			"point_id": "411429",
+			"area_id": "411428",
+			"transporter_ids": [
+				"471807",
+				"471772",
+				"472930",
+				"411427"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -492,15 +1049,41 @@
 		},
 		{
 			"nom": "Chaponval",
-			"code": "41094",
+			"point_id": "67016",
+			"area_id": "47591",
+			"transporter_ids": [
+				"471339",
+				"471130",
+				"41094"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
+			"nom": "Charles De Gaulle-Étoile",
+			"point_id": "71347",
+			"area_id": "58759",
+			"transporter_ids": [
+				"473922",
+				"412807",
+				"473923"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
 			"nom": "Chars",
-			"code": "41144",
+			"point_id": "67352",
+			"area_id": "47930",
+			"transporter_ids": [
+				"471358",
+				"472293",
+				"41144"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -508,15 +1091,27 @@
 		},
 		{
 			"nom": "Chartrettes",
-			"code": "41378",
+			"point_id": "61763",
+			"area_id": "43107",
+			"transporter_ids": [
+				"472933",
+				"470759",
+				"41378"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Chaumont en Vexin",
-			"code": "411344",
+			"nom": "Chaumont-en-Vexin",
+			"point_id": "411346",
+			"area_id": "411345",
+			"transporter_ids": [
+				"471071",
+				"471166",
+				"411344"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -524,33 +1119,62 @@
 		},
 		{
 			"nom": "Chaville Rive Droite",
-			"code": "41176",
+			"point_id": "69503",
+			"area_id": "43241",
+			"transporter_ids": [
+				"471516",
+				"471723",
+				"41176"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L",
-				"N",
 				"U"
 			]
 		},
 		{
 			"nom": "Chaville Rive Gauche",
-			"code": "41220",
+			"point_id": "73718",
+			"area_id": "43108",
+			"transporter_ids": [
+				"472291",
+				"471679",
+				"472152",
+				"472372",
+				"41220"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Chaville Vélizy",
-			"code": "41219",
+			"nom": "Chaville-Vélizy",
+			"point_id": "69487",
+			"area_id": "47883",
+			"transporter_ids": [
+				"471551",
+				"471589",
+				"472982",
+				"471121",
+				"41219"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Chelles Gournay",
-			"code": "41039",
+			"nom": "Chelles-Gournay",
+			"point_id": "68407",
+			"area_id": "58879",
+			"transporter_ids": [
+				"472324",
+				"471173",
+				"472240",
+				"471788",
+				"41039"
+			],
 			"is_paris": false,
 			"lignes": [
 				"E",
@@ -559,81 +1183,158 @@
 		},
 		{
 			"nom": "Chemin d'Antony",
-			"code": "41330",
+			"point_id": "69682",
+			"area_id": "46035",
+			"transporter_ids": [
+				"471400",
+				"471004",
+				"41330"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Chenay Gagny",
-			"code": "41016",
+			"nom": "Choisy-le-Roi",
+			"point_id": "69852",
+			"area_id": "43110",
+			"transporter_ids": [
+				"471085",
+				"472887",
+				"472614",
+				"471836",
+				"41313"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
+				"C"
+			]
+		},
+		{
+			"nom": "Château-Thierry",
+			"point_id": "411379",
+			"area_id": "411378",
+			"transporter_ids": [
+				"471957",
+				"472783",
+				"470760",
+				"472119",
+				"472854",
+				"411377"
+			],
+			"is_paris": false,
+			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Chilly Mazarin",
-			"code": "41247",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Choisy le Roi",
-			"code": "41313",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Château Thierry",
-			"code": "411377",
-			"is_paris": false,
-			"lignes": [
-				"P"
-			]
-		},
-		{
-			"nom": "Châtelet Les Halles",
-			"code": "412815",
+			"nom": "Châtelet-Les Halles",
+			"point_id": "474151",
+			"area_id": "45102",
+			"transporter_ids": [
+				"473993",
+				"473989",
+				"473921",
+				"473990",
+				"412815",
+				"472996",
+				"471322",
+				"471719",
+				"472764"
+			],
 			"is_paris": true,
 			"lignes": [
+				"A",
+				"B",
 				"D"
 			]
 		},
 		{
-			"nom": "Chézy sur Marne",
-			"code": "411380",
+			"nom": "Châtou-Croissy",
+			"point_id": "64483",
+			"area_id": "53783",
+			"transporter_ids": [
+				"473964",
+				"473965",
+				"412797"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Chézy-sur-Marne",
+			"point_id": "411382",
+			"area_id": "411381",
+			"transporter_ids": [
+				"471764",
+				"471821",
+				"411380"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
+			"nom": "Cité Universitaire",
+			"point_id": "70623",
+			"area_id": "473843",
+			"transporter_ids": [
+				"412839",
+				"473991",
+				"473995"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Clamart",
-			"code": "41206",
+			"point_id": "70505",
+			"area_id": "43111",
+			"transporter_ids": [
+				"472493",
+				"472858",
+				"471241",
+				"472863",
+				"41206"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Clichy Levallois",
-			"code": "41137",
+			"nom": "Clichy-Levallois",
+			"point_id": "72073",
+			"area_id": "43112",
+			"transporter_ids": [
+				"471449",
+				"471457",
+				"472249",
+				"472621",
+				"470726",
+				"472866",
+				"41137"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
 				"L"
 			]
 		},
 		{
 			"nom": "Coignières",
-			"code": "41224",
+			"point_id": "63369",
+			"area_id": "47932",
+			"transporter_ids": [
+				"472793",
+				"472242",
+				"41224"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -641,83 +1342,128 @@
 		},
 		{
 			"nom": "Colombes",
-			"code": "41135",
+			"point_id": "72244",
+			"area_id": "43113",
+			"transporter_ids": [
+				"471096",
+				"472902",
+				"41135"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Combs la Ville Quincy",
-			"code": "41366",
+			"nom": "Combs-la-Ville - Quincy",
+			"point_id": "62558",
+			"area_id": "45771",
+			"transporter_ids": [
+				"472722",
+				"472963",
+				"471773",
+				"471214",
+				"472227",
+				"41366"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Compans",
-			"code": "41080",
+			"point_id": "69136",
+			"area_id": "46731",
+			"transporter_ids": [
+				"471777",
+				"473013",
+				"41080"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
 			]
 		},
 		{
-			"nom": "Conflans Sainte-Honorine",
-			"code": "41170",
+			"nom": "Conflans-Fin-d'Oise",
+			"point_id": "73605",
+			"area_id": "43114",
+			"transporter_ids": [
+				"471751",
+				"471418",
+				"471534",
+				"472478",
+				"411350"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J"
-			]
-		},
-		{
-			"nom": "Conflans-Fin d'Oise",
-			"code": "411350",
-			"is_paris": false,
-			"lignes": [
+				"A",
 				"J",
 				"L"
 			]
 		},
 		{
-			"nom": "Corbeil Essonnes",
-			"code": "41336",
-			"is_paris": false,
-			"lignes": [
-				"D",
-				"R"
-			]
-		},
-		{
-			"nom": "Cormeilles en Parisis",
-			"code": "41167",
+			"nom": "Conflans-Sainte-Honorine",
+			"point_id": "66095",
+			"area_id": "47447",
+			"transporter_ids": [
+				"470959",
+				"472871",
+				"471464",
+				"472947",
+				"471597",
+				"41170"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Coudray Montceaux",
-			"code": "41358",
+			"nom": "Corbeil-Essonnes",
+			"point_id": "60309",
+			"area_id": "43115",
+			"transporter_ids": [
+				"477108",
+				"470889",
+				"472205",
+				"472398",
+				"472720",
+				"472343",
+				"472415",
+				"41336"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Couilly Saint-Germain Quincy",
-			"code": "41067",
+			"nom": "Cormeilles-en-Parisis",
+			"point_id": "65399",
+			"area_id": "43116",
+			"transporter_ids": [
+				"472141",
+				"472832",
+				"471261",
+				"41167"
+			],
 			"is_paris": false,
 			"lignes": [
-				"P"
+				"J"
 			]
 		},
 		{
 			"nom": "Coulommiers",
-			"code": "41050",
+			"point_id": "67920",
+			"area_id": "43117",
+			"transporter_ids": [
+				"471311",
+				"470982",
+				"472559",
+				"41050"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -725,15 +1471,46 @@
 		},
 		{
 			"nom": "Courbevoie",
-			"code": "41172",
+			"point_id": "73614",
+			"area_id": "43118",
+			"transporter_ids": [
+				"470814",
+				"472453",
+				"41172"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
+			"nom": "Courcelle-sur-Yvette",
+			"point_id": "62951",
+			"area_id": "47052",
+			"transporter_ids": [
+				"412845",
+				"473966",
+				"473968"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Creil",
-			"code": "411439",
+			"point_id": "411441",
+			"area_id": "411440",
+			"transporter_ids": [
+				"471640",
+				"471424",
+				"471905",
+				"473009",
+				"472051",
+				"472766",
+				"472060",
+				"411439"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D",
@@ -741,49 +1518,87 @@
 			]
 		},
 		{
-			"nom": "Crepy en Valois",
-			"code": "411395",
+			"nom": "Crouy-sur-Ourcq",
+			"point_id": "69435",
+			"area_id": "47491",
+			"transporter_ids": [
+				"471156",
+				"471639",
+				"41066"
+			],
+			"is_paris": false,
+			"lignes": [
+				"P"
+			]
+		},
+		{
+			"nom": "Crépy-en-Valois",
+			"point_id": "411397",
+			"area_id": "411396",
+			"transporter_ids": [
+				"471748",
+				"472290",
+				"472271",
+				"411395"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
-			]
-		},
-		{
-			"nom": "Crouy sur Ourcq",
-			"code": "41066",
-			"is_paris": false,
-			"lignes": [
-				"P"
-			]
-		},
-		{
-			"nom": "Crécy la Chapelle",
-			"code": "41069",
-			"is_paris": false,
-			"lignes": [
-				"P"
 			]
 		},
 		{
 			"nom": "Créteil Pompadour",
-			"code": "41530",
+			"point_id": "69950",
+			"area_id": "46286",
+			"transporter_ids": [
+				"488126",
+				"472916",
+				"472380",
+				"41530"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Dammartin Juilly Saint-Mard",
-			"code": "41077",
+			"nom": "Dammartin-Juilly-Saint-Mard",
+			"point_id": "69254",
+			"area_id": "46736",
+			"transporter_ids": [
+				"472648",
+				"470808",
+				"41077"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
 			]
 		},
 		{
-			"nom": "Deuil Montmagny",
-			"code": "411425",
+			"nom": "Denfert-Rochereau",
+			"point_id": "71056",
+			"area_id": "473890",
+			"transporter_ids": [
+				"412819",
+				"480170",
+				"473994",
+				"473997"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Deuil-Montmagny",
+			"point_id": "65562",
+			"area_id": "473159",
+			"transporter_ids": [
+				"472400",
+				"472457",
+				"411425"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -791,7 +1606,13 @@
 		},
 		{
 			"nom": "Domont",
-			"code": "41103",
+			"point_id": "66654",
+			"area_id": "43120",
+			"transporter_ids": [
+				"471486",
+				"472659",
+				"41103"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -799,7 +1620,13 @@
 		},
 		{
 			"nom": "Dordives",
-			"code": "41394",
+			"point_id": "74077",
+			"area_id": "58955",
+			"transporter_ids": [
+				"472828",
+				"471293",
+				"41394"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -807,15 +1634,27 @@
 		},
 		{
 			"nom": "Dourdan",
-			"code": "41324",
+			"point_id": "59836",
+			"area_id": "43121",
+			"transporter_ids": [
+				"471001",
+				"471744",
+				"470842",
+				"41324"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Dourdan la Foret",
-			"code": "41292",
+			"nom": "Dourdan-la-Forêt",
+			"point_id": "59843",
+			"area_id": "47095",
+			"transporter_ids": [
+				"471151",
+				"41292"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -823,88 +1662,66 @@
 		},
 		{
 			"nom": "Drancy",
-			"code": "411409",
+			"point_id": "72652",
+			"area_id": "43122",
+			"transporter_ids": [
+				"472688",
+				"411409",
+				"471478",
+				"470881",
+				"470605"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
 			"nom": "Dreux",
-			"code": "411491",
+			"point_id": "411493",
+			"area_id": "411492",
+			"transporter_ids": [
+				"472214",
+				"472306",
+				"472532",
+				"472080",
+				"472594",
+				"411491"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Ecouen - Ézanville",
-			"code": "41102",
+			"nom": "Enghien-Les-Bains",
+			"point_id": "65485",
+			"area_id": "43075",
+			"transporter_ids": [
+				"471398",
+				"470633",
+				"41083"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Emerainville Pontault-Combault",
-			"code": "41034",
-			"is_paris": false,
-			"lignes": [
-				"E",
-				"P"
-			]
-		},
-		{
-			"nom": "Enghien-les-Bains",
-			"code": "41083",
-			"is_paris": false,
-			"lignes": [
-				"H"
-			]
-		},
-		{
-			"nom": "Epinay Villetaneuse",
-			"code": "411415",
-			"is_paris": false,
-			"lignes": [
-				"H"
-			]
-		},
-		{
-			"nom": "Epinay-sur-Orge",
-			"code": "41307",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Epinay-sur-Seine",
-			"code": "41073",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
-			"nom": "Epluches",
-			"code": "41092",
-			"is_paris": false,
-			"lignes": [
-				"H"
-			]
-		},
-		{
-			"nom": "Eragny Neuville",
-			"code": "41145",
-			"is_paris": false,
-			"lignes": [
-				"J"
-			]
-		},
-		{
-			"nom": "Ermont Eaubonne",
-			"code": "41085",
+			"nom": "Ermont-Eaubonne",
+			"point_id": "65669",
+			"area_id": "47898",
+			"transporter_ids": [
+				"470813",
+				"471689",
+				"471868",
+				"471546",
+				"471582",
+				"472220",
+				"470732",
+				"472940",
+				"41085"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -913,8 +1730,14 @@
 			]
 		},
 		{
-			"nom": "Ermont Halte",
-			"code": "41116",
+			"nom": "Ermont-Halte",
+			"point_id": "65910",
+			"area_id": "47920",
+			"transporter_ids": [
+				"470642",
+				"472369",
+				"41116"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -922,25 +1745,41 @@
 		},
 		{
 			"nom": "Esbly",
-			"code": "41052",
+			"point_id": "68653",
+			"area_id": "47322",
+			"transporter_ids": [
+				"471581",
+				"471850",
+				"471034",
+				"41052"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
 				"P"
 			]
 		},
 		{
-			"nom": "Essonnes Robinson",
-			"code": "41355",
+			"nom": "Essonnes-Robinson",
+			"point_id": "422776",
+			"area_id": "45759",
+			"transporter_ids": [
+				"471584",
+				"471657",
+				"41355"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Faremoutiers Pommeuse",
-			"code": "41047",
+			"nom": "Faremoutiers-Pommeuse",
+			"point_id": "67917",
+			"area_id": "47199",
+			"transporter_ids": [
+				"471086",
+				"41047"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -948,15 +1787,41 @@
 		},
 		{
 			"nom": "Ferrières Fontenay",
-			"code": "411487",
+			"point_id": "411489",
+			"area_id": "411488",
+			"transporter_ids": [
+				"471885",
+				"470635",
+				"411487"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Fontaine le Port",
-			"code": "41379",
+			"nom": "Fontaine-Michalon",
+			"point_id": "69647",
+			"area_id": "43124",
+			"transporter_ids": [
+				"473954",
+				"473955",
+				"412835"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Fontaine-le-Port",
+			"point_id": "61767",
+			"area_id": "43123",
+			"transporter_ids": [
+				"41379",
+				"471488",
+				"470856"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -964,23 +1829,69 @@
 		},
 		{
 			"nom": "Fontainebleau Avon",
-			"code": "41372",
+			"point_id": "61579",
+			"area_id": "47911",
+			"transporter_ids": [
+				"471830",
+				"471198",
+				"41372"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
+			"nom": "Fontenay-aux-Roses",
+			"point_id": "70133",
+			"area_id": "43125",
+			"transporter_ids": [
+				"412840",
+				"473953",
+				"473952"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Fontenay-le-Fleury",
-			"code": "41232",
+			"point_id": "63999",
+			"area_id": "47884",
+			"transporter_ids": [
+				"470834",
+				"472685",
+				"41232"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Franconville le Plessis Bouchard",
-			"code": "41087",
+			"nom": "Fontenay-sous-Bois",
+			"point_id": "71630",
+			"area_id": "47238",
+			"transporter_ids": [
+				"412810",
+				"473959",
+				"473958"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Franconville-Le Plessis-Bouchard",
+			"point_id": "66005",
+			"area_id": "43126",
+			"transporter_ids": [
+				"472303",
+				"472994",
+				"41087"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -989,7 +1900,13 @@
 		},
 		{
 			"nom": "Frépillon",
-			"code": "41122",
+			"point_id": "66798",
+			"area_id": "47580",
+			"transporter_ids": [
+				"471644",
+				"471503",
+				"41122"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -997,77 +1914,173 @@
 		},
 		{
 			"nom": "Gagny",
-			"code": "41015",
+			"point_id": "73278",
+			"area_id": "43044",
+			"transporter_ids": [
+				"470927",
+				"470639",
+				"471685",
+				"471596",
+				"41015"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Garancières la Queue",
-			"code": "41235",
+			"nom": "Garancières-La Queue",
+			"point_id": "64025",
+			"area_id": "47903",
+			"transporter_ids": [
+				"471183",
+				"472146",
+				"41235"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Garches Marnes la Coquette",
-			"code": "41174",
+			"nom": "Garches-Marnes-la-Coquette",
+			"point_id": "70713",
+			"area_id": "47770",
+			"transporter_ids": [
+				"471447",
+				"471297",
+				"470956",
+				"41174"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
-			]
-		},
-		{
-			"nom": "Gare Montparnasse",
-			"code": "41203",
-			"is_paris": true,
-			"lignes": [
-				"N"
-			]
-		},
-		{
-			"nom": "Gare Saint-Lazare",
-			"code": "41194",
-			"is_paris": true,
-			"lignes": [
-				"J",
-				"L"
-			]
-		},
-		{
-			"nom": "Gare Vaugirard",
-			"code": "41204",
-			"is_paris": true,
-			"lignes": [
-				"N"
 			]
 		},
 		{
 			"nom": "Gare de Lyon",
-			"code": "41396",
+			"point_id": "73626",
+			"area_id": "470195",
+			"transporter_ids": [
+				"474062",
+				"474065",
+				"41396",
+				"470924",
+				"470907",
+				"472510",
+				"471393",
+				"472088",
+				"472128",
+				"470670",
+				"470747",
+				"471520",
+				"471509",
+				"472743",
+				"472063",
+				"472015",
+				"470743",
+				"472033",
+				"471094",
+				"471200",
+				"472348",
+				"470751",
+				"471451",
+				"471759",
+				"471548",
+				"472267",
+				"471073",
+				"472577",
+				"470915"
+			],
 			"is_paris": true,
 			"lignes": [
+				"A",
 				"D",
 				"R"
 			]
 		},
 		{
 			"nom": "Gare de l'Est",
-			"code": "41010",
+			"point_id": "71359",
+			"area_id": "470519",
+			"transporter_ids": [
+				"41010",
+				"471533",
+				"472655",
+				"472541",
+				"471309",
+				"470740",
+				"470734",
+				"472048",
+				"470947",
+				"471134",
+				"471604",
+				"471559",
+				"471211",
+				"472692",
+				"472723",
+				"471326",
+				"472502",
+				"470866",
+				"470879",
+				"472869",
+				"472527",
+				"472095",
+				"470833",
+				"472949",
+				"472523",
+				"472338",
+				"470704",
+				"471856",
+				"471607",
+				"471696"
+			],
 			"is_paris": true,
 			"lignes": [
-				"E",
 				"P"
 			]
 		},
 		{
 			"nom": "Gare du Nord",
-			"code": "41071",
+			"point_id": "71410",
+			"area_id": "462394",
+			"transporter_ids": [
+				"41071",
+				"471328",
+				"471186",
+				"471102",
+				"471950",
+				"472814",
+				"472263",
+				"472378",
+				"472111",
+				"472856",
+				"472961",
+				"471796",
+				"471869",
+				"472354",
+				"472022",
+				"472861",
+				"471482",
+				"471240",
+				"472757",
+				"472560",
+				"470728",
+				"470724",
+				"470817",
+				"472950",
+				"471968",
+				"471691",
+				"472030",
+				"471022",
+				"471936",
+				"472356",
+				"472034",
+				"470821"
+			],
 			"is_paris": true,
 			"lignes": [
+				"B",
 				"D",
 				"H",
 				"K"
@@ -1075,15 +2088,28 @@
 		},
 		{
 			"nom": "Gargenville",
-			"code": "41152",
+			"point_id": "65732",
+			"area_id": "43129",
+			"transporter_ids": [
+				"41152",
+				"471040",
+				"472345"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Garges Sarcelles",
-			"code": "411426",
+			"nom": "Garges-Sarcelles",
+			"point_id": "65582",
+			"area_id": "43251",
+			"transporter_ids": [
+				"471853",
+				"470910",
+				"473018",
+				"411426"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -1091,15 +2117,57 @@
 		},
 		{
 			"nom": "Gennevilliers",
-			"code": "41075",
+			"point_id": "72303",
+			"area_id": "43130",
+			"transporter_ids": [
+				"41075",
+				"472491",
+				"472623"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
+			"nom": "Gentilly",
+			"point_id": "70543",
+			"area_id": "45877",
+			"transporter_ids": [
+				"473956",
+				"412838",
+				"473957"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Gif-sur-Yvette",
+			"point_id": "62890",
+			"area_id": "47888",
+			"transporter_ids": [
+				"412851",
+				"473946",
+				"473945"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Gisors",
-			"code": "411340",
+			"point_id": "74348",
+			"area_id": "59301",
+			"transporter_ids": [
+				"411340",
+				"471908",
+				"472480",
+				"471054",
+				"472177"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1107,50 +2175,72 @@
 		},
 		{
 			"nom": "Goussainville",
-			"code": "41099",
+			"point_id": "66535",
+			"area_id": "47876",
+			"transporter_ids": [
+				"41099",
+				"472420",
+				"471895",
+				"472622"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Grand Bourg",
-			"code": "41343",
+			"nom": "Grand-Bourg",
+			"point_id": "73627",
+			"area_id": "45860",
+			"transporter_ids": [
+				"41343",
+				"471416",
+				"472504"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Gravigny Balizy",
-			"code": "41248",
+			"nom": "Gretz-Armainvilliers",
+			"point_id": "67658",
+			"area_id": "43131",
+			"transporter_ids": [
+				"41031",
+				"472086",
+				"470729",
+				"471886",
+				"472669"
+			],
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"E"
 			]
 		},
 		{
-			"nom": "Gretz Armainvilliers",
-			"code": "41031",
+			"nom": "Grigny-Centre",
+			"point_id": "60797",
+			"area_id": "43132",
+			"transporter_ids": [
+				"41345",
+				"471218",
+				"471145"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"D"
 			]
 		},
 		{
-			"nom": "Grigny Centre",
-			"code": "41345",
-			"is_paris": false,
-			"lignes": [
-				"D",
-				"R"
-			]
-		},
-		{
-			"nom": "Gros Noyer Saint-Prix",
-			"code": "41117",
+			"nom": "Gros-Noyer-Saint-Prix",
+			"point_id": "66063",
+			"area_id": "46482",
+			"transporter_ids": [
+				"41117",
+				"472694",
+				"472936"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -1158,23 +2248,42 @@
 		},
 		{
 			"nom": "Groslay",
-			"code": "411424",
+			"point_id": "65749",
+			"area_id": "43133",
+			"transporter_ids": [
+				"411424",
+				"471808",
+				"470675"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Guérard la Celle sur Morin",
-			"code": "41046",
+			"nom": "Guérard-la-Celle-sur-Morin",
+			"point_id": "67924",
+			"area_id": "47205",
+			"transporter_ids": [
+				"41046",
+				"472269"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Haussmann Saint-Lazare",
-			"code": "41127",
+			"nom": "Haussmann-Saint-Lazare",
+			"point_id": "73688",
+			"area_id": "58718",
+			"transporter_ids": [
+				"41127",
+				"472796",
+				"471498",
+				"472516",
+				"471272"
+			],
 			"is_paris": true,
 			"lignes": [
 				"E"
@@ -1182,7 +2291,13 @@
 		},
 		{
 			"nom": "Herblay",
-			"code": "41169",
+			"point_id": "65897",
+			"area_id": "47603",
+			"transporter_ids": [
+				"41169",
+				"472032",
+				"470983"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1190,24 +2305,46 @@
 		},
 		{
 			"nom": "Houdan",
-			"code": "41238",
+			"point_id": "63893",
+			"area_id": "47935",
+			"transporter_ids": [
+				"41238",
+				"472346",
+				"471032"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Houilles - Carrières-sur-Seine",
-			"code": "411357",
+			"nom": "Houilles-Carrières-sur-Seine",
+			"point_id": "64741",
+			"area_id": "43082",
+			"transporter_ids": [
+				"411357",
+				"471638",
+				"472389",
+				"472203",
+				"472409",
+				"470891"
+			],
 			"is_paris": false,
 			"lignes": [
+				"A",
 				"J",
 				"L"
 			]
 		},
 		{
 			"nom": "Héricy",
-			"code": "41380",
+			"point_id": "61658",
+			"area_id": "47145",
+			"transporter_ids": [
+				"41380",
+				"471779",
+				"471380"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -1215,7 +2352,13 @@
 		},
 		{
 			"nom": "Igny",
-			"code": "41243",
+			"point_id": "63352",
+			"area_id": "43083",
+			"transporter_ids": [
+				"41243",
+				"471020",
+				"472687"
+			],
 			"is_paris": false,
 			"lignes": [
 				"V"
@@ -1223,23 +2366,43 @@
 		},
 		{
 			"nom": "Invalides",
-			"code": "41208",
+			"point_id": "71274",
+			"area_id": "470540",
+			"transporter_ids": [
+				"472511",
+				"472392",
+				"472193",
+				"472358",
+				"41208"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Isles Armentières Congis",
-			"code": "41064",
+			"nom": "Isles-Armentières-Congis",
+			"point_id": "69162",
+			"area_id": "47484",
+			"transporter_ids": [
+				"41064",
+				"471458",
+				"472702"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Issou Porcheville",
-			"code": "41153",
+			"nom": "Issou-Porcheville",
+			"point_id": "65668",
+			"area_id": "46975",
+			"transporter_ids": [
+				"41153",
+				"471290",
+				"473015"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1247,15 +2410,27 @@
 		},
 		{
 			"nom": "Issy",
-			"code": "41212",
+			"point_id": "70612",
+			"area_id": "43084",
+			"transporter_ids": [
+				"41212",
+				"472515",
+				"471718"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Issy Val-de-Seine",
-			"code": "41227",
+			"nom": "Issy-Val-de-Seine",
+			"point_id": "71016",
+			"area_id": "462357",
+			"transporter_ids": [
+				"41227",
+				"471953",
+				"470792"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1263,7 +2438,13 @@
 		},
 		{
 			"nom": "Ivry-sur-Seine",
-			"code": "41315",
+			"point_id": "424396",
+			"area_id": "46366",
+			"transporter_ids": [
+				"41315",
+				"471391",
+				"471945"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1271,15 +2452,43 @@
 		},
 		{
 			"nom": "Javel",
-			"code": "41211",
+			"point_id": "71150",
+			"area_id": "45346",
+			"transporter_ids": [
+				"472653",
+				"41211",
+				"470744"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Jouy en Josas",
-			"code": "41240",
+			"nom": "Joinville-le-Pont",
+			"point_id": "70640",
+			"area_id": "43135",
+			"transporter_ids": [
+				"40932",
+				"473943",
+				"473950",
+				"473944",
+				"473951"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Jouy-en-Josas",
+			"point_id": "63523",
+			"area_id": "43136",
+			"transporter_ids": [
+				"41240",
+				"471791",
+				"472383"
+			],
 			"is_paris": false,
 			"lignes": [
 				"V"
@@ -1287,41 +2496,80 @@
 		},
 		{
 			"nom": "Juvisy",
-			"code": "41309",
+			"point_id": "478505",
+			"area_id": "45739",
+			"transporter_ids": [
+				"41309",
+				"472085",
+				"471164",
+				"472396",
+				"471215",
+				"472094",
+				"471960",
+				"470750",
+				"471959",
+				"472482",
+				"471494",
+				"472668",
+				"471148"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Juziers",
-			"code": "41151",
+			"point_id": "65988",
+			"area_id": "43137",
+			"transporter_ids": [
+				"41151",
+				"471760",
+				"472000"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "L'Isle Adam Parmain",
-			"code": "41110",
+			"nom": "L'Isle-Adam-Parmain",
+			"point_id": "67172",
+			"area_id": "47589",
+			"transporter_ids": [
+				"41110",
+				"470809",
+				"471307"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "L'Étang la Ville",
-			"code": "41186",
+			"nom": "L'Étang-la-Ville",
+			"point_id": "73603",
+			"area_id": "47937",
+			"transporter_ids": [
+				"41186",
+				"471255",
+				"471846"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
-			"nom": "La Barre Ormesson",
-			"code": "41074",
+			"nom": "La Barre-Ormesson",
+			"point_id": "65360",
+			"area_id": "46470",
+			"transporter_ids": [
+				"41074",
+				"472161",
+				"472585"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -1329,15 +2577,27 @@
 		},
 		{
 			"nom": "La Borne Blanche",
-			"code": "411417",
+			"point_id": "411419",
+			"area_id": "411418",
+			"transporter_ids": [
+				"411417",
+				"471184",
+				"472140"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "La Celle Saint-Cloud",
-			"code": "41182",
+			"nom": "La Celle-Saint-Cloud",
+			"point_id": "64251",
+			"area_id": "47880",
+			"transporter_ids": [
+				"41182",
+				"471931",
+				"471635"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
@@ -1345,110 +2605,263 @@
 		},
 		{
 			"nom": "La Courneuve-Aubervilliers",
-			"code": "40990",
+			"point_id": "72598",
+			"area_id": "43140",
+			"transporter_ids": [
+				"472855",
+				"471549",
+				"471805",
+				"472178",
+				"40990"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
-			"nom": "La Défense (Grande Arche)",
-			"code": "40951",
+			"nom": "La Croix-de-Berny-Fresnes",
+			"point_id": "69813",
+			"area_id": "46007",
+			"transporter_ids": [
+				"473947",
+				"473949",
+				"412830"
+			],
 			"is_paris": false,
 			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "La Défense",
+			"point_id": "71517",
+			"area_id": "470549",
+			"transporter_ids": [
+				"484165",
+				"473935",
+				"470974",
+				"484166",
+				"473937",
+				"473936",
+				"472283",
+				"472137",
+				"473934",
+				"40951"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
 				"E",
 				"L",
-				"N",
 				"U"
 			]
 		},
 		{
-			"nom": "La Ferté Alais",
-			"code": "41351",
+			"nom": "La Ferté-Alais",
+			"point_id": "59661",
+			"area_id": "43142",
+			"transporter_ids": [
+				"41351",
+				"472418",
+				"472588",
+				"470938"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "La Ferté Milon",
-			"code": "411371",
+			"nom": "La Ferté-Milon",
+			"point_id": "411373",
+			"area_id": "411372",
+			"transporter_ids": [
+				"411371",
+				"471295",
+				"472149",
+				"472990"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "La Ferté sous Jouarre",
-			"code": "41062",
+			"nom": "La Ferté-sous-Jouarre",
+			"point_id": "68918",
+			"area_id": "43246",
+			"transporter_ids": [
+				"41062",
+				"472386",
+				"472057"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "La Frette Montigny",
-			"code": "41168",
+			"nom": "La Frette-Montigny",
+			"point_id": "65659",
+			"area_id": "43143",
+			"transporter_ids": [
+				"41168",
+				"473021",
+				"472880"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "La Garenne Colombes",
-			"code": "41195",
+			"nom": "La Garenne-Colombes",
+			"point_id": "72148",
+			"area_id": "47412",
+			"transporter_ids": [
+				"41195",
+				"471865",
+				"471904",
+				"472301",
+				"472998"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
 				"L"
 			]
 		},
 		{
 			"nom": "La Grande Paroisse",
-			"code": "41384",
+			"point_id": "61412",
+			"area_id": "43144",
+			"transporter_ids": [
+				"41384",
+				"470877",
+				"471700"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "La Norville Saint-Germain les Arpajon",
-			"code": "41317",
+			"nom": "La Hacquinière",
+			"point_id": "62825",
+			"area_id": "47046",
+			"transporter_ids": [
+				"412850",
+				"473942",
+				"473940"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "La Norville",
+			"point_id": "60115",
+			"area_id": "47939",
+			"transporter_ids": [
+				"41317",
+				"470828",
+				"472213"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "La Plaine - Stade de France",
-			"code": "411369",
+			"nom": "La Plaine-Stade de France",
+			"point_id": "72211",
+			"area_id": "43145",
+			"transporter_ids": [
+				"411369",
+				"472711",
+				"471680",
+				"472548",
+				"471426"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
+			]
+		},
+		{
+			"nom": "La Varenne-Chennevières",
+			"point_id": "72998",
+			"area_id": "43146",
+			"transporter_ids": [
+				"473939",
+				"473938",
+				"473929",
+				"473928",
+				"40946"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
 			]
 		},
 		{
 			"nom": "La Verrière",
-			"code": "41223",
+			"point_id": "63426",
+			"area_id": "43147",
+			"transporter_ids": [
+				"41223",
+				"471670",
+				"472749",
+				"470844",
+				"471266"
+			],
 			"is_paris": false,
 			"lignes": [
-				"C",
 				"N",
 				"U"
 			]
 		},
 		{
-			"nom": "Lagny Thorigny",
-			"code": "41051",
+			"nom": "Lagny-Thorigny",
+			"point_id": "68494",
+			"area_id": "427872",
+			"transporter_ids": [
+				"41051",
+				"471998",
+				"471091",
+				"471095",
+				"471127"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
 				"P"
 			]
 		},
 		{
+			"nom": "Laplace",
+			"point_id": "70427",
+			"area_id": "43607",
+			"transporter_ids": [
+				"473927",
+				"473926",
+				"412837",
+				"473932"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Lardy",
-			"code": "41301",
+			"point_id": "59761",
+			"area_id": "43149",
+			"transporter_ids": [
+				"41301",
+				"470868",
+				"471098"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1456,7 +2869,13 @@
 		},
 		{
 			"nom": "Lavilletertre",
-			"code": "411347",
+			"point_id": "411349",
+			"area_id": "411348",
+			"transporter_ids": [
+				"411347",
+				"472921",
+				"471969"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1464,75 +2883,194 @@
 		},
 		{
 			"nom": "Le Blanc-Mesnil",
-			"code": "411401",
+			"point_id": "72648",
+			"area_id": "46163",
+			"transporter_ids": [
+				"472904",
+				"470920",
+				"472756",
+				"411401",
+				"471942"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
 			"nom": "Le Bourget",
-			"code": "411408",
+			"point_id": "72641",
+			"area_id": "43231",
+			"transporter_ids": [
+				"411408",
+				"471649",
+				"470773",
+				"472166",
+				"471112"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
-			"nom": "Le Bras de Fer",
-			"code": "41347",
+			"nom": "Le Bras-de-Fer",
+			"point_id": "60422",
+			"area_id": "45850",
+			"transporter_ids": [
+				"41347",
+				"472534",
+				"472200"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
+			]
+		},
+		{
+			"nom": "Le Chénay-Gagny",
+			"point_id": "73266",
+			"area_id": "43127",
+			"transporter_ids": [
+				"41016",
+				"472956",
+				"471024",
+				"472631",
+				"472429"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Le Coudray-Montceaux",
+			"point_id": "59953",
+			"area_id": "45824",
+			"transporter_ids": [
+				"41358",
+				"471694",
+				"472327"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Le Guichet",
+			"point_id": "63025",
+			"area_id": "43232",
+			"transporter_ids": [
+				"473898",
+				"412847",
+				"473902"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
 			]
 		},
 		{
 			"nom": "Le Mée",
-			"code": "41369",
+			"point_id": "62003",
+			"area_id": "45784",
+			"transporter_ids": [
+				"41369",
+				"471577",
+				"471717",
+				"472333",
+				"472899"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
+			]
+		},
+		{
+			"nom": "Le Parc de Saint-Maur",
+			"point_id": "70359",
+			"area_id": "43234",
+			"transporter_ids": [
+				"412718",
+				"473913",
+				"473900"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
 			]
 		},
 		{
 			"nom": "Le Perray",
-			"code": "41226",
+			"point_id": "62804",
+			"area_id": "43235",
+			"transporter_ids": [
+				"41226",
+				"472553",
+				"472843",
+				"471229"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Le Plessis Belleville",
-			"code": "411404",
+			"nom": "Le Plessis-Belleville",
+			"point_id": "411406",
+			"area_id": "411405",
+			"transporter_ids": [
+				"411404",
+				"472518",
+				"470886"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
 			]
 		},
 		{
-			"nom": "Le Plessis Chenet",
-			"code": "41357",
+			"nom": "Le Plessis-Chenet",
+			"point_id": "60006",
+			"area_id": "45820",
+			"transporter_ids": [
+				"41357",
+				"471642",
+				"472734"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Le Raincy Villemomble",
-			"code": "41014",
+			"nom": "Le Raincy-Villemomble-Montfermeil",
+			"point_id": "73297",
+			"area_id": "47901",
+			"transporter_ids": [
+				"41014",
+				"471977",
+				"472799",
+				"472187",
+				"471874"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
 			"nom": "Le Stade",
-			"code": "41136",
+			"point_id": "72287",
+			"area_id": "43236",
+			"transporter_ids": [
+				"41136",
+				"472955",
+				"472443",
+				"471754",
+				"470625"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1540,59 +3078,130 @@
 		},
 		{
 			"nom": "Le Val d'Or",
-			"code": "41179",
+			"point_id": "422067",
+			"area_id": "422065",
+			"transporter_ids": [
+				"472728",
+				"472573",
+				"470655",
+				"41179"
+			],
 			"is_paris": false,
 			"lignes": [
-				"L",
-				"N",
-				"U"
+				"L"
 			]
 		},
 		{
-			"nom": "Le Vert de Maisons",
-			"code": "41338",
+			"nom": "Le Vert-de-Maisons",
+			"point_id": "73624",
+			"area_id": "464040",
+			"transporter_ids": [
+				"41338",
+				"470984",
+				"472241",
+				"470788",
+				"470883"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
+			]
+		},
+		{
+			"nom": "Le Vésinet-Centre",
+			"point_id": "64514",
+			"area_id": "53784",
+			"transporter_ids": [
+				"412800",
+				"473911",
+				"473914"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Le Vésinet-Le Pecq",
+			"point_id": "64582",
+			"area_id": "43237",
+			"transporter_ids": [
+				"473909",
+				"473910",
+				"473912",
+				"479329",
+				"412861"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
 			]
 		},
 		{
 			"nom": "Les Ardoines",
-			"code": "41291",
+			"point_id": "70064",
+			"area_id": "43227",
+			"transporter_ids": [
+				"41291",
+				"470975",
+				"471747"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Les Boullereaux Champigny",
-			"code": "41021",
+			"nom": "Les Baconnets",
+			"point_id": "69622",
+			"area_id": "43228",
+			"transporter_ids": [
+				"473906",
+				"412834",
+				"473905"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"B"
+			]
+		},
+		{
+			"nom": "Les Boullereaux-Champigny",
+			"point_id": "73098",
+			"area_id": "58267",
+			"transporter_ids": [
+				"41021",
+				"472632",
+				"471827"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
 			]
 		},
 		{
 			"nom": "Les Clairières de Verneuil",
-			"code": "41199",
+			"point_id": "65985",
+			"area_id": "54249",
+			"transporter_ids": [
+				"41199",
+				"472100",
+				"472539"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Les Essarts le Roi",
-			"code": "41225",
-			"is_paris": false,
-			"lignes": [
-				"N"
-			]
-		},
-		{
 			"nom": "Les Grésillons",
-			"code": "41082",
+			"point_id": "72225",
+			"area_id": "43230",
+			"transporter_ids": [
+				"41082",
+				"472813",
+				"470819"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1600,7 +3209,15 @@
 		},
 		{
 			"nom": "Les Mureaux",
-			"code": "41200",
+			"point_id": "65994",
+			"area_id": "47881",
+			"transporter_ids": [
+				"41200",
+				"471678",
+				"470770",
+				"471027",
+				"472868"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1608,7 +3225,13 @@
 		},
 		{
 			"nom": "Les Noues",
-			"code": "41098",
+			"point_id": "66650",
+			"area_id": "47968",
+			"transporter_ids": [
+				"41098",
+				"472215",
+				"471529"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -1616,7 +3239,13 @@
 		},
 		{
 			"nom": "Les Saules",
-			"code": "41328",
+			"point_id": "69662",
+			"area_id": "46298",
+			"transporter_ids": [
+				"41328",
+				"472967",
+				"470850"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1624,74 +3253,143 @@
 		},
 		{
 			"nom": "Les Vallées",
-			"code": "41196",
+			"point_id": "72177",
+			"area_id": "47969",
+			"transporter_ids": [
+				"41196",
+				"472646",
+				"471911"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
 				"L"
 			]
 		},
 		{
-			"nom": "Les Yvris Noisy-le-Grand",
-			"code": "41023",
+			"nom": "Les Yvris-Noisy-le-Grand",
+			"point_id": "73096",
+			"area_id": "58288",
+			"transporter_ids": [
+				"41023",
+				"471169",
+				"472408"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Liancourt Saint-Pierre",
-			"code": "411341",
+			"nom": "Les-Essarts-le-Roi",
+			"point_id": "63240",
+			"area_id": "43229",
+			"transporter_ids": [
+				"41225",
+				"472011",
+				"471993"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Liancourt-Saint-Pierre",
+			"point_id": "411343",
+			"area_id": "411342",
+			"transporter_ids": [
+				"411341",
+				"471023",
+				"470645"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Lieusaint Moissy",
-			"code": "41367",
+			"nom": "Lieusaint-Moissy",
+			"point_id": "62412",
+			"area_id": "47669",
+			"transporter_ids": [
+				"41367",
+				"471651",
+				"471364",
+				"471569",
+				"470676"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Limay",
-			"code": "41154",
+			"point_id": "65788",
+			"area_id": "43151",
+			"transporter_ids": [
+				"41154",
+				"471926",
+				"472175"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Livry sur Seine",
-			"code": "41377",
+			"nom": "Livry-sur-Seine",
+			"point_id": "61826",
+			"area_id": "45804",
+			"transporter_ids": [
+				"41377",
+				"471480",
+				"472056"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Lizy sur Ourcq",
-			"code": "41065",
+			"nom": "Lizy-sur-Ourcq",
+			"point_id": "69237",
+			"area_id": "47486",
+			"transporter_ids": [
+				"41065",
+				"471961",
+				"470646"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Longjumeau",
-			"code": "41245",
+			"nom": "Lognes",
+			"point_id": "68123",
+			"area_id": "43152",
+			"transporter_ids": [
+				"473930",
+				"473933",
+				"412827"
+			],
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"A"
 			]
 		},
 		{
 			"nom": "Longueville",
-			"code": "41040",
+			"point_id": "61858",
+			"area_id": "47914",
+			"transporter_ids": [
+				"41040",
+				"471787",
+				"471623",
+				"472765",
+				"471114"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -1699,7 +3397,13 @@
 		},
 		{
 			"nom": "Louveciennes",
-			"code": "41184",
+			"point_id": "64341",
+			"area_id": "473506",
+			"transporter_ids": [
+				"471270",
+				"41184",
+				"472446"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
@@ -1707,15 +3411,55 @@
 		},
 		{
 			"nom": "Louvres",
-			"code": "41100",
+			"point_id": "69300",
+			"area_id": "44628",
+			"transporter_ids": [
+				"41100",
+				"472641",
+				"472467"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
+			"nom": "Lozère",
+			"point_id": "63029",
+			"area_id": "474069",
+			"transporter_ids": [
+				"412846",
+				"473931",
+				"474063"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Luxembourg",
+			"point_id": "71161",
+			"area_id": "43833",
+			"transporter_ids": [
+				"473908",
+				"473907",
+				"412817"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Luzarches",
-			"code": "41115",
+			"point_id": "67177",
+			"area_id": "47528",
+			"transporter_ids": [
+				"41115",
+				"472616",
+				"471314"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -1723,33 +3467,63 @@
 		},
 		{
 			"nom": "Magenta",
-			"code": "41126",
+			"point_id": "478733",
+			"area_id": "58572",
+			"transporter_ids": [
+				"471917",
+				"471721",
+				"41126",
+				"472036",
+				"472124"
+			],
 			"is_paris": true,
 			"lignes": [
 				"E"
 			]
 		},
 		{
-			"nom": "Maisons Alfort Alfortville",
-			"code": "41337",
+			"nom": "Maisons-Alfort-Alfortville",
+			"point_id": "73625",
+			"area_id": "43154",
+			"transporter_ids": [
+				"41337",
+				"471726",
+				"472663",
+				"471973",
+				"471716",
+				"472105"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Maisons Laffitte",
-			"code": "41527",
+			"nom": "Maisons-Laffitte",
+			"point_id": "65048",
+			"area_id": "473109",
+			"transporter_ids": [
+				"41527",
+				"470784",
+				"472928",
+				"471617",
+				"471907"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
+				"A",
 				"L"
 			]
 		},
 		{
 			"nom": "Maisse",
-			"code": "41353",
+			"point_id": "59470",
+			"area_id": "43156",
+			"transporter_ids": [
+				"472083",
+				"41353",
+				"470790"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -1757,15 +3531,50 @@
 		},
 		{
 			"nom": "Malesherbes",
-			"code": "411484",
+			"point_id": "411486",
+			"area_id": "411485",
+			"transporter_ids": [
+				"471420",
+				"471598",
+				"472076",
+				"411484"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Mantes Station",
-			"code": "41155",
+			"nom": "Mantes-Station",
+			"point_id": "65770",
+			"area_id": "46965",
+			"transporter_ids": [
+				"470892",
+				"470711",
+				"41155",
+				"472300",
+				"470779"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
+			"nom": "Mantes-la-Jolie",
+			"point_id": "65931",
+			"area_id": "43157",
+			"transporter_ids": [
+				"41150",
+				"471958",
+				"472217",
+				"472625",
+				"470761",
+				"471185",
+				"471925",
+				"470860",
+				"472803"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J",
@@ -1773,65 +3582,102 @@
 			]
 		},
 		{
-			"nom": "Mantes la Jolie",
-			"code": "41150",
-			"is_paris": false,
-			"lignes": [
-				"J",
-				"N"
-			]
-		},
-		{
-			"nom": "Marchezais Broue",
-			"code": "411494",
+			"nom": "Marchezais - Broué",
+			"point_id": "411496",
+			"area_id": "411495",
+			"transporter_ids": [
+				"411494",
+				"471896",
+				"472176"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Mareil sur Mauldre",
-			"code": "41158",
+			"nom": "Mareil-sur-Mauldre",
+			"point_id": "64572",
+			"area_id": "46884",
+			"transporter_ids": [
+				"41158",
+				"470748",
+				"471061"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Mareuil sur Ourcq",
-			"code": "411374",
+			"nom": "Mareuil-sur-Ourcq",
+			"point_id": "411376",
+			"area_id": "411375",
+			"transporter_ids": [
+				"411374",
+				"471939",
+				"471919"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Marles en Brie",
-			"code": "41044",
+			"nom": "Marles-en-Brie",
+			"point_id": "67604",
+			"area_id": "43247",
+			"transporter_ids": [
+				"41044",
+				"472018",
+				"472469"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Marly le Roi",
-			"code": "41185",
+			"nom": "Marly-le-Roi",
+			"point_id": "64405",
+			"area_id": "43248",
+			"transporter_ids": [
+				"41185",
+				"472098",
+				"470789",
+				"472725"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
-			"nom": "Marolles en Hurepoix",
-			"code": "41303",
+			"nom": "Marne-la-Vallée-Chessy",
+			"point_id": "68385",
+			"area_id": "43239",
+			"transporter_ids": [
+				"412814",
+				"474059",
+				"474064",
+				"472550",
+				"472552",
+				"470780"
+			],
 			"is_paris": false,
 			"lignes": [
-				"C"
+				"A"
 			]
 		},
 		{
-			"nom": "Massy Verrières",
-			"code": "41193",
+			"nom": "Marolles-en-Hurepoix",
+			"point_id": "59948",
+			"area_id": "43159",
+			"transporter_ids": [
+				"41303",
+				"472365",
+				"472903"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -1839,16 +3685,55 @@
 		},
 		{
 			"nom": "Massy-Palaiseau",
-			"code": "412833",
+			"point_id": "63244",
+			"area_id": "58774",
+			"transporter_ids": [
+				"474061",
+				"474056",
+				"474060",
+				"470825",
+				"472207",
+				"471608",
+				"472788",
+				"471587",
+				"472474",
+				"474058",
+				"412833",
+				"494198"
+			],
 			"is_paris": false,
 			"lignes": [
+				"B",
 				"C",
 				"V"
 			]
 		},
 		{
+			"nom": "Massy-Verrières",
+			"point_id": "63320",
+			"area_id": "47940",
+			"transporter_ids": [
+				"471007",
+				"474055",
+				"491414",
+				"471106",
+				"41193"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B",
+				"C"
+			]
+		},
+		{
 			"nom": "Maule",
-			"code": "41159",
+			"point_id": "64674",
+			"area_id": "46886",
+			"transporter_ids": [
+				"472419",
+				"41159",
+				"472054"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -1856,7 +3741,13 @@
 		},
 		{
 			"nom": "Maurecourt",
-			"code": "41148",
+			"point_id": "65827",
+			"area_id": "43160",
+			"transporter_ids": [
+				"41148",
+				"472476",
+				"471595"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1864,16 +3755,34 @@
 		},
 		{
 			"nom": "Meaux",
-			"code": "41038",
+			"point_id": "68963",
+			"area_id": "43161",
+			"transporter_ids": [
+				"472297",
+				"472926",
+				"41038",
+				"471695",
+				"472472"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
 				"P"
 			]
 		},
 		{
 			"nom": "Melun",
-			"code": "41361",
+			"point_id": "61926",
+			"area_id": "47909",
+			"transporter_ids": [
+				"41361",
+				"471708",
+				"471039",
+				"471852",
+				"472714",
+				"472568",
+				"471941",
+				"472572"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D",
@@ -1882,39 +3791,57 @@
 		},
 		{
 			"nom": "Mennecy",
-			"code": "41349",
+			"point_id": "59984",
+			"area_id": "47899",
+			"transporter_ids": [
+				"471590",
+				"41349",
+				"471735"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Mery sur Oise",
-			"code": "41123",
-			"is_paris": false,
-			"lignes": [
-				"H"
-			]
-		},
-		{
 			"nom": "Meudon",
-			"code": "41214",
+			"point_id": "70515",
+			"area_id": "43162",
+			"transporter_ids": [
+				"41214",
+				"470767",
+				"472479",
+				"471180",
+				"472879"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Meudon Val Fleury",
-			"code": "41213",
+			"nom": "Meudon-Val-Fleury",
+			"point_id": "70412",
+			"area_id": "43163",
+			"transporter_ids": [
+				"41213",
+				"471011",
+				"471645"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Meulan Hardricourt",
-			"code": "41165",
+			"nom": "Meulan-Hardricourt",
+			"point_id": "66321",
+			"area_id": "46897",
+			"transporter_ids": [
+				"41165",
+				"472350",
+				"471626"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -1922,15 +3849,34 @@
 		},
 		{
 			"nom": "Mitry-Claye",
-			"code": "411402",
+			"point_id": "69065",
+			"area_id": "43164",
+			"transporter_ids": [
+				"470619",
+				"471674",
+				"470649",
+				"472831",
+				"411402"
+			],
 			"is_paris": false,
 			"lignes": [
+				"B",
 				"K"
 			]
 		},
 		{
 			"nom": "Montargis",
-			"code": "411481",
+			"point_id": "411483",
+			"area_id": "411482",
+			"transporter_ids": [
+				"411481",
+				"471142",
+				"471028",
+				"471986",
+				"472295",
+				"470954",
+				"472375"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -1938,40 +3884,76 @@
 		},
 		{
 			"nom": "Montereau",
-			"code": "41376",
+			"point_id": "61414",
+			"area_id": "47910",
+			"transporter_ids": [
+				"41376",
+				"472370",
+				"471220",
+				"472979",
+				"471469",
+				"472212",
+				"471462"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Montfort l'Amaury Méré",
-			"code": "41254",
+			"nom": "Montfort-L'Amaury-Méré",
+			"point_id": "63955",
+			"area_id": "46850",
+			"transporter_ids": [
+				"41254",
+				"471222",
+				"472848"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Montgeron Crosne",
-			"code": "41362",
+			"nom": "Montgeron-Crosne",
+			"point_id": "63072",
+			"area_id": "47684",
+			"transporter_ids": [
+				"472500",
+				"471656",
+				"470739",
+				"470685",
+				"41362"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Montgeroult Courcelles",
-			"code": "41141",
+			"nom": "Montgeroult-Courcelles",
+			"point_id": "67076",
+			"area_id": "44161",
+			"transporter_ids": [
+				"41141",
+				"470614",
+				"471475"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Montigny Beauchamp",
-			"code": "41088",
+			"nom": "Montigny-Beauchamp",
+			"point_id": "66335",
+			"area_id": "43166",
+			"transporter_ids": [
+				"41088",
+				"471006",
+				"471725",
+				"472001"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -1979,40 +3961,102 @@
 			]
 		},
 		{
-			"nom": "Montigny sur Loing",
-			"code": "41389",
+			"nom": "Montigny-sur-Loing",
+			"point_id": "61327",
+			"area_id": "47125",
+			"transporter_ids": [
+				"41389",
+				"472167",
+				"471189"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
+			"nom": "Montparnasse",
+			"point_id": "71139",
+			"area_id": "43238",
+			"transporter_ids": [
+				"41203",
+				"41204",
+				"471554",
+				"471552",
+				"472308",
+				"472319",
+				"471794",
+				"471693",
+				"472451",
+				"471650",
+				"472895",
+				"472691",
+				"471918",
+				"471742",
+				"471567",
+				"470679",
+				"472964",
+				"471820",
+				"471135",
+				"471935",
+				"471566",
+				"471704",
+				"472627",
+				"472173",
+				"472888",
+				"472624",
+				"472325",
+				"471299",
+				"471733",
+				"471521"
+			],
+			"is_paris": true,
+			"lignes": [
+				"N"
+			]
+		},
+		{
 			"nom": "Montreuil",
-			"code": "41191",
+			"point_id": "63989",
+			"area_id": "43167",
+			"transporter_ids": [
+				"41191",
+				"472155",
+				"471396"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
-			"nom": "Montry Condé",
-			"code": "41059",
-			"is_paris": false,
-			"lignes": [
-				"P"
-			]
-		},
-		{
-			"nom": "Montsoult Maffliers",
-			"code": "41107",
+			"nom": "Montsoult-Maffliers",
+			"point_id": "67000",
+			"area_id": "43168",
+			"transporter_ids": [
+				"41107",
+				"471877",
+				"472023",
+				"471410"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Moret Veneux les Sablons",
-			"code": "41374",
+			"nom": "Moret-Veneux-les-Sablons",
+			"point_id": "61410",
+			"area_id": "47130",
+			"transporter_ids": [
+				"41374",
+				"470606",
+				"472980",
+				"472684",
+				"471196",
+				"472576",
+				"472062"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -2020,7 +4064,13 @@
 		},
 		{
 			"nom": "Mormant",
-			"code": "41036",
+			"point_id": "62351",
+			"area_id": "47184",
+			"transporter_ids": [
+				"41036",
+				"472706",
+				"471839"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -2028,15 +4078,27 @@
 		},
 		{
 			"nom": "Mortcerf",
-			"code": "41045",
+			"point_id": "67805",
+			"area_id": "47942",
+			"transporter_ids": [
+				"41045",
+				"472927",
+				"471374"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Moulin Galant",
-			"code": "41348",
+			"nom": "Moulin-Galant",
+			"point_id": "60084",
+			"area_id": "45761",
+			"transporter_ids": [
+				"41348",
+				"472072",
+				"471178"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -2044,7 +4106,12 @@
 		},
 		{
 			"nom": "Mouroux",
-			"code": "41048",
+			"point_id": "67944",
+			"area_id": "47943",
+			"transporter_ids": [
+				"41048",
+				"471979"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -2052,7 +4119,15 @@
 		},
 		{
 			"nom": "Musée d'Orsay",
-			"code": "41334",
+			"point_id": "71269",
+			"area_id": "45705",
+			"transporter_ids": [
+				"471775",
+				"41334",
+				"472024",
+				"471732",
+				"471946"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
@@ -2060,7 +4135,27 @@
 		},
 		{
 			"nom": "Mériel",
-			"code": "41124",
+			"point_id": "67065",
+			"area_id": "47585",
+			"transporter_ids": [
+				"41124",
+				"470900",
+				"470733"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Méry-sur-Oise",
+			"point_id": "66934",
+			"area_id": "47582",
+			"transporter_ids": [
+				"41123",
+				"472612",
+				"470660"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2068,48 +4163,134 @@
 		},
 		{
 			"nom": "Nangis",
-			"code": "41037",
+			"point_id": "62168",
+			"area_id": "47158",
+			"transporter_ids": [
+				"41037",
+				"471269",
+				"472477"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Nanterre La Folie",
-			"code": "487016",
+			"nom": "Nanterre - La Folie",
+			"point_id": "488087",
+			"area_id": "487011",
+			"transporter_ids": [
+				"487012",
+				"487010",
+				"487013",
+				"487014",
+				"487015",
+				"487016"
+			],
 			"is_paris": false,
 			"lignes": [
 				"E"
 			]
 		},
 		{
-			"nom": "Nanterre Université",
-			"code": "411356",
+			"nom": "Nanterre-Préfecture",
+			"point_id": "70945",
+			"area_id": "43169",
+			"transporter_ids": [
+				"474051",
+				"474052",
+				"474057",
+				"474054",
+				"40916"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
+				"A"
+			]
+		},
+		{
+			"nom": "Nanterre-Université",
+			"point_id": "70956",
+			"area_id": "43170",
+			"transporter_ids": [
+				"474053",
+				"474047",
+				"472807",
+				"470961",
+				"411356",
+				"470899"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
 				"L"
 			]
 		},
 		{
-			"nom": "Nanteuil Saacy",
-			"code": "41063",
+			"nom": "Nanterre-Ville",
+			"point_id": "70940",
+			"area_id": "43171",
+			"transporter_ids": [
+				"474048",
+				"474049",
+				"412798"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nanteuil-Saâcy",
+			"point_id": "69072",
+			"area_id": "47482",
+			"transporter_ids": [
+				"471715",
+				"471612",
+				"41063"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Nanteuil le Haudoin",
-			"code": "411389",
+			"nom": "Nanteuil-le-Haudouin",
+			"point_id": "411391",
+			"area_id": "411390",
+			"transporter_ids": [
+				"411389",
+				"472496",
+				"472571"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
 			]
 		},
 		{
-			"nom": "Nemours Saint-Pierre",
-			"code": "41391",
+			"nom": "Nation",
+			"point_id": "71673",
+			"area_id": "473875",
+			"transporter_ids": [
+				"473919",
+				"473920",
+				"412808"
+			],
+			"is_paris": true,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nemours-Saint-Pierre",
+			"point_id": "61218",
+			"area_id": "43245",
+			"transporter_ids": [
+				"471550",
+				"471867",
+				"41391"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -2117,7 +4298,15 @@
 		},
 		{
 			"nom": "Neuilly Porte Maillot",
-			"code": "41131",
+			"point_id": "71379",
+			"area_id": "415093",
+			"transporter_ids": [
+				"484169",
+				"484167",
+				"472182",
+				"41131",
+				"471859"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C",
@@ -2125,67 +4314,195 @@
 			]
 		},
 		{
-			"nom": "Neuville-Université",
-			"code": "411321",
+			"nom": "Neuilly-Plaisance",
+			"point_id": "73190",
+			"area_id": "43172",
+			"transporter_ids": [
+				"474042",
+				"474050",
+				"40929"
+			],
 			"is_paris": false,
 			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Neuville Université",
+			"point_id": "66436",
+			"area_id": "47879",
+			"transporter_ids": [
+				"411321",
+				"472481",
+				"471126"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
 				"L"
 			]
 		},
 		{
-			"nom": "Nogent l'Artaud Charly",
-			"code": "411383",
+			"nom": "Nogent-l'Artaud-Charly",
+			"point_id": "411385",
+			"area_id": "411384",
+			"transporter_ids": [
+				"411383",
+				"471144",
+				"471871"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Nogent le Perreux",
-			"code": "41020",
+			"nom": "Nogent-le-Perreux",
+			"point_id": "71609",
+			"area_id": "46552",
+			"transporter_ids": [
+				"41020",
+				"471074",
+				"472434",
+				"471997",
+				"472537",
+				"471195",
+				"471686"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Nointel Mours",
-			"code": "41125",
+			"nom": "Nogent-sur-Marne",
+			"point_id": "71590",
+			"area_id": "47886",
+			"transporter_ids": [
+				"412716",
+				"474045",
+				"474043"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Nointel-Mours",
+			"point_id": "67227",
+			"area_id": "47530",
+			"transporter_ids": [
+				"472584",
+				"470762",
+				"41125"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Noisy le Sec",
-			"code": "41012",
+			"nom": "Noisiel",
+			"point_id": "68153",
+			"area_id": "44199",
+			"transporter_ids": [
+				"474038",
+				"474046",
+				"412826"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"A"
 			]
 		},
 		{
-			"nom": "Nézel Aulnay",
-			"code": "41160",
+			"nom": "Noisy-Champs",
+			"point_id": "73163",
+			"area_id": "58937",
+			"transporter_ids": [
+				"474040",
+				"474039",
+				"412825"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Noisy-le-Grand-Mont d'Est",
+			"point_id": "412697",
+			"area_id": "474082",
+			"transporter_ids": [
+				"412823",
+				"474033",
+				"474032",
+				"474041",
+				"479183"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Noisy-le-Sec",
+			"point_id": "72041",
+			"area_id": "44201",
+			"transporter_ids": [
+				"41012",
+				"471015",
+				"472656",
+				"472746",
+				"472591",
+				"471749",
+				"472805",
+				"472317",
+				"472744"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Nézel-Aulnay",
+			"point_id": "64945",
+			"area_id": "47944",
+			"transporter_ids": [
+				"41160",
+				"472371",
+				"471611"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Orangis Bois de l'Epine",
-			"code": "41342",
+			"nom": "Orangis-Bois de l'Epine",
+			"point_id": "60542",
+			"area_id": "48489",
+			"transporter_ids": [
+				"41342",
+				"472278",
+				"470913"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Orgerus Béhoust",
-			"code": "41236",
+			"nom": "Orgerus-Béhoust",
+			"point_id": "64175",
+			"area_id": "47921",
+			"transporter_ids": [
+				"472406",
+				"471444",
+				"41236"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -2193,7 +4510,15 @@
 		},
 		{
 			"nom": "Orly Ville",
-			"code": "41327",
+			"point_id": "69639",
+			"area_id": "46299",
+			"transporter_ids": [
+				"472530",
+				"472984",
+				"41327",
+				"471372",
+				"470752"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2201,23 +4526,59 @@
 		},
 		{
 			"nom": "Ormoy-Villers",
-			"code": "411386",
+			"point_id": "411388",
+			"area_id": "411387",
+			"transporter_ids": [
+				"411386",
+				"470774",
+				"470604",
+				"471055"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
 			]
 		},
 		{
-			"nom": "Orry-la-Ville Coye la Forêt",
-			"code": "411420",
+			"nom": "Orry-la-Ville-Coye-la-Forêt",
+			"point_id": "411422",
+			"area_id": "411421",
+			"transporter_ids": [
+				"471490",
+				"472016",
+				"471280",
+				"472008",
+				"411420"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
+			"nom": "Orsay-Ville",
+			"point_id": "62892",
+			"area_id": "43086",
+			"transporter_ids": [
+				"473901",
+				"473903",
+				"473904",
+				"412794"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Osny",
-			"code": "41139",
+			"point_id": "66977",
+			"area_id": "51494",
+			"transporter_ids": [
+				"472074",
+				"472942",
+				"41139"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -2225,57 +4586,185 @@
 		},
 		{
 			"nom": "Ozoir-la-Ferrière",
-			"code": "41032",
+			"point_id": "462934",
+			"area_id": "462901",
+			"transporter_ids": [
+				"471508",
+				"41032",
+				"472442"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
+			]
+		},
+		{
+			"nom": "Palaiseau",
+			"point_id": "63175",
+			"area_id": "47009",
+			"transporter_ids": [
+				"412848",
+				"474034",
+				"474037"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Palaiseau-Villebon",
+			"point_id": "63067",
+			"area_id": "43175",
+			"transporter_ids": [
+				"474030",
+				"474031",
+				"412849"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
 			]
 		},
 		{
 			"nom": "Pantin",
-			"code": "41011",
+			"point_id": "72421",
+			"area_id": "43176",
+			"transporter_ids": [
+				"41011",
+				"471103",
+				"472972",
+				"471540",
+				"472870",
+				"471454",
+				"470857"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Pereire Levallois",
-			"code": "411230",
+			"nom": "Parc de Sceaux",
+			"point_id": "69906",
+			"area_id": "43177",
+			"transporter_ids": [
+				"474029",
+				"474027",
+				"412831"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Parc des Expositions",
+			"point_id": "73568",
+			"area_id": "47878",
+			"transporter_ids": [
+				"411400",
+				"471705",
+				"472126",
+				"472521"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Paris Austerlitz",
+			"point_id": "71135",
+			"area_id": "43072",
+			"transporter_ids": [
+				"41333",
+				"471233",
+				"472695",
+				"472323",
+				"472865",
+				"471971",
+				"472344",
+				"471976",
+				"472890",
+				"472582",
+				"471335",
+				"471473",
+				"471167",
+				"471077",
+				"471592",
+				"471646",
+				"472724",
+				"472718",
+				"472570",
+				"472959"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Persan Beaumont",
-			"code": "41105",
+			"nom": "Pereire-Levallois",
+			"point_id": "71453",
+			"area_id": "44314",
+			"transporter_ids": [
+				"411230",
+				"471778",
+				"480010",
+				"470905"
+			],
+			"is_paris": true,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Persan-Beaumont",
+			"point_id": "67292",
+			"area_id": "43178",
+			"transporter_ids": [
+				"41105",
+				"471446",
+				"471699",
+				"472536",
+				"472359",
+				"470800",
+				"472873",
+				"471761",
+				"472463",
+				"472394"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Petit Jouy les Loges",
-			"code": "41239",
+			"nom": "Petit-Jouy-les-Loges",
+			"point_id": "63594",
+			"area_id": "57674",
+			"transporter_ids": [
+				"41239",
+				"472794",
+				"471898"
+			],
 			"is_paris": false,
 			"lignes": [
 				"V"
 			]
 		},
 		{
-			"nom": "Petit Vaux",
-			"code": "41249",
-			"is_paris": false,
-			"lignes": [
-				"C"
-			]
-		},
-		{
 			"nom": "Pierrefitte Stains",
-			"code": "411416",
+			"point_id": "72787",
+			"area_id": "43179",
+			"transporter_ids": [
+				"411416",
+				"471236",
+				"471605",
+				"472696",
+				"472708"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
@@ -2283,7 +4772,13 @@
 		},
 		{
 			"nom": "Pierrelaye",
-			"code": "41089",
+			"point_id": "66491",
+			"area_id": "43180",
+			"transporter_ids": [
+				"41089",
+				"472340",
+				"472526"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -2291,16 +4786,29 @@
 			]
 		},
 		{
-			"nom": "Plaisir Grignon",
-			"code": "41234",
+			"nom": "Plaisir-Grignon",
+			"point_id": "64199",
+			"area_id": "47885",
+			"transporter_ids": [
+				"41234",
+				"470807",
+				"472484",
+				"472978"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Plaisir les Clayes",
-			"code": "41246",
+			"nom": "Plaisir-les-Clayes",
+			"point_id": "64195",
+			"area_id": "43181",
+			"transporter_ids": [
+				"41246",
+				"471834",
+				"471108"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -2308,33 +4816,32 @@
 		},
 		{
 			"nom": "Poissy",
-			"code": "411359",
+			"point_id": "64883",
+			"area_id": "47874",
+			"transporter_ids": [
+				"411359",
+				"471620",
+				"471624",
+				"471609",
+				"471599",
+				"471154"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
-				"L"
-			]
-		},
-		{
-			"nom": "Pont Cardinet",
-			"code": "411351",
-			"is_paris": true,
-			"lignes": [
-				"J",
-				"L"
-			]
-		},
-		{
-			"nom": "Pont Petit",
-			"code": "41093",
-			"is_paris": false,
-			"lignes": [
-				"H"
+				"A",
+				"J"
 			]
 		},
 		{
 			"nom": "Pont de Rungis",
-			"code": "41326",
+			"point_id": "69677",
+			"area_id": "47907",
+			"transporter_ids": [
+				"41326",
+				"472171",
+				"472867",
+				"472299"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2342,32 +4849,95 @@
 		},
 		{
 			"nom": "Pont de l'Alma",
-			"code": "41209",
+			"point_id": "71271",
+			"area_id": "415091",
+			"transporter_ids": [
+				"471002",
+				"473007",
+				"41209"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Pont du Garigliano - Hôpital Européen G. Pompidou",
-			"code": "41229",
+			"nom": "Pont du Garigliano",
+			"point_id": "74002",
+			"area_id": "58798",
+			"transporter_ids": [
+				"41229",
+				"472937",
+				"472449"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Ponthierry Pringy",
-			"code": "41387",
+			"nom": "Pont-Cardinet",
+			"point_id": "71475",
+			"area_id": "45493",
+			"transporter_ids": [
+				"470841",
+				"471459",
+				"472320",
+				"411351",
+				"471310",
+				"472138",
+				"470793"
+			],
+			"is_paris": true,
+			"lignes": [
+				"L"
+			]
+		},
+		{
+			"nom": "Pont-Petit",
+			"point_id": "66952",
+			"area_id": "47595",
+			"transporter_ids": [
+				"41093",
+				"472075",
+				"472892"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"H"
+			]
+		},
+		{
+			"nom": "Ponthierry-Pringy",
+			"point_id": "61976",
+			"area_id": "45812",
+			"transporter_ids": [
+				"41387",
+				"472433",
+				"471431"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
 			]
 		},
 		{
 			"nom": "Pontoise",
-			"code": "41091",
+			"point_id": "66816",
+			"area_id": "44411",
+			"transporter_ids": [
+				"41091",
+				"471427",
+				"471025",
+				"473003",
+				"472509",
+				"470651",
+				"471139",
+				"471411",
+				"472473",
+				"470796",
+				"472390"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -2377,23 +4947,55 @@
 		},
 		{
 			"nom": "Porchefontaine",
-			"code": "41218",
+			"point_id": "63886",
+			"area_id": "43183",
+			"transporter_ids": [
+				"472670",
+				"41218",
+				"470858"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
+			"nom": "Port Royal",
+			"point_id": "71106",
+			"area_id": "44500",
+			"transporter_ids": [
+				"473918",
+				"473917",
+				"412818"
+			],
+			"is_paris": true,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Porte de Clichy",
-			"code": "41009",
+			"point_id": "71545",
+			"area_id": "44514",
+			"transporter_ids": [
+				"41009",
+				"470826",
+				"471557"
+			],
 			"is_paris": true,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Presles Courcelles",
-			"code": "41108",
+			"nom": "Presles-Courcelles",
+			"point_id": "67169",
+			"area_id": "47946",
+			"transporter_ids": [
+				"41108",
+				"471277",
+				"470895"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2401,15 +5003,27 @@
 		},
 		{
 			"nom": "Provins",
-			"code": "41041",
+			"point_id": "62139",
+			"area_id": "47181",
+			"transporter_ids": [
+				"41041",
+				"471395",
+				"472279"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Précy sur Oise",
-			"code": "411325",
+			"nom": "Précy-sur-Oise",
+			"point_id": "411327",
+			"area_id": "411326",
+			"transporter_ids": [
+				"411325",
+				"472775",
+				"472762"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2417,78 +5031,165 @@
 		},
 		{
 			"nom": "Puteaux",
-			"code": "41181",
+			"point_id": "71422",
+			"area_id": "43184",
+			"transporter_ids": [
+				"41181",
+				"471324",
+				"470869"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L",
-				"N",
 				"U"
 			]
 		},
 		{
 			"nom": "Rambouillet",
-			"code": "41228",
+			"point_id": "60665",
+			"area_id": "427870",
+			"transporter_ids": [
+				"41228",
+				"472483",
+				"472543",
+				"471377",
+				"471399"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Ris Orangis",
-			"code": "41341",
+			"nom": "Ris-Orangis",
+			"point_id": "60839",
+			"area_id": "47948",
+			"transporter_ids": [
+				"41341",
+				"471999",
+				"471235"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Roissy en Brie",
-			"code": "41033",
+			"nom": "Robinson",
+			"point_id": "427230",
+			"area_id": "43186",
+			"transporter_ids": [
+				"412832",
+				"474026",
+				"474025",
+				"474024"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"B"
+			]
+		},
+		{
+			"nom": "Roissy-en-Brie",
+			"point_id": "67839",
+			"area_id": "46568",
+			"transporter_ids": [
+				"41033",
+				"470946",
+				"471570",
+				"472127",
+				"470987"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
 			]
 		},
 		{
 			"nom": "Rosa Parks",
-			"code": "420316",
+			"point_id": "73798",
+			"area_id": "58498",
+			"transporter_ids": [
+				"420316",
+				"472747",
+				"471119"
+			],
 			"is_paris": true,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Rosny Bois Perrier",
-			"code": "41017",
+			"nom": "Rosny-Bois-Perrier",
+			"point_id": "426280",
+			"area_id": "42356",
+			"transporter_ids": [
+				"41017",
+				"471124",
+				"472712",
+				"472307",
+				"470763"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Rosny sous Bois",
-			"code": "41018",
+			"nom": "Rosny-sous-Bois",
+			"point_id": "71935",
+			"area_id": "47877",
+			"transporter_ids": [
+				"41018",
+				"472202",
+				"472882",
+				"472717",
+				"471618"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
 			]
 		},
 		{
-			"nom": "Rosny sur Seine",
-			"code": "41289",
+			"nom": "Rosny-sur-Seine",
+			"point_id": "66157",
+			"area_id": "479059",
+			"transporter_ids": [
+				"41289",
+				"471422",
+				"472945"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Rungis la Fraternelle",
-			"code": "41329",
+			"nom": "Rueil-Malmaison",
+			"point_id": "70902",
+			"area_id": "58875",
+			"transporter_ids": [
+				"412796",
+				"474021",
+				"474023",
+				"474022",
+				"474020"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Rungis-La Fraternelle",
+			"point_id": "69633",
+			"area_id": "44787",
+			"transporter_ids": [
+				"41329",
+				"471741",
+				"471045"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2496,7 +5197,13 @@
 		},
 		{
 			"nom": "Saint-Chéron",
-			"code": "41322",
+			"point_id": "59882",
+			"area_id": "47952",
+			"transporter_ids": [
+				"41322",
+				"471463",
+				"472475"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2504,17 +5211,35 @@
 		},
 		{
 			"nom": "Saint-Cloud",
-			"code": "41178",
+			"point_id": "73749",
+			"area_id": "43196",
+			"transporter_ids": [
+				"41178",
+				"471432",
+				"471421",
+				"471906",
+				"470852"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L",
-				"N",
 				"U"
 			]
 		},
 		{
-			"nom": "Saint-Cyr l'Ecole",
-			"code": "41222",
+			"nom": "Saint-Cyr",
+			"point_id": "73731",
+			"area_id": "46990",
+			"transporter_ids": [
+				"41222",
+				"470890",
+				"471247",
+				"471036",
+				"471899",
+				"472732",
+				"472908",
+				"494169"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -2524,7 +5249,18 @@
 		},
 		{
 			"nom": "Saint-Denis",
-			"code": "411414",
+			"point_id": "72323",
+			"area_id": "412743",
+			"transporter_ids": [
+				"411414",
+				"472399",
+				"470626",
+				"472918",
+				"472089",
+				"470700",
+				"471298",
+				"471568"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D",
@@ -2533,32 +5269,110 @@
 		},
 		{
 			"nom": "Saint-Fargeau",
-			"code": "41388",
+			"point_id": "62172",
+			"area_id": "45814",
+			"transporter_ids": [
+				"41388",
+				"472872",
+				"471461"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
+			]
+		},
+		{
+			"nom": "Saint-Germain-en-Laye",
+			"point_id": "64589",
+			"area_id": "43198",
+			"transporter_ids": [
+				"40927",
+				"474017",
+				"474016",
+				"474015"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
 			]
 		},
 		{
 			"nom": "Saint-Gratien",
-			"code": "41095",
+			"point_id": "65305",
+			"area_id": "43201",
+			"transporter_ids": [
+				"41095",
+				"472677",
+				"472836"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Saint-Leu d'Esserent",
-			"code": "411328",
+			"nom": "Saint-Lazare",
+			"point_id": "71370",
+			"area_id": "58566",
+			"transporter_ids": [
+				"41194",
+				"471341",
+				"471238",
+				"472142",
+				"472110",
+				"470674",
+				"470776",
+				"470624",
+				"472852",
+				"471495",
+				"471150",
+				"471063",
+				"471940",
+				"470692",
+				"472273",
+				"472368",
+				"472013",
+				"472934",
+				"471724",
+				"471658",
+				"472519",
+				"472070",
+				"472102",
+				"471064",
+				"472546",
+				"472208",
+				"472318"
+			],
+			"is_paris": true,
+			"lignes": [
+				"J",
+				"L"
+			]
+		},
+		{
+			"nom": "Saint-Leu d’Esserent",
+			"point_id": "411330",
+			"area_id": "411329",
+			"transporter_ids": [
+				"411328",
+				"471736",
+				"472485"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Saint-Leu la Foret",
-			"code": "41118",
+			"nom": "Saint-Leu-la-Forêt",
+			"point_id": "66452",
+			"area_id": "48964",
+			"transporter_ids": [
+				"41118",
+				"471051",
+				"470668",
+				"471080"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2566,39 +5380,86 @@
 		},
 		{
 			"nom": "Saint-Mammès",
-			"code": "41375",
+			"point_id": "61423",
+			"area_id": "47953",
+			"transporter_ids": [
+				"41375",
+				"472231",
+				"472385"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Saint-Martin d'Etampes",
-			"code": "41316",
+			"nom": "Saint-Martin-d'Étampes",
+			"point_id": "59531",
+			"area_id": "47115",
+			"transporter_ids": [
+				"41316",
+				"472800"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Saint-Michel Notre-Dame",
-			"code": "412816",
+			"nom": "Saint-Maur-Créteil",
+			"point_id": "70393",
+			"area_id": "44801",
+			"transporter_ids": [
+				"474014",
+				"474013",
+				"412719"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Saint-Michel",
+			"point_id": "73620",
+			"area_id": "44877",
+			"transporter_ids": [
+				"412816",
+				"473916",
+				"472262",
+				"470634",
+				"473915"
+			],
 			"is_paris": true,
 			"lignes": [
+				"B",
 				"C"
 			]
 		},
 		{
 			"nom": "Saint-Michel-sur-Orge",
-			"code": "41305",
+			"point_id": "60536",
+			"area_id": "43202",
+			"transporter_ids": [
+				"41305",
+				"470965",
+				"472833"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Saint-Nom-la-Bretèche Forêt de Marly",
-			"code": "41187",
+			"nom": "Saint-Nom-la-Bretèche - Forêt de Marly",
+			"point_id": "64382",
+			"area_id": "47954",
+			"transporter_ids": [
+				"41187",
+				"494166",
+				"471811",
+				"472894"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
@@ -2606,7 +5467,13 @@
 		},
 		{
 			"nom": "Saint-Ouen",
-			"code": "41076",
+			"point_id": "72126",
+			"area_id": "43203",
+			"transporter_ids": [
+				"41076",
+				"471345",
+				"471049"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2614,7 +5481,14 @@
 		},
 		{
 			"nom": "Saint-Ouen-l'Aumône",
-			"code": "41090",
+			"point_id": "66803",
+			"area_id": "47599",
+			"transporter_ids": [
+				"41090",
+				"472654",
+				"471653",
+				"471117"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -2622,25 +5496,47 @@
 			]
 		},
 		{
-			"nom": "Saint-Ouen-l'Aumône Liesse",
-			"code": "41129",
-			"is_paris": false,
-			"lignes": [
-				"C",
-				"H"
-			]
-		},
-		{
-			"nom": "Saint-Ouen-l'Aumône Quartier de l'Église",
-			"code": "41146",
+			"nom": "Saint-Ouen-l'Aumône - Quartier de l'Église",
+			"point_id": "66731",
+			"area_id": "47955",
+			"transporter_ids": [
+				"41146",
+				"471776",
+				"470962"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Saint-Quentin en Yvelines",
-			"code": "41251",
+			"nom": "Saint-Ouen-l'Aumône-Liesse",
+			"point_id": "66659",
+			"area_id": "43150",
+			"transporter_ids": [
+				"41129",
+				"473006",
+				"471301"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C",
+				"H"
+			]
+		},
+		{
+			"nom": "Saint-Quentin-en-Yvelines",
+			"point_id": "63812",
+			"area_id": "461504",
+			"transporter_ids": [
+				"41251",
+				"471781",
+				"472780",
+				"472731",
+				"472414",
+				"471329",
+				"470830"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -2649,16 +5545,42 @@
 			]
 		},
 		{
-			"nom": "Sainte-Colombe Septveilles",
-			"code": "41042",
+			"nom": "Saint-Rémy-lès-Chevreuse",
+			"point_id": "62978",
+			"area_id": "47889",
+			"transporter_ids": [
+				"412844",
+				"474011",
+				"474009",
+				"474012"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Sainte-Colombe-Septveilles",
+			"point_id": "61961",
+			"area_id": "47171",
+			"transporter_ids": [
+				"41042",
+				"472837"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
 			]
 		},
 		{
-			"nom": "Sainte-Geneviève des Bois",
-			"code": "41306",
+			"nom": "Sainte-Geneviève-des-Bois",
+			"point_id": "60785",
+			"area_id": "43188",
+			"transporter_ids": [
+				"41306",
+				"471366",
+				"472285"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2666,23 +5588,42 @@
 		},
 		{
 			"nom": "Sannois",
-			"code": "41096",
+			"point_id": "65441",
+			"area_id": "43189",
+			"transporter_ids": [
+				"41096",
+				"470876",
+				"472328"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Santeuil le Perchay",
-			"code": "41143",
+			"nom": "Santeuil-le-Perchay",
+			"point_id": "67196",
+			"area_id": "47949",
+			"transporter_ids": [
+				"41143",
+				"472637",
+				"471631"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Sarcelles Saint-Brice",
-			"code": "411423",
+			"nom": "Sarcelles-Saint-Brice",
+			"point_id": "66079",
+			"area_id": "43190",
+			"transporter_ids": [
+				"411423",
+				"472223",
+				"471312",
+				"472533"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2690,33 +5631,75 @@
 		},
 		{
 			"nom": "Sartrouville",
-			"code": "411360",
+			"point_id": "64918",
+			"area_id": "43191",
+			"transporter_ids": [
+				"411360",
+				"471763",
+				"470846",
+				"472440",
+				"471244",
+				"472009"
+			],
 			"is_paris": false,
 			"lignes": [
-				"J",
+				"A",
 				"L"
 			]
 		},
 		{
-			"nom": "Savigny le Temple Nandy",
-			"code": "41370",
+			"nom": "Savigny-le-Temple-Nandy",
+			"point_id": "62290",
+			"area_id": "47665",
+			"transporter_ids": [
+				"41370",
+				"471687",
+				"472545",
+				"470678",
+				"472583"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Savigny sur Orge",
-			"code": "41308",
+			"nom": "Savigny-sur-Orge",
+			"point_id": "60987",
+			"area_id": "43192",
+			"transporter_ids": [
+				"41308",
+				"471613",
+				"472330"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
+			"nom": "Sceaux",
+			"point_id": "74265",
+			"area_id": "59206",
+			"transporter_ids": [
+				"474018",
+				"474019",
+				"412841"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
 			"nom": "Sermaise",
-			"code": "41323",
+			"point_id": "59842",
+			"area_id": "47950",
+			"transporter_ids": [
+				"41323",
+				"472049",
+				"471838"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -2724,76 +5707,160 @@
 		},
 		{
 			"nom": "Seugy",
-			"code": "41079",
+			"point_id": "67180",
+			"area_id": "47951",
+			"transporter_ids": [
+				"41079",
+				"470786"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Sevran - Livry",
-			"code": "411411",
+			"nom": "Sevran-Beaudottes",
+			"point_id": "73491",
+			"area_id": "43193",
+			"transporter_ids": [
+				"470731",
+				"472186",
+				"411413"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
-			"nom": "Sevres Rive Gauche",
-			"code": "41216",
+			"nom": "Sevran-Livry",
+			"point_id": "73439",
+			"area_id": "43194",
+			"transporter_ids": [
+				"472535",
+				"472962",
+				"471476",
+				"471467",
+				"411411"
+			],
 			"is_paris": false,
 			"lignes": [
-				"N"
+				"B"
 			]
 		},
 		{
-			"nom": "Sevres Ville d'Avray",
-			"code": "41177",
-			"is_paris": false,
-			"lignes": [
-				"L",
-				"N",
-				"U"
-			]
-		},
-		{
-			"nom": "Souppes",
-			"code": "41393",
+			"nom": "Souppes-Château-Landon",
+			"point_id": "61094",
+			"area_id": "47118",
+			"transporter_ids": [
+				"41393",
+				"472010",
+				"470712"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Stade de France Saint-Denis",
-			"code": "411370",
-			"is_paris": false,
-			"lignes": [
-				"D",
-				"H"
-			]
-		},
-		{
-			"nom": "Suresnes Mont Valerien",
-			"code": "41180",
-			"is_paris": false,
-			"lignes": [
-				"L",
-				"N",
-				"U"
-			]
-		},
-		{
-			"nom": "Survilliers Fosses",
-			"code": "41101",
+			"nom": "Stade de France-Saint-Denis",
+			"point_id": "72206",
+			"area_id": "43204",
+			"transporter_ids": [
+				"411370",
+				"470904",
+				"470637",
+				"472411"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Tacoignières Richebourg",
-			"code": "41237",
+			"nom": "Sucy-Bonneuil",
+			"point_id": "72929",
+			"area_id": "58792",
+			"transporter_ids": [
+				"474007",
+				"474010",
+				"412803"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
+			"nom": "Suresnes-Mont-Valérien",
+			"point_id": "70829",
+			"area_id": "43205",
+			"transporter_ids": [
+				"41180",
+				"472349",
+				"471181",
+				"471065"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"U"
+			]
+		},
+		{
+			"nom": "Survilliers-Fosses",
+			"point_id": "69450",
+			"area_id": "47958",
+			"transporter_ids": [
+				"41101",
+				"470986",
+				"472877"
+			],
+			"is_paris": false,
+			"lignes": [
+				"D"
+			]
+		},
+		{
+			"nom": "Sèvres Rive Gauche",
+			"point_id": "463754",
+			"area_id": "43195",
+			"transporter_ids": [
+				"41216",
+				"471302",
+				"471152",
+				"472662",
+				"470898"
+			],
+			"is_paris": false,
+			"lignes": [
+				"N"
+			]
+		},
+		{
+			"nom": "Sèvres-Ville-d'Avray",
+			"point_id": "70686",
+			"area_id": "47767",
+			"transporter_ids": [
+				"41177",
+				"472701",
+				"471746"
+			],
+			"is_paris": false,
+			"lignes": [
+				"L",
+				"U"
+			]
+		},
+		{
+			"nom": "Tacoignières-Richebourg",
+			"point_id": "64194",
+			"area_id": "47959",
+			"transporter_ids": [
+				"41237",
+				"471731",
+				"472649"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -2801,15 +5868,27 @@
 		},
 		{
 			"nom": "Taverny",
-			"code": "41120",
+			"point_id": "66557",
+			"area_id": "43206",
+			"transporter_ids": [
+				"41120",
+				"471641",
+				"471883"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Thieux Nantouillet",
-			"code": "41081",
+			"nom": "Thieux-Nantouillet",
+			"point_id": "69196",
+			"area_id": "47960",
+			"transporter_ids": [
+				"41081",
+				"472790",
+				"472265"
+			],
 			"is_paris": false,
 			"lignes": [
 				"K"
@@ -2817,23 +5896,57 @@
 		},
 		{
 			"nom": "Thomery",
-			"code": "41373",
+			"point_id": "61480",
+			"area_id": "47961",
+			"transporter_ids": [
+				"41373",
+				"471739",
+				"472239"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Thun le Paradis",
-			"code": "41164",
+			"nom": "Thun-le-Paradis",
+			"point_id": "66334",
+			"area_id": "46902",
+			"transporter_ids": [
+				"41164",
+				"470612",
+				"471382"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
+			"nom": "Torcy",
+			"point_id": "68129",
+			"area_id": "43207",
+			"transporter_ids": [
+				"474005",
+				"474006",
+				"40944",
+				"474008"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
+			]
+		},
+		{
 			"nom": "Tournan",
-			"code": "41043",
+			"point_id": "67625",
+			"area_id": "43208",
+			"transporter_ids": [
+				"41043",
+				"472817",
+				"471445",
+				"471983"
+			],
 			"is_paris": false,
 			"lignes": [
 				"E",
@@ -2842,17 +5955,30 @@
 		},
 		{
 			"nom": "Trappes",
-			"code": "41250",
+			"point_id": "463850",
+			"area_id": "43209",
+			"transporter_ids": [
+				"41250",
+				"472547",
+				"472310",
+				"472042",
+				"472676"
+			],
 			"is_paris": false,
 			"lignes": [
-				"C",
 				"N",
 				"U"
 			]
 		},
 		{
 			"nom": "Trie-Château",
-			"code": "411337",
+			"point_id": "411339",
+			"area_id": "411338",
+			"transporter_ids": [
+				"411337",
+				"472020",
+				"470665"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -2860,7 +5986,13 @@
 		},
 		{
 			"nom": "Triel-sur-Seine",
-			"code": "41162",
+			"point_id": "463843",
+			"area_id": "46926",
+			"transporter_ids": [
+				"41162",
+				"472640",
+				"470997"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -2868,7 +6000,13 @@
 		},
 		{
 			"nom": "Trilport",
-			"code": "41060",
+			"point_id": "68984",
+			"area_id": "47962",
+			"transporter_ids": [
+				"41060",
+				"472185",
+				"472274"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -2876,49 +6014,109 @@
 		},
 		{
 			"nom": "Us",
-			"code": "41142",
+			"point_id": "67131",
+			"area_id": "47922",
+			"transporter_ids": [
+				"41142",
+				"471090",
+				"470764"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Vaires Torcy",
-			"code": "41049",
+			"nom": "Vaires-Torcy",
+			"point_id": "68419",
+			"area_id": "43211",
+			"transporter_ids": [
+				"472738",
+				"472069",
+				"471245",
+				"471870",
+				"41049"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
 				"P"
 			]
 		},
 		{
 			"nom": "Val d'Argenteuil",
-			"code": "41161",
+			"point_id": "65110",
+			"area_id": "43212",
+			"transporter_ids": [
+				"41161",
+				"471415",
+				"470667"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Val de Fontenay",
-			"code": "41019",
+			"nom": "Val d'Europe",
+			"point_id": "68266",
+			"area_id": "43213",
+			"transporter_ids": [
+				"474004",
+				"474003",
+				"40953"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"A"
+			]
+		},
+		{
+			"nom": "Val de Fontenay",
+			"point_id": "71718",
+			"area_id": "47900",
+			"transporter_ids": [
+				"471698",
+				"474001",
+				"41019",
+				"470867",
+				"471654",
+				"474002",
+				"471194"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A",
+				"E"
 			]
 		},
 		{
 			"nom": "Valmondois",
-			"code": "41111",
+			"point_id": "67107",
+			"area_id": "47588",
+			"transporter_ids": [
+				"41111",
+				"472165",
+				"472090",
+				"472795",
+				"472121",
+				"472456"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Vanves - Malakoff",
-			"code": "41205",
+			"nom": "Vanves-Malakoff",
+			"point_id": "70584",
+			"area_id": "43214",
+			"transporter_ids": [
+				"41205",
+				"471812",
+				"472007",
+				"472047",
+				"470871"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
@@ -2926,7 +6124,13 @@
 		},
 		{
 			"nom": "Vauboyen",
-			"code": "41241",
+			"point_id": "63454",
+			"area_id": "43215",
+			"transporter_ids": [
+				"41241",
+				"472889",
+				"471996"
+			],
 			"is_paris": false,
 			"lignes": [
 				"V"
@@ -2934,7 +6138,13 @@
 		},
 		{
 			"nom": "Vaucelles",
-			"code": "41119",
+			"point_id": "66520",
+			"area_id": "47963",
+			"transporter_ids": [
+				"41119",
+				"472910",
+				"471672"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -2942,23 +6152,42 @@
 		},
 		{
 			"nom": "Vaucresson",
-			"code": "41175",
+			"point_id": "70705",
+			"area_id": "43216",
+			"transporter_ids": [
+				"41175",
+				"471026",
+				"471037"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
-			"nom": "Vaux sur Seine",
-			"code": "41163",
+			"nom": "Vaux-sur-Seine",
+			"point_id": "66338",
+			"area_id": "43217",
+			"transporter_ids": [
+				"41163",
+				"470629",
+				"472999"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Verneuil l'Étang",
-			"code": "41035",
+			"nom": "Verneuil-l'Etang",
+			"point_id": "62471",
+			"area_id": "47187",
+			"transporter_ids": [
+				"41035",
+				"470682",
+				"472675",
+				"471267"
+			],
 			"is_paris": false,
 			"lignes": [
 				"P"
@@ -2966,7 +6195,13 @@
 		},
 		{
 			"nom": "Vernon",
-			"code": "41287",
+			"point_id": "74127",
+			"area_id": "59038",
+			"transporter_ids": [
+				"41287",
+				"471217",
+				"471970"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
@@ -2974,33 +6209,45 @@
 		},
 		{
 			"nom": "Vernou-sur-Seine",
-			"code": "41383",
+			"point_id": "61450",
+			"area_id": "43218",
+			"transporter_ids": [
+				"41383",
+				"472841",
+				"472351"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
 			]
 		},
 		{
-			"nom": "Vernouillet Verneuil",
-			"code": "41198",
+			"nom": "Vernouillet-Verneuil",
+			"point_id": "65691",
+			"area_id": "47964",
+			"transporter_ids": [
+				"41198",
+				"470930",
+				"471622",
+				"470650",
+				"472710"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Versailles Chantiers",
-			"code": "41207",
-			"is_paris": false,
-			"lignes": [
-				"C",
-				"N",
-				"U"
-			]
-		},
-		{
-			"nom": "Versailles Château - Rive Gauche",
-			"code": "41217",
+			"nom": "Versailles Château",
+			"point_id": "73721",
+			"area_id": "43220",
+			"transporter_ids": [
+				"41217",
+				"471963",
+				"470707",
+				"472314",
+				"470893"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -3008,23 +6255,64 @@
 		},
 		{
 			"nom": "Versailles Rive Droite",
-			"code": "41190",
+			"point_id": "64021",
+			"area_id": "44602",
+			"transporter_ids": [
+				"41190",
+				"470933",
+				"470999"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
 			]
 		},
 		{
-			"nom": "Vert-Galant",
-			"code": "411412",
+			"nom": "Versailles-Chantiers",
+			"point_id": "63880",
+			"area_id": "43219",
+			"transporter_ids": [
+				"41207",
+				"471928",
+				"472737",
+				"470737",
+				"471389",
+				"472407",
+				"472104",
+				"470766",
+				"471738"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"N",
+				"U",
+				"V"
+			]
+		},
+		{
+			"nom": "Vert-Galant",
+			"point_id": "73482",
+			"area_id": "46222",
+			"transporter_ids": [
+				"472700",
+				"472517",
+				"472643",
+				"470873",
+				"411412"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
 			]
 		},
 		{
 			"nom": "Viarmes",
-			"code": "41114",
+			"point_id": "67176",
+			"area_id": "47525",
+			"transporter_ids": [
+				"41114",
+				"471497"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
@@ -3032,51 +6320,90 @@
 		},
 		{
 			"nom": "Vigneux-sur-Seine",
-			"code": "41339",
+			"point_id": "63071",
+			"area_id": "45735",
+			"transporter_ids": [
+				"472907",
+				"41339",
+				"470627",
+				"471136",
+				"472304"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Villabé",
-			"code": "41356",
+			"point_id": "60124",
+			"area_id": "47904",
+			"transporter_ids": [
+				"41356",
+				"470623",
+				"471346"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Villaines",
-			"code": "41078",
+			"point_id": "67072",
+			"area_id": "47522",
+			"transporter_ids": [
+				"41078",
+				"470710"
+			],
 			"is_paris": false,
 			"lignes": [
 				"H"
 			]
 		},
 		{
-			"nom": "Villeneuve Triage",
-			"code": "41359",
+			"nom": "Villeneuve-Saint-Georges",
+			"point_id": "69568",
+			"area_id": "45067",
+			"transporter_ids": [
+				"41360",
+				"470949",
+				"472195",
+				"470943",
+				"471784",
+				"472465",
+				"473001",
+				"472886"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Villeneuve-Saint-Georges",
-			"code": "41360",
+			"nom": "Villeneuve-Triage",
+			"point_id": "69671",
+			"area_id": "46304",
+			"transporter_ids": [
+				"41359",
+				"472347",
+				"472544",
+				"470795"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Villeneuve-le-Roi",
-			"code": "41312",
+			"point_id": "69625",
+			"area_id": "46307",
+			"transporter_ids": [
+				"41312",
+				"472125",
+				"470951"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -3084,64 +6411,132 @@
 		},
 		{
 			"nom": "Villennes-sur-Seine",
-			"code": "41197",
+			"point_id": "64949",
+			"area_id": "47966",
+			"transporter_ids": [
+				"471690",
+				"472816",
+				"41197"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J"
 			]
 		},
 		{
-			"nom": "Villeparisis - Mitry-Le-Neuf",
-			"code": "411403",
+			"nom": "Villeparisis-Mitry-le-Neuf",
+			"point_id": "68916",
+			"area_id": "46725",
+			"transporter_ids": [
+				"411403",
+				"470683",
+				"471813",
+				"472374",
+				"472470"
+			],
 			"is_paris": false,
 			"lignes": [
-				"K"
+				"B"
 			]
 		},
 		{
-			"nom": "Villepreux les Clayes",
-			"code": "41233",
+			"nom": "Villepinte",
+			"point_id": "73547",
+			"area_id": "58793",
+			"transporter_ids": [
+				"472174",
+				"40962",
+				"471271"
+			],
+			"is_paris": false,
+			"lignes": [
+				"B"
+			]
+		},
+		{
+			"nom": "Villepreux-les-Clayes",
+			"point_id": "64145",
+			"area_id": "43221",
+			"transporter_ids": [
+				"41233",
+				"471442",
+				"471493"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Villiers Montbarbin",
-			"code": "41068",
-			"is_paris": false,
-			"lignes": [
-				"P"
-			]
-		},
-		{
-			"nom": "Villiers Neauphle Pontchartrain",
-			"code": "41253",
+			"nom": "Villiers-Neauphle Pontchartrain",
+			"point_id": "424296",
+			"area_id": "46847",
+			"transporter_ids": [
+				"41253",
+				"470968",
+				"472428"
+			],
 			"is_paris": false,
 			"lignes": [
 				"N"
 			]
 		},
 		{
-			"nom": "Villiers-le-Bel Gonesse Arnouville",
-			"code": "41097",
+			"nom": "Villiers-le-Bel-Gonesse-Arnouville",
+			"point_id": "66009",
+			"area_id": "43222",
+			"transporter_ids": [
+				"41097",
+				"472106",
+				"471601",
+				"471491",
+				"471989",
+				"472108",
+				"470843"
+			],
 			"is_paris": false,
 			"lignes": [
 				"D"
 			]
 		},
 		{
-			"nom": "Villiers-sur-Marne Plessis Trévise",
-			"code": "41022",
+			"nom": "Villiers-sur-Marne - Le Plessis-Trévise",
+			"point_id": "73097",
+			"area_id": "43223",
+			"transporter_ids": [
+				"41022",
+				"471450",
+				"472958",
+				"472393"
+			],
 			"is_paris": false,
 			"lignes": [
-				"E",
-				"P"
+				"E"
+			]
+		},
+		{
+			"nom": "Vincennes",
+			"point_id": "71651",
+			"area_id": "43224",
+			"transporter_ids": [
+				"474000",
+				"473998",
+				"412811"
+			],
+			"is_paris": false,
+			"lignes": [
+				"A"
 			]
 		},
 		{
 			"nom": "Viroflay Rive Droite",
-			"code": "41192",
+			"point_id": "422420",
+			"area_id": "46689",
+			"transporter_ids": [
+				"41192",
+				"472236",
+				"473014"
+			],
 			"is_paris": false,
 			"lignes": [
 				"L"
@@ -3149,7 +6544,17 @@
 		},
 		{
 			"nom": "Viroflay Rive Gauche",
-			"code": "41221",
+			"point_id": "63923",
+			"area_id": "462388",
+			"transporter_ids": [
+				"41221",
+				"471343",
+				"472845",
+				"471362",
+				"471175",
+				"471767",
+				"472387"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C",
@@ -3158,16 +6563,27 @@
 		},
 		{
 			"nom": "Viry-Châtillon",
-			"code": "41340",
+			"point_id": "60981",
+			"area_id": "43225",
+			"transporter_ids": [
+				"41340",
+				"471361",
+				"471862"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Vitry-sur-Seine",
-			"code": "41314",
+			"point_id": "70313",
+			"area_id": "46375",
+			"transporter_ids": [
+				"41314",
+				"471123",
+				"470880"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -3175,16 +6591,27 @@
 		},
 		{
 			"nom": "Vosves",
-			"code": "41385",
+			"point_id": "61850",
+			"area_id": "47967",
+			"transporter_ids": [
+				"41385",
+				"472911",
+				"472809"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
-			"nom": "Vulaines-sur-Seine Samoreau",
-			"code": "41381",
+			"nom": "Vulaines-sur-Seine-Samoreau",
+			"point_id": "61630",
+			"area_id": "47136",
+			"transporter_ids": [
+				"41381",
+				"472078",
+				"472123"
+			],
 			"is_paris": false,
 			"lignes": [
 				"R"
@@ -3192,24 +6619,133 @@
 		},
 		{
 			"nom": "Yerres",
-			"code": "41363",
+			"point_id": "63044",
+			"area_id": "43226",
+			"transporter_ids": [
+				"41363",
+				"472806",
+				"470799",
+				"471373",
+				"472460"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
+			]
+		},
+		{
+			"nom": "Écouen-Ézanville",
+			"point_id": "66533",
+			"area_id": "43073",
+			"transporter_ids": [
+				"41102",
+				"472154",
+				"471263"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
 			]
 		},
 		{
 			"nom": "Égly",
-			"code": "41319",
+			"point_id": "60052",
+			"area_id": "415484",
+			"transporter_ids": [
+				"41319",
+				"472581",
+				"470718"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
 			]
 		},
 		{
-			"nom": "Épône Mézières",
-			"code": "41202",
+			"nom": "Émerainville-Pontault-Combault",
+			"point_id": "67897",
+			"area_id": "43074",
+			"transporter_ids": [
+				"41034",
+				"471349",
+				"472840",
+				"471661",
+				"471629"
+			],
+			"is_paris": false,
+			"lignes": [
+				"E"
+			]
+		},
+		{
+			"nom": "Épinay-Villetaneuse",
+			"point_id": "65227",
+			"area_id": "43078",
+			"transporter_ids": [
+				"411415",
+				"470918",
+				"471479",
+				"471855",
+				"471519"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Épinay-sur-Orge",
+			"point_id": "60915",
+			"area_id": "43076",
+			"transporter_ids": [
+				"41307",
+				"472230",
+				"472282"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Épinay-sur-Seine",
+			"point_id": "72383",
+			"area_id": "43077",
+			"transporter_ids": [
+				"41073",
+				"472006",
+				"471248"
+			],
+			"is_paris": false,
+			"lignes": [
+				"C"
+			]
+		},
+		{
+			"nom": "Épluches",
+			"point_id": "66915",
+			"area_id": "47596",
+			"transporter_ids": [
+				"41092",
+				"470945",
+				"471951"
+			],
+			"is_paris": false,
+			"lignes": [
+				"H"
+			]
+		},
+		{
+			"nom": "Épône-Mézières",
+			"point_id": "65326",
+			"area_id": "47882",
+			"transporter_ids": [
+				"41202",
+				"472005",
+				"471058",
+				"471647",
+				"472454"
+			],
 			"is_paris": false,
 			"lignes": [
 				"J",
@@ -3217,8 +6753,31 @@
 			]
 		},
 		{
+			"nom": "Éragny-Neuville",
+			"point_id": "66484",
+			"area_id": "43079",
+			"transporter_ids": [
+				"41145",
+				"471810",
+				"472435"
+			],
+			"is_paris": false,
+			"lignes": [
+				"J"
+			]
+		},
+		{
 			"nom": "Étampes",
-			"code": "41298",
+			"point_id": "478855",
+			"area_id": "43080",
+			"transporter_ids": [
+				"41298",
+				"472064",
+				"470824",
+				"471897",
+				"471541",
+				"472823"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -3226,7 +6785,13 @@
 		},
 		{
 			"nom": "Étréchy",
-			"code": "41299",
+			"point_id": "59678",
+			"area_id": "43081",
+			"transporter_ids": [
+				"41299",
+				"471701",
+				"471367"
+			],
 			"is_paris": false,
 			"lignes": [
 				"C"
@@ -3234,20 +6799,30 @@
 		},
 		{
 			"nom": "Évry",
-			"code": "41344",
+			"point_id": "60522",
+			"area_id": "45745",
+			"transporter_ids": [
+				"41344",
+				"471057",
+				"471652"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		},
 		{
 			"nom": "Évry Courcouronnes",
-			"code": "41346",
+			"point_id": "60450",
+			"area_id": "47906",
+			"transporter_ids": [
+				"41346",
+				"472557",
+				"472133"
+			],
 			"is_paris": false,
 			"lignes": [
-				"D",
-				"R"
+				"D"
 			]
 		}
 	]

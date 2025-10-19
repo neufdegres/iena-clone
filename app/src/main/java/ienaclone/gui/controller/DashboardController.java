@@ -49,7 +49,7 @@ public class DashboardController {
         model.setTestStopChecked(isChecked);
         if (isChecked) {
             Stop testSt = AllStopsSingleton.getInstance()
-                                           .getStopByCode("41039")
+                                           .getStopByPointId("41039")
                                            .get();
             model.setCurrentStop(testSt);
             Functions.writeLog("'" + testSt.getName() + "' selected !");
@@ -178,7 +178,7 @@ public class DashboardController {
                             nextJourneys = Files.loadTestNextJourneysValues();
                         } else {
                             ArrayList<Journey> allJourneys;
-                            var rep = Requests.getNextJourneys(model.getCurrentStop().getCode());
+                            var rep = Requests.getNextJourneys(model.getCurrentStop().getPointId());
                             if (rep.containsKey("data")) {
                                 allJourneys = rep.get("data");
                             } else {
