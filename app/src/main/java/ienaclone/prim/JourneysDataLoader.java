@@ -226,9 +226,9 @@ public class JourneysDataLoader {
                         Functions.writeLog("stops data loading !");
                         sdlServiceStatus = STATUS.LOADING;
 
-                        var sorted = sortMissions(journeys);
-                        var missions = sorted.missions();
-                        var rest = sorted.rest();
+                        MissionsSorted sorted = sortMissions(journeys);
+                        ArrayList<Pair<String, String>> missions = sorted.missions();
+                        ArrayList<Journey> rest = sorted.rest();
 
                         for (var m : missions) {
                             var tmp = journeys.stream()
@@ -557,9 +557,15 @@ public class JourneysDataLoader {
     private ArrayList<Pair<Stop, Stop.STATUS>> parseStopsData(ArrayList<StopData> sd) {
         var res = new ArrayList<Pair<Stop, Stop.STATUS>>();
         
-        for (var st : sd) {
-            var stop = AllStopsSingleton.getInstance()
-                            .getStopByPointId(st.stopRef()).orElse(new Stop());
+        for (StopData st : sd) {
+            AllStopsSingleton allStops = AllStopsSingleton.getInstance();
+
+            Stop stop = allStops.getStopByAreaId(st.stopRef())
+                                .orElse(allStops
+                                .getStopByPointId(st.stopRef())
+                                .orElse(allStops
+                                .getStopByTransporterId(st.stopRef())
+                                .orElse(null)));
             
             Pair<Stop, Stop.STATUS> pair = null;
 
