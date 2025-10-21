@@ -17,11 +17,13 @@ import javafx.collections.FXCollections;
 import ienaclone.util.Stop;
 import ienaclone.util.StopDisruption;
 import ienaclone.util.TimeStatus;
+import ienaclone.prim.Requests.RATPRef;
 import ienaclone.prim.Requests.StopData;
 import ienaclone.util.AllStopsSingleton;
 import ienaclone.util.TripDisruption;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
+import ienaclone.util.RefStatus;
 
 public class JourneysDataLoader {
     private final Stop stop;
@@ -226,6 +228,15 @@ public class JourneysDataLoader {
                         Functions.writeLog("stops data loading !");
                         sdlServiceStatus = STATUS.LOADING;
 
+                        // on charge la ref des missions RATP si c'est pas fait
+                        // FIXME : faire mieux ?
+                        if (journeys.get(0).getRefStatus() == RefStatus.RATP_NOT_LOADED) { 
+                            loadRATPRefs();
+                        }
+
+                        // TODO: !!! décider du sort des RATP sans ref !!!
+
+                        // on récuprère la liste des arrêts en fonction du nom de la mission
                         MissionsSorted sorted = sortMissions(journeys);
                         ArrayList<Pair<String, String>> missions = sorted.missions();
                         ArrayList<Journey> rest = sorted.rest();
@@ -606,6 +617,52 @@ public class JourneysDataLoader {
                 });
 
         return new MissionsSorted(missions, rest);
+    }
+
+    private void loadRATPRefs() {
+        // on trie les passages par mission
+
+        HashMap<String, ArrayList<Journey>> missions = new HashMap<>();
+
+        journeys.stream()
+                .forEach(j -> {
+                    if (j.getMissionRATP().isPresent() && j.getRef() == null) {
+                        String mission = j.getMission().orElse("");
+
+                        if (!missions.containsKey(mission)) {
+                            missions.put(mission, new ArrayList<>());
+                        }
+                        missions.get(mission).add(j);
+                    }
+                    j.setRefStatus(RefStatus.RATP_LOADED); // FIXME: mettre après ?
+                });
+
+        // on récupère les refs en faisant un appel d'api par mission
+
+        for (var m : missions.entrySet()) {
+            var rep = Requests.getJourneyStopListByMissionCode(m.getKey());
+
+            if (rep.containsKey("data")) {
+                ArrayList<RATPRef> refs = rep.get("data");
+                
+                for (RATPRef r : refs) {
+                    Journey j = journeys.stream()
+                                        .filter(e -> e.getMissionRATP().get().equals(r.missionRATP()))
+                                        .findFirst()
+                                        .orElse(null);
+                    if (j != null) j.setRef(r.ref());              
+                }
+
+            } else {
+                if (rep.containsKey("error_internet")) {
+                    sdlServiceStatus = STATUS.NO_INTERNET_CONNEXION;
+                } else if (rep.containsKey("error_apikey")) {
+                    sdlServiceStatus = STATUS.NO_API_KEY;
+                } else {
+                    sdlServiceStatus = STATUS.ERROR_ELSE;
+                }
+            }
+        }
     }
 
     private record MissionsSorted(ArrayList<Pair<String, String>> missions, ArrayList<Journey> rest) {}

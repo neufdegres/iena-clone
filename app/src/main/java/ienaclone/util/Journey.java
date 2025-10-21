@@ -8,11 +8,13 @@ import java.time.LocalDateTime;
 import javafx.util.Pair;
 
 public class Journey {
-    private final String ref;
+    private String ref;
     private Optional<Line> line;
     private Optional<Stop> destination;
     private Optional<String> mission;
+    private Optional<String> missionRATP;
     private Optional<String> platform;
+    private RefStatus refStatus;
     private TimeStatus timeStatus;
     private PlaceStatus placeStatus;
     private TrainLength trainLength;
@@ -22,12 +24,13 @@ public class Journey {
     private boolean areNextStationsLoaded;
 
     public Journey(JourneyBuilder builder) {
-        assert(builder.ref != null);
         this.ref = builder.ref;
         this.line = Optional.ofNullable(builder.line);
         this.destination = Optional.ofNullable(builder.destination);
         this.mission = Optional.ofNullable(builder.mission);
+        this.missionRATP = Optional.ofNullable(builder.missionRATP);
         this.platform = Optional.ofNullable(builder.platform);
+        this.refStatus = builder.refStatus;
         this.timeStatus = builder.timeStatus;
         this.placeStatus = builder.placeStatus;
         this.trainLength = builder.trainLength;
@@ -56,8 +59,16 @@ public class Journey {
         return mission;
     }
 
+    public Optional<String> getMissionRATP() {
+        return missionRATP;
+    }
+
     public Optional<String> getPlatform() {
         return platform;
+    }
+
+    public RefStatus getRefStatus() {
+        return refStatus;
     }
 
     public TimeStatus getTimeStatus() {
@@ -96,6 +107,10 @@ public class Journey {
         return nextStations;
     }
 
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
     public void setLine(Optional<Line> line) {
         this.line = line;
     }
@@ -110,6 +125,10 @@ public class Journey {
 
     public void setPlatform(Optional<String> platform) {
         this.platform = platform;
+    }
+
+    public void setRefStatus(RefStatus refStatus) {
+        this.refStatus = refStatus;
     }
 
     public void setTimeStatus(TimeStatus timeStatus) {
