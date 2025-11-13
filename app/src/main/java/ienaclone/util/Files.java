@@ -48,6 +48,7 @@ public class Files {
                     });
 
                     boolean isParis = stop.getBoolean("is_paris");
+                    boolean isRATP = stop.getBoolean("is_ratp");
 
                     ArrayList<String> lines = new ArrayList<>();
                     JSONArray tmp2 = stop.getJSONArray("lignes");
@@ -55,7 +56,7 @@ public class Files {
                         lines.add(el.toString());
                     });
 
-                    res.add(new Stop(pointId, areaId, transporterIds, name, isParis, lines));
+                    res.add(new Stop(pointId, areaId, transporterIds, name, isParis, isRATP, lines));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {

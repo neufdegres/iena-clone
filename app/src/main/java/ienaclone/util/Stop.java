@@ -8,7 +8,7 @@ public class Stop {
     private final String pointId, areaId;
     private final ArrayList<String> transporterIds;
     private final String name;
-    private final boolean isParis;
+    private final boolean isParis, isRATP;
     private final ArrayList<String> lines;
 
     public enum STATUS {INCLUDED, SKIPPED, START, TERMINUS, UNKNOWN}
@@ -18,17 +18,19 @@ public class Stop {
                 ArrayList<String> transporterIds, 
                 String name,
                 boolean isParis,
+                boolean isRATP,
                 ArrayList<String> lines) {
         this.pointId = pointId;
         this.areaId = areaId;
         this.transporterIds = transporterIds;
         this.name = name;
         this.isParis = isParis;
+        this.isRATP = isRATP;
         this.lines = lines;
     }
 
     public Stop(String pointId, String name) {
-        this(pointId, "", new ArrayList<>(), name, false, new ArrayList<>());
+        this(pointId, "", new ArrayList<>(), name, false, false, new ArrayList<>());
     }
 
     public Stop() {
@@ -53,6 +55,10 @@ public class Stop {
 
     public boolean isParis() {
         return isParis;
+    }
+
+    public boolean isRATP() {
+        return isRATP;
     }
 
     public ArrayList<String> getLines() {
