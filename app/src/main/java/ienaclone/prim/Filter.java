@@ -24,7 +24,7 @@ public class Filter {
     public static List<Journey> byDirectionRef(ArrayList<Journey> all, String filter) {
         return all.stream()
                   .filter(j -> Parcer.equalsRef(
-                        j.getDestination().orElse(new Stop()).getCode(), filter))
+                        j.getDestination().orElse(new Stop()).getPointId(), filter))
                   .collect(Collectors.toList());
     }
     

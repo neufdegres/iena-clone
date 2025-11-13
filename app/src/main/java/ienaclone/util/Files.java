@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ienaclone.prim.Requests;
+import javafx.scene.image.Image;
 import javafx.util.Pair;
 
 import org.apache.commons.io.IOUtils;
@@ -27,7 +28,7 @@ public class Files {
             URL a = Files.class.getResource("all_stops.json");
             File file = new File(a.toURI());
 
-            if (file.exists()){
+            if (file.exists()) {
                 InputStream is;
                 is = new FileInputStream(file);
                 String jsonTxt = IOUtils.toString(is, "UTF-8");
@@ -38,15 +39,25 @@ public class Files {
                 list.forEach(e -> {
                     JSONObject stop = (JSONObject)e;
                     String name = stop.getString("nom");
-                    String code = stop.getString("code");
+                    String pointId = stop.getString("point_id");
+                    String areaId = stop.getString("area_id");
+                    
+                    ArrayList<String> transporterIds = new ArrayList<>();
+                    JSONArray tmp1 = stop.getJSONArray("transporter_ids");
+                    tmp1.forEach(el -> {
+                        transporterIds.add(el.toString());
+                    });
+
                     boolean isParis = stop.getBoolean("is_paris");
+                    boolean isRATP = stop.getBoolean("is_ratp");
+
                     ArrayList<String> lines = new ArrayList<>();
-                    var tmp3 = stop.getJSONArray("lignes");
-                    tmp3.forEach(el -> {
+                    JSONArray tmp2 = stop.getJSONArray("lignes");
+                    tmp2.forEach(el -> {
                         lines.add(el.toString());
                     });
 
-                    res.add(new Stop(code, name, isParis, lines));
+                    res.add(new Stop(pointId, areaId, transporterIds, name, isParis, isRATP, lines));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {
@@ -77,7 +88,10 @@ public class Files {
                     String code = line.getString("code");
                     String color = line.getString("color");
 
-                    res.add(new Line(name, code, color));
+                    String path = "../gui/view/icon/" + (name != null ? name : "0") + ".png";
+                    Image pictogram = new Image(Files.class.getResourceAsStream(path));
+
+                    res.add(new Line(name, code, color, pictogram));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {
@@ -145,7 +159,7 @@ public class Files {
                     var curr = stops.getJSONObject(y);
                     var ref = curr.getString("ref");
                     var stop = AllStopsSingleton.getInstance()
-                                .getStopByCode(ref).orElse(new Stop());
+                                .getStopByPointId(ref).orElse(new Stop());
                     var status = curr.getString("status");
                     values.add(new Pair<Stop, Stop.STATUS>(stop, Stop.getStatus(status)));
                 }

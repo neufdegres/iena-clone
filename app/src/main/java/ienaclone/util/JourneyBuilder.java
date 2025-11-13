@@ -10,7 +10,9 @@ public class JourneyBuilder {
     public Line line;
     public Stop destination;
     public String mission;
+    public String missionRATP;
     public String platform;
+    public RefStatus refStatus;
     public TimeStatus timeStatus;
     public PlaceStatus placeStatus;
     public TrainLength trainLength;
@@ -23,7 +25,9 @@ public class JourneyBuilder {
         this.line = null;
         this.destination = null;
         this.mission = null;
+        this.missionRATP = null;
         this.platform = null;
+        this.refStatus = RefStatus.SNCF_LOADED;
         this.timeStatus = TimeStatus.UNKNOWN;
         this.placeStatus = PlaceStatus.UNKNOWN;
         this.trainLength = TrainLength.UNKNOWN;

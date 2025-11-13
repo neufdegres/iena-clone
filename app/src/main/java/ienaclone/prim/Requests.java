@@ -21,6 +21,7 @@ import ienaclone.util.StopDisruption.TYPE;
 import ienaclone.util.Functions;
 import ienaclone.util.Journey;
 import ienaclone.util.JourneyBuilder;
+import ienaclone.util.RefStatus;
 import ienaclone.util.StopDisruption;
 import ienaclone.util.TimeStatus;
 import ienaclone.util.TrainLength;
@@ -84,12 +85,25 @@ public class Requests {
             if (mvj == null) continue;
 
             var destinationRef = (String) getJsonValue(mvj, "DestinationRef>value:String");
-            bld.destination = AllStopsSingleton.getInstance()
-                                .getStopByCode(destinationRef).orElse(null);
+
+            AllStopsSingleton allStops = AllStopsSingleton.getInstance();
+
+            bld.destination = allStops.getStopByAreaId(destinationRef)
+                                .orElse(allStops
+                                .getStopByPointId(destinationRef)
+                                .orElse(allStops
+                                .getStopByTransporterId(destinationRef)
+                                .orElse(null)));
 
             var refRaw = (String) getJsonValue(mvj, "FramedVehicleJourneyRef>DatedVehicleJourneyRef:String");
             bld.ref = getJourneyRef(refRaw);
             bld.mission = (String) getJsonValue(mvj, "JourneyNote#0>value:String");
+
+            if (bld.ref.contains("RATP")) {
+                bld.ref = null;
+                bld.missionRATP = (String) getJsonValue(mvj, "VehicleJourneyName#0>value:String");
+                bld.refStatus = RefStatus.RATP_NOT_LOADED;
+            }
             
             var lineRef = (String) getJsonValue(mvj, "LineRef>value:String");
             bld.line = AllLinesSingleton.getInstance().getLineByCode(lineRef).orElse(null);
@@ -200,6 +214,68 @@ public class Requests {
 
         return res;
     }
+
+    public static HashMap<String, ArrayList<RATPRef>> getJourneyStopListByMissionCode(String mission) {
+        HashMap<String, ArrayList<RATPRef>> res = new HashMap<>();
+
+        HttpClient client = HttpClient.newHttpClient();
+
+        String url = HOST + "/marketplace/v2/navitia/vehicle_journeys?"
+                     + "start_page=1&count=20&headsign="+ mission + "&disable_disruption=true";
+
+        try {
+            if (API_KEY == null) throw new NoApiKeyException();
+
+            HttpRequest request = HttpRequest.newBuilder()
+                .header("Accept", "application/json")
+                .header("apikey", API_KEY)
+                .uri(new URI(url))
+                .GET()
+                .build();
+
+            HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+
+            final JSONObject jsonRep = new JSONObject(response.body());
+
+            var data = parseJourneyStopListByMissionCode(jsonRep);
+
+            if (data == null) res.put("unknown_ref", null);
+            else res.put("data", data);
+
+        } catch (ConnectException e1) {
+            res.put("error_internet", null);
+        } catch (NoApiKeyException e) {
+            res.put("error_apikey", null);
+        } catch (Exception e) {    
+            res.put("error_else", null);
+            e.printStackTrace();
+        }
+
+        return res;
+    }
+
+    public static ArrayList<RATPRef> parseJourneyStopListByMissionCode(JSONObject json) {
+        ArrayList<RATPRef> res = new ArrayList<>();
+
+        JSONArray vehiculeJourneys = json.optJSONArray("vehicle_journeys");
+
+        if (vehiculeJourneys == null) return null;
+
+        for(int i=0; i<vehiculeJourneys.length(); i++) {
+            JSONObject vj = vehiculeJourneys.getJSONObject(i);
+
+            String name = vj.getString("name");
+            String ref = vj.getString("id");
+
+            RATPRef data = new RATPRef(name, ref);
+
+            res.add(data);
+        }
+
+        return res;
+    }
+
+
 
     public static HashMap<String, ArrayList<TripDisruption>> getTripDisruptions(String ref) {
         HashMap<String, ArrayList<TripDisruption>> res = new HashMap<>();
@@ -433,7 +509,6 @@ public class Requests {
         return res;
     }
 
-
     // ex : MonitoredVehicleJourney>MonitoredCall>DestinationDisplay#0>value:String>
     // on admet que s est bien formé     "VehicleFeatureRef#0>String"
     private static Object getJsonValue(JSONObject last, String s) {
@@ -483,6 +558,8 @@ public class Requests {
  
     public static record StopData(String stopRef, boolean pickupAllowed,
                                 boolean dropOffAllowed, boolean skippedStop) {}
+
+    public static record RATPRef(String missionRATP, String ref) {}
 
     public static class NoApiKeyException extends Exception {}
 

@@ -246,9 +246,8 @@ public class OnPlatformDisplayView extends DisplayView {
         else journeyBox.getTrainLen().setText("Train Long");
 
         // pictogramme
-        var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
-        Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
-        journeyBox.getLineIconView().setImage(img);
+        Line line = actual.getLine().orElse(new Line("N/A"));
+        journeyBox.getLineIconView().setImage(line.getPictogram());
 
         // destination
         var dest = Functions.raccourcir(
@@ -438,7 +437,7 @@ public class OnPlatformDisplayView extends DisplayView {
         // TODO : ajouter Antony (RER B)
 
         // Pont de Rungis
-        Stop orlyC = allStops.getStopByCode("41326").get();
+        Stop orlyC = allStops.getStopByPointId("69677").get();
 
         if (c.equals(journey.getLine().orElse(null))
                     && subPath.stream()
@@ -448,7 +447,7 @@ public class OnPlatformDisplayView extends DisplayView {
         }
 
         // via Evry Courcouronnes
-        Stop evryCour = allStops.getStopByCode("41346").get();
+        Stop evryCour = allStops.getStopByPointId("60450").get();
 
         Line d = allLines.getLineByName("D").get();
 
