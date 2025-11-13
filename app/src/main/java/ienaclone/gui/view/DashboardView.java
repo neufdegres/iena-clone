@@ -2,8 +2,13 @@ package ienaclone.gui.view;
 
 import ienaclone.gui.controller.DashboardController;
 import ienaclone.gui.util.DisplayMode;
+import ienaclone.util.AllLinesSingleton;
 import ienaclone.util.Functions;
+import ienaclone.util.Line;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javafx.beans.value.ChangeListener;
@@ -11,25 +16,34 @@ import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class DashboardView extends AbstractView {
     private final Stage main; 
     private final DashboardController controller;
-    private ComboBox<String> gareCB;
+    private ComboBox<LinesComboBoxItem> gareCB;
+    private HashMap<List<Line>, Image> gareCBGraphics;
     private FilterBox filterBox;
     private HBox gareBox;
     private VBox displayBox;
@@ -38,6 +52,7 @@ public class DashboardView extends AbstractView {
     public DashboardView(Stage main, DashboardController controller) {
         this.main = main;
         this.controller = controller;
+        this.gareCBGraphics = new HashMap<>();
         controller.setView(this);
     }
 
@@ -48,13 +63,21 @@ public class DashboardView extends AbstractView {
         l.setStyle("-fx-font-size: 28pt;");
 
         Label gare = new Label("Gare ");
-        gareCB = new ComboBox<String>();
-        gareCB.getItems().add("chargement en cours.........");
+        gareCB = new ComboBox<LinesComboBoxItem>();
+        gareCB.getItems().add(new LinesComboBoxItem("chargement en cours........."));
         gareCB.getSelectionModel().select(0);
 
         gareBox = new HBox(20);
         gareBox.setAlignment(Pos.CENTER_LEFT);
         gareBox.getChildren().addAll(gare, gareCB);
+
+        Label alertLabel = new Label("Les afficheurs des gares en rouge sont " 
+                        + "beaucoup plus suceptibles de ne pas se charger, "
+                        + "ou de présenter des bugs d'affichage.");
+
+        alertLabel.setStyle(
+            "-fx-font-size: 8pt; -fx-font-weight: bold; -fx-text-fill: #a80b3aff;");
+        alertLabel.setWrapText(true);
 
         CheckBox testGareCB = new CheckBox("Utiliser des données pré-chargées (gare de Chelles Gournay)");
         testGareCB.setStyle("-fx-font-size: 12pt;");
@@ -123,7 +146,7 @@ public class DashboardView extends AbstractView {
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, testGareCB, afficherPar, filterBox, displayBox);
+        body.getChildren().addAll(gareBox, alertLabel, testGareCB, afficherPar, filterBox, displayBox);
 
         displayButton = new Button("Afficher");
         // displayButton.setDisable(true);
@@ -147,7 +170,7 @@ public class DashboardView extends AbstractView {
         controller.loadStops();
     }
 
-    public ComboBox<String> getGareCB() {
+    public ComboBox<LinesComboBoxItem> getGareCB() {
         return gareCB;
     }
 
@@ -159,7 +182,7 @@ public class DashboardView extends AbstractView {
         return displayButton;
     }
 
-    public void remplaceGareCB(ComboBox<String> newCB) {
+    public void remplaceGareCB(ComboBox<LinesComboBoxItem> newCB) {
         gareBox.getChildren().remove(1);
         gareBox.getChildren().add(newCB);
 
@@ -182,7 +205,83 @@ public class DashboardView extends AbstractView {
             }
         });
 
+        gareCB.setCellFactory(listView -> new ListCell<>() {
+            @Override
+            protected void updateItem(LinesComboBoxItem item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setStyle("");
+                    setGraphic(null);
+                } else {
+                    setText(item.name());
+
+                    if (!(item.lines() == null || item.lines().isEmpty())) {
+                        ImageView imageView = new ImageView();
+                        imageView.setPreserveRatio(true);
+                        imageView.setFitHeight(20);
+                        imageView.setImage(createLinesComboBoxIcon(item));
+                        setGraphic(imageView);
+                    } else {
+                        setGraphic(null);
+                    }
+
+                    if (item.isRATP()) {
+                        setStyle("-fx-font-weight: bold; -fx-text-fill: #a80b3aff;");
+                        setTooltip(new Tooltip("Fonctionne mal"));
+                    } else {
+                        setStyle("-fx-text-fill: black;");
+                        setTooltip(null);
+                    }
+                }
+            }
+        });
+
+        gareCB.setButtonCell(gareCB.getCellFactory().call(null));
+
         gareCB.setVisibleRowCount(12);
+    }
+
+    private Image createLinesComboBoxIcon(LinesComboBoxItem it) {
+        AllLinesSingleton allLines = AllLinesSingleton.getInstance();
+
+        List<Line> lines = it.lines().stream()
+            .map(e -> allLines.getLineByName(e).get())
+            .collect(Collectors.toList());
+
+        if (gareCBGraphics.containsKey(lines)) {
+            return gareCBGraphics.get(lines);
+        }
+
+        int size = lines.size();
+
+        double picH = lines.get(0).getPictogram().getHeight();
+        double picW = lines.get(0).getPictogram().getWidth();
+        double gap = picW * 0.10;
+
+        double height = picH;
+        double width = picW * size + gap * size;
+
+        Canvas canvas = new Canvas(width, height);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        int x = 0;
+
+        for (int i=0; i<size; i++) {
+            gc.drawImage(lines.get(i).getPictogram(), x, 0);
+            x+= picW + gap;
+        }
+
+        WritableImage finalImage = new WritableImage((int)width, (int)height);
+
+        SnapshotParameters params = new SnapshotParameters();
+        params.setFill(Color.TRANSPARENT);
+
+        Image res = canvas.snapshot(params, finalImage);
+
+        gareCBGraphics.put(lines, res);
+
+        return res;
     }
 
     public class FilterBox extends VBox {
@@ -451,4 +550,18 @@ public class DashboardView extends AbstractView {
         }
     }
     
+    public record LinesComboBoxItem(String name, boolean isRATP, List<String> lines) {
+        public LinesComboBoxItem(String name) {
+            this(name, false, null);
+        }
+
+        public LinesComboBoxItem() {
+            this("------------------------");
+        }
+
+        @Override
+        public final String toString() {
+            return this.name;
+        }
+    } 
 }

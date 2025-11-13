@@ -14,6 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import ienaclone.prim.Requests;
+import javafx.scene.image.Image;
 import javafx.util.Pair;
 
 import org.apache.commons.io.IOUtils;
@@ -87,7 +88,10 @@ public class Files {
                     String code = line.getString("code");
                     String color = line.getString("color");
 
-                    res.add(new Line(name, code, color));
+                    String path = "../gui/view/icon/" + (name != null ? name : "0") + ".png";
+                    Image pictogram = new Image(Files.class.getResourceAsStream(path));
+
+                    res.add(new Line(name, code, color, pictogram));
                 });                    
             }   
         } catch (IOException | URISyntaxException e) {

@@ -246,9 +246,8 @@ public class OnPlatformDisplayView extends DisplayView {
         else journeyBox.getTrainLen().setText("Train Long");
 
         // pictogramme
-        var fn = "icon/" + actual.getLine().map(l -> l.getName()).orElse("0") + ".png";
-        Image img = new Image(DisplayView.class.getResourceAsStream(fn)); 
-        journeyBox.getLineIconView().setImage(img);
+        Line line = actual.getLine().orElse(new Line("N/A"));
+        journeyBox.getLineIconView().setImage(line.getPictogram());
 
         // destination
         var dest = Functions.raccourcir(

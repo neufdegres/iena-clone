@@ -8,6 +8,7 @@ import ienaclone.gui.model.DisplaySettings;
 import ienaclone.gui.util.DisplayMode;
 import ienaclone.gui.view.DashboardView;
 import ienaclone.gui.view.DashboardView.FilterBox;
+import ienaclone.gui.view.DashboardView.LinesComboBoxItem;
 import ienaclone.prim.Filter;
 import ienaclone.prim.Parcer;
 import ienaclone.prim.Requests;
@@ -135,13 +136,12 @@ public class DashboardController {
                     protected Void call() throws Exception {
                         var stops = AllStopsSingleton.getInstance().getItems();
                         model.setStops(stops);
-                        var stopNames = getNameFromStops(stops);
 
-                        ComboBox<String> newCB = new ComboBox<>();
-                        newCB.getItems().add("------------------------");
+                        ComboBox<LinesComboBoxItem> newCB = new ComboBox<>();
+                        newCB.getItems().add(new LinesComboBoxItem());
                         newCB.getSelectionModel().select(0);
-                        stopNames.forEach(e -> {
-                            newCB.getItems().add(e);
+                        stops.forEach(e -> {
+                            newCB.getItems().add(new LinesComboBoxItem(e.getName(), e.isRATP(), e.getLines()));
                         });
 
                         Platform.runLater(() -> view.remplaceGareCB(newCB));
@@ -154,12 +154,6 @@ public class DashboardController {
             } 
             
         }.start();
-    }
-
-    private ArrayList<String> getNameFromStops(ArrayList<Stop> s) {
-        ArrayList<String> res = new ArrayList<>();
-        s.forEach(e -> res.add(e.getName()));
-        return res;
     }
 
     public void loadJourneys() {

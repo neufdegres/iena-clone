@@ -1,21 +1,28 @@
 package ienaclone.util;
 
 import ienaclone.prim.Parcer;
+import javafx.scene.image.Image;
 
 public class Line {
     private final String name;
     private final String code;
     private final String color;
+    private final Image pictogram;
 
-    public Line(String name, String code, String color) {
+    public Line(String name, String code, String color, Image pictogram) {
         this.name = name;
         this.code = code;
         this.color = color;
+        this.pictogram = pictogram;
+    }
+
+    public Line(String name, String code, String color) {
+        this(name, code, color, null);
     }
 
     public Line(String code) {
         // TODO : cherhcer le nom de la ligne correspondante 
-        this(null, code, null);
+        this(null, code, null, null);
     }
 
     public String getName() {
@@ -28,6 +35,10 @@ public class Line {
 
     public String getColor() {
         return color;
+    }
+
+    public Image getPictogram() {
+        return pictogram;
     }
 
     @Override
