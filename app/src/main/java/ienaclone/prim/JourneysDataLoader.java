@@ -432,7 +432,7 @@ public class JourneysDataLoader {
                         Functions.writeLog("stop disruptions data loading !");
                         stopDLServiceStatus = STATUS.LOADING;
 
-                        var rep = Requests.getStopDisruptions(stop.getPointId());
+                        var rep = Requests.getStopDisruptions(stop.getAreaId());
 
                         ArrayList<StopDisruption> disrData;
 

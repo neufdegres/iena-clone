@@ -439,7 +439,7 @@ public class Requests {
 
         HttpClient client = HttpClient.newHttpClient();
         
-        String url = HOST + "/marketplace/general-message?StopPointRef=STIF%3AStopPoint%3AQ%3A"
+        String url = HOST + "/marketplace/general-message?StopPointRef=STIF%3AStopArea%3ASP%3A"
                      + ref + "%3A";
 
         try {
