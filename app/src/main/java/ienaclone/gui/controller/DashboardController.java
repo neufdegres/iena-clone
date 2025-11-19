@@ -50,7 +50,7 @@ public class DashboardController {
         model.setTestStopChecked(isChecked);
         if (isChecked) {
             Stop testSt = AllStopsSingleton.getInstance()
-                                           .getStopByPointId("41039")
+                                           .getStopByPointId("68407")
                                            .get();
             model.setCurrentStop(testSt);
             Functions.writeLog("'" + testSt.getName() + "' selected !");

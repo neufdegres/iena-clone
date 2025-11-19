@@ -159,7 +159,7 @@ public class Files {
                     var curr = stops.getJSONObject(y);
                     var ref = curr.getString("ref");
                     var stop = AllStopsSingleton.getInstance()
-                                .getStopByPointId(ref).orElse(new Stop());
+                                .getStopByAreaId(ref).orElse(new Stop());
                     var status = curr.getString("status");
                     values.add(new Pair<Stop, Stop.STATUS>(stop, Stop.getStatus(status)));
                 }
