@@ -63,21 +63,31 @@ public class DashboardView extends AbstractView {
         l.setStyle("-fx-font-size: 28pt;");
 
         Label gare = new Label("Gare ");
+
+        Image helpIcon = new Image( 
+                DashboardView.class.getResourceAsStream("help.png")); 
+            
+        ImageView helpImageView = new ImageView();
+        helpImageView.setImage(helpIcon);
+        helpImageView.setPreserveRatio(true);
+        helpImageView.setFitHeight(30);
+
+
+        Tooltip helpTT = new Tooltip("Les afficheurs des gares en rouge sont " 
+                        + "beaucoup plus suceptibles de ne pas se charger, "
+                        + "ou de présenter des bugs d'affichage.");
+        helpTT.setStyle("-fx-font-size: 10pt; -fx-font-weight: bold;");
+        helpTT.setMaxWidth(200);
+        helpTT.setWrapText(true);
+        Tooltip.install(helpImageView, helpTT);
+
         gareCB = new ComboBox<LinesComboBoxItem>();
         gareCB.getItems().add(new LinesComboBoxItem("chargement en cours........."));
         gareCB.getSelectionModel().select(0);
 
         gareBox = new HBox(20);
         gareBox.setAlignment(Pos.CENTER_LEFT);
-        gareBox.getChildren().addAll(gare, gareCB);
-
-        Label alertLabel = new Label("Les afficheurs des gares en rouge sont " 
-                        + "beaucoup plus suceptibles de ne pas se charger, "
-                        + "ou de présenter des bugs d'affichage.");
-
-        alertLabel.setStyle(
-            "-fx-font-size: 8pt; -fx-font-weight: bold; -fx-text-fill: #a80b3aff;");
-        alertLabel.setWrapText(true);
+        gareBox.getChildren().addAll(gare, gareCB, helpImageView);
 
         CheckBox testGareCB = new CheckBox("Utiliser des données pré-chargées (gare de Chelles Gournay)");
         testGareCB.setStyle("-fx-font-size: 12pt;");
@@ -146,7 +156,7 @@ public class DashboardView extends AbstractView {
         VBox body = new VBox(15);
         VBox.setVgrow(body, Priority.ALWAYS);
         body.setPadding(new Insets(20));
-        body.getChildren().addAll(gareBox, alertLabel, testGareCB, afficherPar, filterBox, displayBox);
+        body.getChildren().addAll(gareBox, testGareCB, afficherPar, filterBox, displayBox);
 
         displayButton = new Button("Afficher");
         // displayButton.setDisable(true);
@@ -184,7 +194,7 @@ public class DashboardView extends AbstractView {
 
     public void remplaceGareCB(ComboBox<LinesComboBoxItem> newCB) {
         gareBox.getChildren().remove(1);
-        gareBox.getChildren().add(newCB);
+        gareBox.getChildren().add(1, newCB);
 
         gareCB = newCB;
 
@@ -428,7 +438,7 @@ public class DashboardView extends AbstractView {
         public OptionListBox() {
             super(20);
             this.setAlignment(Pos.TOP_LEFT);
-            this.setPadding(new Insets(10));
+            this.setPadding(new Insets(6));
             this.getStyleClass().add("option-list-box");
         }
 
